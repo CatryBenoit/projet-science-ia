@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Regulation of Cell Volume by Active Cation Transport in High and Low Potassium Sheep Red Cells
+DATE: 1960-09-01
+SOURCE: OpenAlex
+DOI: 10.1085/jgp.44.1.169
+URL: https://rupress.org/jgp/article-pdf/44/1/169/1242255/169.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

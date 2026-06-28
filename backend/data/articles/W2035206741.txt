@@ -1,0 +1,894 @@
+Cation Intercalation and High
+Volumetric Capacitance of
+Two-Dimensional Titanium Carbide
+Maria R. Lukatskaya,
+1,2
+Olha Mashtalir,
+1,2
+*Chang E. Ren,
+1,2
+*Yohan Dall’Agnese,
+1,2,3,4
+Patrick Rozier,
+3
+Pierre Louis Taberna,
+3
+Michael Naguib,
+1,2
+Patrice Simon,
+3,4
+Michel W. Barsoum,
+1
+Yury Gogotsi
+1,2
+†
+The intercalation of ions into layered compounds has long been exploited in energy storage devices
+such as batteries and electrochemical capacitors. However, few host materials are known for
+ions much larger than lithium. We demonstrate the spontaneous intercalation of cations from
+aqueous salt solutions between two-dimensional (2D) Ti
+3
+C
+2
+MXene layers. MXenes combine 2D
+conductive carbide layers with a hydrophilic, primarily hydroxyl-terminated surface. A variety of
+cations, including Na
++
+,K
++
+,NH
+4
++
+,Mg
+2+
+, and Al
+3+
+, can also be intercalated electrochemically,
+offering capacitance in excess of 300 farads per cubic centimeter (much higher than that of porous
+carbons). This study provides a basis for exploring a large family of 2D carbides and carbonitrides
+in electrochemical energy storage applications using single- and multivalent ions.
+W
+ith the increased demand for portable
+and clean energy, electrochemical ca-
+pacitors have been attracting attention
+because of their much greater power density and
+cyclability relative to Li batteries (1,2). However,
+electrical double-layer capacitors (EDLCs), in
+which the capacity is due to the electrosorption of
+ions on porous carbon electrodes, have limited
+energy density (2). Pseudo-capacitors, in which
+the capacity is due to redox reactions, provide
+higher energy densities but usually suffer from
+shorter cyclic lifetimes. RuO
+2
+nanosheets have
+been used in redox capacitors and have shown
+impressive capacitance and cyclability, but they
+are quite expensive to produce (2,3).
+Energy density enhancement of capacitors
+can be achieved by using hybrid devices, which
+combine a battery-like redox electrode and a
+porous carbon electrode (4). Another approach
+is to use materials in which charge storage is
+due to intercalation of ions between atomic layers
+because the capacitances—even at high discharge
+rates—are high. For example, nanocrystalline
+Nb
+2
+O
+5
+films with storage capacities of ~130
+mAh g
+−1
+atratesashighas10C(charge/discharge
+in6min)forLi
++
+ions in organic electrolytes have
+been reported. The specific structure of this ma-
+terial can best be described as a crystalline net-
+work with two-dimensional (2D) transport paths
+for ions between atomic layers; thus, even thick
+electrodes show excellent behavior (5). Another
+example is Mg-buserite electrodes, which exhibit
+good Na
++
+ion intercalation capacitances but have
+poor electrical conductivities (6). Most materials
+for electrodes that can provide intercalation or sur-
+face redox capacitances are poor electronic con-
+ductors [e.g., graphene oxide or TiO
+2
+(7)] or are
+hydrophobic [e.g., graphene (8)].
+Recently, we reported on a large family of
+2D materials that we labeled“MXenes,”which
+combine good electrical conductivities with hy-
+drophilic surfaces. MXenes are 2D materials syn-
+thesized by the extraction of the“A”layers from
+the layered carbides or carbonitrides known as
+MAX phases. The latter have a general formula
+of M
+n+1
+AX
+n
+(n= 1, 2, 3), where M represents a
+transition metal; A usually represents a III A or
+IVA element (such as Al, Ga, Si, or Ge); and X
+represents C and/or N (9). The MXenes Ti
+3
+C
+2
+(10), Ti
+2
+C, Ta
+4
+C
+3
+,TiNbC,and(V
+0.5
+Cr
+0.5
+)
+3
+C
+2
+(11),
+have been fabricated by immersing Al-containing
+MAX powders in HF solution at room or slightly
+elevated temperature (12). This synthesis proce-
+dure leads to the termination of MXene surfaces
+by primarily O and/or OH groups with some
+fluorine present. These terminated MXenes are
+of the form M
+n+1
+X
+n
+T
+x
+, where T represents sur-
+face termination (O, OH, and/or F) andxis the
+number of termination groups. We recently showed
+that Ti
+3
+C
+2
+T
+x
+can be readily and spontaneously in-
+tercalated with organic molecules such as hydra-
+zine, dimethyl sulfoxide (DMSO), and urea (13).
+MXenes have shown promise as electrode
+materials for Li-ion batteries and Li-ion capac-
+itors (13,14). For example, when Li
++
+ions in-
+tercalate into Ti
+3
+C
+2
+T
+x
+, a steady-state capacity of
+~410mAhg
+−1
+at 1 C is obtained for additive-free
+flexible electrodes (13). Furthermore, theoretical
+calculations have predicted that Li
++
+ions should
+diffuse rapidly on Ti
+3
+C
+2
+surfaces, as well as result
+in high storage capacities (15). However, spon-
+taneous intercalation of cations from aqueous solu-
+tions has neither been theoretically predicted nor
+experimentally demonstrated.
+Here, we report on the intercalation of Li
++
+,
+Na
++
+,Mg
+2+
+,K
++
+,NH
+4
++
+, and Al
+3+
+ions between
+the 2D Ti
+3
+C
+2
+T
+x
+layers (Fig. 1A). In most cases,
+the cations intercalated spontaneously. A sche-
+matic of the process is shown in Fig. 1B. The
+intercalation of some ions, notably Al
+3+
+, can ad-
+ditionally be promoted electrochemically. We also
+report on intercalation-induced high capacitances
+of flexible Ti
+3
+C
+2
+T
+x
+paper electrodes in aqueous
+electrolytes.
+A large number of salts, bases, and acids were
+explored (table S1). X-ray diffraction (XRD) pat-
+terns showed that, after placing the Ti
+3
+C
+2
+T
+x
+in
+various salt solutions (fig. S1, A to C), there
+was a downshift in the (0002) peak position. This
+downshift shows that in all cases, there was an
+increase in thec-lattice parameter. For exam-
+ple, thecvalue of Ti
+3
+C
+2
+T
+x
+increased from 20.3 Å
+to as much as 25.4 Å when placed in potassium
+hydroxide (KOH) and ammonium hydroxide
+(NH
+4
+OH) solutions (fig. S1A). In addition to the
+compounds listed in fig. S1, A to C, other salts
+intercalated spontaneously when the MXene
+powders were immersed in sodium carbonate
+(Na
+2
+CO
+3
+), sodium hydroxide (NaOH), or lithium
+hydroxide (LiOH) solutions.
+Not all salts behaved similarly. In the case of
+high-pH solutions such as KOH, NH
+4
+OH, NaOH,
+LiOH, and several others (table S1), the changes
+in the interplanar spacing were large (fig. S1A).
+Conversely, close-to-neutral solutions such as Na,
+K, and Mg sulfates resulted in smaller changes inc
+(fig. S1B; see also table S1). No shift in the (0002)
+peak positions was observed when Ti
+3
+C
+2
+T
+x
+was
+immersed in acetic or sulfuric acid.
+To shed light on whether the cations or anions
+intercalated the Ti
+3
+C
+2
+T
+x
+layers, we tested three
+sodium salts with differing anion radii. The re-
+sults (fig. S1C) showed that thec-axis expansions
+were comparable and independent of anion radii.
+Furthermore, energy-dispersive x-ray spectros-
+copy analysis of Ti
+3
+C
+2
+T
+x
+after treatment in the
+different sulfate salts (fig. S1B) confirmed the
+presence of the cations; sulfur was not detected
+(table S2), confirming that it is the cations that
+intercalate between the Ti
+3
+C
+2
+T
+x
+layers.
+Materials with large specific surface area are
+typicallyneededtoobtainlargecapacitancesin
+carbon materials for EDLCs. However, at 23 m
+2
+/g,
+the surface area of multilayer exfoliated Ti
+3
+C
+2
+T
+x
+is low (13). It follows that if double-layer capac-
+itance were the only operative mechanism, one
+would expect the capacitance for this material
+to be less than that of (for example) activated
+graphene by a factor of 100 (16). However, as
+noted above, intercalation capacitance can by far
+exceed double-layer capacitances calculated sole-
+ly on the basis of a material’s surface area (6,17).
+To test this idea, we fabricated multilayer
+Ti
+3
+C
+2
+T
+x
+electrodes (see supplementary materials
+for details) and tested them in NaOH-, KOH-,
+and LiOH-containing electrolytes using a stan-
+dard three-electrode asymmetrical setup with an
+Ag/AgCl reference electrode (fig. S2). The re-
+sulting cyclic voltammograms (CVs) are shown
+in Fig. 2A [see fig. S4 for the corresponding
+electrochemical impedance spectroscopy (EIS)
+results]. The rectangular-shaped CVs indicate
+capacitive behavior in these basic solutions. Note
+that in all experiments, the open circuit potential
+(OCP) was taken as the starting potential for the
+CV scans because 0.1 V above this potential,
+Ti
+3
+C
+2
+T
+x
+oxidation is observed in aqueous electro-
+lytes (see fig. S3).
+To study the effect of a cation’s valence on
+the electrochemical performance of multilayer
+exfoliated Ti
+3
+C
+2
+T
+x
+electrodes, we performed CV
+scans in 1 M solutions of potassium and aluminum
+sulfates and nitrates (Fig. 2B and fig. S4B). Clearly,
+the responses in the K
++
+-andAl
+3+
+-containing
+solutions were distinctively different, confirming
+once again that the cations (and not the anions)
+are intercalating. The CV plots for K
+2
+SO
+4
+are al-
+most perfectly rectangular.Conversely, the CV
+data for the more acidic (see table S3) and less
+conductive Al
+2
+(SO
+4
+)
+3
+electrolyte yield capac-
+itance values that are significantly lower, and
+the shape of the CVat 10 mV/s and the EIS results
+show a higher resistance (Fig. 2B and fig. S4B).
+To ensure that lower electrolyte conductivity did
+not limit the capacitive performance, we tested
+Ti
+3
+C
+2
+T
+x
+in1MAl(NO
+3
+)
+3
+, which has a conduc-
+tivity similar to that of 1 M K
+2
+SO
+4
+(table S3).
+Although the normalized capacitance did not in-
+crease appreciably, the CV loops were definitely
+more rectangular (Fig. 2B), demonstrating the
+role of electrolyte conductivity.
+Further evidence for cation intercalation and
+its beneficial effect on capacitance comes from
+the observation that for some electrolytes, time
+was needed to reach a steady state or maximum
+capacitance. For strongly basic electrolytes (table
+S1), such as KOH solutions, the rectangular CV
+plots were observed almost immediately and the
+capacitances did not change with time or cycle
+number. For other electrolytes, however, there
+was a slow and gradual increase in capacitance
+with time. For example, for salts such as MgSO
+4
+,
+the CV area increased steadily with time and the
+maximum capacity was reached only after 48 hours
+(see figs. S5 and S6). Unlike what is observed for
+graphite (18), there was no irreversible capac-
+itance loss during the first cycle for any of the
+electrolytes studied.
+The performance of the multilayer Ti
+3
+C
+2
+T
+x
+in
+all tested electrolytes is summarized in Fig. 2C.
+The specific capacitances were calculated by in-
+tegrating the discharge portions of the CV plots.
+The results clearly showed responses that de-
+pended on the electrolytes used. Moreover, the
+calculated capacitances were quite high for a
+material with such low surface area.
+In situ XRD studies of the intercalation pro-
+cess during cycling showed that electrochemical
+cycling leads to insignificant changes in thec
+values. For example, when a Ti
+3
+C
+2
+T
+x
+electrode
+was cycled in a KOH-containing electrolyte, the
+cvalues fluctuated within 0.33 Å as the potential
+was scanned from–1to–0.2V(Fig.3A).Inter-
+estingly, a slight shrinkage incvalues was ob-
+served with increasing voltage. Similar behavior
+was observed when Ti
+3
+C
+2
+T
+x
+was cycled in NaOAc-
+containing electrolyte (fig. S7). The simplest
+explanation for this observation is that the pos-
+itively charged ions incorporated in Ti
+3
+C
+2
+T
+x
+in-
+crease the electrostatic attraction between layers,
+in a manner analogous to what is observed for
+Fig. 1. Intercalationofmulti-
+layer exfoliated Ti
+3
+C
+2
+T
+x
+.(A)
+Scanning electron micrograph of
+the Ti
+3
+C
+2
+T
+x
+layered particle. Inset
+is a schematic of the same, show-
+ing the 2D nature of MXenes.
+(B) Schematic illustration of the
+intercalation of cations between
+Ti
+3
+C
+2
+T
+x
+layers. The interlayer
+spacingdincreases after ion
+intercalation.
+MnO
+2
+(19). When Ti
+3
+C
+2
+T
+x
+was electrochemical-
+ly cycled in a MgSO
+4
+-containing solution, the
+shift of the (0002) peak almost doubled relative
+to the KOH and NaOAc electrolytes (compare
+Fig. 3A and Fig. 3B). Here again, a slight shrink-
+age incvalues was observed with increasing
+voltage.
+To gain further insight into the capacitances
+and what influences them, we tested MXene
+“paper”produced by filtering delaminated Ti
+3
+C
+2
+T
+x
+(Fig.4B).Thispaper,withaspecificsurfacearea
+of 98 m
+2
+/g, is flexible (inset in Fig. 4B), hy-
+drophilic, additive-free, and conductive. When
+tested in KOH, the CVs were rectangular, simi-
+lar to those obtained when multilayer Ti
+3
+C
+2
+T
+x
+powder was used (compare Fig. 4C to Fig.
+2A). Furthermore, the EIS results indicated that
+the Ti
+3
+C
+2
+T
+x
+paper–based capacitors were less
+resistive (Fig. 4D) than those made with mul-
+tilayer Ti
+3
+C
+2
+T
+x
+(fig. S4A). This improved electro-
+chemical response can be related to a number of
+factors, such as the absence of a binder in the
+system, good contact between the restacked
+flakes in the paper, increased accessibility of
+the structure, and thinner electrodes (Fig. 4, A
+and B).
+As shown in Fig. 4E, the use of Ti
+3
+C
+2
+T
+x
+paper electrodes instead of multilayer exfoliated
+Ti
+3
+C
+2
+T
+x
+in some electrolytes (e.g., KOH and
+NaOAc) roughly doubled the gravimetric capac-
+itance (see fig. S8 for more information about the
+performance of Ti
+3
+C
+2
+T
+x
+paper in NaOAc and
+MgSO
+4
+). Even more impressively, the volumet-
+ric capacitance values recorded for few-layer
+Ti
+3
+C
+2
+T
+x
+were on the order of 340 F/cm
+3
+for KOH
+(Fig. 4C and fig. S9). Those values are much
+higher than those found for activated graphene
+[60 to 100 F/cm
+3
+(15,20)] or micrometer-thin
+carbide-derived carbon electrodes [180 F/cm
+3
+(21,22)]. Extreme values for MnO
+2
+hybrid elec-
+trodes [1200 F/cm
+3
+(23); 640 F/cm
+3
+(24)] were
+obtained on thin films of supported nanoparticles,
+and therefore cannot be compared with our
+electrodes. A capacitance retention test per-
+formed by galvanostatic cycling at 1 A/g showed
+almost no degradation in performance after
+10,000 cycles (Fig. 4F).
+Our results show that a variety of cations of
+various charges and sizes can readily intercalate,
+from aqueous solutions, both multilayer exfoli-
+ated Ti
+3
+C
+2
+T
+x
+and MXene paper made of few
+layers of Ti
+3
+C
+2
+T
+x
+. The phenomenon depends on
+pH and the nature of the cations. Extensive in-
+vestigation of the electrochemical properties of
+the Ti
+3
+C
+2
+T
+x
+in these aqueous electrolytes showed
+notable intercalation capacitances. The best per-
+formance was observed in basic solutions, such
+as KOH and NaOH for binder-free Ti
+3
+C
+2
+T
+x
+paper. The latter is highly flexible and yielded
+volumetric capacitance of up to 350 F/cm
+3
+.
+As noted, eight MXenes have been reported
+to date (10) and many more have been theoret-
+ically predicted (25,26). Thus, the volumetric
+capacitances described above are probably far
+from the maximum values possible for MXenes
+in general. The flexibility of Ti
+3
+C
+2
+T
+x
+paper (Fig.
+4B) also opens the door for the use of MXenes
+in flexible and wearable energy storage devices
+(27). The fact that a variety of ions, as different
+as Na
++
+and Al
+3+
+, can be accommodated between
+the MXene layers may also enable MXene use
+in batteries as well as in metal-ion capacitors
+(battery-supercapacitor hybrids). Thus, this work
+opens up exciting possibilities of developing im-
+proved intercalation electrodes for batteries, su-
+percapacitors, and hybrid devices using a large
+variety of ions and/or electrode chemistries.
+Fig. 2. Electrochemical performance of Ti
+3
+C
+2
+T
+x
+-
+based supercapacitors in various aqueous elec-
+trolytes.(A) CV profiles in NaOH-, KOH-, and
+LiOH-containing solutions at 20 mV/s. (B)CV
+profiles in K
+2
+SO
+4
+,Al
+2
+(SO
+4
+)
+3
+,andAl(NO
+3
+)
+3
+solu-
+tions at 20 mV/s. (C) Summary of rate perform-
+ances in different aqueous electrolytes.
+Fig. 3. Electrochemical in situ x-ray diffraction study of multilayer exfoliated Ti
+3
+C
+2
+T
+x
+.(A)Ti
+3
+C
+2
+T
+x
+in 1 M KOH solution; (B)Ti
+3
+C
+2
+T
+x
+in 1 M MgSO
+4
+solution. Vertical dashed lines indicate the original
+position of the (0002) peak of the Ti
+3
+C
+2
+T
+x
+electrodes before mounting in a cell. Inclined arrows show the
+direction of the (0002) peak shift. Insets illustrate cycling direction and concomitant changes inclattice
+parameters during cycling. In both KOH and MgSO
+4
+electrolytes, shrinkage during cathodic polarization
+is observed.
+References and Notes
+1. B. Conway,Electrochemical Supercapacitors: Scientific
+Fundamentals and Technological Applications(Kluwer
+Academic/Plenum, New York, 1999).
+2. P. Simon, Y. Gogotsi,Nat. Mater.7, 845–854 (2008).
+3. I. E. Rauda, V. Augustyn, B. Dunn, S. H. Tolbert,
+Acc. Chem. Res.46, 1113–1124 (2013).
+4. K. Naoi, W. Naoi, S. Aoyagi, J. I. Miyamoto, T. Kamino,
+Acc. Chem. Res.46, 1075–1083 (2013).
+5. V. Augustynet al.,Nat. Mater.12, 518–522 (2013).
+6. Z. J. Sunet al.,J. Power Sources216, 425–433 (2012).
+7. S. Stankovichet al.,Nature442, 282–286 (2006).
+8. D. Li, M. B. Müller, S. Gilje, R. B. Kaner, G. G. Wallace,
+Nat. Nanotechnol.3, 101–105 (2008).
+9. M. W. Barsoum, T. El-Raghy,Am. Sci.89, 334 (2001).
+10. M. Naguibet al.,Adv. Mater.23, 4248–4253 (2011).
+11. M. Naguibet al.,ACS Nano6, 1322–1331 (2012).
+12. O. Mashtalir, M. Naguib, B. Dyatkin, Y. Gogotsi,
+M. W. Barsoum,Mater. Chem. Phys.139, 147–152
+(2013).
+13. O. Mashtaliret al.,Nature Commun.4, 1716 (2013).
+14. J. Comeet al.,J. Electrochem. Soc.159, A1368–A1373
+(2012).
+15. Q. Tang, Z. Zhou, P. W. Shen,J. Am. Chem. Soc.134,
+16909–16916 (2012).
+16. Y. Zhuet al.,Science332, 1537–1541 (2011).
+17. L. Maiet al.,Sci. Rep.3, 1718 (2013).
+18. P. W. Ruchet al.,Carbon48, 1880–1888 (2010).
+19. O. Ghodbane, F. Ataherian, N.-L. Wu, F. Favier,J. Power
+Sources206, 454–462 (2012).
+20. S. Muraliet al.,Nano Energy10.1016/j.nanoen.
+2013.01.007 (2013).
+21. J.Chmiola,C.Largeot,P.-L.Taberna,P.Simon,Y.Gogotsi,
+Science328, 480–483 (2010).
+22. M. Heonet al.,Energy Environ. Sci.4, 135 (2011).
+23. X. Lang, A. Hirata, T. Fujita, M. Chen,Nat. Nanotechnol.
+6, 232–236 (2011).
+24. X. Zhaoet al.,ACS Nano6, 5404–5412 (2012).
+25. M. Kurtoglu, M. Naguib, Y. Gogotsi, M. W. Barsoum,
+MRS Commun.2, 133–137 (2012).
+26. M. Khazaeiet al.,Adv. Funct. Mater.23, 2185–2192
+(2012).
+27. J. R. Miller,Science335, 1312–1313 (2012).
+Acknowledgments:We thank B. Duployer and J. Come at
+Paul Sabatier University for help in electrochemical
+experiments, V. N. Mochalin and M. Beidaghi for helpful
+discussions, and the Centralized Research Facility of Drexel
+University for access to XRD and SEM equipment. MXene
+synthesis was funded by the U.S. Department of Energy,
+Office of Vehicle Technologies, Batteries for Advanced
+Transportation Technologies (BATT) Program, under contract
+DE-AC02-05CH11231, subcontract 6951370. M.R.L. was
+supported by the U.S. Department of Energy, Energy Storage
+Systems Research Program, through Sandia National
+Laboratory. P.S. was supported by the European Research
+Council (advanced grant ERC-2011-AdG, project
+291543–IONACES) and the Chair of Excellence“Embedded
+multi-functional nanomaterials”from the EADS Foundation.
+Collaboration between Drexel University and Paul Sabatier
+University was supported by the Partner University Fund of
+the Embassy of France.
+Supplementary Materials
+www.sciencemag.org/content/341/6153/1502/suppl/DC1
+Materials and Methods
+Supplementary Text
+Figs. S1 to S9
+Tables S1 to S4
+References (28,29)
+10.1126/science.1241488
+st
+Fig. 4. E
+lectrochemicalperformance
+of binder-free Ti
+3
+C
+2
+T
+x
+paper elec-
+trodes:(A) Schematic of electrode
+fabrication. During the first stage, the
+multilayer Ti
+3
+C2T
+x
+powders are delam-
+inated to produce few-layer MXene flakes
+(see supplementary materials); the result-
+ing colloidal solution is filtered through a
+porous membrane, producing binder-
+and additive-free Ti
+3
+C
+2
+T
+x
+paper elec-
+trodes for further use in capacitance
+tests. (B) Scanning electron micrograph
+of paper electrode. Inset is a photograph
+of the paper showing its flexibility. (C)
+CV of Ti
+3
+C
+2
+T
+x
+paper in KOH electrolyte.
+(D)EISdatainKOHforTi
+3
+C
+2
+T
+x
+electrode
+(KOH, solid symbols) and Ti
+3
+C
+2
+T
+x
+paper
+(p-KOH). (E) Rate performance of the
+Ti
+3
+C
+2
+T
+x
+paper (open symbols) versus mul-
+tilayer exfoliated Ti
+3
+C
+2
+T
+x
+electrode (solid
+symbols) in KOH-, MgSO
+4
+-, and NaOAc-
+containing electrolytes. (F) Capacitance
+retention test of Ti
+3
+C
+2
+T
+x
+paper in KOH.
+Inset: Galvanostatic cycling data collected
+at 1 A/g.

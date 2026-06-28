@@ -1,0 +1,974 @@
+Title of the paper:
+CAT – A Computational Anatomy Toolbox for the
+Analysis of Structural MRI Data
+Names and institutions of all authors:
+Christian Gaser
+a*
+, Robert Dahnke
+a
+, Paul M Thompson
+b
+, Florian Kurth
+c+
+, Eileen Luders
+c,d,e+
+,
+Alzheimer's Disease Neuroimaging Initiative
+1
+a
+Departments of Psychiatry and Neurology, Jena University Hospital, Jena, Germany
+b
+Imaging Genetics Center, Stevens Neuroimaging & Informatics Institute, Keck School of Medicine,
+University of Southern California, Los Angeles, CA, USA
+c
+School of Psychology, University of Auckland, Auckland, New Zealand
+d
+Department of Women’s and Children’s Health, Uppsala University, Uppsala, Sweden
+e
+Laboratory of Neuro Imaging, Keck School of Medicine, University of Southern California, Los
+Angeles, CA, USA
+1
+Data used in preparation of this article were obtained from the Alzheimer's Disease Neuroimaging
+Initiative (ADNI) database (adni.loni.usc.edu). As such, the investigators within the ADNI contributed
+to the design and implementation of ADNI and/or provided data but did not participate in analysis or
+writing of this report. A complete listing of ADNI investigators can be found at:
+http://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_Acknowledgement_List.pdf
++
+Shared last authorship
+*Correspondence should be addressed to:
+Christian Gaser, Ph.D.
+Structural Brain Mapping Group
+Department of Neurology, Jena University Hospital
+Am Klinikum 1, D-07747 Jena, Germany
+Phone: ++49-3641-9325778 | Fax: ++49-3641-9325772
+E-mail: christian.gaser@uni-jena.de
+Number of Words in Abstract:146
+Number of Figures:6
+Supplemental Material:5 figures, 2 tables
+Keywords:
+brain, computational anatomy, longitudinal, morphometry, SPM12, CAT12, MRI, ROI,
+VBM, cortical thickness, cortical surface, cortical folding, Alzheimer’s disease
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Abstract
+A large range of sophisticated brain image analysis tools have been developed by the
+neuroscience community, greatly advancing the field of human brain mapping. Here we
+introduce theComputational Anatomy Toolbox(CAT) - a powerful suite of tools for
+morphometric analyses with an intuitive graphical user interface, but also usable as a shell
+script. CAT is suitable for beginners, casual users, experts, and developers alike providing a
+comprehensive set of analysis options, workflows, and integrated pipelines. The available
+analysis streams – illustrated on an example dataset – allow for voxel-based, surface-based,
+as well as region-based morphometric analyses. Importantly, CAT includes various quality
+control options and covers the entire analysis workflow, from cross-sectional or longitudinal
+data processing, to the statistical analysis, and visualization of results. The overarching aim
+of this article is to provide a complete description of CAT, while, at the same time, offering a
+citable standard reference.
+1
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Main
+The brain is the most complex organ of the human body, and no two brains are alike. The
+study of the human brain is still in its infancy, but rapid technical advances in image
+acquisition and image processing have allowed for ever more refined characterizations of its
+micro- and macro-structure. Enormous efforts, for example, have been made to map
+differences between groups (e.g., young vs. old, diseased vs. healthy, male vs. female), to
+capture changes over time (e.g., from infancy to old age, or in the framework of
+neuroplasticity, as a result of a clinical intervention), or to assess correlations of brain
+attributes (e.g., measures of length, volume, shape) with behavioral, cognitive, or clinical
+parameters. Sophisticated tools for such analyses - which can be voxel-based, surface-based,
+or region-based - have been provided with popular analysis, discovery, and visualization
+tools, such as FreeSurfer (https://surfer.nmr.mgh.harvard.edu), the Human Connectome
+Workbench  (https://www.humanconnectome.org/software/connectome-workbench),  FSL
+(https://www.fmrib.ox.ac.uk/fsl),BrainVISA(http://www.brainvisa.info),CIVET
+(https://mcin.ca/technology/civet),ortheLONItools
+(https://www.loni.usc.edu/research/software), to name just a few.
+Given its strengths for brain image processing and analysis, one of the most
+frequently used software packages is SPM - short forStatistical Parametric Mapping
+(https://www.fil.ion.ucl.ac.uk/spm). SPM is equipped with an interactive batch editor and a
+library of accessible and editable scripts, which provides an ideal basis to extend the
+repertoire of available analysis options. Here we introduce CAT - short forComputational
+Anatomy Toolbox(http://www.neuro.uni-jena.de/cat) - for SPM. The CAT toolbox offers a
+2
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+comprehensive range of cutting-edge analysis options and integrated pipelines, ranging
+from data processing to the visualization of the results. CAT presents itself through an
+intuitive user interface, comes as a collection of accessible scripts, and uses the same batch
+editor as SPM, which allows for a seamless integration with SPM workflows and other
+toolboxes, such as Brainstorm (Tadel et al., 2011) and ExploreASL (Mutsaerts et al., 2020).
+While this will enable beginners and experts to run complex state-of-the-art structural
+image analyses within the SPM environment, advanced users and developers will appreciate
+the possibility to employ a wide range of functions in their own customized workflows and
+pipelines.
+Results
+Concept and Performance of CAT
+CAT12 is the current version of the CAT software and runs in Matlab (Mathworks, Natick,
+MA) or as a standalone version with no need for a Matlab license. It was originally designed
+to work with SPM12 (http://www.fil.ion.ucl.ac.uk/spm/software/spm12) and is compatible
+with Matlab versions 7.4 (R2007a) and later. No additional software or toolbox is required.
+The latest version of CAT can be downloaded here:http://www.neuro.uni-jena.de/cat. The
+pre-compiled standalone version for Windows, Mac, or Linux operating systems can be
+downloaded here:https://sites.google.com/view/enigma-cat12/enigma-cat12/standalone.
+All  steps  necessary  to  install  and  run  CAT  are  documented  in  the  user  manual
+(http://www.neuro.uni-jena.de/cat12/CAT12-Manual.pdf) and in the complementary online
+help, which can be accessed directly via CAT’s help functions. The CAT software is free but
+3
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+copyrighted and distributed under the terms of the GNU General Public License, as
+published by the Free Software Foundation.
+CAT can be either started through SPM, from the Matlab command window, from a
+shell, or as a standalone version. Except when called from the command shell (CAT is fully
+scriptable), a user interface will appear (seeFigure 1) allowing easy access to all analysis
+options and most additional functions. In addition, a graphical output window will display
+the interactive help to get started. This interactive help will be replaced by the results of the
+analyses (i.e., in that same window), but can always be called again via the user interface.
+CAT allows processing streams to be distributed to multiple processing cores, to
+reduce processing time. For example, an analysis using data from 50 subjects (seeExample
+Application) leveraging the inbuilt parallel processing capabilities on four cores, required
+seven hours processing time when analyzing one image per subject (cross-sectional stream),
+and 18 hours when processing three images per subject (longitudinal stream) for the entire
+sample. The application of all available workflows for a single T1-weighted image takes
+around 35 minutes, as timed on an iMac with Intel Core i7 with 4 GHz and 32 GB RAM using
+Matlab 2017b, SPM12 r7771, and CAT12.8 r1945.
+4
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+— Figure 1 (GUI) —
+Figure 1:Elements of the graphical user interface.
+The SPM menu (a) and CAT menu (b) allow access to the (c) SPM batch editor to control and combine a variety
+of functions. At the end of the processing stream, cross-sectional and longitudinal outputs are summarized in a
+brain-specific one-page report (d, e). In addition, CAT provides options to check image quality (f) and sample
+homogeneity (g) to allow outliers to be removed before applying the final statistical analysis, including
+threshold-free cluster enhancement– TFCE (h); the numerical and graphical output can then be retrieved (i),
+including surface projections (j). For beginners, there is an interactive help (k) as well as a user manual (l). For
+experts, command line tools (m) are available under Linux and MacOS.
+Computational Morphometry
+CAT’s processing pipeline (seeFigure 2) contains two main streams: (1) voxel-based
+processing forvoxel-based morphometry(VBM) and (2) surface-based processing for
+surface-based morphometry(SBM). The former is a prerequisite for the latter, but not the
+other way round. Both processing streams can be extended to include additional steps for
+(3) region-based processing andregion-based morphometry(RBM).
+5
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+—Figure 2 (main processing pipelines)—
+Figure 2:Two main processing streams
+Image processing in CAT can be separated into a mandatory voxel-based processing stream and an optional
+subsequent surface-based processing stream. Each stream requires different templates and atlases and, in
+addition, tissue probability maps for the voxel-based stream. The voxel-based stream consists of two main
+modules – one for tissue segmentation and another one for spatial registration – resulting in spatially
+registered (and modulated) gray matter / white matter segments, which provides the basis forvoxel-based
+morphometry(VBM). The surface-based stream also consists of two main modules – one for surface creation
+and another for surface registration – resulting in spatially registered surface maps, which provide the basis for
+surface-based morphometry(SBM). Both streams also include an optional module each to analyzeregions of
+interest(ROIs) resulting in ROI-specific mean volumes (mean surface values, respectively). This provides the
+basis forregion-based morphometry(RBM).
+Voxel-based Processing
+Voxel-based processing comprises a series of steps that can be roughly divided into a
+module for tissue segmentation, which is followed by a module for spatial registration.
+●Tissue Segmentation: The process is initiated by applying aspatially adaptive
+non-local means(SANLM) denoising filter (Manjón et al., 2010) and followed by
+applying SPM’s standardunified segmentation(Ashburner and Friston, 2005). The
+6
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+resulting output then serves as a starting point for further optimizations and CAT’s
+tissue segmentation steps: first, the brain is parcellated into the left and right
+hemisphere, subcortical areas, ventricles, and the cerebellum. In addition, local
+white matter hyperintensities are detected (to be later accounted for during the
+spatial registration and the optional surface processing). Second, a local intensity
+transformation is performed to reduce the effects of higher gray matter intensities in
+the motor cortex, basal ganglia, and occipital lobe. Third, anadaptive maximum a
+posteriori(AMAP) segmentation is applied which does not rely on anya priori
+information on the tissue probabilities (Rajapakse, Giedd and Rapoport, 1997). The
+AMAP segmentation also includes apartial volume estimation(Tohka, Zijdenbos and
+Evans,  2004).Figure 3provides information on the accuracy of CAT’s tissue
+segmentation.
+●Spatial Registration: DARTEL (Ashburner, 2007) or Geodesic Shooting (Ashburner and
+Friston, 2011) are used to register the individual tissue segments to standardized
+templates in the ICBM 2009c Nonlinear Asymmetric space (MNI152NLin2009cAsym;
+https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009),hereafter
+referred to as MNI space. While MNI space is also used in many other software
+packages, thus allowing for easy comparability across studies, users may also choose
+to use their own templates.Figure 3provides information on the accuracy of CAT’s
+spatial registration.
+7
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Voxel-based Morphometry (VBM)
+VBM is applied to investigate the volume (or local amount) of a specific tissue compartment
+(Ashburner and Friston, 2005; Kurth, Luders and Gaser, 2015) - usually gray matter. VBM
+incorporates different processing steps: (a) tissue segmentation and (b) spatial registration
+as detailed above, and in addition (c) adjustments for volume changes due to the
+registration  (modulation)  as well as (d) convolution with a Gaussian kernel (spatial
+smoothing). As a side note, the modulation step results in voxel-wise gray matter volumes
+that are the same as in native space (i.e., before spatial registration) and not corrected for
+brain size yet. Therefore, to remove effects of brain size, users have at least two options: (1)
+calculating thetotal intracranial volume(TIV) and including TIV as a covariate in the
+statistical model (Malone et al., 2015) or (2) selecting ‘global scaling’ (see 2nd level options
+in SPM). The latter is recommended if TIV is linked with (i.e., not orthogonal to) the effect of
+interest (e.g., sex), which can be tested (see ‘Design orthogonality’ in SPM).
+Surface-based Processing
+The optional surface-based processing comprises a series of steps that can be roughly
+divided into a module for surface creation, which is followed by a module for surface
+registration.
+●Surface Creation:Figure 3illustrates the surface creation step in CAT for data
+obtained on scanners with different field strengths (1.5, 3.0, and 7.0 Tesla). CAT uses
+a projection-based thickness method (Dahnke, Yotter and Gaser, 2013) which
+estimates the initial cortical thickness and initial central surface in a combined step,
+8
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+while handling partial volume information, sulcal blurring, and sulcal asymmetries,
+without explicit sulcus reconstruction. After this initial step, topological defects (i.e.,
+anatomically  incorrect  connections  between  gyri  or  sulci) are repaired using
+spherical harmonics (Rachel Aine Yotter et al., 2011). The topological correction is
+followed by a surface refinement, which results in the final central, pial and white
+surface meshes. In the last step, the final pial and white matter surfaces are used to
+refine the initial cortical thickness estimate using the FreeSurfer thickness metric
+(Fischl and Dale, 2000; Masouleh et al., 2020). Alternatively, the final central surface
+can  be  used  to  calculate  metrics  of  cortical  folding,  as  described  under
+Surface-based Morphometry.
+●Surface Registration: The resulting individual central surfaces are registered to the
+corresponding    hemisphere    of    the    FreeSurferFsAveragetemplate
+(https://surfer.nmr.mgh.harvard.edu/fswiki/FsAverage).  During  this  process,  the
+individual central surfaces are spherically inflated with minimal distortions (Yotter,
+Thompson and Gaser, 2011) and a one-to-one mapping between the folding patterns
+of the individual and template spheres is created by a 2D-version of the DARTEL
+approach (Ashburner, 2007).Figure 3provides information on the accuracy of CAT’s
+surface registration.
+9
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+— Figure 3 (processing accuracy / consistency) —
+Figure 3:Evaluation of segmentation and registration accuracy
+(a) Segmentation Accuracy: Most approaches to brain segmentation assume that each voxel belongs to a
+particular tissue class, such asgray matter(GM),white matter(WM), orcerebrospinal fluid(CSF). However, the
+spatial resolution of brain images is limited, leading to so-calledpartial volume effects(PVE) in voxels
+containing a mixture of different tissue types, such as GM/WM and GM/CSF. As PVE approaches are highly
+susceptible to noise, we combined the PVE model (Tohka, Zijdenbos and Evans, 2004) with a spatial adaptive
+non-local means denoising filter (Manjón et al., 2010). To validate our method, we used a ground truth image
+from the BrainWeb (Aubert-Broche, Evans and Collins, 2006) database with varying noise levels of 1-9%. The
+segmentation accuracy for all tissue types (GM, WM, CSF) was determined by calculating akappacoefficient (a
+kappa coefficient of 1 means that there is perfect correspondence between the segmentation result and the
+ground truth). Left panel: The effect of the PVE model and the denoising filter on the tissue segmentation at
+the extremes of 1% and 9% noise. Right panel. The kappa coefficient over the range of different noise levels.
+Both panels demonstrate the advantage of combining the PVE model with a spatial adaptive non-local means
+denoising filter, with particularly strong benefits for noisy data.
+(b) Registration Accuracy: To ensure an appropriate overlap of corresponding anatomical regions across brains,
+high-dimensional nonlinear spatial registration is required. CAT uses sophisticated DARTEL (Ashburner, 2007)
+10
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+and Shooting approaches (Ashburner and Friston, 2011) together with an average template created from the
+IXI dataset (http://www.brain-development.org). The figure shows the improved accuracy (i.e., a more detailed
+average image) when spatially registering 555 brains using the Shooting registration and the Dartel registration
+compared to the SPM standard registration.
+(c) Preprocessing Accuracy: We validated the performance ofregion-based morphometry(RBM) in CAT by
+comparing measures derived from automatically extractedregions of interest(ROI) versus manually labeled
+ROIs. For the voxel-based analysis, we used 56 structures that were manually labeled in 40 brains which
+provided the basis for the LPBA40 atlas (Shattuck et al., 2008). The gray matter volumes from those manually
+labeled regions served as the ground truth against which the gray matter volumes calculated using CAT and the
+LPBA40 atlas were then compared. For the surface-based analysis, we used 34 structures that were manually
+labeled in 39 brains according to Desikan (Desikan et al., 2006). The mean cortical thickness from those
+manually labeled regions served as the ground truth against which the mean cortical thickness calculated using
+CAT and the Desikan atlas was compared. The diagrams show that there is an excellent overlap between
+manually and automatically labeled regions in both voxel-based (left) and surface-based (right) analyses.
+(d) Consistency of Segmentation and Surface Creation: Data from the same brain were acquired on MRI
+scanners with different isotropic spatial resolutions and different field strengths: 1.5T MPRAGE with 1 mm
+voxel size; 3T MPRAGE with 0.8 mm voxel size; and 7T MP2RAGE with 0.7 mm voxel size. Section views: The left
+hemispheres depict the central (green), pial (blue), and white matter (red) surfaces; the right hemispheres
+show the gray matter segments. Rendered Views: The color bar encodes point-wise cortical thickness
+projected onto the central surface of the left hemisphere. Both section views and hemisphere renderings
+demonstrate the consistency of the outcomes of the segmentation and surface creation procedures across
+different spatial resolutions and field strengths.
+Surface-based Morphometry (SBM)
+SBM is applied to investigate cortical thickness or various parameters of cortical folding. The
+measurement of ‘cortical thickness’ captures the width of the gray matter ribbon as the
+distance between its inner and outer boundary at thousands of points (seeFigure 4). To
+obtain measurements of ‘cortical folding’ the user has a variety of options in CAT, ranging
+fromGyrification (Luders et al., 2006)toSulcal Depth(Essen, 2005) toCortical Complexity
+(Rachel A Yotter et al., 2011) to theSurface Ratio(Toro et al., 2008), as further explained and
+illustrated inFigure 4. Similar to VBM, SBM incorporates a series of different steps: (a)
+surface creation and (b) surface registration as detailed above, and in addition (c) spatial
+smoothing. As a side note, since the measurements in native space are mapped directly to
+the template during the spatial registration, no additional modulation (as in VBM) is needed
+11
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+to preserve the individual differences. In contrast to VBM, SBM does not require brain size
+corrections because cortical thickness and cortical folding are not closely associated with
+brain volume (unlike gray matter volume) (Barnes et al., 2010).
+— Figure 4 (cortical measures) —
+Figure 4: Cortical Measurements
+Surface-based morphometry is applied to investigate features of the cortical surface (i.e., cortical thickness and
+various parameters of cortical folding) at thousands of surface points.Cortical Thickness: One of the best
+known and most frequently used morphometric measures is cortical thickness, which captures the width of
+the gray matter ribbon as the distance between its inner boundary (white matter surface) and outer boundary
+(pial surface).Cortical Folding: CAT provides distinct cortical folding measures, which are derived from the
+geometry of the central surface: ‘Gyrification’ is calculated via the absolute mean curvature (Carmo, 2016) of
+the central surface. ‘Sulcal Depth’ is calculated as the distance from the central surface to the enclosing hull
+(Essen, 2005). ‘Cortical Complexity’ is calculated using the fractal dimension of the central surface area from
+spherical harmonic reconstructions (Rachel A Yotter et al., 2011). Finally, ‘Surface Ratio’ is calculated as the
+ratio between the area of the central surface contained in a sphere of a defined size and that of a disk with the
+same radius (Toro et al., 2008).
+Region-based Processing and Morphometry
+In addition to voxel or point-wise analyses via VBM or SBM, CAT provides an option to
+conduct regional analyses viaregion-based morphometry(RBM). For this purpose, the
+processing steps under voxel-based processing (surface-based processing, respectively)
+12
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+should be applied and followed by automatically calculating regional measurements. This is
+achieved through working with regions of interest (ROIs) as defined using standardized
+atlases.  The  required  atlases  are  provided  in  CAT  (seeSupplemental Table 1and
+Supplemental Table 2), but users can also choose to work with their own atlases.
+●Voxel-based ROIs: The volumetric atlases available in CAT have been defined on brain
+templates in MNI space and can be mapped to the individual brains by using the
+spatial  registration  parameters  determined  during  voxel-based  processing.
+Volumetric measures, such as regional gray matter volume, can then be calculated
+for each ROI in native space.
+●Surface-based ROIs: The surface atlases available in CAT are supplied on the
+FsAveragesurface and can be mapped to the individual surfaces by using the
+spherical registration parameters determined during the surface-based processing.
+Surface-based measures, such as cortical thickness or cortical folding, are then
+calculated for each ROI in native space.
+Five Selected Features
+1. Longitudinal Processing
+Aside from offering a standard pipeline for cross-sectional analyses, CAT has specific
+longitudinal pipelines that ensure a local comparability both across subjects and across time
+points  within  subjects.  Compared  to  the  cross-sectional pipeline, these longitudinal
+pipelines render analysis outcomes more accurate when mapping structural changes over
+time. The user can chose between three different longitudinal pipelines: the first one for
+13
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+analyzing brain plasticity (over days, weeks, months); the second one for analyzing brain
+development (over months and years); and the third one for brain aging (over months,
+years, decades). For more details, refer toSupplemental Notes 1.
+2. Quality Control
+CAT introduces a retrospective quality control framework for the empirical quantification of
+essential image parameters, such as noise, intensity inhomogeneities, and image resolution
+(all of these can be impacted, for example, by motion artifacts). Separate parameter-specific
+ratings are provided as well as a handy overall rating (Gilmore, Buser and Hanson, 2021).
+Moreover,  image  outliers  can  be  easily  identified,  either  directly  based  on  the
+aforementioned indicators of the image quality or by calculating a Spearman's rank
+correlation coefficient which is determined by the quality of the image processing as well as
+by the anatomical characteristics of each brain. For more details, refer toSupplemental
+Notes 2.
+3. Mapping onto the Cortical Surface
+CAT allows the user to map voxel-based values (e.g., quantitative, functional, or diffusion
+parameters) to individual brain surfaces (i.e., pial, central, and/or white matter) for
+surface-based analyses. The integrated equi-volume model (Bok, 1929) also considers the
+shift of cytoarchitectonic layers caused by the local folding. Optionally, CAT also allows
+mapping of voxel values for multiple positions at each node - supporting a layer-specific
+14
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+analysis of ultra-high resolution functional MRI data (Waehnert et al., 2014; Kemper et al.,
+2017). For more details, refer toSupplemental Notes 3.
+4. Threshold-free Cluster Enhancement (TFCE)
+CAT comes with its own TFCE toolbox and provides the option to apply TFCE (Smith and
+Nichols, 2009) in any statisticalsecond-levelanalysis in SPM, both for voxel-based and for
+surface-based analyses. It can also be employed to analyzefunctional MRI(fMRI) or
+diffusion tensor imaging(DTI) data. A particularly helpful feature of the TFCE toolbox is that
+it  automatically recognizes exchangeability blocks and potential nuisance parameters
+(Winkler et al., 2014) from an existing statistical design in SPM. For more details, refer to
+Supplemental Notes 4.
+5. Visualization
+CAT allows a user to generate graphs and images, which creates a solid basis to explore
+findings as well as to generate ready-to-publish figures according to prevailing standards.
+More specifically, it includes two distinct sets of tools to visualize results: the first set
+prepares both voxel- and surface-based data for visualization by providing options for
+thresholding the default SPM T-maps or F-maps and for converting statistical parameters
+(e.g., from T-maps and F-maps into p-maps). The second set of tools visualizes the data
+offering the user ample options to select from different brain templates, views, slices,
+significance parameters, significance thresholds, color schemes, etc. (seeFigure5).
+15
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+— Figure 5 (visualization) —
+Figure 5:Examples of CAT’s visualization of results.
+Both surface- and voxel-based data can be presented on surfaces such as (a) the (inflated) FsAverage surface,
+or (b) the flatmap of the Connectome Workbench. In addition, volumetric maps can be displayed as (c) slice
+overlays on the MNI average brain, or (d) as a maximum intensity projection (so-called “glass brains”). All
+panels  show the corrected p-values from the longitudinal VBM study in our example (see Example
+Application).
+Example Application
+To demonstrate an application of CAT, we investigated an actual dataset focusing on the
+effects of Alzheimer’s disease on brain structure. More specifically, we set out to compare
+25 patients with Alzheimer’s disease and 25 matched controls. We applied (I) a VBM analysis
+focusing on voxel-wise gray matter volume, (II) a RBM analysis focussing on regional gray
+matter volume (i.e., a voxel-based ROI analysis), (III) a surface-based analysis focusing on
+point-wise cortical thickness, and (IV) a RBM analysis focussing on regional cortical thickness
+16
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+(i.e., a surface-based ROI analysis). Given the wealth of literature on Alzheimer’s disease, we
+expected atrophy in gray matter volume and cortical thickness in patients compared to
+controls, particularly in regions around the medial temporal lobe and the default mode
+network (Dickerson, 2010; Bayram, Caldwell and Banks, 2018). In addition to distinguishing
+between the four morphological measures (I-IV), all analyses were conducted using both
+cross-sectional and longitudinal streams as supported in CAT. Overall, we expected that
+longitudinal changes would manifest in similar brain regions to cross-sectional group
+differences, but that cross-sectional effects will be more pronounced than longitudinal
+effects. The outcomes of this example analysis are presented and discussed in the next
+section.
+Discussion
+As shown inFigure 6, all four cross-sectional streams – investigating voxel-based gray matter
+volume, regional gray matter volume, point-wise thickness, and regional thickness –
+revealed widespread group differences between AD patients and matched controls. Overall,
+the effects were comparable between cross-sectional and longitudinal streams, but the
+significant clusters were more pronounced cross-sectionally (note the different thresholds
+cross-sectionally and longitudinally).
+More specifically, using VBM, significantly smaller voxel-wise gray matter volumes
+were observed in AD patients compared to controls, particularly in the medial and lateral
+temporal lobes and within regions of the default mode network (Figure 6a top). Similarly,
+the longitudinal follow-up revealed a significantly stronger gray matter volume loss in
+patients compared to controls, with effects located in the medial temporal lobe as well as
+17
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+the default mode network (Figure 6a bottom). The voxel-based ROI analysis resulted in a
+significance  pattern  similar  to  the  VBM  study,  with  particularly  pronounced  group
+differences in the temporal lobe that extended into additional brain areas including those
+comprising the default mode network (Figure 6b top). Again, the longitudinal analysis
+yielded similar but less pronounced findings than the cross-sectional analysis, although
+longitudinal effects were stronger than in the VBM analysis (Figure 6b bottom).
+Using SBM, the point-wise cortical thickness analysis yielded a pattern similar to the
+VBM analysis with significantly thinner cortices in patients, particularly in the medial and
+lateral temporal lobe and within regions of the default mode network (Figure 6c top). Just as
+in the VBM analysis, significant clusters were widespread and reached far into adjacent
+regions. Again, the results from the longitudinal stream were less widespread and significant
+than  the  results  from  the  cross-sectional  stream  (Figure  6c  bottom).  Finally,  the
+surface-based ROI analysis largely replicated the local findings from the SBM analysis (Figure
+6d top / bottom).
+Overall, the results from all analysis streams corroborate previously reported findings
+in the Alzheimer’s disease literature, particularly the strong disease effects within the
+medial temporal lobe and regions of the default mode network (Dickerson, 2010; Bayram,
+Caldwell and Banks, 2018). Furthermore, the comparable pattern across measures suggests
+a considerable consistency between available morphometric options, even if gray matter
+volume and cortical thickness are biologically different and not perfectly related (Hutton et
+al., 2009; Winkler et al., 2018).
+18
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+–Figure 6 (example application)–
+Figure 6:Pronounced atrophy in gray matter and cortical thickness in patients with Alzheimer’s disease
+compared to healthy control subjects.
+(a)Voxel-based Morphometry(VBM) findings: The results were estimated usingthreshold-free cluster
+enhancement(TFCE), corrected for multiple comparisons by controlling thefamily-wise error(FWE), and
+thresholded at p<0.001 for cross-sectional data and p<0.05 for longitudinal data. The significant findings were
+projected onto orthogonal sections intersecting at (x=-27mm, y=-10mm, z=-19mm) of the mean brain created
+from the entire study sample (n=50).
+(b) VolumetricRegions of Interest(ROI) findings: ROIs were defined using the Neuromorphometrics atlas. The
+results were corrected for multiple comparisons by controlling thefalse discovery rate(FDR) and thresholded
+at q<0.001 for cross-sectional data and q<0.05 for longitudinal data. The significant findings were projected
+onto the same orthogonal sections as for the VBM findings.
+(c)Surface-based Morphometry(SBM) findings: The results were estimated using TFCE, FWE-corrected, and
+thresholded at p<0.001 for cross-sectional data and p<0.05 for longitudinal data. The significant findings were
+projected onto the FreeSurferFsAveragesurface.
+(d) Surface ROI findings: ROIs were defined using the DK40 atlas. Results were FDR-corrected and thresholded
+at q<0.001 for cross-sectional data and q<0.05 for longitudinal data. Significant findings were projected onto
+theFsAveragesurface.
+19
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Conclusion
+CAT is suitable for desktop/laptop computers as well as high-performance clusters. It is fully
+integrated into the SPM environment within Matlab, but also allows process execution
+directly from the command shell, without having to start SPM. CAT is also available as a
+standalone version, altogether avoiding the need for a Matlab license. Furthermore, CAT is
+easy to integrate with non-SPM software packages and also supports theBrain Imaging
+Data Structure(BIDS) standards (Krzysztof et al., 2015). Therefore, CAT is ideally suited not
+only to process small datasets (as demonstrated in the example application), but also big
+datasets, such as samples of the UK Biobank (https://www.ukbiobank.ac.uk) or ENIGMA
+(https://enigma.ini.usc.edu). Finally, while CAT is currently targeted at structural imaging
+data, some features (e.g., high-dimensional spatial registration or mapping onto the cortical
+surface) may also be used for the analysis of functional, diffusion, or quantitative MRI or
+EEG/MEG data.
+20
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Methods
+Application Example: Data Source
+Data for the application example were obtained from the Alzheimer’s Disease Neuroimaging
+Initiative  (ADNI)  database (adni.loni.usc.edu). The ADNI was launched in 2003 as a
+public-private partnership, led by Principal Investigator Michael W. Weiner, MD. The primary
+goal of ADNI has been to test whether serial magnetic resonance imaging (MRI), positron
+emission tomography (PET), other biological markers, and clinical and neuropsychological
+assessment can be combined to measure the progression of mild cognitive impairment
+(MCI)   and   early   Alzheimer’s   disease   (AD).   For   up-to-date  information,  see
+www.adni-info.org.
+Application Example: Sample Characteristics
+For the purpose of the current study, we compiled a sample of fifty subjects with 3D
+T1-weighted structural brain images from the ADNI database. Specifically, we randomly
+selected the first 25 subjects (16 males / 9 females) classified as AD patients (mean age
+75.74±8.14 years; meanminimal mental status examination(MMSE) score: 23.44±2.04) and
+matched them for sex and age with 25 healthy controls (mean age 76.29±3.90 years; mean
+MMSE: 28.96±1.24). All subjects had brain scans at baseline (first scan at enrolment) and at
+two follow-up visits, at one year and at two years after the first scan. All brain images were
+acquired on 1.5 Tesla scanners (Siemens, General Electric, Philips) using a 3D T1-weighted
+sequence with an in-plane resolution between 0.94 and 1.25 mm and a slice thickness of 1.2
+mm.
+21
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Application Example: Data Processing
+All  T1-weighted  data  were  processed  using  CAT12  following the cross-sectional (or
+longitudinal, respectively) processing stream for VBM, SBM (cortical thickness), and ROI
+analyses (seeFigure 2) according to the descriptions provided underComputational
+Morphometry.  For  each  subject,  only  their  first  time  point  was  included  in  the
+cross-sectional stream, whereas all three time points were included in the longitudinal
+stream. The processing streams for the VBM analysis resulted in modulated and registered
+gray matter segments, which were smoothed using a 6 mm Gaussian kernel. The image
+processing streams for the SBM analysis resulted in the registered point-wise cortical
+thickness measures, which were smoothed using a 12 mm Gaussian Kernel. The voxel-based
+ROI analysis used the Neuromorphometrics atlas (http://Neuromorphometrics.com/) to
+calculate the regional gray matter volumes; the surface-based ROI analysis employed the
+DK40 atlas (Desikan et al., 2006) to calculate regional cortical thickness.
+Application Example: Statistical Analysis
+For each variable of interest – voxel-wise gray matter volume, regional gray matter volume,
+point-wise cortical thickness, and regional cortical thickness – the dependent measures
+(e.g., the registered, modulated, and smoothed gray matter segments for voxel-wise gray
+matter) were entered into the statistical model. For the cross-sectional stream,group
+(Alzheimer’s disease patients vs. controls) was defined as the independent variable. For the
+longitudinal  stream,  the  interaction  betweengroupandtimewas  defined  as  the
+22
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+independent variable, whereassubjectwas defined as a variable of no interest. For the VBM
+and the voxel-based ROI analyses, data were corrected for TIV using ‘global scaling’ (because
+TIV correlated withgroup, the effect of interest). Since cortical thickness does not scale with
+brain size (Barnes et al., 2010), no corrections for TIV were applied for the SBM and the
+surface-based ROI analyses.
+For the VBM and SBM analyses, results were corrected for multiple comparisons by
+applying TFCE (Smith and Nichols, 2009) and controlling the family-wise error at p≤0.001
+(cross-sectional) and p≤0.05 (longitudinal). For the voxel-based and surface-based ROI
+analyses, results were corrected for multiple comparisons by controlling the false discovery
+rate (Benjamini and Hochberg, 1995) at q≤0.001 (cross-sectional) and q≤0.05 (longitudinal).
+The outcomes of the VBM and voxel-based ROI analyses were overlaid onto
+orthogonal sections of the mean brain created from the entire study sample (n=50); the
+outcomes of the SBM and surface-based ROI analyses were projected onto theFsAverage
+surface.
+23
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Acknowledgments
+This article received support through the Humboldt Foundation (Germany) and a Hood
+Fellowship from the University of Auckland (New Zealand). It was also supported by the
+Eunice Kennedy Shriver National Institute of Child Health & Human Development of the
+National Institutes of Health (R01HD081720) and by the Royal Society of New Zealand
+(Marsden 20-UOA-045). Data collection and sharing for this project was funded by the
+Alzheimer's Disease Neuroimaging Initiative (ADNI) (National Institutes of Health Grant U01
+AG024904) and DOD ADNI (Department of Defense award number W81XWH-12-2-0012).
+ADNI is funded by the National Institute on Aging, the National Institute of Biomedical
+Imaging and Bioengineering, and through generous contributions from the following:
+AbbVie, Alzheimer’s Association; Alzheimer’s Drug Discovery Foundation; Araclon Biotech;
+BioClinica, Inc.; Biogen; Bristol-Myers Squibb Company; CereSpir, Inc.; Cogstate; Eisai Inc.;
+Elan Pharmaceuticals, Inc.; Eli Lilly and Company; EuroImmun; F. Hoffmann-La Roche Ltd and
+its  affiliated company Genentech, Inc.; Fujirebio; GE Healthcare; IXICO Ltd.; Janssen
+Alzheimer  Immunotherapy  Research  &  Development,  LLC.;  Johnson  &  Johnson
+Pharmaceutical Research & Development LLC.; Lumosity; Lundbeck; Merck & Co., Inc.; Meso
+Scale   Diagnostics,   LLC.;   NeuroRx   Research;   Neurotrack   Technologies;   Novartis
+Pharmaceuticals Corporation; Pfizer Inc.; Piramal Imaging; Servier; Takeda Pharmaceutical
+Company; and Transition Therapeutics. The Canadian Institutes of Health Research is
+providing funds to support ADNI clinical sites in Canada. Private sector contributions are
+facilitated by the Foundation for the National Institutes of Health (www.fnih.org). The
+grantee organization is the Northern California Institute for Research and Education, and the
+study is coordinated by the Alzheimer’s Therapeutic Research Institute at the University of
+24
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Southern California. ADNI data are disseminated by the Laboratory of Neuro Imaging (LONI)
+at the University of Southern California (USC).
+25
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Supplemental Material
+Supplemental Notes
+Supplemental Note 1: Longitudinal Processing
+The majority of morphometric studies are based on cross-sectional data in which one image
+is acquired for each subject. Nevertheless, the mapping of structural changes over time
+requires specific longitudinal designs that consider additional time points (and thus images)
+for each subject. In theory, all images could be processed using the standard cross-sectional
+processing workflow. In practice, however, longitudinal data strongly benefit from workflows
+specifically  tailored  towards  longitudinal  analyses,  where  MR-based  noise  and
+inhomogeneities are further reduced and where spatial correspondences are ensured, the
+latter not only across subjects but also across time points within subjects (Reuter, Rosas and
+Fischl, 2010; Reuter and Fischl, 2011; Ashburner and Ridgway, 2012). As a consequence,
+analyses become more sensitive, as shown inSupplemental Figure 1.
+Supplemental  Figure  1:Comparison  between  CAT’s  cross-sectional  and  longitudinal  pipelines  using
+longitudinal data
+Voxel-based morphometry(VBM) results are shown on the left andsurface-based morphometry(SBM) results
+on the right. For both VBM and SBM the longitudinal preprocessing leads to an increased sensitivity compared
+to cross-sectional processing, which is evident as larger clusters and lower p-values (panels a and b) as well as
+larger effect sizes (panels c and d). The effect sizes are captured as Cohen’s d on the x-axis with the frequency
+of its occurrence normalized to a total sum of one (to ease comparisons between histograms) on the y-axis.
+26
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+CAT  offers  three  optimized  processing  pipelines  for  longitudinal  studies:  One  for
+neuroplasticity, one for aging, and one for neurodevelopmental studies. Studies in the
+framework of neuroplasticity are confined to short time-frames of weeks to months, while
+studies in the framework of aging and neurodevelopment cover longer time frames of years
+and, sometimes, even decades. For such extended study durations, it is particularly
+important to model systematic changes of the brain over time to maintain a voxel- or
+point-wise comparability across time points. Studies in the framework of neurodevelopment
+require additional considerations of increasing brain and head sizes. A detailed description
+of all three longitudinal processing workflows is provided inSupplemental Figure 2.
+Supplemental Figure 2: CAT’s longitudinal processing workflows to examine (a) neuroplasticity, (b) aging, and
+(c) neurodevelopment
+The first step in all three workflows is the creation of a high-quality average image over all time points. For this
+purpose, CAT realigns the images from all time points for each participant using inverse-consistent (or
+symmetric) rigid-body registrations and intra-subject bias field correction. While this is sufficient to create the
+required average image for the neuroplasticity and aging workflows, the neurodevelopmental workflow
+requires non-linear registrations in addition. In either case, the resulting average image is segmented using
+CAT’s regular processing workflow to create a subject-specifictissue probability map(TPM). This TPM is used
+to enhance the time point-specific processing to create the final segmentations. The final tissue segments are
+then registered to MNI space to obtain a voxel-comparability across time points and subjects, which differs
+between  all  three  workflows. In the neuroplasticity workflow, an average of the time point-specific
+registrations is created to register the tissue segments of all time points to MNI space. The aging workflow
+does the same in principle but adds additional (very smooth) deformations between the individual images
+27
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+across time points to account for inevitable age-related changes over time (e.g., enlargements of the
+ventricles). In contrast, the neurodevelopmental workflow needs to account for major changes, such as overall
+head and brain growth, which requires independent non-linear registrations to MNI space of all images across
+time points (which are obtained using the default cross-sectional registration model).
+For surface-based processing, the neuroplasticity and aging models use the processing of the time point
+average image to create an average surface. The average is then adapted (deformed) to time point specific
+maps used in the surface creation, whereas the neurodevelopment workflow has to run the independent
+cross-sectional surface pipeline for each time point.
+Supplemental Note 2. Quality Control
+Processing of MRI data strongly depends on the quality of the input data. Multi-center
+studies and data sharing projects, in particular, need to take into account varying image
+properties due to different scanners, sequences and protocols. However, even scans
+acquired on a single scanner and using the same scanning protocol may vary due to motion
+or other miscellaneous artifacts. CAT provides options to perform quality checks, both on
+the subject level and on the group level. More specifically, on the subject level, CAT
+introduces a novel retrospective quality control framework for the quantification of quality
+differences between different scans obtained on a single scanner or across different
+scanners. The quality control allows for the evaluation of essential image parameters (i.e.,
+noise, intensity inhomogeneities, and image resolution) and is automatically performed for
+each brain when running CAT’s image processing workflow (seeSupplemental Figure 3). On
+the group-level, CAT provides options to check and visualize the homogeneity of the entire
+study sample, thus allowing the user to identify any outliers (seeSupplemental Figure 4).
+Supplemental Note 3. Mapping onto the Cortical Surface
+Surface-based analyses offer some advantages over voxel-based approaches, such as better
+inter-subject registration and surface-based smoothing, which may result in a larger
+statistical power and improved accuracy (Tucholka et al., 2012; Dahnke and Gaser, 2018).
+CAT provides a range of options to map voxel-based values (e.g., functional, quantitative or
+diffusion parameters) to individual brain surfaces for a subsequent surface-based analysis.
+For this purpose, voxel-based values are extracted at multiple positions along the surface
+normal at each node of the surface (seeSupplemental Figure 5). The exact positions along
+the surface normal are determined by an equi-volume model (Bok, 1929), which reflects the
+normal shift of cytoarchitectonic layers caused by the local folding. In addition to default
+settings, users have an option to specify both the number and location of those positions
+along the surface normal. The extracted values along the surface normal are then
+summarized as one value per node. Here, the absolute maximum is used as a default; this is
+also the recommended option to map contrast images from a first-level fMRI analysis to the
+individual surface (Brodoehl et al., 2020).
+28
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Supplemental Figure 3:Subject-specific quality control
+Individual quality ratings for each scan are helpful for determining potential problems and issues for the use of
+single scans. The ‘Image Quality Ratings’ (top) employ measures of noise, bias, and image resolution to
+generate a summary grade for each image (Gilmore, Buser and Hanson, 2021). A ‘CAT Processing Report’ (left)
+is automatically saved for each image after the processing workflow is completed; it provides information on
+image quality measures and the overall grade, in addition to visualizations which allow for an easy assessment
+of the quality of the skull stripping, tissue segmentation, and surface mapping. Moreover, a ‘Longitudinal
+Report’  (right)  is  automatically  saved  when  any  of  the longitudinal pipelines have been used (see
+Supplemental Notes 1). This longitudinal report – considering all images of one brain across all time points –
+provides the same information as the standard cross-sectional report but focuses on the assessment of
+differences between the individual time points.
+29
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Supplemental Figure 4:Group-specific quality control
+In addition to the subject-specific quality control, larger studies in particular might benefit from scrutinizing
+those images that are either low in their individual quality ratings and/or different from the other images,
+suggesting anatomic anomalies, imperfect processing, or other issues that might hamper the subsequent
+statistical analysis. The ‘Check Covariance Window’ (left) allows one to detect and compare any two images
+based on their similarity, by calculating the Spearman's rank correlation coefficient between all spatially
+registered images (or surface parameter files) resulting in a combined correlation matrix. Higher correlation
+values in that matrix indicate that the data points are more similar to each other. An additional ‘Group Boxplot’
+(right) displays the averages of all correlation values for each subject and thus reflects the homogeneity of the
+sample. Outliers (i.e., images with low correlation values) indicate either a potential problem (with the image
+per se or with the outcomes of the image processing), or simply a variation in the neuroanatomy (e.g.,
+enlarged ventricles). Such outliers should be checked carefully.
+However, other options exist, such as using the minimum, mean, or weighted mean.
+Alternatively, users may choose to map voxel values at multiple positions to allow for a
+layer-specific analysis of ultra-high resolution functional MRI data (Waehnert et al., 2014;
+Kemper et al., 2017). Finally, CAT also allows mapping voxel values at absolute distances (in
+mm) from a given surface for other customized applications.
+Supplemental Figure 5: Volume mapping
+CAT offers multiple ways to map voxel values onto the surface. The default mapping extracts voxel values at
+multiple positions along a surface normal between the white matter surface and the pial surface. The exact
+location of these positions along the normal is determined by an equi-volumetric model (Bok, 1929), which
+reflects the shift of cortical layers caused by local folding. However, voxel values can also be extracted at a
+specific user-defined displacement (in mm) from any given surface location.
+30
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Supplemental Note 4. Threshold-free Cluster Enhancement (TFCE)
+SPM’s standard correction for multiple comparisons is based either on the magnitude of the
+T or F statistic (correction on voxel-level) or on the extent of clusters in a thresholded
+statistical map (correction on cluster level). The principle of TFCE – as implemented in CAT’s
+TFCE toolbox – is to combine both approaches, which has several theoretical and practical
+advantages, as detailed elsewhere (Smith and Nichols, 2009). Briefly, it retains the sensitivity
+of  cluster-based  inferences,  while  avoiding  their main downsides, such as arbitrary
+cluster-forming thresholds or susceptibility to non-stationarity that may compromise the
+statistical validity (Hayasaka et al., 2004; Salimi-Khorshidi, Smith and Nichols, 2011; Eklund,
+Nichols and Knutsson, 2016). As a special feature in CAT, the TFCE toolbox automatically
+recognizes exchangeability blocks and potential nuisance parameters (Winkler et al., 2014),
+which would otherwise need to be specified by the user.
+31
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Supplemental Tables
+Supplemental Table 1:Voxel-based ROI atlases available in CAT (as of June 2022)
+AtlasReference
+Neuromorphometricshttp://Neuromorphometrics.com
+LPBA40http://www.loni.usc.edu/atlases/Atlas_Detail.php?atlas_id=12
+(Shattuck et al., 2008)
+Cobrahttp://cobralab.ca
+(Winterburn et al., 2013; Park et al., 2014; Treadway et al., 2015; Amaral et al., 2018;
+Tullo et al., 2018)
+(built from 5 atlases provided by theComputational Brain Anatomy Laboratoryat the
+Douglas Institute)
+Morihttp://wiki.slicer.org/slicerWiki/index.php/Slicer3:Mori-Atlas_labels
+(Oishi et al., 2009)
+IBSRhttp://www.nitrc.org/projects/ibsr
+Hammershttp://brain-development.org/brain-atlases/adult-brain-atlases/individual-adult-brain-atl
+ases-new/
+(Hammers et al., 2003)
+JuBrain Anatomyhttps://github.com/inm7/jubrain-anatomy-toolbox
+(Eickhoff et al., 2005)
+Julich-Brain Cytoarchitectonic
+Atlas
+https://kg.ebrains.eu/search/instances/Dataset/3fde2768-e845-4fc3-a425-61e2c1fb6db7
+(Amunts et al., 2020)
+AAL3http://www.gin.cnrs.fr/en/tools/aal/
+(Tzourio-Mazoyer et al., 2002; Rolls et al., 2019)
+Thalamushttps://wp.unil.ch/mial/probabilistic-atlas-of-thalamic-nuclei
+(Najdenovska et al., 2018)
+SUIT Atlas of the human
+cerebellum
+https://github.com/DiedrichsenLab/cerebellar_atlases
+(Diedrichsen et al., 2009)
+Supplemental Table 2: Surface-based ROI atlases available in CAT (as of June 2022)
+AtlasReference
+DK40 (Desikan-Killiany)https://surfer.nmr.mgh.harvard.edu/fswiki/CorticalParcellation
+(Desikan et al., 2006)
+Destrieuxhttps://surfer.nmr.mgh.harvard.edu/fswiki/DestrieuxAtlasChanges
+(Destrieux et al., 2009)
+Human Connectome Project
+(HCP) Multi-Modal
+Parcellation
+https://balsa.wustl.edu/study/RVVG
+(Glasser et al., 2016)
+Local-Global Intrinsic
+Functional Connectivity
+Parcellation
+https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellation
+/Schaefer2018_LocalGlobal
+(Schaefer et al., 2018)
+32
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+References:
+Amaral, R.S.C.et al.(2018) ‘Manual segmentation of the fornix, fimbria, and alveus on
+high-resolution 3T MRI: Application via fully-automated mapping of the human memory
+circuit white and grey matter in healthy and pathological aging.’,NeuroImage,170, pp.
+132–150. doi:10.1016/j.neuroimage.2016.10.027.
+Amunts, K.et al.(2020) ‘Julich-Brain: A 3D probabilistic atlas of the human brain’s
+cytoarchitecture.’,Science.American Association for the Advancement of Science, pp.
+988–992. doi:10.1126/SCIENCE.ABB4588.
+Ashburner, J. (2007) ‘A fast diffeomorphic image registration algorithm’,NeuroImage,38, pp.
+95–113. Available at: http://linkinghub.elsevier.com/retrieve/pii/S1053811907005848
+(Accessed: 2007).
+Ashburner, J. and Friston, K.J. (2005) ‘Unified segmentation’,NeuroImage,26(3), pp. 839–51.
+doi:10.1016/j.neuroimage.2005.02.018.
+Ashburner, J. and Friston, K.J. (2011) ‘Diffeomorphic registration using geodesic shooting
+and Gauss-Newton optimisation.’,NeuroImage,55(3), pp. 954–967.
+doi:10.1016/j.neuroimage.2010.12.049.
+Ashburner, J. and Ridgway, G.R. (2012) ‘Symmetric diffeomorphic modeling of longitudinal
+structural MRI.’,Frontiers in neuroscience,6, p. 197. doi:10.3389/fnins.2012.00197.
+Aubert-Broche, B., Evans, A.C. and Collins, L. (2006) ‘A new improved version of the realistic
+digital brain phantom.’,NeuroImage.Elsevier, pp. 138–45.
+doi:10.1016/J.NEUROIMAGE.2006.03.052.
+Barnes, J.et al.(2010) ‘Head size, age and gender adjustment in MRI studies: a necessary
+nuisance?’,NeuroImage,53(4), pp. 1244–1255. doi:10.1016/j.neuroimage.2010.06.025.
+Bayram, E., Caldwell, J.Z.K. and Banks, S.J. (2018) ‘Current understanding of magnetic
+resonance imaging biomarkers and memory in Alzheimer’s disease.’,Alzheimer’s & dementia
+(New York, N. Y.),4, pp. 395–413. doi:10.1016/j.trci.2018.04.007.
+Benjamini, Y. and Hochberg, Y. (1995) ‘Controlling the false discovery rate: a practical and
+powerful approach to multiple testing’,Journal of the Royal Statistical Society. Series B
+(Methodological),pp. 289–300. Available at: http://www.jstor.org/stable/10.2307/2346101
+(Accessed: 1995).
+Bok, S.T. (1929) ‘Der Einfluss der in den Furchen und Windungen auftretenden Krümmungen
+der Grosshirnrinde auf die Rindenarchitektur’,Zeitschrift für die gesamte Neurologie und
+Psychiatrie,121(1). doi:10.1007/BF02864437.
+Brodoehl, S.et al.(2020) ‘Surface-based analysis increases the specificity of cortical
+activation patterns and connectivity results.’,Scientific Reports.Springer Nature.
+doi:10.1038/S41598-020-62832-Z.
+Carmo, M.D. (2016) ‘Differential geometry of curves and surfaces: revised and updated
+second edition’. Available at:
+https://books.google.com/books?hl=de&lr=&id=gg2xDQAAQBAJ&oi=fnd&pg=PR11&ots=w9
+Klp0OM7H&sig=PCeJOYPCZ0fm1-PfVJJxKjnYCjw (Accessed: 2016).
+Dahnke, R. and Gaser, C. (2018) ‘Surface and Shape Analysis’, inBrain Morphometry.
+Springer New York, pp. 51–73. doi:10.1007/978-1-4939-7647-8_4.
+Dahnke, R., Yotter, R.A. and Gaser, C. (2013) ‘Cortical thickness and central surface
+33
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+estimation.’,NeuroImage,65, pp. 336–348. doi:10.1016/j.neuroimage.2012.09.050.
+Desikan, R.S.et al.(2006) ‘An automated labeling system for subdividing the human cerebral
+cortex on MRI scans into gyral based regions of interest’,NeuroImage,31(3), pp. 968–80.
+doi:DOI: 10.1016/j.neuroimage.2006.01.021.
+Destrieux, C.et al.(2009) ‘A sulcal depth-based anatomical parcellation of the cerebral
+cortex.’,NeuroImage,47. doi:10.1016/S1053-8119(09)71561-7.
+Dickerson, B.C. (2010) ‘Advances in quantitative magnetic resonance imaging-based
+biomarkers for Alzheimer disease.’,Alzheimer’s research & therapy,2(4), p. 21.
+doi:10.1186/alzrt45.
+Diedrichsen, J.et al.(2009) ‘A probabilistic MR atlas of the human cerebellum’,NeuroImage.
+Elsevier. doi:10.1016/S1053-8119(09)71166-8.
+Eickhoff, S.B.et al.(2005) ‘A new SPM toolbox for combining probabilistic cytoarchitectonic
+maps and functional imaging data.’,NeuroImage,25(4), pp. 1325–1335.
+doi:10.1016/j.neuroimage.2004.12.034.
+Eklund, A., Nichols, T.E. and Knutsson, H. (2016) ‘Cluster failure: Why fMRI inferences for
+spatial extent have inflated false-positive rates.’,Proceedings of the National Academy of
+Sciences of the United States of America,113(28), pp. 7900–7905.
+doi:10.1073/pnas.1602413113.
+Essen, D.C.V. (2005) ‘A Population-Average, Landmark- and Surface-based (PALS) atlas of
+human cerebral cortex.’,NeuroImage.Elsevier, pp. 635–62.
+doi:10.1016/J.NEUROIMAGE.2005.06.058.
+Fischl, B. and Dale, A.M. (2000) ‘Measuring the thickness of the human cerebral cortex from
+magnetic resonance images.’,Proceedings of the National Academy of Sciences.National
+Academy of Sciences (NAS), pp. 11050–5. doi:10.1073/PNAS.200033797.
+Gilmore, A.D., Buser, N.J. and Hanson, J.L. (2021) ‘Variations in structural MRI quality
+significantly impact commonly used measures of brain anatomy.’,Brain Informatics.Springer
+Nature. doi:10.1186/S40708-021-00128-2.
+Glasser, M.F.et al.(2016) ‘A multi-modal parcellation of human cerebral cortex’,Nature
+[Preprint]. Available at:
+http://www.nature.com/nature/journal/vaop/ncurrent/full/nature18933.html (Accessed:
+2016).
+Hammers, A.et al.(2003) ‘Three-dimensional maximum probability atlas of the human
+brain, with particular reference to the temporal lobe’,Human Brain Mapping,19, pp.
+224–247.
+Hayasaka, S.et al.(2004) ‘Nonstationary cluster-size inference with random field and
+permutation methods.’,NeuroImage,22(2), pp. 676–687.
+doi:10.1016/j.neuroimage.2004.01.041.
+Hutton, C.et al.(2009) ‘A comparison between voxel-based cortical thickness and
+voxel-based morphometry in normal aging’,NeuroImage,48(2), pp. 371–380. Available at:
+http://www.sciencedirect.com/science/article/pii/S105381190900679X (Accessed: 1
+November 2009).
+Kemper, V.G.et al.(2017) ‘High resolution data analysis strategies for mesoscale human
+functional MRI at 7 and 9.4T.’,NeuroImage.Elsevier, pp. 48–58.
+doi:10.1016/J.NEUROIMAGE.2017.03.058.
+34
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Krzysztof, G.et al.(2015) ‘Brain Imaging Data Structure - a new standard for describing and
+organizing human neuroimaging data’,Frontiers in Neuroscience.Frontiers Media S.A.
+doi:10.3389/CONF.FNINS.2015.91.00056.
+Kurth, F., Luders, E. and Gaser, C. (2015) ‘Voxel-Based Morphometry’, in, pp. 345–349.
+doi:10.1016/B978-0-12-397025-1.00304-3.
+Luders, E.et al.(2006) ‘A curvature-based approach to estimate local gyrification on the
+cortical surface.’,NeuroImage,29(4), pp. 1224–1230.
+doi:10.1016/j.neuroimage.2005.08.049.
+Malone, I.B.et al.(2015) ‘Accurate automatic estimation of total intracranial volume: a
+nuisance variable with less nuisance.’,NeuroImage,104, pp. 366–372.
+doi:10.1016/j.neuroimage.2014.09.034.
+Manjón, J.V.et al.(2010) ‘Adaptive non-local means denoising of MR images with spatially
+varying noise levels.’,Journal of magnetic resonance imaging: JMRI,31(1), pp. 192–203.
+doi:10.1002/jmri.22003.
+Masouleh, S.K.et al.(2020) ‘Influence of Processing Pipeline on Cortical Thickness
+Measurement.’,Cerebral Cortex.Oxford University Press, pp. 5014–5027.
+doi:10.1093/CERCOR/BHAA097.
+Mutsaerts, H.J.M.M.et al.(2020) ‘ExploreASL: An image processing pipeline for multi-center
+ASL perfusion MRI studies.’,NeuroImage.Elsevier.
+doi:10.1016/J.NEUROIMAGE.2020.117031.
+Najdenovska, E.et al.(2018) ‘In-vivo probabilistic atlas of human thalamic nuclei based on
+diffusion- weighted magnetic resonance imaging.’,Scientific Data.Springer Nature.
+doi:10.1038/SDATA.2018.270.
+Oishi, K.et al.(2009) ‘Atlas-based whole brain white matter analysis using large deformation
+diffeomorphic metric mapping: application to normal elderly and Alzheimer’s disease
+participants’,Neuroimage,46, pp. 486–99. doi:10.1016/j.neuroimage.2009.01.002.
+Park, M.T.M.et al.(2014) ‘Derivation of high-resolution MRI atlases of the human
+cerebellum at 3T and segmentation using multiple automatically generated templates.’,
+NeuroImage,95, pp. 217–231. doi:10.1016/j.neuroimage.2014.03.037.
+Rajapakse, J.C., Giedd, J.N. and Rapoport, J.L. (1997) ‘Statistical approach to segmentation of
+single-channel cerebral MR images.’,IEEE transactions on medical imaging,16(2), pp.
+176–186. doi:10.1109/42.563663.
+Reuter, M. and Fischl, B. (2011) ‘Avoiding asymmetry-induced bias in longitudinal image
+processing.’,NeuroImage,57(1), pp. 19–21. doi:10.1016/j.neuroimage.2011.02.076.
+Reuter, M., Rosas, H.D. and Fischl, B. (2010) ‘Highly accurate inverse consistent registration:
+a robust approach.’,NeuroImage,53(4), pp. 1181–1196.
+doi:10.1016/j.neuroimage.2010.07.020.
+Rolls, E.T.et al.(2019) ‘Automated anatomical labelling atlas 3.’,NeuroImage.Elsevier.
+doi:10.1016/J.NEUROIMAGE.2019.116189.
+Salimi-Khorshidi, G., Smith, S.M. and Nichols, T.E. (2011) ‘Adjusting the effect of
+nonstationarity in cluster-based and TFCE inference.’,NeuroImage,54(3), pp. 2006–2019.
+doi:10.1016/j.neuroimage.2010.09.088.
+Schaefer, A.et al.(2018) ‘Local-Global Parcellation of the Human Cerebral Cortex from
+35
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Intrinsic Functional Connectivity MRI.’,Cerebral cortex (New York, N.Y. : 1991),28(9), pp.
+3095–3114. doi:10.1093/cercor/bhx179.
+Shattuck, D.W.et al.(2008) ‘Construction of a 3D probabilistic atlas of human cortical
+structures.’,NeuroImage,39(3), pp. 1064–1080. doi:10.1016/j.neuroimage.2007.09.031.
+Smith, S.M. and Nichols, T.E. (2009) ‘Threshold-free cluster enhancement: Addressing
+problems of smoothing, threshold dependence and localisation in cluster inference’,
+NeuroImage,44(1), pp. 83–98. Available at:
+http://www.sciencedirect.com/science/article/pii/S1053811908002978 (Accessed: 2009).
+Tadel, F.et al.(2011) ‘Brainstorm: a user-friendly application for MEG/EEG analysis.’,
+Computational Intelligence and Neuroscience.Hindawi Publishing Corporation.
+doi:10.1155/2011/879716.
+Tohka, J., Zijdenbos, A. and Evans, A. (2004) ‘Fast and robust parameter estimation for
+statistical partial volume models in brain MRI.’,NeuroImage,23(1), pp. 84–97.
+doi:10.1016/j.neuroimage.2004.05.007.
+Toro, R.et al.(2008) ‘Brain size and folding of the human cerebral cortex.’,Cerebral Cortex.
+Oxford University Press, pp. 2352–7. doi:10.1093/CERCOR/BHM261.
+Treadway, M.T.et al.(2015) ‘Illness progression, recent stress, and morphometry of
+hippocampal subfields and medial prefrontal cortex in major depression.’,Biological
+psychiatry,77(3), pp. 285–294. doi:10.1016/j.biopsych.2014.06.018.
+Tucholka, A.et al.(2012) ‘An empirical comparison of surface-based and volume-based
+group studies in neuroimaging.’,NeuroImage,63(3), pp. 1443–1453.
+doi:10.1016/j.neuroimage.2012.06.019.
+Tullo, S.et al.(2018) ‘Warping an atlas derived from serial histology to 5 high-resolution
+MRIs.’,Scientific data,5, p. 180107. doi:10.1038/sdata.2018.107.
+Tzourio-Mazoyer, N.et al.(2002) ‘Automated anatomical labeling of activations in SPM using
+a macroscopic anatomical parcellation of the MNI MRI single-subject brain.’,NeuroImage.
+Elsevier, pp. 273–89. doi:10.1006/NIMG.2001.0978.
+Waehnert, M.D.et al.(2014) ‘Anatomically motivated modeling of cortical laminae.’,
+NeuroImage,93 Pt 2, pp. 210–220. doi:10.1016/j.neuroimage.2013.03.078.
+Winkler, A.M.et al.(2014) ‘Permutation inference for the general linear model.’,
+NeuroImage,92, pp. 381–397. doi:10.1016/j.neuroimage.2014.01.060.
+Winkler, A.M.et al.(2018) ‘Joint Analysis of Cortical Area and Thickness as a Replacement
+for the Analysis of the Volume of the Cerebral Cortex.’,Cerebral cortex (New York, N.Y. :
+1991),28(2), pp. 738–749. doi:10.1093/cercor/bhx308.
+Winterburn, J.L.et al.(2013) ‘A novel in vivo atlas of human hippocampal subfields using
+high-resolution 3 T magnetic resonance imaging.’,NeuroImage.Elsevier, pp. 254–65.
+doi:10.1016/J.NEUROIMAGE.2013.02.003.
+Yotter, Rachel Aet al.(2011) ‘Local cortical surface complexity maps from spherical
+harmonic reconstructions.’,NeuroImage,56(3), pp. 961–973.
+doi:10.1016/j.neuroimage.2011.02.007.
+Yotter, Rachel Aineet al.(2011) ‘Topological correction of brain surface meshes using
+spherical harmonics.’,Human brain mapping,32(7), pp. 1109–1124.
+doi:10.1002/hbm.21095.
+36
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint 
+Yotter, R.A., Thompson, P.M. and Gaser, C. (2011) ‘Algorithms to improve the
+reparameterization of spherical mappings of brain surface meshes.’,Journal of
+neuroimaging : official journal of the American Society of Neuroimaging,21(2), pp.
+e134–e147. doi:10.1111/j.1552-6569.2010.00484.x.
+37
+(which was not certified by peer review) is the author/funder. All rights reserved. No reuse allowed without permission. 
+The copyright holder for this preprintthis version posted June 13, 2022. ; https://doi.org/10.1101/2022.06.11.495736doi: bioRxiv preprint

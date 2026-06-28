@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: The Permeability of the Sodium Channel to Organic Cations in Myelinated Nerve
+DATE: 1971-12-01
+SOURCE: OpenAlex
+DOI: 10.1085/jgp.58.6.599
+URL: http://jgp.rupress.org/content/jgp/58/6/599.full.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

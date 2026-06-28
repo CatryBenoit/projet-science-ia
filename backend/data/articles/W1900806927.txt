@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Molecular cloning, functional properties, and distribution of rat brain alpha 7: a nicotinic cation channel highly permeable to calcium
+DATE: 1993-02-01
+SOURCE: OpenAlex
+DOI: 10.1523/jneurosci.13-02-00596.1993
+URL: https://www.jneurosci.org/content/jneuro/13/2/596.full.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

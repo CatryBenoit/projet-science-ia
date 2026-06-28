@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Functional variants of OCTN cation transporter genes are associated with Crohn disease
+DATE: 2004-04-11
+SOURCE: OpenAlex
+DOI: 10.1038/ng1339
+URL: https://www.nature.com/articles/ng1339.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

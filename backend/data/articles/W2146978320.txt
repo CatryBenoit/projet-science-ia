@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Phylogenetic Relationships within Cation Transporter Families of Arabidopsis
+DATE: 2001-08-01
+SOURCE: OpenAlex
+DOI: 10.1104/pp.126.4.1646
+URL: https://academic.oup.com/plphys/article-pdf/126/4/1646/38682266/plphys_v126_4_1646.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

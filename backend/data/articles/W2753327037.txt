@@ -1,0 +1,8 @@
+--- EXTRACTED DATA (ABSTRACT ONLY DUE TO PAYWALL) ---
+TITLE: BITE: an R package for biodiversity analyses
+DATE: 2017-08-29
+SOURCE: OpenAlex
+URL: https://www.biorxiv.org/content/biorxiv/early/2017/08/29/181610.full.pdf
+
+ABSTRACT:
+Aucun résumé en accès libre disponible pour cette étude.

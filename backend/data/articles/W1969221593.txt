@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Experimentally-induced osteoarthritis in the dog.
+DATE: 1973-07-01
+SOURCE: OpenAlex
+DOI: 10.1136/ard.32.4.387
+URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC1006123/pdf/annrheumd00016-0106.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

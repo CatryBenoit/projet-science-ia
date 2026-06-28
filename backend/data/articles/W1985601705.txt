@@ -1,0 +1,3877 @@
+arXiv:1508.00442v1  [quant-ph]  3 Aug 2015
+EPJ manuscript No.
+(will be inserted by the editor)
+Training Schr ̈odinger’s cat: quantum optimal control
+Strategic report on current status, visions and goals for research in Europe
+Steffen J. Glaser
+1
+, Ugo Boscain
+2
+, Tommaso Calarco
+3
+, Christiane P. Koch
+4
+, Walter K ̈ockenberger
+5
+, Ronnie Kosloff
+6
+,
+Ilya Kuprov
+7
+, Burkhard Luy
+8
+, Sophie Schirmer
+9
+, Thomas Schulte-Herbr ̈uggen
+1
+, Dominique Sugny
+10,11
+, and Frank K.
+Wilhelm
+12
+1
+Department Chemie, TU-M ̈unchen (TUM), Lichtenbergstrasse 4, 85747 Garching, Germany
+2
+CNRS, CMAP Ecole Polytechnique, Palaiseau, France and TeamGECO, INRIA Saclay Ile-de-France
+3
+Institute for Complex Quantum Systems and Center for Integrated Quantum Science and Technology, University of Ulm,
+Albert-Einstein-Allee 11, D-89069 Ulm, Germany
+4
+Theoretische Physik, Universit ̈at Kassel, Heinrich-Plett-Str. 40, 24132 Kassel, Germany
+5
+Sir Peter Mansfield Magnetic Resonance Centre, University of Nottingham, University Park, NG7 2RD, United Kingdom
+6
+Institute of Chemistry the Fritz Haber Research Center for Molecular Dynamics, The Hebrew University, Jerusalem 91904,
+Israel
+7
+School of Chemistry, University of Southampton, University Road, Southampton, SO17 1BJ, United Kingdom
+8
+Institut f ̈ur Organische Chemie and Institut f ̈ur Biologische Grenzfl ̈achen, Karlsruher Institut f ̈ur Technologie (KIT), Fritz-
+Haber-Weg 6, 76131 Karlsruhe, Germany
+9
+College of Science, Swansea University, Singleton Park, Swansea SA2 8PP, Wales, United Kingdom
+10
+Laboratoire Interdisciplinaire Carnot de Bourgogne-Franche Comt ́e (ICB), UMR 6303 CNRS-Universit ́e de Bourgogne,
+9 Av. A. Savary, BP 47 870, F-21078 Dijon Cedex, France
+11
+Institute for Advanced Studies, Technische Universit ̈at M ̈unchen, Lichtenbergstrasse 2a, D-85748 Garching, Germany
+12
+Theoretische Physik, Saarland University, 66123 Saarbr ̈ucken, Germany
+Received: August 4, 2015/ Revised version: date
+Abstract.It is control that turns scientific knowledge into useful technology: in physics and engineering
+it provides a systematic way for driving a system from a giveninitial state into a desired target state
+with minimized expenditure of energy and resources – as famously applied in the Apollo programme. As
+one of the cornerstones for enabling quantum technologies,optimal quantum control keeps evolving and
+expanding into areas as diverse as quantum-enhanced sensing, manipulation of single spins, photons, or
+atoms, optical spectroscopy, photochemistry, magnetic resonance (spectroscopy as well as medical imag-
+ing), quantum information processing and quantum simulation. — Here state-of-the-art quantum control
+techniques are reviewed and put into perspective by a consortium uniting expertise in optimal control the-
+ory and applications to spectroscopy, imaging, quantum dynamics of closed and open systems. We address
+key challenges and sketch a roadmap to future developments.
+PACS.02.30.Yy Control theory in mathematical physics – 03.67.LxQuantum computation architectures
+and implementations – 07.57.Pt Submillimeter wave, microwave and radiowave spectrometers; magnetic
+resonance spectrometers, auxiliary equipment, and techniques – 82.53.Kp Coherent spectroscopy of atoms
+and molecules
+Contents
+1  Introduction . . . . . . . . . . . . . . . . . . . . . . .
+2
+2  General aspects and mathematics of optimal control2
+2.1  Controllability and simulability . . . . . . . . .3
+2.2  Control design  . . . . . . . . . . . . . . . . . .4
+2.3  Quantum feedback control theory . . . . . . . .6
+2.4  Long-term vision . . . . . . . . . . . . . . . . .7
+3  Atomic, molecular, and chemical physics . . . . . . .7
+3.1  State of the art . . . . . . . . . . . . . . . . . .7
+3.2  Mid-term prospects: goals and challenges  . . .9
+3.3  Long-term vision . . . . . . . . . . . . . . . . .9
+4  Magnetic resonance . . . . . . . . . . . . . . . . . . .9
+4.1  State of the art . . . . . . . . . . . . . . . . . .10
+4.2  Mid-term prospects: goals and challenges  . . .12
+4.3  Long-term vision . . . . . . . . . . . . . . . . .12
+5  Quantum information and communication . . . . . .13
+5.1  State of the art . . . . . . . . . . . . . . . . . .13
+5.2  Mid-term prospects: goals and challenges  . . .14
+5.3  Long-term vision . . . . . . . . . . . . . . . . .15
+6  Prospects for applications and commercial exploitation15
+7  Conclusions . . . . . . . . . . . . . . . . . . . . . . .16
+2Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+Foreword
+The authors of the present paper represent the QUAINT
+consortium, a European Coordination Action on Optimal
+Control  of  Quantum  Systems,  funded  by  the  European
+Commission Framework Programme 7, Future Emerging
+Technologies FET-OPEN programme and the Virtual Fa-
+cility  for  Quantum  Control  (VF-QC).  This  consortium
+unites expertise in optimal control theory and applications
+to quantum systems both in existing and widely used areas
+such as spectroscopy and imaging and in emerging quan-
+tum technologies such as quantum information processing,
+quantum communication, quantum simulation and quan-
+tum  sensing.  Challenges  to  quantum  control  have  been
+gathered by a broad poll of leading researchers across the
+communities of general and mathematical control theory,
+atomic, molecular, and chemical physics, electron and nu-
+clear magnetic resonance spectroscopy as well as medical
+imaging, quantum information, communication and sim-
+ulation.  144  experts  of  these  fields  have  provided  feed-
+back  and  specific  input  on  the  state  of  the  art,  as  well
+as mid-term and long-term goals. These have been sum-
+marized in this document, which can be viewed as a per-
+spectives  paper, providing a  roadmap for  the  future  de-
+velopment of quantum control. As such an endeavour can
+hardly be complete and there are many additional areas of
+quantum control applications, such as spintronics, nano-
+optomechanical technologies etc., this roadmap is designed
+as a living document that is available at at the homepage
+of the VF-QC web page, [
+1], where additional aspects as
+well as new developments and ideas will be included.
+1 Introduction
+It is control that turns scientific knowledge into technol-
+ogy.  The  general  goal  of  quantum  control  is  to  actively
+manipulate dynamical processes at the atomic or molec-
+ular scale, typically by means of external electromagnetic
+fields or forces. The objective of quantum optimal control
+is  to  devise  and  implement  shapes  of  pulses  of  external
+fields or sequences of such pulses, that reach a given task
+in a quantum system in the best way possible. Quantum
+control builds on a variety of theoretical and technological
+advances from the  fields  of mathematical  control theory
+and  numerical  mathematics  to  better  electronic  devices
+such as arbitary-waveform generators with  sub  nanosec-
+ond time resolution or stronger magnetic fields.
+The  challenge  to  manipulate  nature  at  the  quantum
+level offers a huge potential for current and future applica-
+tions. Quantum systems and processes cover a wide range
+from atomic and molecular physics, chemistry, materials
+(such as semiconductors, superconductors) to biosystems
+and  medicine.  Useful  applications  range  from  magnetic
+resonance imaging and spectroscopy and the precise con-
+trol of chemical reactions to emerging second generation
+quantum  technologies. Quantum  optimal  control  is  part
+of  the  effort  to  engineer  quantum  technologies from  the
+bottom up, and many striking examples of surprising and
+non-intuitive - but extremely efficient and robust - quan-
+tum  control  techniques  have  been  discovered  in  recent
+years. Examples of important current applications are the
+precise measurement of magnetic fields with nanometer-
+scale  resolution  using  NV  centers  in  diamond,  state  en-
+gineering  of  Bose-Einstein  condensates  and  high-fidelity
+quantum  gates  in  superconducting  quantum  processors.
+Similar to the first generation of quantum-based technol-
+ogy  that  brought  forward  the  semiconductor  transistor,
+the  laser, magnetic  resonance imaging  and  spectroscopy
+in the last century, also the currently developing second
+generation of quantum technology based on superposition,
+entanglement  and  many  body  quantum  systems  are  ex-
+pected to expand on the potential for new disruptive tech-
+nologies  –  from  spintronic  devices,  quantum  metrology,
+computing  technology,  to  elucidating  chemical  reaction
+dynamics and material properties to biophysics. Quantum
+control is a strategic cross-sectional field of research, en-
+abling and leveraging current and future  quantum  tech-
+nology application.
+While the precise way to manipulate the behavior of
+these systems may differ – from ultrafast laser control to
+radio waves, the control, identification and system design
+problems encountered share commonalities, while at the
+same time being quite distinct from classical control prob-
+lems. Advancing quantum control therefore requires bring-
+ing together researchers from different application areas to
+forge a community, create a common language and identify
+common challenges. The further development of this field
+of research offers many beneficial effects for today’s and to-
+morrow’s society, related to health through faster, better,
+safer diagnostics and treatment, secure communication in
+a digital world, highly accurate navigation systems, more
+efficient  and  clean  harvesting  of  solar  power,  the  search
+for resources, efficient energy storage and transportation,
+quantum machines and precision sensing and monitoring
+of the environment [
+54,91,340,377,404,442].
+The paper is organized as follows: Section 2 is focussed
+on mathematical optimal control theory, which is followed
+by a description of the state of the art as well as mid-and
+long-term perspectives of quantum control applications in
+atomic, molecular, and chemical physics (section 3), mag-
+netic resonance (section 4) and quantum information and
+communication (section 5). Prospects for applications and
+commercial exploitation are  outlined  (section  6)  and,  in
+the end, conclusions are given (section 7).
+2 General aspects and mathematics of
+optimal control
+The  recent advances of  quantum  control, by now  recog-
+nized to be essential for the further development of quan-
+tum technologies (see, e.g., [
+100,109]) and reviewed in sec-
+tions
+3to5below, are based on powerful tools from math-
+ematical control theory [
+61,85,191,213,241,321,390]. As
+often in the interplay of mathematics and physics, mathe-
+matical concepts not only proved fruitful for the solution
+of physics problems, but in turn specific physical features
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control3
+required  further  mathematical  development.  In  the  con-
+text of quantum control, these are for example entangle-
+ment and the nature of quantum measurements. Eventu-
+ally, a new research domain,mathematical quantum con-
+trol theory[
+7,40,54,83,91,106,447] has emerged.
+In  general,  quantum  control  theory  needs  to  answer
+two  fundamental  questions,  that  of  controllability,  i.e.,
+what  control  targets  are  accessible,  cf.  section
+2.1,  and
+that of control design, i.e. how can a target be reached.
+Approaches for control design can be open-loop or closed-
+loop.  In  the  latter  case,  the  specific  nature  of  quantum
+measurements needs to be taken into account. This is cov-
+ered in section
+2.3whereas the remaining control design
+approaches are reviewed in section
+2.2.  Open loop tech-
+niques include approaches based on the Pontryagin max-
+imum principle [321], i.e., quantum optimal control, with
+solutions obtained analytically (section
+2.2.1) or numeri-
+cally (section
+2.2.2). Optimal control does not make any
+assumptions on the quantum system and also experimen-
+tal constraints and robustness requirements can be fully
+taken into account, i.e. it is generally applicable. However
+in some cases, adiabatic control and its variants (cf. sec-
+tion
+2.2.3) can provide a more straight-forward approach
+to consider robustness issues and constraints.
+2.1 Controllability and simulability
+2.1.1 State of the art
+Controllability  analysis  determines  whether  a  quantum
+system  can  be  brought  from  any  given  initial  state  to
+any desired target state, or, more generally, from a given
+set  of  initial  states  to  any  set  of  target  states.  Adapt-
+ing results from classical linear control systems [
+191,390]
+to  bilinear  systems  with  a  non-switchable  drift  term,  a
+rigorous Lie-framework was developed for closed systems
+[
+56,57,119,188,189,402]. Based on this work, for quan-
+tum systems with finite dimension, controllability by now
+is well understood [
+5,91,101,231]
+1
+. Different notions of
+controllability have been introduced for pure states, mixed
+states, and evolution operator dynamics [362]. The main
+controllability  test  is  based  on  the  rank  of  the  dynami-
+cal Lie  algebra, which  is  generated by  the  drift  and  the
+different control Hamiltonians. The difficulty of using the
+rank condition in large systems has motivated a geometric
+approach based on graph theory [
+8], yielding eventually a
+complete set of symmetry criteria for controllability [
+463].
+In infinite-dimensional systems, the mathematics is much
+more  intricate  and  the  few  existing  results  are  confined
+to quantum systems with a discrete spectrum. A first re-
+sult is a general obstruction property to exact controlla-
+bility  [
+279,419]. This  was recently amended by  positive
+results about exact [
+27,28] and approximate controllabil-
+ity [
+76], based on Galerkin techniques. For the specific case
+of a generalized Jaynes-Cummings model, i.e., several two-
+level systems coupled to a harmonic oscillator, symmetry
+methods were used to assess controllability [
+200].
+1
+Note that only the standard bilinear situation (as in the
+Schr ̈odinger equation) is discussed here.
+Simultaneous  controllability  concerns  the  control  of
+a  continuum  of  finite  dimensional  quantum  systems  by
+only  a  few  control  fields.  This  is  also  known  as  ensem-
+ble  controllability.  Approximate  and  exact  controllabil-
+ity  results  have  been  obtained  recently  in  this  direction
+[
+28,249,251].  This  analysis  is  important  for  designing
+control fields which are robust to experimental imperfec-
+tions [144,216,218,219,379,420].
+In addition to experimental imperfections and fluctu-
+ations, decoherence may pose an obstacle to control. For
+open  quantum  systems,  the  control  field  usually  cannot
+fully compensate dissipation, as rigorously shown for the
+case of Markovian dynamics [
+9]. These results for Marko-
+vian  dynamics  were  recently  generalized  to  a  complete
+Lie semi-group picture [
+102,300]. In contrast, controlla-
+bility of systems with non-Markovian dynamics presents
+by and large uncharted territory [333]. Reachability is ex-
+pected to be larger for non-Markovian dynamics since non-
+Markovianity implies information back-flow from the en-
+vironment to the system [
+53]. Indeed, an explorative study
+showed non-Markovian map synthesis to be stronger than
+its  restriction  to  the  Markovian  case  (as  anticipated  in
+Ref. [
+257]). In contrast, and surprisingly so, for the sim-
+pler problem of state transfer under swichable Markovian
+noise this is not the case [
+30].
+Finally, even if a system (A) is not fully controllable, its
+controlled dynamics may still suffice to generate a desired
+effective evolution as brought about by another quantum
+dynamical  system  (B).  This  is  the  paradigm  of  finite-
+dimensional quantum simulation. Adapting the tools from
+controllability analysis, one readily sees that system A can
+simulate system B if the system algebra of A encompasses
+that  of  system  B.  A  recent  generalisation  of  the  results
+in Ref. [
+463] provides a complete set of symmetry criteria
+together with an algorithm in order to decide simulability
+on  system-algebraic  grounds  [
+467].  Resorting  to  exactly
+solvable problems may help this case [
+64].
+2.1.2 Mid-term prospects: goals and challenges
+The major challenge is to better understand controllability
+in open quantum systems. For  infinite-dimensional open
+systems with a discrete spectrum which undergo Marko-
+vian evolution, a rigorous understanding is non-trivial but
+may be pursued by extending the standard Lie-Galerkin
+techniques to non-unitary evolution. With the final goal of
+identifying sufficient conditions for  approximate control-
+lability of open systems analogous to closed systems [
+76],
+a mid-term perspective is to perform a sound regularity
+analysis of a well-posed and defined mathematical control
+problem.
+No rigorous controllability analysis so far has tackled
+open quantum systems which undergo non-Markovian dy-
+namics. From a control point of view, non-Markovianity
+may  be  connected  to  beneficial  aspects  of  the  system-
+environment interaction, whereas the detrimental part is
+linked to those Markovian dynamics that cannot be reme-
+died – an aspect important not only for controllability but
+4Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+also for dissipative state engineering and quantum memo-
+ries. Along similar lines, projective measurements may en-
+tail Zeno-type dynamics exploring directions that do not
+show up in the unobserved system [
+63].
+Even for  closed quantum systems, several highly rel-
+evant  questions  are  still  open.  These  include  the  exact
+or  approximate  controllability  of  the  Schr ̈odinger  equa-
+tion with mixed or continuous spectrum. This question is
+important since it covers dissociation and ionization pro-
+cesses,  the  control  of  which  is  a  major  goal  in  chemical
+physics, cf. section
+3.
+Beyond controllability, a precise description of the reach-
+able set (in the open case) and upper bounds on minimal
+time  to  reach  target states  are largely unknown.  Also  a
+universal estimate time to control finite-dimensional quan-
+tum systems (with necessary drift) is still an open chal-
+lenge.
+2.2 Control design
+2.2.1 Geometric optimal control—state of the art
+Optimal control theory can be viewed as a generalization
+of the calculus of variations for problems with dynamical
+constraints.  Its  modern  version  was  born  with  Pontrya-
+gin’s Maximum Principle in the late 1950’s [
+321]. Its de-
+velopment was boosted by using Kalman filters [
+191,192]
+in the Apollo programme and it is now a key tool in many
+applications including quantum mechanics.
+Solving  an  optimal  control  problem  means  finding  a
+control  law,  i.e.,  a  pulse  sequence,  such  that  the  corre-
+sponding  trajectory  satisfies  given  boundary  conditions
+and  equation  of  motion  and  minimizes  a  cost  criterion
+such  as  the  energy  or  duration  of  the  control.  Pontrya-
+gin’s Maximum  Principle can be  formulated in  terms of
+classical Hamiltonian equations. Usually, first one obtains
+extremal trajectories, i.e., controls, by solving these equa-
+tions.  Secondly,  one  selects  among  the  extremals  those
+which  minimize  the  cost.  Although  looking  straightfor-
+ward,  the  practical  use  of  Pontryagin’s Maximum  Prin-
+ciple is far from trivial and control problems require ge-
+ometric  analysis  and  numerical  methods.  The  latter  are
+described below in section
+2.2.2.
+If  the  system  is  sufficiently  simple,  for  example  low-
+dimensional, the optimal control problem may be solved
+analytically. Typically, this requires a geometric analysis
+of  the  control  problem  from  which  one  can  deduce  the
+structure  of  the  optimal  solution,  a  proof  of  global  op-
+timality, and physical limits such as the minimal time to
+reach the target [
+241]. Mathematical tools that were devel-
+oped recently [
+4,34,44,188] allowed to solve problems of
+increasing difficulty  including fundamental control prob-
+lems for closed [
+42,43,91,92,135,209] and open quantum
+systems [
+35,205,238,291,400,461]. This method is able
+to treat quantum control problems ranging from two and
+three level quantum systems, two and three coupled spins
+to two-level dissipative quantum systems whose dynamics
+is governed by the Lindblad equation.
+Extending methods of geometric control to infinite di-
+mensions [
+76] was unexpectedly successful. Also, the Car-
+tan decomposition method  turned  out to  be  an  efficient
+tool  for  the  control  of  spin  systems  [
+201,208].  This  de-
+composition  leads  to  a  drastic  reduction  of  the  dimen-
+sionality of the quantum system, and may enable its geo-
+metric description. A relatively little explored way to de-
+rive  analytic  control  fields  is  singular  optimal  arcs  [
+34].
+This method has been applied to some exemplary quan-
+tum systems [
+206,238,338,450,456,457,458], but many
+aspects remain to  explored. In  particular, this  approach
+could be  interesting to  derive analytical optimal  control
+fields.  These  methods  can  also  be  advantageously  com-
+bined with numerical optimization techniques in order to
+manipulate more complicated quantum systems [
+240].
+2.2.2 Numerical optimal control—state of the art
+If  the  set  of  control  equations,  resulting  from  the  max-
+imum  principle,  cannot  be  solved  analytically,  numeri-
+cal optimal  control theory provides a  viable  alternative.
+Algorithms comprise (i) gradient ascent algorithms [
+210]
+(which can be extended to second-order quasi-Newton and
+Newton methods [
+79,98,264]) and (ii) Krotov-type meth-
+ods [
+226,266,332],  also permitting  this extension [118].
+The main difference between these two approaches is that
+the control is updated (or replaced) for all times simulta-
+neously in case (i) and sequentially in case (ii) which im-
+plies different convergence properties. The algorithms are
+comparatively easy to use and several program packages
+include  optimal  control  modules,  i.e.,  SIMPSON  [
+415],
+SPINACH [
+169], DYNAMO [264], and QuTiP [184]. Mod-
+ifications  to  account  for  experimental  imperfections  and
+limitations and to ensure robustness of the solution have
+been  introduced  [
+167,180,218,237,283,335,383,391,
+438,445], and numerical optimal control theory has been
+extended to open quantum systems [
+22,128,145,190,365,
+368].
+It is also possible to restrict the control solution to a
+predefined analytical form. In this case, the control only
+depends on a limited set of free parameters which are op-
+timized [
+265,276,380]. Applications of numerical optimal
+control are discussed below in sections
+3to5but by now
+have grown too numerous for a complete bibliography.
+A  caveat  of  numerical  algorithms  which  are  derived
+from the maximum principle is that they require to solve
+the  system’s  equations  of  motion  many  times,  at  least
+twice per iteration step. This potentially hampers appli-
+cation to high-dimensional quantum systems. So far, three
+approaches have been pursued to cope with this issue. (i)
+Optimization  of  the  state  space  representation:  For  the
+high-temperature regime of ensemble NMR spectroscopy,
+the SPINACH package [
+169] uses state propagation with
+interactions  limited  to  pertinent  short-range  ones  (thus
+leading to efficient truncation of the underlying spin Lie al-
+gebra) for simulating unprecedentedly large spins systems
+such as entire biomolecules [
+355] with striking precision.
+(ii) Gradient-free optimization: For many-body quantum
+systems, the chopped random basis (CRAB) method uses
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control5
+a parametrization of the control and interfaces the tensor
+compression of the time-dependent density matrix renor-
+malization group with  parameter optimization [
+69,107].
+The number of propagations may be significantly reduced
+compared to gradient-based optimization, provided a small
+basis is sufficient to represent the control. (iii) Local con-
+trol  theory:  It  determines  the  control  field  from  instan-
+taneous dynamical properties of the system by requiring
+monotonic  increase  or  decrease  of  a  performance  index
+[
+121,398].  Under  well-established  conditions  [439],  the
+system converges asymptotically towards the target. Lo-
+cal controls are reminiscent of the closed-loop Lyapunov
+method in stabilization; and correspondingly the approach
+has also been termed tracking. Due to the inherent nature
+of the quantum measurement process, this approach has
+been  transformed  into  an  open-loop  control  law  in  the
+quantum world. In this approach, the equation of motion
+needs to be solved only once.
+Mathematical quantum optimal control theory shows
+how to design optimal control fields and describes under
+which conditions they exist [
+5,312]. It does, however, not
+investigate  the  complexity  inherent  to  the  search  [
+256].
+The search complexity is related to the description of the
+control landscape which specifies the control objective as
+a function of the control variables. Different results on the
+structure of the control landscape have been established
+recently [75,97,310,327]. One of the main claims has been
+that, provided there are no constraints on the control, the
+control landscape does not contain local traps in all con-
+trollable closed and some specific open quantum systems
+[
+54]. This proof has recently been contested and is still the
+object of a vivid debate [
+310,311,327]. Once constraints
+are present, such as finite control field amplitude, this may
+induce traps in the control landscape [
+343,410]. Whether
+and how imposing robustness of the control influences the
+control landscape is an open question.
+2.2.3 Control via adiabatic dynamics—state of the art
+While optimal control theory is a general approach that
+is particularly well suited for identifying fast controls, the
+target  can  also  be  tackled  by  adiabatic  techniques  [
+31,
+158,409,435].  The  most  widely  known  among  these  is
+Stimulated Raman Adiabatic Passage (STIRAP)[
+31]. Adi-
+abatic  techniques  usually  employ  a  sequence  of  very in-
+tense  pulses  over  a  comparatively  long  timescale  which
+enforces adiabatic following of the system dynamics. The
+pulses can be frequency chirped according to the structure
+of the energy levels. Such processes are inherently robust
+to small variations of laser or system parameters and thus
+well-suited to open-loop control. A main drawback of adi-
+abatic control is the total time and energy, requirements
+which cannot always be met in an experiment.
+To address this issue, shortcuts to adiabaticity were de-
+veloped [
+413]. This approach can be viewed as an inverse
+engineering  technique  based  on  Lewis-Riesenfeld  invari-
+ants. It has been applied to a variety of quantum systems
+[
+20,77,90,347] for which such an invariant exists. Even
+for an ensemble of quantum systems, analytical solutions
+based on this technique are not out of reach [
+90]. Similarly
+to enforcing robustness in ensemble optimization using op-
+timal control [
+144,218], the basic idea consists in selecting
+among a family of (exact) solutions the ones that are ef-
+fectively robust to some extent to variations of the system
+parameters.
+2.2.4 Mid-term prospects: goals and challenges for control
+design
+As  with  controllability analysis,  the  major  challenge for
+control  design  is  posed  by  open  quantum  systems  since
+most systems of interest interact with their environment to
+a non-negligible extent. An important challenge is the ex-
+tension of the standard adiabatic and shortcut techniques
+to open  quantum systems. Beyond some preliminary re-
+sults [
+186,354], there are many open questions, for exam-
+ple, how to generalize Lewis-Riesenfeld invariants to open
+system dynamics.
+All open-loop control approaches discussed above as-
+sume sufficient knowledge of the quantum system. Corre-
+spondingly, for open quantum systems, system identifica-
+tion needs to include dissipative parameters. A first step
+to combine quantum control with implicit learning about
+the system parameters is the ADHOC technique [
+112].
+Decoherence  in  open  quantum  systems  can  also  be
+used as a resource in what has become known as dissipa-
+tive state engineering [
+62,225,364,428]. Optimal control
+theory allows for tackling dissipative state engineering for
+quantum systems that are too complex for manual design
+of the driven-dissipative dynamics. This naturally includes
+incorporation of the noise as additional optimization pa-
+rameter [
+30,309]. When added to coherent controls, time-
+dependent Markovian noise (amplitude-damping) enables
+the control system to transform any initial into any desired
+target state [
+30]. It can be easily integrated in toolboxes
+like DYNAMO [
+264], yet the implementation in realistic
+settings remains unexplored.
+On an algorithmic level, the basics of numerical quan-
+tum optimal control are well established for both Marko-
+vian  and  non-Markovian open  system  evolutions, as  de-
+scribed  above.  The  main  challenge  there  is  the  efficient
+numerical modeling of increasingly complex dynamics. A
+promising route is provided by stochastic methods which
+only require propagation of (several) pure states to unravel
+the true dynamics [
+46,306,365]. These methods are ap-
+plicable to both systems interacting with an environment
+or subjected to measurements that can be modelled by a
+stochastic process. An open question in this context is to
+find the most efficient way to control these systems such
+that the  control is robust with  respect to the  stochastic
+parameter [
+14].
+In view of numerical optimal control theory as an open-
+loop technique, integration with application is a crucial is-
+sue that has only very partially been addressed. In order to
+make the theory more useful for specific experiments, the
+gap between theory and experiments needs to be bridged.
+In spite of recent progress, a systematic and efficient algo-
+rithm addressing this issue is still lacking. One option con-
+6Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+sists in combining open-loop optimal algorithms to closed-
+loop control techniques in order to reduce their respective
+drawbacks  [
+112].  Using  these  two  tools  cooperatively  is
+expected  to provide flexible  quantum control. A  current
+challenge is still to improve the computational speed and
+accuracy of the algorithms. A promising approach to this
+end is the combined use of numerical and geometric op-
+timal  control methods [
+240]. Analogously to open  quan-
+tum systems, improving the computational speed will be
+an  important  prerequisite  to  attack  control  problems  of
+increasing complexity, representing experimental settings
+in  a  realistic  way.  Eventually,  the  goal  is  to  enable  the
+problem-adapted design of controls in time-critical appli-
+cations.
+In view of a better understanding of control complex-
+ity, a rigorous understanding of two crucial issues needs
+to be developed – interrelation between minimum control
+dimension and (effective) system dimension [
+256,265] and
+the questions of traps in the quantum control landscape.
+Even  if  many  quantum  control problems  have  no  traps,
+i.e.,  their  control landscapes  are  well-suited  to  the  local
+numerical optimization approaches discussed above, this
+is not always the case. One then needs to resort to global
+optimization techniques which are numerically expensive
+and generally do not perform very well. Whether and how
+global  optimization  methods  such  as  dynamic  program-
+ming may be (better) adapted to quantum control is also
+an open question. The efforts to solve more complicated
+control problems via geometric optimal control techniques
+must continue with a special emphasis on open quantum
+systems and on non-linear dynamics [
+465].
+Another  fundamental  open  question  is  whether  it  is
+possible to connect the Lewis-Riesenfeld invariants, used
+for the shortcuts to adiabaticity, with the formal frame-
+work  of  the  Pontryagin  Maximum  Principle  of  optimal
+control theory. This would hold the promise of combining
+the best of two worlds.
+2.3 Quantum feedback control theory
+2.3.1 State of the art
+In contrast to the open-loop techniques discussed in sec-
+tion
+2.2, closed-loop strategies [106] are capable of coping
+with unpredictable disturbances. This approach is widely
+used  in  classical control  theory,  where  information  from
+the  state  of  the  system  is  fed  back  to  the  controller  to
+correct  the  field  in  action.  However  the  perturbing  ef-
+fect  of  quantum  measurements precludes  direct  applica-
+tion of classical concepts. It required development of new
+techniques tailored to quantum dynamics [
+104,447]. An
+indirect application is found in experimental closed-loop
+quantum control, where each cycle of the loop is realized
+experimentally, including preparation of a new sample in
+each cycle [
+187]. Different learning algorithms, such as ge-
+netic algorithms, have been developed to design the new
+control field after each iteration [
+54].
+Controlling a quantum system by feedback in a closed
+loop  can  be  realized  in  two  different  ways  [
+453]  –  using
+the  measurement-based  feedback  approach  [
+446]  or  the
+coherent  feedback  method  [
+258].  As  in  classical  control
+theory, the first option is based on a measurement process
+and  real-time  manipulation  of  the  system  depending  on
+the  measurement result.  The  measurement feedback ap-
+proach built on quantum filtering techniques [
+46] is nowa-
+days  mathematically  well  described  [
+47,447].  Quantum
+filtering  consists  in  generating  an  estimate  of  the  state
+of  the  system  from  the  measurements  performed  on  it.
+Measurement-based feedback has been  shown to  be  effi-
+cient  [
+81,82],  making real-time control of  quantum  sys-
+tems experimentally feasible [
+212,356].
+In the second option, no measurement is used and the
+quantum system is directly connected to a quantum con-
+troller. The experimental feasibility of coherent feedback
+control  has  recently  led  to  impressive  results  [
+149,173,
+178,262].
+2.3.2 Mid-term prospects: goals and challenges
+It is the specific quantum nature of systems that in gen-
+eral makes them susceptible to measurement backaction.
+Thus in the quantum domain, finding an experiment-class
+adapted balance between open-loop control techniques and
+closed-loop feedback counterparts is one of the major chal-
+lenges. Moreover, since measurement-based feedback is re-
+stricted to the processing time of the classical components,
+which  have  the  slowest  time  scale,  exploiting  the  limits
+of  coherent  feedback  control  is  useful  in  view  of  future
+technologies. An advantage of coherent feedback over its
+measurement-based counterpart is the reduced noise pro-
+duced by the control process since there is no disturbance
+from  a  system  measurement.  Feedback  control  methods
+promise particular robustness and flexibility, but some im-
+portant  questions  related  to  the  quantum  nature  of  the
+dynamics remains to be solved. In particular, there is not
+a  general  theory  showing  that  quantum  controllers  per-
+form better than their classical counterparts, and if so, in
+which cases and under which experimental conditions.
+Many other questions are still open in quantum feed-
+back  control.  They  extend  from  a  general  theory  about
+the role of weak measurements in the control of quantum
+systems to feedback control of  non-Markovian dynamics
+and the influence of model uncertainties on the feedback
+control. Similarly, another interesting perspective is to ex-
+plore whether programmable quantum processors [
+65,166]
+themselves could be used or programmed such as to steer
+quantum systems.
+Most  of  the  developments  of  quantum  feedback con-
+trol  have  been  made  in  the  context  of  quantum  optics
+[
+336,356,446,447]. Recent technological progresses have
+enabled advances in superconducting circuits both theo-
+retically [
+269]  and  experimentally [342,433].  A  problem
+which is starting to attract attention is feedback control
+in quantum transport [120]. In other words, the question
+is to understand how the current quantum control tech-
+niques developed for quantum optical systems can be ap-
+plied  to  hybrid  systems  involving  quantum  dots,  super-
+conducting  qubits  and  opto-mechanical  resonators.  The
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control7
+existing  quantum  feedback  theory  has  to  be  adapted  to
+these new dynamics.
+2.4 Long-term vision
+Quantum  optimal  control  theory  has  reached  a  level  of
+maturity  that  enables  tackling  the  question  of  quantum
+control  in  a  world  which  is  never  fully  quantum,  be  it
+due  to  residual  couplings  to  the  environment  or  due  to
+imperfections in the controls or system characterization.
+The  ultimate  goal  is  to  develop  a  rigorous  understand-
+ing of the fundamental limits as well as the opportunities
+for  quantum  control  under  real-life  conditions,  in  terms
+of  both  controllability and  control design.  This  includes
+in particular control of quantum systems undergoing non-
+Markovian evolution, as found in condensed phase physics
+and chemistry. It will most likely require a combination of
+the techniques described above and a synergy of efforts,
+ranging from pure mathematics via algorithm design all
+the  way  to  developing  techniques  for  integrating  theory
+and experiment. Meeting these challenges would provide
+the mathematical and algorithmic underpinnings for the
+application  of  quantum  control  in  all  of  the  three  fields
+described in the following.
+3 Atomic, molecular, and chemical physics
+3.1 State of the art
+Within the realm of atomic, molecular and chemical physics,
+quantum control was first discussed in the context of chem-
+ical reactions. It was termed ’coherent control’ at the time
+and conceived as a method to determine the fate of a re-
+action using laser fields [
+224,405,406]. The basic idea was
+to employ interference of matter waves to enhance the de-
+sired outcome and suppress all others [58,341]. A way to
+create  the  desired  matter  wave interference  is  by  tailor-
+ing laser fields [
+224,405,406]. A reaction is viewed as the
+following sequence of events—approach of the reactants;
+formation of a new chemical bond; intermediate dynamics
+of the generated molecular complex; stabilization into the
+target  products,  typically  involving  the  breaking  of  an-
+other chemical bond. Each of these steps can in principle
+be controlled.
+The  advent  of  femtosecond  lasers  and  pulse  shaping
+technology [
+280,444] in the 1990s allowed for experimen-
+tally testing the idea of controlling chemical reactions. In
+the  lab,  the  laser  pulse  shape  can  most  easily  be  deter-
+mined  in  feedback  loops  combined  with  e.g.  genetic  al-
+gorithms [
+187]. Very soon after the theoretical proposals
+several pioneering experimental papers were published de-
+scribing control of unimolecular dissociation or fragmen-
+tation, see Refs. [
+55,93,94,147,228,244,297,326,448]
+and references therein. Yet much still remains to be under-
+stood about the mechanisms and even whether quantum
+coherence is involved [
+59].
+Control strategies include both weak- and strong-field
+scenarios. In the first case, a wavepacket is launched, and
+its ensuing (ro-)vibrational dynamics is exploited. In the
+strong-field regime, the laser pulse coherently controls the
+dynamics  during  the  pulse  while  utilizing  the  effective
+modification  of  the  energy  levels  of  atoms  [
+24,25,416,
+417]  or,  respectively,  the  potential  energy  landscape  ex-
+perienced  by  the  molecules,  via  the  dynamic  Stark  ef-
+fect [
+26,401,422].
+Weak field control of non-resonant excitation may em-
+ploy optical interferences to control e.g. the population in
+a final state [278]. Weak field here implies low order per-
+turbation theory to be applicable. It was proven early in
+the development of quantum control, that for weak fields
+in an isolated quantum system, phase-only control is im-
+possible for an objective which commutes with the free, or
+drift, Hamiltonian [
+60]. A qualitative explanation is that
+under  such conditions  there  are no  interfering pathways
+leading from the initial to the final stationary states. Ex-
+perimental evidence has challenged this assertion, claim-
+ing demonstration of weak-field phase-only control for an
+excited state branching ratio [
+325]. The phenomena were
+attributed  to  the  influence  of  the  environment.  A  sub-
+sequent study showed that such controllability is solvent
+dependent [
+425]. A theoretical demonstration that phase-
+only control is possible in weak field for an open quantum
+system soon followed [194]. It is still an open question if
+weak-field phase-only control is possible for targets that
+commute with the Hamiltonian in open quantum systems.
+For example, can population transfer from a ground to the
+excited surface be phase-controlled for a dye molecule in
+solution? While  this  has theoretically been  shown to  be
+impossible if  the time  evolution is  Markovian [
+10],  most
+solvents lead to non-Markovian system dynamics.
+In  the  context  of  coherent  control  of  a  chemical  re-
+action, the  bimolecular  process of  bond  formation using
+femtosecond lasers remained much more elusive [
+11,157,
+221,270,277,298,349,353] than bond breaking. Its coher-
+ent control was demonstrated only very recently [
+243]. Full
+control of a binary reaction—from its entrance channel of
+scattering reactants to the targeted products in a selected
+internal state—is still an open goal. Realizing this dream
+would create a new type of photochemistry with selective
+control of yields and branching ratios.
+Coherent control of bond formation in the gas phase
+turned  out  to  be  so  difficult  because  it  starts  from  an
+incoherent thermal ensemble. The laser pulse then needs
+to  pick  those  scattering  pairs  which  show  some  correla-
+tion  in  their  translational or  rotational motion.  Averag-
+ing  over  rotations  can  be  avoided by  orienting  or  align-
+ing the molecules using strong laser fields [
+394]. Adiabatic
+alignment occurs in-field and is achieved with nanosecond
+pulses. In  contrast, femtosecond laser pulses create non-
+adiabatic alignment that persists after the pulse is over.
+This  second  option  where  the  alignment  is  produced  in
+field-free conditions is more interesting in view of the ap-
+plications since the laser pulse does not disturb the molec-
+ular system [
+374,399].
+Spatial averaging in the gas phase implies an integral
+over  the  beam  profile  and  blurs  coherent  effects  as  the
+atoms  or  molecules  are  exposed  to  different  intensities.
+8Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+Spatial resolution is thus a prerequisite for control [
+193].
+Subwavelength dynamic localization of the laser intensity
+can  be  achieved  on  the  nanometre  scale  [
+3],  lifting  the
+restrictions of conventional optics. Optimal control theory
+can be used for spatial shaping of the laser fields used in
+nanoexcitation [
+314].
+Another way to overcome thermal and spatial averag-
+ing  is  by  cooling  and  trapping  the  atoms  or  molecules.
+Coherent control was suggested as a method to cool inter-
+nal molecular degrees of freedom [
+22,23]. This has been
+realized experimentally for cooling vibrations of ultracold
+cesium  dimers  [388]  and  rotations of  trapped  aluminum
+hydride ions [
+253]. While restrictions imposed on the cool-
+ing efficiency by the molecular structure can be  circum-
+vented using optimal control [
+334], a persistent challenge
+to cooling internal molecular degrees of freedom are the
+timescale separation between vibrations and rotations as
+well  as  the  enormous  bandwidths  that  are  required  for
+strong bonds. In order to prepare molecules that are cold
+in their translational degrees of freedom, molecules are as-
+sembled from atoms which are much easier to cool. How-
+ever, a major problem in creating molecules from atoms is
+the extreme change in time and length scale. Optimal con-
+trol was studied to overcome this issue [
+220]. Initial exper-
+iments employed the simple scheme of a chirped pulse to
+compress two atoms to closer proximity [
+449]. This can be
+viewed as a first step in ultracold laser-induced, i.e., photo-
+association. Association yielding ultracold molecules in a
+single internal quantum state has been demonstrated em-
+ploying  magnetic  field  ramps  (magneto-association)  fol-
+lowed by STIRAP-type protocols [
+95,293]. An experimen-
+tal challenge still unfulfilled is complete coherent control
+of ultracold photoassociation.
+One of the important issues here, particularly in poly-
+atomics, is the need for accurate ground and excited po-
+tential energy surfaces to design optimal pulses a priori,
+as well as to interpret the mechanism of pulses that are
+found by experimental optimization. For this reason there
+has  been  significant  interest  in  recent  years in  inverting
+the information in optical spectroscopies in order to recon-
+struct excited state potential energy surfaces [
+17,18,252].
+In addition to making or breaking chemical bonds, co-
+herent control has demonstrated its versatility in study-
+ing energy transfer [
+165] and for spectroscopy. The latter
+includes  in  particular  non-linear  and  multi-dimensional
+spectroscopies  [
+110,133,162,376]  and  microscopy  [89,
+110,308]. In  this context, coherent control allows to in-
+crease both the resolution and the specificity to a single
+molecule.  Originally  developed  with  phase-locked  time-
+delayed laser pulses, non-linear and multi-dimensional spec-
+troscopies utilize the interference created by these pulses.
+Laser pulse shaping not only lifts  the constraint of hav-
+ing separate pulse beams in non-linear spectroscopy and
+microscopy [
+110,162,376], it also addresses naturally the
+requirement to  decipher  the interference which is  at the
+basis of the non-linear spectroscopies. Eventually, this un-
+derstanding has lead to the use of laser pulse shaping in
+optical imaging with  compensation of  the  effect  of  scat-
+tering  media  such  as  biological  tissue  [
+12,195];  optical
+microscopy with  enhanced  chemical  sensitivity  and  con-
+trast  [
+299,301,315,331];  chemical  analysis  and  detec-
+tion  via  optical  discrimination  [
+86,214,248,397];  can-
+cer  diagnosis  [
+273];  and  material  processing  [122].  Simi-
+larly, laser pulse shaping is expected to enhance chemical
+sensitivity in other detection methods such as mass spec-
+troscopy [
+33,411].
+Initially, the coherent control of molecules, be it in the
+context of chemical reactions or non-linear spectroscopies
+or energy transfer, considered the dynamics of the nuclear
+degrees of freedom, using femtosecond laser pulses as the
+main  workhorse. More recently,  the  focus  has  shifted  to
+controlling electron dynamics. This is being made possible
+by the development of advanced x-ray sources which probe
+the dynamics of electrons within atoms and molecules on
+attosecond time scales. Their potential for exploring the
+quantum nature of  the nanoworld is unprecedented. For
+example, using xuv and x-ray light for multidimensional
+spectroscopy  could  probe  valence  excitations  locally  on
+different atomic sites in a molecule. This would be invalu-
+able  for  understanding energy  transfer  in  biological sys-
+tems and quantum devices. The use of x-ray light sources
+is  currently  facing  a  number  of  challenges  that  can  be
+tackled by quantum optimal control. First of all, the large
+energy of xuv and x-ray pulses results in a high probabil-
+ity of ionization, reflecting the problem of controllability
+when  a  continuum  of  states  is  involved.  This  has  been
+addressed  in  a  recent  study,  where  optimal  control  the-
+ory was used to predict experimentally feasible pulses to
+drive xuv-Raman excitations through the ionization con-
+tinuum [
+151].
+Another control problem is the creation of the xuv light
+pulses  themselves.  In  particular,  high  harmonic  genera-
+tion, where a very strong near-infrared femtosecond laser
+pulse accelerates an electron in such a way that it emits
+xuv light, is an ideal candidate for coherent control: The-
+oretical  predictions  for  optimum  driving  should  be  easy
+to adapt in experiment, given the existing pulse shaping
+capabilities. The challenge that high harmonic generation
+poses to optimal control theory is a frequency-domain tar-
+get [
+358,375,445]. A conclusive answer whether shaping
+the femtosecond laser pulses can improve high harmonic
+generation has not yet been provided.
+Optimal  control theory was first  applied to  chemical
+reactions using Krotov’s method [
+389,407] and gradient
+ascent  [
+156,466].  The  theory  was  quickly  extended  to
+Liouville  space  [
+22,454]  to  treat  condensed  phase  situ-
+ations and cooling. The major experimental constraint in
+expimerents with shaped femtosecond laser pulses is the
+fixed bandwidth. This can be accounted for by including
+frequency filtering in the optimization [
+146,237,366,438]
+or  by  imposing  spectral  constraints  [
+305,335].  Optimal
+control techniques have also been applied with success to
+molecular  alignment  and  orientation  in  gas  phase  [
+393].
+The design of optimal solutions has allowed to reach the
+best  possible  degree  of  alignment  and  orientation  [
+352]
+within the experimental constraints such as temperature [
+236]
+or collisions [
+328]. In addition to improving existing con-
+trol strategies, optimal control has also been used to ex-
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control9
+plore new regimes of alignment dynamics such as planar
+alignment [171].
+3.2 Mid-term prospects: goals and challenges
+Thirty  years  after  the  conception  of  reaction  control,  it
+is  fair  to  ask  whether  the  idea  of  coherently  controlling
+a chemical reaction can work at all. In this respect it is
+important to realize that the basic ingredients for achiev-
+ing this goal have all been developed. The challenge that
+remains to be overcome, is their assembly and application
+to a specific reaction. The dream of coherently controlling
+a chemical reaction all the way from its entrance channel
+to the reaction products thus seems to be within reach. It
+includes the controlled formation (or photoassociation) of
+a new chemical bond, the controlled dynamics of the in-
+termediate complex, most likely involving a conical inter-
+section, the controlled cleavage of another chemical bond
+as well as the stabilization of the reaction product. Realis-
+tically, demonstration of control over a complete reaction
+can be expected within the next few years for a sufficiently
+simple reaction complex, involving only a few atoms.
+Experimental  techniques  are  currently  developed  to
+trap and cool a single molecule. These are particularly ad-
+vanced for single molecular ions [
+164,346]. The molecules
+can be simple diatomics or large biological chromophors
+such as rhodopsin. Such trapped species are ideal candi-
+dates  for  control,  inducing  for  example  isomerization  in
+rhodopsin. Instead of trapping and cooling molecules di-
+rectly,  they  can  also  be  assembled  from  cold  atoms  one
+by one. The number of different atoms which have been
+cooled  and  trapped  has  been  increasing  steadily.  Atoms
+other  than  the  first  row  alkali  metals  have  the  poten-
+tial  for  complex  chemistry  with  multipole  bonds.  This
+raises  the  challenge  of  assembling  molecules  from  these
+constituents.  The  experimental  obstacle  is  the  develop-
+ment  of  pulse  shaping techniques  in  the  picosecond and
+nanosecond range.
+Another mid-term goal for quantum control is the con-
+trol of electron dynamics. The capability to control elec-
+trons  implies  Angstrom-scale ultrafast  imaging  methods
+which  can  be  realized  in  the  form  of  laser-induced  elec-
+tron diffraction and high-harmonic spectroscopy. Specific
+mid-term goals that seem within reach using these tools
+include  the  control of  subfemtosecond charge migration;
+the controlled generation of spin-polarized electrons from
+laser ionization; recognition of the absolute configuration
+of  chiral  molecules  with  shaped  laser  pulses;  and,  using
+high-harmonic spectroscopy of molecules, ultrafast imag-
+ing of structure and dynamics on sub-atomic length scales.
+3.3 Long-term vision
+3.3.1 Synthesis
+The ultimate chemical synthetic challenge is to assemble
+large  chiral  molecules  from  elementary  building  blocks.
+Currently such syntheses are carried out in solution where
+the chemical products are stabilized by entropy generation
+caused  by  heat  transfer  to  the  environment.  The  vision
+would be composed of synthesis by photoassociation via
+polarization shaped light where the  final product is sta-
+blized by laser cooling and trapped by light.
+3.3.2 Analysis
+The vision is a light field  tailored to  a specific molecule
+or functional group generating a specific physical outcome
+such as light emission or ionization. Such a capability will
+enhance  the  threshold  of  detection  of  a  specific  hazard
+or in medical applications. Combined with spatial super-
+resolution, the analytic methods are expected to find ap-
+plications in molecular-scale microscopy.
+4 Magnetic resonance
+The optimal control of spin dynamics is at the heart of well
+established magnetic resonance technologies and of emerg-
+ing new fields of quantum technologies. Nuclear magnetic
+resonance spectroscopy (NMR) [
+2,125,247], electron spin
+resonance  spectroscopy  (ESR)  [
+373]  and  magnetic  reso-
+nance imaging (MRI) [
+32] are based on the control of nu-
+clear  or  electron  spins  with  the  help  of  time-dependent
+electromagnetic fields. In fact, magnetic resonance is one
+of the most impressive success stories of quantum control
+and technology.
+The mathematical description of the state and dynam-
+ics  of  nuclear  spins  or  electron  spins  is  essentially  iden-
+tical  to  the  canonical  description  of  abstract  quantum
+bits (qubits). In terms of the theoretical and experimen-
+tal control of spins or qubits, NMR had a long head start
+compared to other quantum technologies as the commu-
+nity has actively explored and developed quantum-control
+methods for more than 60 years. This was driven by many
+very concrete and important applications in physics, chem-
+istry, biochemistry, biology and medicine. The interdisci-
+plinary impact of quantum-control enabled magnetic res-
+onance is impressively reflected by Nobel prizes in physics
+(Felix Bloch, Edward Purcell, 1952), chemistry (Richard
+Ernst,  1991; Kurt  W ̈uthrich;  2002), and  medicine  (Paul
+Lauterbur, Peter Mansfield, 2003) [
+124,268,451].
+Today, NMR is arguably the  most important tool in
+chemistry to  determine  the  molecular  structure  and  dy-
+namics of molecules. ESR is an essential technique in radi-
+cal reaction chemistry, catalysis, electrochemistry and pho-
+tosynthesis  research.  MRI  is  one  of  the  most  informa-
+tive and frequently used modalities in medical diagnostics.
+The  huge  range  of  practical  applications  has  generated
+multi-billion dollar branch of the instrument manufactur-
+ing industry (Bruker, Siemens, Phillips, General Electric,
+JEOL,  etc.).  This  in  turn  has  resulted  in  the  continu-
+ous development of more and more sophisticated instru-
+ments with superb flexibility in terms of the available con-
+trol schemes: For example, arbitrary waveform generators
+and linear amplifies are standard NMR and MRI equip-
+ment for more than three decades (and have more recently
+10Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+also  become  available  with  sub-nanosecond  time  resolu-
+tion  for  ESR  applications  [196,391]).  With  their  help,
+even very complex  pulse shapes  can routinely  be  imple-
+mented with high fidelity [
+217]. The excellent agreement
+between theory and experiments (as a result of the highly
+accurate theoretical description of the physics of coupled
+spins and the availability of very reliable hardware to im-
+plement  virtually  arbitrary pulse  sequences  and  shapes)
+also has made NMR an attractive testing ground for the
+experimental demonstration of new control approaches for
+finite-dimensional quantum systems in general. Concepts
+of quantum control and sophisticated quantum-control de-
+sign tools developed in the field of NMR have found many
+applications in other fields, such as in quantum informa-
+tion processing [
+185,348,427], optics (photon echos) [232],
+in  neutron  scattering  or  in  the  control  of  nano  devices
+based on quantum dots, artificial atoms etc.
+Two important emerging fields of magnetic resonance
+are hyperpolarization methods for bulk NMR and the con-
+trol and measurement of individual spins or spin systems,
+e.g.  of  NV  centers  in  diamond  with  many  potential  ap-
+plications in sensing and quantum information processing
+[
+105,159,182]. Hyperpolarization techniques (also known
+as spin  cooling), [
+227,357,431] can generate highly po-
+larized non-thermal spin states. Hence, the relatively low
+sensitivity of NMR (due to the small magnetic moments
+of nuclear spins and the resulting weak thermal polariza-
+tion) can be overcome by using a variety of approaches.
+In particular, there are two different methods  that have
+recently become increasingly popular in practical applica-
+tions. The first one is based on transfer of the much higher
+thermal polarization from unpaired electrons onto the nu-
+clear  spin  ensemble  in  a  process called  dynamic  nuclear
+polarization (DNP) [
+153,294,302]. The second method in-
+volves the use of parahydrogen and a transfer of its highly
+populated singlet spin state onto nuclear spins in receptor
+molecules [
+48]. Both methods have been known already for
+many years but only recently significant progress has been
+made in terms of a full quantum description of the under-
+pinning spin physics and the optimization of the required
+experimental hardware.
+The detection and control of individual nuclear spins
+close to Nitrogen-vacancy (NV) centers in diamond [
+181,
+287] is a premier example of a new area of optimal con-
+trol of individual spin systems. In these experiments, sin-
+gle nuclear-spin detection is achieved by an efficient read-
+out  based  on  couplings  of  the  nuclear  spins  to  electron
+spin  states  and  their  detection  using  optical  techniques.
+In the field of spintronics, spins of individual atoms (such
+as
+31
+Pdonors)  or  quantum  dots  can  be  electrically  de-
+tected and controlled by radio- or microwave pulses with
+high fidelity[
+19,317].
+4.1 State of the art
+The design of pulse sequences that provide maximum sen-
+sitivity,  selectivity,  as well  as  maximum  resilience  to  in-
+strumental imperfections, is central in the ongoing effort
+to  improve  magnetic  resonance  technologies.  Both  ana-
+lytical and numerical methods have been used to design
+multiple-pulse sequences (including composite or shaped
+pulses).
+Since the 1950s, the field  of NMR  has been  a highly
+active  ”breeder”  for  methods  to  control  finite-dimensio-
+nal quantum systems. The wide spectrum of applications
+has motivated the development of more and more sophis-
+ticated tools for quantum control in a quest to push the
+experimental performance to their limits. Pulsed magnetic
+resonance  techniques  such  as  the  two-pulse  Hahn  echo
+and the three-pulse stimulated echo [
+161] were important
+milestones on the path to multiple-pulse sequences, which
+often consist of tens or hundred thousands of individual
+pulses with defined amplitudes and phases. This was en-
+abled by the development of theoretical tools such as Av-
+erage Hamiltonian Theory (AHT) [
+160] and the symmetry
+analysis of composite pulses and multiple-pulse cycles and
+supercycles [
+131,245,246,247].
+More recently, sophisticated theoretical approaches of
+geometric optimal  control  theory  [
+34,44,188,206,208,
+209,322] have been applied to quantum control problems
+motivated by magnetic resonance applications. Although
+these analytical approaches are typically limited  to low-
+dimensional  quantum  systems,  they  are  able  to  provide
+the best possible solutions to a given problem by proving
+global optimality. The resulting physical performance lim-
+its are important theoretical results in their own right and
+also provide benchmarks for numerical and experimental
+optimization  techniques.  Geometric  optimal  control  has
+been very successfully applied to highly non-trivial exam-
+ples of uncoupled and coupled spins both in the absence
+and presence of relaxation (dissipation and decoherence).
+For example, based on geometrical optimal control anal-
+ysis,  the  minimal  time  for  quantum  gates  in  systems  of
+two  and  three  coupled  spins  (qubits)  have  been  deter-
+mined  and  experimentally  implemented  [
+208,209,339].
+And  in  this  context,  the  so-called  quantum-gate  design
+metric was discovered, which plays an important role for
+the design of so-called geodesic unitary gates [
+203,209].
+For example, time-optimal control schemes for the simu-
+lation of effective trilinear couplings in systems with only
+next-neighbor couplings were derived based on geometric
+optimal  control  and  experimentally  demonstrated  using
+NMR. This is a particularly impressive example, because
+in the limit of small time increments∆t
+sim
+under the simu-
+lated trilinear Hamiltonian, the actual duration of the con-
+trols  also  approaches zero,  whereas  previous  approaches
+based  on  AHT  have  a  minimal  duration  of  1/(2J),  i.e.
+for∆t
+sim
+→0,  the  gain  of  the  optimal-control schemes
+approaches infinity [
+203,209]. Examples of geometric op-
+timal  control applications involving singular  arcs [
+34]  in
+NMR  are  relaxation-optimized  polarization  transfer  ex-
+periments [
+205,206,291,395], minimal-time controls for
+the saturation of spins, [
+238], for maximizing contrast in
+MRI  [
+240]  and  for  maximizing  the  achievable  signal-to-
+noise ratio per unit time [
+234,261].
+Since the 1980s, numerical algorithms such as conju-
+gate gradients, downhill  simplex  (Nelder  Mead),  genetic
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control11
+algorithms and simulated annealing have been applied to
+find efficient and robust quantum-control schemes for mag-
+netic resonance applications [
+130,132,140,254,289,423].
+Powerful  optimal-control  algorithms  based  on  the  Pon-
+tryagin Maximum Principle (PMP) were applied already
+since  the  mid  1980s  to  the  design  of  shaped  pulses  for
+the manipulation of nuclear spin ensembles [
+84,174,175].
+Potent variants of these PMP-based algorithms were also
+developed in the context of NMR applications for coupled
+spins in NMR spectroscopy and quantum information pro-
+cessing [
+98,210,250]. They are able to optimize pulse se-
+quences for an ensemble of spin systems with realistic pa-
+rameter ranges for detunings, scalings of the control field
+etc.,  i.e. they  can take into account variations or  uncer-
+tainties of experimental parameters. Numerical ensemble-
+control methods have resulted in extremely powerful con-
+trol  schemes  with  unprecedented  resilience  to  pulse  im-
+perfections, while at the same time taking experimentally
+bounded control amplitudes and pulse energy limits into
+account.
+In  magnetic  resonance,  an  efficient  and  user-friendly
+software  landscape  is  starting  to  emerge  –  there  are  a
+few  software  packages  that  support  sophisticated  quan-
+tum  mechanical  magnetic  resonance  simulations  as  well
+as  optimal  control.  Spinach  [
+169]  supports  all  forms  of
+magnetic resonance spectroscopy under the same roof, im-
+plements sophisticated spin relaxation theories as well as
+most mainstream optimal control algorithms that are pre-
+sently used in magnetic resonance spectroscopy: GRAPE
+[
+210], GRAPE-BFGS [98,264], Krotov [226] and Krotov-
+BFGS  [
+118].  Another  advantage of  Spinach  is  the  avail-
+ability of polynomially scaling spin dynamics simulation
+algorithms  that  make  previously  intractable  NMR  and
+EPR  simulation  (and  therefore  control)  problems  acces-
+sible  [
+111,355].  In  the  solid-state NMR  community,  the
+SIMPSON software package (SIMulation Program for SOlid
+state Nuclear magnetic resonance) has been the most ex-
+tensively used general-purpose software and also includes
+an optimal control toolbox to facilitate robust experiment
+design [
+415]. MATPULSE [137,255], DYNAMO [264] and
+QuTiP [
+184] are versatile Matlab and Python based sim-
+ulation and optimization programs. Other software pack-
+ages  for  the  simulation  and/or  optimization  of  spin  dy-
+namics include SIMONE [
+141], OCTOPUS(SI) [115,215],
+Gamma [
+351] and SPINEVOLUTION [429].
+Both analytical and numerical methods have been pro-
+ven very effective for two- and three-level systems [
+6,35,
+35,38,41,42,43,135,138,139,233,238,239,286,381,
+384,385,386,400,403,465], two uncoupled spins [15,16],
+and two coupled spins  [
+29,116,163,204,208,338,432,
+457]. Moreover, significant progress has been made in un-
+derstanding how to optimally control coupled spin systems
+with more than two spins [
+36,37,45,64,71,72,73,74,
+202,203,209,235,296,339,363,369,395,396,424,440,
+441,456,458,459,460,462]. Recent advances include ro-
+bust  broadband  and  band-selective  pulses  in  NMR  and
+ESR. Depending on their role in a given experiment, uni-
+versal rotation (UR) pulses (e.g. for refocussing) or point-
+to-point  (PP)  pulses  (e.g.  for  excitation  or  inversion  of
+spins) are required. Systematic studies of the offset band-
+width (range of detunings) and robustness with respect to
+scaling of the control amplitude (width ofB
+1
+inhomogene-
+ity distribution) of optimized PP [
+218,219] and UR pulses
+have been performed [
+216]for experiments where the max-
+imum  control  amplitudes  (e.g.  in  many  applications  of
+NMR  or ESR spectroscopy) or  the pulse  energy (e.g. in
+MRI) are experimentally limiting factors. For a desired fi-
+delity, the bandwidth covered by a (composite or shaped)
+pulse can be made much larger than the maximum con-
+trol amplitude (maximum Rabi frequency) at the price of
+increased pulse duration. Surprisingly, it was found empir-
+ically that the pulse duration typically scales only linearly
+with the desired offset range of operation. Hence, unprece-
+dented fidelities can be achieved that are e.g. required for
+quantitative NMR applications or for quantum error cor-
+rection  schemes.  In  addition,  it  was  demonstrated  that
+coherence transfer elements can be designed that are not
+only  resilient  to  offset  and  control  amplitude  variations
+but also to variations in coupling constants [
+116,117].
+In general, UR pulses are significantly longer than PP
+pulses for the same error resilience, which was exploited
+in a new strategy to  build complete  sequences based on
+standardized UR pulses when necessary and standardized
+PP pulses whenever they are sufficient [
+295]. The recent
+application  of  optimal  control  methods  to  the  problem
+of  heteronuclear  decoupling  yields  not  only  significantly
+improved performance, [
+292,361] but also unprecedented
+flexibility  in  the  design  of  tailored  decoupling  sequences
+[
+223,360,464]. Individual pulses were also optimized for
+Carr-Purcell-Meiboom-Gill echo train sequences [
+39,267].
+Beyond  individually  optimized  pulses,  the  simultaneous
+optimization  of  pulses  provides  significant  performance
+gains by  exploiting  cooperative effects  either  in  a  single
+scan [
+50] or in multiple scans [51] with first applications
+in Ramsey-type experiments and in Hahn echo sequences.
+In liquid-state NMR, optimized broadband pulses have
+found applications in a number of experiments. Early ex-
+amples  are  the  CLIP-HSQC  [
+123]  and  P.E.HSQC  [421]
+for the measurement of one-bond and geminal couplings
+as well as more recent experiments involving homonuclear
+decoupling  [
+337]  and  the  rapid  acquisition  of  heteronu-
+clear correlation experiments [
+371]. All these experiments
+are of special interest as they are recorded in large num-
+bers every day in chemical laboratories and improvements
+in  robustness,  accuracy,  or  acquisition  time  are  of  high
+interest.
+For the specific conditions of solid-state NMR and ex-
+periments  in  oriented  systems,  specific  pulse  sequences
+have been  optimized  [
+198,242,259,263,414,436,455].
+In ESR spectroscopy, the first broadband optimal-control
+pulses  have  recently  been  developed  and  experimentally
+implemented [
+196,391]. In this context, the efficiency of
+novel approaches to take into account transient effects due
+to  transfer  line  effects  and  limited  resonator  bandwidth
+was  both  numerically  and  experimentally  demonstrated
+[
+391].
+Motivated by magnetic resonance imaging applications,
+optimal control pulses have been developed [
+84,154,174,
+12Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+175,240,255,272,434,452].  Applications  include  im-
+proved  spatially  selective  excitation  schemes  [
+179,180,
+382], pulses with minimal radio-frequency (rf) power and
+pulses to counteract rf inhomogeneity in parallel transmis-
+sion at ultra-high field [154,255]. For chemical exchange
+saturation  transfer  (CEST)  imaging,  chemical  exchange
+effects  were  taken  into  account  in  pulse  sequence  opti-
+mizaion [
+329].
+In  DNP,  optimal  polarization  transfer  schemes  from
+electron to nuclear spins have been investigated for a small
+set of relatively simple model systems [
+153,172,275,319,
+320]. Optimal control was also used in conjunction with
+the use of parahydrogen to generate high nuclear spin po-
+larization. In particular, it was shown that the initial lon-
+gitudinal  two-spin  order  arising  from  the  hydrogenation
+reaction can be equally distributed between several spins
+and converted into detectable magnetization [
+52].
+Geometric  and  numerical  tools  from  optimal  control
+theory have not only provided pulse sequences of unprece-
+dented quality and capabilities, but also new analytical in-
+sight and a deeper understanding both of the mode of ac-
+tion of optimal pulses. Numerically optimized pulses can
+often  be  interpreted  as  robust  implementations  of  ana-
+lytically derived optimal trajectories [
+238]. These can be
+understood based on geometrical concepts [
+233]. In addi-
+tion, useful tools have been developed to analyze complex
+pulses  [
+222]  and  the  resulting  dynamics  in  coupled  spin
+systems [
+136,229,320].
+4.2 Mid-term prospects: goals and challenges
+An important goal is to make optimal control algorithms
+easier to use, generally applicable and to further increase
+their  speed.  Depending  on  the  applications,  very  differ-
+ent  convergence rates  are  encountered  and  a  systematic
+characterization of optimal control landscapes is still miss-
+ing.  With  more  efficient  numerical  optimizations  meth-
+ods, optimal control theory will make it possible to design
+problem-, sample- and patient-specific pulse sequences on
+the  fly.  The  fast  reoptimization of pulse  sequences or  of
+sequence elements, e.g. in response to the presence of mag-
+netic susceptibility jumps, will significantly improve their
+performance. In addition to MRI applications, this could
+be important in production or process monitoring by NMR,
+where the pulse sequence should be able to adapt to the
+sample in the same way as shim currents currently do – ex-
+amples are magnetic susceptibility and tuning variations
+in imaging, metabolomics and oil well logging [
+39].
+Optimal  control methods are expected  to reduce the
+time  which  is  required  to  determine  structural  and  dy-
+namical information of biomolecules (e.g. proteins). In this
+field, coping with large coupled spin networks, especially
+in the presence of relaxation, is computationally hard and
+further improved numerical/analytical approaches are high-
+ly  desirable.  Characterizing  the  experimental  imperfec-
+tions and fine-tuning the spectrometer and setting up the
+experiment  is  time-consuming  and  efficient  closed  loop
+feedback-based  automatic  procedures  have  to  be  devel-
+oped, implemented and integrated with the adaptive de-
+sign of pulse sequences to automate this process.
+In the field of medical imaging it is expected that opti-
+mal control methods will lead to more sensitive and more
+efficient pulse sequences, such that a patient has to spend
+less time  in  a scanner  for  an  examination.  This  may be
+achievable by using multi-band excitation techniques and
+optimized  image  acquisition  based  on  multiple  transmit
+and  receive  channels.  Optimal  control  methods  are  also
+expected to help in the extension of the clinical applica-
+bility  of  ultra-high-field  scanners and  to  provide  in-vivo
+spectroscopy with improved diagnostic value. Apart from
+better  localized  excitation,  progress in  the  field  of  mag-
+netization preparation (e.g. reducing the B
+0
+sensitivity of
+fat saturation) might be achievable. Improved saturation
+pulses are expected to be useful for many different task,
+from chemical shift imaging (CSI) and chemical exchange
+saturation transfer (CEST) imaging [
+329] to single voxel
+spectroscopy.  Also  methods  for  improved  quantification
+accuracy and biomarker imaging are highly desirable.
+Small  molecule  NMR  spectroscopy forms  the  central
+basis of chemical analysis on a molecular level in solution.
+Applications are already manifold, but are expected to in-
+crease significantly during the next decade. Mostly identi-
+fication and quantification of compounds in complex mix-
+tures is needed. Especially for quantification tasks, meth-
+ods to be derived from optimal control will deliver more
+reliable  and  robust  results.  Optimal  control  derived  se-
+quences will also improve the detection level of side prod-
+ucts, making products safer and better defined. Especially
+quality control of food, pharmaceuticals and other prod-
+ucts  as well as metabolomics-type  applications and  per-
+sonalized medicine will benefit from improved experiments
+and thereby directly affect everyday life.
+In the field of hyperpolarization, further hardware ad-
+vances are expected, in particular in generating and mod-
+ulating  high-frequency  microwave  fields  and  it  is  envis-
+aged  that  optimal  control  methods  will  play  an  impor-
+tant role in the development of more sophisticated exper-
+imental  schemes  to  transfer  the  electron  polarization  to
+surrounding nuclear spins. Ideas how to control electron-
+nuclear spin systems in a optimal way have already been
+published and discussed. This includes the manipulation
+of  the  nuclear  spins  using  the  anisotropy  of  the  hyper-
+fine interaction [
+168,207] and the exploitation of repeated
+generation of dipolar  spin  order to  enhance polarization
+transport by spin diffusion [
+99]. Since more sophisticated
+catalysts are being developed for parahydrogenation reac-
+tions [
+357], it is also anticipated that pulse shapes derived
+from  optimal  control  principles  will  be  more  frequently
+used to maximize the achievable polarization and to me-
+diate polarization transfer to specific molecular site.
+4.3 Long-term vision
+Important  theoretical  and  practical  aspects  of  optimal
+control  in  magnetic  resonance  are  the  physical  limits  of
+quantum  dynamics.  On  the  one  hand,  the  questions  of
+quantum state reachability in dissipative systems remain
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control13
+largely  unresolved.  On  the  other,  many  practical  usage
+scenarios are time-constrained, and a more general under-
+standing of the best possible performance in a give amount
+of time is highly desirable.
+A very desirable outcome of the continued progress in
+optimal control technology could be that, for a given level
+of performance, the use of optimal control sequences could
+significantly reduce the instrument costs as well as costs of
+sample  preparation and  purification.  Sophisticated  shim
+coils,  frequency  locks,  complicated  combinations  of  sus-
+ceptibility  matched  materials in  NMR  probes and  other
+expensive  arrangements  had  originally  been  introduced
+to  maximize  spectral  resolution  and  selectivity.  If  both
+could be achieved by tailored pulse sequences under less
+than ideal conditions, the complexity could be transferred
+from the instrument design to the mathematical optimiza-
+tion  procedure.  The  concomitant  reduction  of  hardware
+cost could result in more affordable instruments, e.g. for
+MRI  examinations.  Also,  the  integration  of  control  de-
+sign with image reconstruction and spectral calculation in
+NMR  and with  instrument  design could result in  better
+performance. The combination of open loop and feedback
+strategies  may  result  in  fast  and  fully  automated  tune-
+up  procedures, which  would  further  reduce the  required
+experimental time.
+A long-term vision of magnetic resonance techniques is
+the detection of the nuclear spins of individual molecules,
+such  as  a  protein.  The  ability  to  image  the  shape  of  a
+single molecule similar to the way we can image humans
+today would revolutionize structural biology and the ra-
+tional and efficient development of medication. The recent
+developments in sensing based ib NV centers in diamonds
+(see section
+5) may provide a potential road to this goal,
+as well as completely new application areas e.g. in medical
+diagnostics.
+5 Quantum information and communication
+5.1 State of the art
+Quantum  technologies (see,  e.g.,  [
+109])  exploit  quantum
+coherence and entanglement as essential elements of quan-
+tum physics. Applications include high-precision measure-
+ments and sensing, which would reach unprecedented sen-
+sitivity, the simulation of physical and biological systems,
+which would be impossible to study otherwise, and quan-
+tum  information  processing, which  would  allow  to  solve
+computationally  hard  problems.  Successful  implementa-
+tion of quantum technologies faces the  challenge to pre-
+serve the relevant nonclassical features at the level of de-
+vice operation. More specifically, each task of the device
+operation needs to be carried out with sufficient accuracy,
+despite  imperfections  and potentially  detrimental effects
+of  the  surroundings.  Quantum  optimal  control  not  only
+provides toolboxes  that  allow  for  identifying  the  perfor-
+mance  limits  for  a  given  device  implementation,  it  also
+provides the protocols for realizing device operation within
+those limits.
+Prominent tasks include the preparation of useful quan-
+tum  states  as  well  as  implementation  of  quantum  oper-
+ations.  The  power  of  the  quantum  optimal  control  ap-
+proach  for  implementing  these  tasks  has  very  recently
+been demonstrated in a number of impressive experiments.
+For example, nonclassical motional states of a Bose-Ein-
+stein  condensate  were  prepared  with  optimized  control
+sequences  for  wavepacket  interferometry  [
+426],  and  the
+loading  of  an  ultracold  atomic  gas  into  an  optical  lat-
+tice was improved [
+345]. With respect to quantum opera-
+tions, quantum optimal control allowed for error resistant
+single-qubit gates with trapped  ions [412] and  for single
+qubit  gates  without  the  need  for  invoking  the  rotating
+wave approximation in nitrogen vacancy (NV) centers in
+diamond  [
+359].  For  the  latter  platform,  optimal  control
+is also at the basis of a spectroscopy protocol allowing to
+image nanoscale magnetic fields [
+159]. In quantum proces-
+sor candidates based on superconducting circuits, leakage
+to  non-computational  states  in  the  most  common  type
+of  qubit,  the  transmon  [
+78,260,284],  was  avoided  and
+frequency  crowding  was  accomodated  [
+372,430]  thanks
+to  optimal  control  results.  Closed-loop  optimal  control
+[
+112,199]  enabled  fine-tuning  of  gates  that  were  deter-
+mined manually, allowing them to reach consistent record
+fidelities  within  this  platform.  Control  of  donor  qubits
+in Si has been achieved and characterized [
+285]. Control
+strategies for spins in semiconductors currently trade off
+conceptually  simple  single-spin  schemes  [
+197,316]  with
+more robust and accessible two- and three spin techniques
+[211,274,313]. The short natural time scales suggest adi-
+abatic  schemes  to  be  attractive  [
+49,126,152]  In  view
+of  scaling  up  control,  the  design  and  implementation  of
+unitary  maps  have  recently  been  demonstrated  in  a  16-
+dimensional  Hilbert  space,  spanned  by  the  electron  and
+nuclear spins of individual cesium atoms [
+13].
+The use of control methods in a broader sense has al-
+lowed  for  further  significant  experimental  achievements,
+such as to improve of the coherence of a qubit, realized by
+the electron spin in an NV center, using dynamical decou-
+pling [
+66]. A famous further example of high-end control
+techniques is the Paris experiment of stabilizing a quan-
+tum  state  with  predefined  photon  number  via  real-time
+closed-loop feedback [
+356], which required to include the
+noise back-action of  controls onto the  system  by way of
+stochastic differential calculus.
+These experimental achievements were preceded by a
+large  number  of  theoretical  predictions  on  how  optimal
+control may improve or enable quantum state preparation,
+operation  and  readout.  State  preparation  protocols  in-
+clude transport of atoms [
+96] and ions [134,378] as well as
+transport in a spin chain [
+68,202,290,296,363,396,456],
+photon storage [
+148], preparation of squeezed states [155],
+cluster-states [
+127], non-classical states in a cavity [344] or
+in spin chains [
+440,441], as well as preparation of a quan-
+tum register [
+107] and many-body entangled states [70]—
+to name just a few.
+Likewise,  optimal  control  helped  to  implement  high-
+fidelity quantum gates such as two-qubit gates with neu-
+tral atoms in dipole traps [
+67,108], on atom chips [418],
+14Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+or with Rydberg atoms [87,143], two-qubit gates between
+ions [
+323], between an ion and an atom [103], error-correct-
+ing qubit gates of electron and nuclear spins within single
+NV centers [
+437], or entangling gates between distant NV
+centers [
+105]. For superconducting qubits [80], two-qubit
+gates  were  optimized,  starting  from  Cooper  pair  boxes
+[
+88,183,281,392]  to  modern  transmon-based  schemes
+[
+114,145].  In  these  optimizations,  special  attention  was
+paid to robustness against noise [
+281,330] which can even
+be used as a tool for control [
+333]. Also, readout has been
+addressed [
+113]. In order to adapt to the strong filtering of
+control lines in superconducting qubits, transfer functions
+had to be taken into account [
+167,176,283,391] and ex-
+perimental fluctuations and noise were accomodated [
+145,
+282,440]. Fidelity limits on two-qubit gates due to deco-
+herence were studied for Markovian [
+144,145,368] as well
+as non-Markovian [
+128] time evolutions. It is noteworthy
+in  this  context that  non-Markovian time  evolutions also
+play a role in quantum simulation, e.g., of collision mod-
+els [
+350].
+In  view  of  quantum  computation,  it  has  been  sug-
+gested how to retain universality in spite of limited local
+control [
+64,440] by using environmental degrees of free-
+dom  [
+333].  The  Jones  polynomial,  i.e.,  a  central  invari-
+ant in knot theory, can be evaluated, using an NMR spin
+ensemble at ambient temperature, in an algorithm equiv-
+alent to  deterministic  quantum computing  with  a  single
+pure qubit [
+271,307,367].
+In  order  to  obtain  these  results,  the  quantum  opti-
+mal  control  methodology  had  to  be  adapted  to  the  re-
+quirements of Quantum Technologies. Optimization algo-
+rithms had to be derived for specific quantum gates [
+303,
+304,408], dissipative evolution as seen in the reduced sys-
+tem  dynamics  [
+144,190,330,368],  or  exploiting  invari-
+ants in system-bath models [
+150], optimization up to lo-
+cal  equivalence classes [
+288],  which  can also be  used  for
+arbitrary  perfect  entanglers  [
+142,443]  or  optimizing  for
+many-body  entanglement  [
+318].  Moreover,  control  tech-
+niques were adapted to non-linear dynamics as found in
+a BEC [170,177,387] and to general dynamics, function-
+als and couplings to be controlled [
+332]. Many-body sys-
+tems can be optimized numerically with the chopped ran-
+dom  basis  (CRAB)  method  [
+69,107]  by  interfacing  the
+time-dependent density matrix renormalization group (t-
+DMRG) with parameter optimization via e.g. the simplex
+algorithm. Other techniques specifically cover robustness
+with  respect  to  experimental  fluctuations  or  noise  [
+144,
+145,344,440] or filters in experimental implementation of
+controls [
+167,176,283,391].
+5.2 Mid-term prospects: goals and challenges
+The  field  of  quantum  technologies  has  matured  to  the
+point that quantum enhancement is explored beyond quan-
+tum computation only. Devices such as quantum simula-
+tors or quantum sensors are currently under active devel-
+opment. Control methods will be crucial to operate these
+devices reliably and  accurately. This  involves the  device
+preparation,  or  reset,  the  execution  of  the  desired  time
+evolution, and the readout of the result. These tasks set
+the agenda for the next few years.
+More specifically, central mid-term milestones include
+the  robust  implementation  of  gates  in  a  multi-qubit  ar-
+chitecture, finding solutions to readout and fast reset lim-
+itations, automatization of  key tasks of  surface  code  er-
+ror  correction  and  optimal  as  well  as  robust  generation
+of multi-particle entangled states for a variety of quantum
+technology platforms. All of these will require decoherence
+control.
+A  main  challenge  for  optimal  quantum  control  is  to
+reach  convergence  of  numerical  optimal  control  and  ex-
+perimentation. To date, either optimal control is used for
+computer-aided discovery of analytical schemes that can
+be  remodeled  in  an  experiment  or  the  quantum  proces-
+sor itself is employed to calibrate gates. In order to better
+combine numerical optimal control and experimentation,
+the  modeling  of  qubits  as  well  as  errors and  other  non-
+idealities  of  the  system,  in  particular  for  open  systems,
+needs  to  be  improved  and  the  robustness  of  pulses  en-
+hanced. Also, optimized pulses should initially be reduced
+to few parameters before more complicated and effective
+solutions can be pursued. On the other hand, pulse shap-
+ing platforms need improvement.
+Coming to specific quantum technology platforms, ap-
+plications of quantum control in superconducting qubits
+should follow the current European thrust towards analog
+and digital quantum simulation and lead to the prepara-
+tion of entangled ground states, fast and accurate quan-
+tum gates and tools for quantum machines. For some in-
+stances,  compatibility  with  quantum  error  correction  is
+desired.  For  trapped  ions,  it  seems  realistic  to  combine
+quantum gates with ion transport in segmented traps, us-
+ing optimal control techniques, which can also be applied
+to the systematic optimization of pulse sequences for effi-
+cient generation of complex operations. In the field of cold
+atoms, challenges for optimal control are twofold. On the
+side of quantum simulations, the  goal is to enable high-
+fidelity preparation and manipulation of many-body quan-
+tum states of increasing complexity, with and without lo-
+cal control. On the side of quantum communication, the
+goal is  to  enable  efficient  interconversion between  flying
+qubits and quantum memories via coherent atom-photon
+coupling, with and without cavities. In the case of color
+centers in diamond, with major applications in quantum
+sensing, the goal is to enhance the sensitivity of the de-
+fect spins employed as quantum probes via improved pro-
+tection from environmental noise e.g. through dynamical
+decoupling techniques.
+In  general,  control  techniques  are  expected  to  con-
+tribute to decoupling and dissipative state-engineering [
+62,
+225,428], for instance in view of enhancing the lifetime of
+quantum  memories.  In  order  to  improve  the  lifetime  of
+a  quantum  register,  control  can  also  be  used  to  imple-
+ment error-correcting gates and circuits [
+437]. Moreover,
+while quantum compilation, i.e., the translation of a uni-
+tary gate into the machine language of pulses and evolu-
+tions, can readily be done via optimal control up to some
+10 qubits [
+370], a scalable assembler of elementary gates
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control15
+(up  to  10  qubits)  into  many  qubits  is  an  open  problem
+that may benefit from tensor-contraction techniques.
+Both  numerical optimal control and  closed-loop con-
+trol  are  expected  to  be  useful  for  tackling  these  goals.
+Numerical  optimal  control  has  the  advantage  of  versa-
+tility, whereas closed-loop control can easily be tuned to
+specific  tasks  such  as  determining  parameter  uncertain-
+ties.  A  hybridization  of  both  approaches  is  conceivable
+as  well.  The  main  difficulties  that  need  to  be  overcome
+to reach the above mentioned mid-term milestones are a
+sufficiently  accurate  modelling  of  complex  quantum  dy-
+namics to build control on top, integration of tomography
+and  system  identification  with  optimal  control,  efficient
+ways  to  take  into  account  experimental  constraints  and
+uncertainties, and bridging the gap between the quantum
+control community and the communities of the respective
+quantum technology platforms.
+5.3 Long-term vision
+Several current quantum technology platforms show a strong
+scaling potential. Thus in the long term, control schemes
+need to be made scalable. This represents a severe chal-
+lenge, but meeting this challenge will make quantum con-
+trol a basic building block of every quantum technology
+and ensure, at the same time, their proper functioning in
+a world that is only partially quantum.
+Take the examples of superconducting qubits, NC cen-
+ters  or  spins  in  Si,  where  fabrication  is  a  key  task  that
+could and should be improved by control techniques. The
+controlled  adjustment  of  fabrication  parameters  should
+be  simple,  and  the  qubits  should  to  a  certain extent  be
+robust  to  the  influences  of  the  rest  of  the  architecture
+they  are  placed  in.  Independent  of  a  specific  platform,
+error correction at large, for instance by toric codes [
+21,
+129],  is  one  of  the  strategic  long-term  goals  that  is  ex-
+pected to benefit from control techniques given recent ad-
+vances  by  randomized  benchmarking  [199].  To  this  end,
+system-identification protocols matched with optimal con-
+trol modules will be of importance. A pioneering step in
+this direction was made by the ADHOC technique [
+112]
+that combines open-loop control as a first step with closed-
+loop feedback learning (with implicit  parameter identifi-
+cation). Moreover, taking quantum control algorithms to
+match with tensor-contraction techniques in order to ad-
+dress quantum-many body systems (where first steps have
+been  made  by  CRAB  [
+69,107])  is  expected  to  pave the
+way to more accurate handling of experimental quantum
+simulation setups.
+In  short,  quantum  control  will  be  the  means  to  get
+the  most  performance  out  of  an  imperfect  system  and
+combine  challenging  physics  at  the  few-qubit  level  with
+engineering at the multi-qubit level. This should aim for
+example  at  enabling  quantum  simulations  that  are  im-
+possible on classical computers. In addition, the  realiza-
+tion of the following long-term goals, using optimal con-
+trol techniques, seems challenging yet conceivable: demon-
+strating  the  practical  usefulness  of  engineered  quantum
+states,  for  example  in  quantum  metrology;  implement-
+ing  reliable  strategies  for  the  control  of  mesoscopic  sys-
+tems; exploring the dynamics of quantum many-body sys-
+tems  beyond  equilibrium;  and  understanding  the  micro-
+scopic origin of thermodynamic laws. In other words, the
+long-term goal of quantum optimal control for  quantum
+technologies is to develop a software layer enhancing the
+performance  of  quantum  hardware for  tasks  in  comput-
+ing,  simulation,  communication,  metrology  and  sensing
+beyond  what  is  achievable  by  classical  means,  enabling
+the achievement of quantum supremacy [
+324].
+6 Prospects for applications and commercial
+exploitation
+Quantum-control enabled technologies have potential for
+truly revolutionary innovation. More sophisticated quan-
+tum  control  techniques  are  making  current  technologies
+more powerful and also help to create novel technologies,
+e.g.  in  sensing  with  super  sensitive  magnetic  detectors,
+microscopic temperature measurement devices, molecular
+imaging etc.  Better  control of quantum  systems has the
+potential to significantly reduce instrument costs, turning
+perhaps million dollar NMR spectrometers into small and
+portable devices with many new fields of applications.
+As visible above, quantum optimal control applications
+broadly fall into two classes: Applications to novelquan-
+tum technologiesand applications in chemistry-related ar-
+eas  such  as  spin  resonance.  The  magnetic  resonance  in-
+dustry as we know it today would not exist without quan-
+tum control. Novel optimal control strategies have already
+been implemented in commercial NMR spectrometers and
+implementations of optimal control sequences in MRI are
+being pursued. Clearly, with more and more improved se-
+quences  being  developed,  this  trend  is  expected  to  con-
+tinue. Other chemistry-related applications where coher-
+ent control plays out powerfully are imaging, optical mi-
+croscopy and various variants of spectroscopy as well as
+chemical analysis where shaped laser pulses improve the
+resolution and enhance the specificity to a particular mo-
+lecule.  Areas  of  application  range from  remote  chemical
+detection all the way to cancer diagnosis.
+On the other end of the spectrum, there is presently an
+emerging industrial effort in Quantum Computing lead by
+IBM, Google, and Microsoft. The first two companies have
+invested into the development of superconducting qubits
+and both of them use optimal control techniques [
+88,199].
+This is no coincidence - optimal control can have impact
+in systems that have reached some technical maturity in
+research laboratories, which is the point at which indus-
+try gets interested. Further industrial perspectives will be
+linked to the further development of a quantum technolo-
+gies industry. Early convergence could happen in quantum
+sensing, which takes sensing ideas similar to those appear-
+ing in spin resonance and combines them with ideas from
+quantum technologies.
+16Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+7 Conclusions
+Quantum control is a key facilitator for spectroscopy and
+imaging as well as AMO physics and emerging quantum
+technologies for computation, simulation, metrology, sens-
+ing  and  communication.  For  all  these  applications,  it  is
+crucial  to  reach the  required  precision  given  experimen-
+tal limits on control amplitudes, power, timing, accuracy
+of instruments as well as the ever-present interaction with
+the environment. Optimal control theory provides a frame-
+work to identify which quantum tasks can be accomplished
+with what precision in the presence of decoherence and ex-
+perimental imperfections and limitations.
+Quantum control systems theory will require the inte-
+gration of control aspects at many different levels. Future
+quantum technologies will rely on integrated architectures
+of hybrid quantum systems [
+230] with e.g. nuclear spins for
+long-term  storage,  quantum-nanomechanical  devices  for
+sensing and photons  for  the  communication of quantum
+states. This will require also the integration of quantum
+mechanics in engineering education and vice versa. It will
+be necessary to establish strong links of quantum control
+experts to quantum engineering and to the manufacturing
+of quantum devices.
+Due to its interdisciplinary nature with applications in
+many diverse fields, future advances in the optimal con-
+trol of quantum systems will require the combined effort
+of people with expertise in a wide range of research fields.
+Only  the  close  link  of  basic  research,  development  and
+applications will open scientifically and economically re-
+warding perspectives and will foster the innovation poten-
+tial of emerging quantum technologies in an optimal way.
+The Virtual Facility for Quantum Control (VF-QC) under
+the umbrella of the EU Coordinated Action for Quantum
+Technologies in Europe (QUTE-EUROPE) marks an im-
+portant  step  in  this  direction.  The  primary  goal  of  the
+VF-QC is to provide a common structure for the growing
+quantum control community in Europe, for the promotion
+of quantum control and to provide expertise to other sci-
+entific communities, to policy makers and the general pub-
+lic. Establishing common terminology, common standards
+and common visions are crucial prerequisites to maximize
+the beneficial impact of optimal quantum control methods
+on current and future technology, economics and society.
+Acknowledgements
+This strategic report has grown out of the Pan-European
+Coordination and support action on Optimal Control of
+Quantum  Systems  (QUAINT),  funded  by  the  European
+Commission under grant number 297861. We would like to
+thank all people who have participated in the community
+consultation for their comments and suggestions. In par-
+ticular we acknowledge contributions from Andreas Buch-
+leitner,  Tobias  Brixner,  Daniel  Burgarth,  Enrico  Prati,
+David Tannor, and Zdenˇek Toˇsner. We are indebted to Per
+J. Liebermann for assisting the writing process as well as
+Frank Langbein, Peter K. Schuhmacher and Andrea Du-
+mont for managing the community consultation.
+References
+1.  The quaint website.  www.quantumcontrol.eu, 2015.
+2.  A. Abragam.The Principles of Nuclear Magnetism.
+Oxford University Press, 1961.
+3.  Martin Aeschlimann, Michael Bauer, Daniela Bayer,
+Tobias Brixner, F.  Javier Garc ́ıa de  Abajo,  Walter
+Pfeiffer, Martin Rohmer, Christian Spindler, and Fe-
+lix Steeb.  Adaptive subwavelength control of nano-
+optical fields.Nature, 446:301–304, 2007.
+4.  A.  A.  Agrachev  and  Y.  L.  Sachkov.Control the-
+ory from the geometric viewpoint.   Springer-Verlag,
+Berlin, vol. 87 of encyclopaedia of mathematical sci-
+ences,  control  theory  and  optimization,  ii.  edition,
+2004.
+5.  F.  Albertini  and  D’Alessandro  D.   Notions  of  con-
+trollability for bilinear multilevel quantum systems.
+IEEE Trans. Automat. Control, 48:1399–1403, 2003.
+6.  F.  Albertini  and  D.  D’Alessandro.   Minimum  time
+optimal synthesis for two level quantum systems.J.
+Math. Phys., 56:012106, 2015.
+7.  C.  Altafini  and  F.  Ticozzi.   Modeling  and  control
+of quantum systems: An introduction.IEEE Trans.
+Automat. Control, 57:1898–1917, 2012.
+8.  Claudio  Altafini.    Controllability  of  quantum  me-
+chanical  systems  by  root  space  decomposition  of
+su(N).J. Math. Phys., 43(5):2051–2062, 2002.
+9.  Claudio Altafini. Controllability properties for finite
+dimensional  quantum  markovian master  equations.
+J. Math. Phys., 44(6):2357–2372, 2003.
+10.  Morag Am-Shallem  and  Ronnie  Kosloff.   The  scal-
+ing  of  weak  field  phase-only  control  in  Markovian
+dynamics.J. Chem. Phys., 141:044121, 2014.
+11.  Saieswari  Amaran,  Ronnie  Kosloff,  Micha l  Tomza,
+Robert Moszynski, Leonid Rybak, Liat Levin, Zohar
+Amitay, J. Martin Berglund, Daniel M.  Reich, and
+Christiane P. Koch.  Femtosecond two-photon pho-
+toassociation of hot magnesium atoms: A quantum
+dynamical study using thermal random phase wave-
+functions.J. Chem. Phys., 139:164124, 2013.
+12.  Ori  Katz  andEran  Small  and  Yaron  Silberberg.
+Looking around corners and through thin turbid lay-
+ers in real time with scattered incoherent light.Na-
+ture Photon., 6:549–553, 2012.
+13.  B.  E.  Anderson,  H.  Sosa-Martinez,  C.  A.  Riofr ́ıo,
+Ivan H. Deutsch, and Poul S. Jessen.  Accurate and
+robust unitary transformations of a high-dimensional
+quantum system.Phys. Rev. Lett., 114(24):240401,
+2015.
+14.  M.  Annunziato  and  A.  Borzi.   Optimal  control  of
+probability density functions of stochastic processes.
+Math. Modelling Anal., 15(4):393–407, 2010.
+15.  E. Ass ́emat, L.  Attar, M.  J.  Penouilh, M.  Picquet,
+A.  Tabard,  Y.  Zhang,  S.  J.  Glaser,  and  D.  Sugny.
+Optimal control of the inversion of two spins in nu-
+clear magnetic resonance.Chem. Phys., 405:71–75,
+2012.
+16.  E. Ass ́emat, M. Lapert, Y. Zhang, M. Braun, S. J.
+Glaser,  and  D.  Sugny.   Simultaneous  time-optimal
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control17
+control of the inversion of two spin-
+1
+2
+particles.Phys.
+Rev. A, 82(1):013415, 2010.
+17.  David Avisar and David J. Tannor. Complete recon-
+struction of the wave function of a reacting molecule
+by four-wave mixing spectroscopy.Phys. Rev. Lett.,
+106(17):170405, 2011.
+18.  David   Avisar   and   David   J.   Tannor.Multi-
+dimensional wavepacket and potential reconstruction
+by  resonant  coherent  anti-stokes  raman  scattering:
+Application  to  H2O  and  HOD.J. Chem. Phys.,
+136(21):214107, 2012.
+19.  D. D. Awschalom, L. C. Bassett, A. S. Dzurak, E. L.
+Hu, and J. R. Petta. Quantum spintronics: Engineer-
+ing and manipulating atom-like spins in semiconduc-
+tors.Science, 339:1174–1179, 2013.
+20.  Yue Ban, Xi Chen, E. Ya Sherman, and J. G. Muga.
+Fast and robust spin manipulation in a quantum dot
+by electric fields.Phys. Rev. Lett., 109(20):206602,
+2012.
+21.  R.   Barends,   J.   Kelly,   A.   Megrant,   A.   Veitia,
+D.  Sank,  E.  Jeffrey,  T.  C.  White,  J.  Mutus,  A.  G.
+Fowler, B. Campbell, Y. Chen, Z. Chen, B. Chiaro,
+A.  Dunsworth,  C.  Neill,  P.  O’Malley,  P.  Roushan,
+A.  Vainsencher, J.  Wenner,  A.  N.  Korotkov, A.  N.
+Cleland, and J. M. Martinis.  Logic gates at the sur-
+face code threshold: Superconducting qubits poised
+for   fault-tolerant   quantum   computing.Nature,
+508:500–503, 2014.
+22.  A.  Bartana,  R.  Kosloff,  and  D.  J.  Tannor.   Laser
+cooling of internal degrees of freedom. II.J. Chem.
+Phys., 106:1435–1448, 1997.
+23.  Allon Bartana, Ronnie Kosloff, and David J Tannor.
+Laser  cooling  of  molecules  by  dynamically  trapped
+states.Chem. Phys., 267(1–3):195–207, 2001.
+24.  T.    Bayer,    M.    Wollenhaupt,    H.    Braun,    and
+T.  Baumert.   Ultrafast  and  efficient  control  of  co-
+herent electron dynamics via SPODS.Adv. Chem.
+Phys., page 1, 2014.
+25.  T.  Bayer, M.  Wollenhaupt,  C.  Sarpe-Tudoran, and
+T.  Baumert.   Robust  photon  locking.Phys. Rev.
+Lett., 102(2):023004, 2009.
+26.  Tim Bayer, Hendrike Braun, Cristian Sarpe, Robert
+Siemering,  Philipp  von  den  Hoff,  Regina  de  Vivie-
+Riedle,  Thomas  Baumert,  and  Matthias  Wollen-
+haupt.   Charge  oscillation  controlled  molecular  ex-
+citation.Phys. Rev. Lett., 110(12):123003, 2013.
+27.  K.   Beauchard.Local   controllability   of   a   1-
+D  Schr ̈odinger  equation.J. Math. Pures Appl.,
+84(7):851–956, 2005.
+28.  Karine  Beauchard,  Jean-Michel  Coron,  and  Pierre
+Rouchon.Controllability  issues  for   continuous-
+spectrum  systems  and  ensemble  controllability  of
+Bloch equations.Commun. Math. Phys., 296(2):525–
+557, 2010.
+29.  C. H. Bennett, I. Cirac, M. S. Leifer, D. W. Leung,
+N. Linden, S. Popescu, and G. Vidal. Optimal simu-
+lation of two-qubit Hamiltonians using general local
+operations.Phys. Rev. A, 66(1):012305, 2002.
+30.  V.  Bergholm  and  T.  Schulte-Herbr ̈uggen.How
+to    transfer    between    arbitrary    n-qubit    quan-
+tum   states   by   coherent   control   and   simplest
+switchable   noise   on   a   single   qubit.e-print:
+http://arXiv.org/pdf/1206.494, 2012.
+31.  K. Bergmann, H. Theuer, and B. W. Shore. Coherent
+population transfer among quantum states of atoms
+and  molecules.Rev. Mod. Phys.,  70(3):1003–1025,
+1998.
+32.  M. A. Bernstein, K. F. King, and Zhou.Handbook
+of MRI Pulse Sequences.   Elsevier,  Burlington-San
+Diego-London, 2004.
+33.  Timothy   Bohinski,   Katharine   Moore   Tibbetts,
+Maryam Tarazkar, Dmitri  A.  Romanov, Spiridoula
+Matsika, and Robert J. Levis. Strong field adiabatic
+ionization prepares a launch state for coherent con-
+trol.J. Phys. Chem. Lett., 5(24):4305–4309, 2014.
+34.  B. Bonnard and M. Chyba.Singular trajectories and
+their role in control theory.  Springer-Verlag, Berlin,
+mathematics and applications, vol. 40 edition, 2003.
+35.  B. Bonnard, M. Chyba, and D. Sugny. Time-minimal
+control  of  dissipative  two-level  quantum  systems:
+The  generic  case.IEEE Trans. Automat. Control,
+54(11):2598–2610, 2009.
+36.  B.Bonnard,O.Cots,J.-B.Pomet,and
+N.   Shcherbakova.Riemannian   metrics   on   2D-
+manifolds  related  to  the  Euler-Poinsot  rigid  body
+motion.ESAIM  Control  Optim.  Calc.  Var.,
+20(3):864–893, 2014.
+37.  B.   Bonnard,   O.   Cots,   and   N.   Shcherbakova.
+The  Serret-Andoyer Riemannian  metric and  Euler-
+Poinsot  rigid  body  motion.Math. Control Relat.
+Fields, 3(3):287–302, 2013.
+38.  A.  D.  Boozer.Time-optimal  synthesis  of  SU(2)
+transformations for a spin-
+1
+2
+system.Phys. Rev. A,
+85(1):013409, 2012.
+39.  T. W. Borneman, M. D. H ̈urlimann, and D. G. Cory.
+Application of optimal control to CPMG refocusing
+pulse design.J. Magn. Reson., 207(2):220–233, 2010.
+40.  A. Borzi. Quantum optimal control using the adjoint
+method.Nanoscale Syst. Math. Model. Theory Appl.,
+1:93–111, 2012.
+41.  U.  Boscain,  T.  Chambrion,  and  G.  Charlot.   Non-
+isotropic  3-level  quantum  systems:  Complete  solu-
+tions for minimum time and minimum energy.Dis-
+crete Contin. Dyn. Syst. Ser. B, 5(4):957–990, 2005.
+42.  U.  Boscain,  G.  Charlot,  J.-P.  Gauthier,  S.  Gu ́erin,
+and H.-R. Jauslin.  Optimal control in laser-induced
+population transfer for two- and three-level quantum
+systems.J. Math. Phys., 43:2107–2132, 2002.
+43.  U. Boscain and P. Mason. Time minimal trajectories
+for a spin 1/2 particle in a magnetic field.J. Math.
+Phys., 47(6):062101, 2006.
+44.  U.  Boscain  and  B.  Piccoli.Optimal Synthesis for
+Control Systems on 2-D Manifolds.  Springer, smai,
+vol. 43 edition, 2004.
+45.  S.   Bose.Quantum   communication  through  an
+unmodulated   spin   chain.Phys.  Rev.  Lett.,
+91(20):207901, 2003.
+18Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+46.  Luc Bouten, Ramon. van Handel, and Matthew R.
+James. An introduction to quantum filtering.SIAM
+J. Control Optim., 46(6):2199, 2007.
+47.  Luc  Bouten,  Ramon  van  Handel,  and  Matthew  R.
+James. A discrete invitation to quantum filtering and
+feedback control.SIAM Rev., 51(2):239–316, 2009.
+48.  C.  R.  Bowers  and  D.  P.  Weitekamp.   Transforma-
+tion of symmetrization order to nuclear-spin magne-
+tization by chemical reaction and nuclear magnetic
+resonance.Phys. Rev. Lett., 57(21):2645–2648, 1986.
+49.  F.    R.    Braakman,    P.    Barthelmy,    C.    Reichl,
+W.   Wegscheider,   and   L.   M.   K.   Vandersypen.
+Long-distance  coherent  coupling  in  a  quantum  dot
+array.Nat. Nanotechnol., 8:432–437, 2013.
+50.  M. Braun and S. J. Glaser.  Cooperative pulses.J.
+Magn. Reson, 207(1):114–123, 2010.
+51.  M. Braun and S. J. Glaser.  Concurrently optimized
+cooperative  pulses  in  robust  quantum  control:  Ap-
+plication to broadband Ramsey-type pulse sequence
+elements.New J. Phys., 16:115002, 2014.
+52.  Christian    Bretschneider,   Alexander    Karabanov,
+Niels Chr. Nielsen, and Walter K ̈ockenberger.  Con-
+version  of  parahydrogen  induced  longitudinal  two-
+spin order to evenly distributed single spin polarisa-
+tion  by  optimal  control pulse  sequences.J. Chem.
+Phys., 136(9):094201, 2012.
+53.  Heinz-Peter Breuer, Elsi-Mari Laine, and Jyrki Piilo.
+Measure for the degree of non-markovian behavior of
+quantum processes in open systems.Phys. Rev. Lett.,
+103:210401, Nov 2009.
+54.  Constantin Brif, Raj Chakrabarti, and Herschel Ra-
+bitz.  Control of quantum phenomena: Past, present
+and future.New J. Phys., 12(7):075008, 2010.
+55.  Tobias Brixner and Gustav Gerber.  Quantum con-
+trol  of  gas-phase  and  liquid-phase  femtochemistry.
+Chem. Phys. Chem., 4(5):418–438, 2003.
+56.  R. W. Brockett.  System theory on group manifolds
+and coset spaces.SIAM J. Control, 10(2):265–284,
+1972.
+57.  R. W. Brockett.  Lie theory and control systems de-
+fined on spheres.SIAM J. Appl. Math., 25(2):213–
+225, 1973.
+58.  P.  Brumer  and  M.  Shapiro.Principles and Appli-
+cations of the Quantum Control of Molecular Pro-
+cesses.  Wiley Interscience, 2003.
+59.  Paul Brumer, Kunihito Hoki, and Michael Spanner.
+An analysis of two liquid-state adaptive feedback ex-
+periments.Isr. J. Chem., 47(1):111–114, 2007.
+60.  Paul Brumer and Moshe Shapiro. One photon mode
+selective control of reactions by rapid or shaped laser
+pulses: An emperor without clothes?Chem. Phys.,
+139(1):221–228, 1989.
+61.  A. Bryson and Y. C. Ho.Applied Optimal Control.
+Hemisphere, New-York, 1975.
+62.  H. P. B ̈uchler, S. Diehl, A. Kantian, A. Micheli, and
+P. Zoller.  Preparation of entangled states by quan-
+tum Markov processes.Phys. Rev. A, 78(4):042307,
+2008.
+63.  D.    K.    Burgarth,    P.    Facchi,    V.Giovanetti,
+H.  Nakazato,  S.  Pascazio,  and  K.  Yuasa.Ex-
+ponential rise of dynamical complexity in quantum
+computing  through  projections.Nat. Commun.,
+5:5173, 2014.
+64.  Daniel Burgarth, Koji Maruyama, Michael Murphy,
+Simone Montangero, Tommaso Calarco, Franco Nori,
+and Martin B. Plenio.  Scalable quantum computa-
+tion via local control of only two qubits.Phys. Rev.
+A, 81(4):040303, 2010.
+65.  V. Buzek, M. Hillery, M. Ziman, and M. Rosko. Pro-
+grammable quantum processors.Quant. Inf. Proc.,
+5:313–420, 2006.
+66.  J.-M. Cai, B. Naydenov, R. Pfeiffer, L. P. McGuin-
+ness,  K.  D.  Jahnke,  F.  Jelezko,  M.  B.  Plenio,  and
+A.  Retzker.Robust  dynamical  decoupling  with
+concatenated  continuous  driving.New J. Phys.,
+14(11):113023, 2012.
+67.  T. Calarco, U. Dorner, P. S. Julienne, C. J. Williams,
+and P. Zoller. Quantum computations with atoms in
+optical lattices: Marker qubits and molecular inter-
+actions.Phys. Rev. A, 70(1):012306, 2004.
+68.  T. Caneva, M. Murphy, T. Calarco, R. Fazio, S. Mon-
+tangero, V. Giovannetti, and G. E. Santoro. Optimal
+control at the quantum speed limit.Phys. Rev. Lett.,
+103(24):240501, 2009.
+69.  Tommaso  Caneva,  Tommaso  Calarco,  and  Simone
+Montangero.  Chopped random-basis quantum opti-
+mization.Phys. Rev. A, 84(2):022326, 2011.
+70.  Tommaso  Caneva,  Tommaso  Calarco,  and  Simone
+Montangero.   Entanglement-storage  units.New J.
+Phys., 14(9):093041, 2012.
+71.  A. Carlini, A. Hosoya, T. Koike, and Y. Okudaira.
+Time-optimal quantum evolution.Phys. Rev. Lett.,
+96(6):060503, 2006.
+72.  A.  Carlini,  A.  Hosoya,  T.  Koike,  and  Y.  Oku-
+daira.  Time-optimal CNOT between indirectly cou-
+pled  qubits  in  a  linear  Ising  chain.J. Phys. A,
+44(14):145302, 2011.
+73.  A.  Carlini and T.  Koike.  Time-optimal transfer  of
+coherence.Phys. Rev. A, 86(5):054302, 2012.
+74.  A. Carlini and T. Koike.  Time-optimal unitary op-
+erations in Ising chains: unequal couplings and fixed
+fidelity.J. Phys. A, 46(4):045307, 2013.
+75.  R.  Chakrabarti  and  H.  Rabitz.   Quantum  control
+landscapes.Int. Rev. Phys. Chem.,  26(4):671–735,
+2007.
+76.  Thomas Chambrion, Paolo Mason, Mario Sigalotti,
+and  Ugo  Boscain.   Controllability  of  the  discrete-
+spectrum schr ̈odinger equation driven by an external
+field.Ann. I. H. Poincare-An., 26(1):329–349, 2009.
+77.  Xi  Chen,  I.  Lizuain,  A.  Ruschhaupt,  D.  Gu ́ery-
+Odelin, and J. G. Muga.  Shortcut to adiabatic pas-
+sage in two- and three-level atoms.Phys. Rev. Lett.,
+105(12):123003, 2010.
+78.  J. M. Chow, L. DiCarlo, J. M. Gambetta, F. Motzoi,
+L. Frunzio, S. M. Girvin, and R. J. Schoelkopf.  Op-
+timized  driving  of  superconducting  artificial  atoms
+for  improved  single-qubit  gates.Phys. Rev. A,
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control19
+82(4):040305, 2010.
+79.  G. Ciaramella, A. Borz`ı, G. Dirr, and D. Wachsmuth.
+Newton  methods  for  the  optimal  control  of  closed
+quantum  spin  systems.SIAM J. Sci. Comput.,
+37:A319–A346, 2015.
+80.  J. Clarke and F. K. Wilhelm. Superconducting quan-
+tum bits.Nature, 453:1031–1042, 2008.
+81.  Joshua  Combes  and  Kurt  Jacobs.   Rapid  state  re-
+duction of quantum systems using feedback control.
+Phys. Rev. Lett., 96(1):010504, 2006.
+82.  Joshua Combes, Howard M. Wiseman, and Kurt Ja-
+cobs. Rapid measurement of quantum systems using
+feedback control.Phys. Rev. Lett., 100(16):160503,
+2008.
+83.  S. Cong.Control of Quantum Systems: Theory and
+Methods.  Wiley & Sons, Singapore, 2014.
+84.  S. Conolly, D. Nishimura, and A. Macovski. Optimal
+control methods in NMR spectroscopy.IEEE Trans.
+Med. Imaging, MI-5:106–115, 1986.
+85.  J.M.Coron.Control  and  Nonlinearity.
+Am. Math. Soc., Providence RI, 2007.
+86.  Francois   Courvoisier,   Luigi   Bonacina,   Veronique
+Boutou, Laurent Guyon, Christophe Bonnet, Benoit
+Thuillier,  Jerome Extermann,  Matthias  Roth,  Her-
+schel  Rabitz,  and  Jean-Pierre  Wolf.   Identification
+of biological microparticles using ultrafast depletion
+spectroscopy.Faraday Discuss., 137(0):37–49, 2008.
+87.  M. Cozzini, T. Calarco, A. Recati, and P. Zoller. Fast
+Rydberg gates without dipole blockade via quantum
+control.Opt. Commun., 264(2):375–384, 2006.
+88.  Andrew  W.  Cross  and  Jay  M.  Gambetta.    Opti-
+mized  pulse  shapes  for  a  resonator-induced  phase
+gate.Phys. Rev. A, 91(3):032325, 2015.
+89.  Johanna M Dela Cruz, Igor Pastirk, Matthew Com-
+stock, Vadim V Lozovoy, and Marcos Dantus.  Use
+of coherent control methods through scattering bio-
+logical tissue to achieve functional imaging.P. Natl.
+Acad. Sci. USA, 101(49):16996–17001, 2004.
+90.  D. Daems, A. Ruschhaupt, D. Sugny, and S. Gu ́erin.
+Robust  quantum  control  by  a  single-shot  shaped
+pulse.Phys. Rev. Lett., 111:050404, 2013.
+91.  D. D’Alessandro.Introduction to Quantum Control
+and Dynamics. Chapman and Hall, Boca Raton, ap-
+plied mathematics and nonlinear science series edi-
+tion, 2008.
+92.  D. D’Alessandro and M. Dahled. Optimal control of
+two-level quantum systems.IEEE Trans. Automat.
+Control, 46(6):866–876, 2001.
+93.  Chantal Daniel, J ̈urgen Full, Leticia Gonz ́alez, Cos-
+min Lupulescu, J ̈orn Manz, Andrea Merli,
+ˇ
+Stefan Va-
+jda, and Ludger W ̈oste. Deciphering the reaction dy-
+namics underlying optimal control laser fields.Sci-
+ence, 299:536–539, 2003.
+94.  M. Dantus and V. V. Lozovoy. Experimental coher-
+ent laser control of physicochemical processes.Chem.
+Rev., 104(4):1813–1860, 2004.
+95.  Johann  G.  Danzl,  Elmar  Haller,  Mattias  Gustavs-
+son, Manfred J. Mark, Russell Hart, Nadia Bouloufa,
+Olivier Dulieu, Helmut Ritsch, and Hanns-Christoph
+N ̈agerl.  Quantum gas of deeply bound ground state
+molecules.Science, 321:1062–1066, 2008.
+96.  G.  De  Chiara,  T.  Calarco,  M.  Anderlini,  S.  Mon-
+tangero,  P.  J.  Lee,  B.  L.  Brown,  W.  D.  Phillips,
+and J. V. Porto.  Optimal control of atom transport
+for quantum gates in optical lattices.Phys. Rev. A,
+77(5):052333, 2008.
+97.  P.   de   Fouquieres  and   S.   G.   Schirmer.Quan-
+tum  control  landscapes:  A  closer  look.Infinite di-
+mensional analysis, quantum probability and related
+topic, 16:1350021, 2013.
+98.  P de Fouquieres, S. G. Schirmer, S. J. Glaser, and
+Ilya  Kuprov.    Second  order  gradient  ascent  pulse
+engineering.J. Magn. Reson.,  212(2):412–417, oct
+2011.
+99.  Anatoly E. Dementyev, David G.  Cory, and Chan-
+drasekhar Ramanathan.  Rapid  diffusion  of dipolar
+order enhances dynamic nuclear polarization.Phys.
+Rev. B, 77(2):024413, 2008.
+100.  M. Devoret.Quantum Machines: Measurement and
+Control of Engineered Quantum Systems.
+ ́
+Ecole de
+Physique des Houches 2011. Oxford University Press,
+Oxford, 2014.
+101.  G. Dirr and U. Helmke. Lie theory for quantum con-
+trol.GAMM-Mitt., 31(1):59–93, 2008.
+102.  G. Dirr, U. Helmke, I. Kurniawan, and T. Schulte-
+Herbr ̈uggen.Lie-semigroup  structures  for  reach-
+ability   and   control   of   open   quantum   systems:
+Kossakowski-Lindblad generators form Lie wedge to
+Markovian channels.Rep. Math. Phys., 64(1–2):93–
+121, 2009.
+103.  Hauke  Doerk,  Zbigniew  Idziaszek,  and  Tommaso
+Calarco.   Atom-ion  quantum  gate.Phys. Rev. A,
+81(1):012708, 2010.
+104.  Andrew  C.  Doherty,  Salman  Habib,  Kurt  Jacobs,
+Hideo  Mabuchi,  and  Sze  M.  Tan.   Quantum  feed-
+back control and classical control theory.Phys. Rev.
+A, 62(1):012105, 2000.
+105.  F. Dolde, V. Bergholm, Y. Wang, I. Jakobi, B. Nay-
+denov,  S.  Pezzagna,  J.  Meijer,  F.  Jelezko,  P.  Neu-
+mann,  T.  Schulte-Herbr ̈uggen,  J.  Biamonte,  and
+J. Wrachtrup. High-fidelity spin entanglement using
+optimal control.Nat. Commun., 5:3371, 2014.
+106.  D. Dong and I. A. Petersen. Quantum control theory
+and applications: A survey.IET Control Theory A.,
+4(12):2651–2671, 2010.
+107.  Patrick Doria, Tommaso Calarco, and Simone Mon-
+tangero.  Optimal control technique for many-body
+quantum  dynamics.Phys. Rev. Lett.,  106:190501,
+2011.
+108.  U  Dorner,  T  Calarco,  P  Zoller,  and  P  Grangier.
+Quantum  logic  via  optimal  control  in  holographic
+dipole traps.J. Opt. B: Quantum Semiclass. Opt.,
+7(10):S341, 2005.
+109.  J. P. Dowling and G. Milburn. Quantum technology:
+The second quantum revolution.Phil. Trans. R. Soc.
+Lond. A, 361:1655–1674, 2003.
+110.  Nirit  Dudovich,  Dan  Oron,  and  Yaron  Silberberg.
+Single-pulse coherently controlled nonlinear Raman
+20Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+spectroscopy and microscopy.Nature, 418:512–514,
+2002.
+111.  Luke J. Edwards, D. V. Savostyanov, Z. T. Welder-
+ufael, Donghan Lee, and Ilya Kuprov. Quantum me-
+chanical NMR simulation algorithm for protein-size
+spin systems.J. Magn. Reson., 243:107–113, 2014.
+112.  D. J. Egger and F. K. Wilhelm. Adaptive hybrid op-
+timal quantum control for imprecisely characterized
+systems.Phys. Rev. Lett., 112:240503, 2014.
+113.  D. J. Egger and F. K. Wilhelm.  Optimal control of
+a quantum measurement.Phys. Rev. A, 90:052331,
+2014.
+114.  D.   J.   Egger   and   F.   K.   Wilhelm.Optimized
+controlled-Z  gates  for  two  superconducting  qubits
+coupled through a resonator.Supercond. Sci. Tech-
+nol., 27:014001, 2014.
+115.  S. Ehni.Optimal Control in High Resolution NMR
+Spectroscopy: Transfer Elements and their Applica-
+tion for Structure Elucidation.   Dissertation,  Karl-
+sruhe, 2013.
+116.  Sebastian  Ehni  and  Burkhard  Luy.    BEBEtr  and
+BUBI: J-compensated concurrent shaped pulses for
+H-1-C-13 experiments.J. Magn. Reson.,  232:7–17,
+2013.
+117.  Sebastian Ehni and Burkhard Luy.  Robust INEPT
+and refocused INEPT transfer with compensation of
+a wide range of couplings, offsets, and B-1-field inho-
+mogeneities (cob3).J. Magn. Reson., 247:111–117,
+2014.
+118.  Reuven  Eitan,  Michael  Mundt,  and  David  J.  Tan-
+nor.  Optimal control with accelerated convergence:
+Combining the Krotov and quasi-Newton methods.
+Phys. Rev. A, 83(5):053426, 2011.
+119.  D. Elliott.Bilinear Control Systems: Matrices in Ac-
+tion.  Springer, London, 2009.
+120.  Clive  Emary  and  John  Gough.Coherent  feed-
+back  control in  quantum  transport.Phys. Rev. B,
+90(20):205436, 2014.
+121.  Volker Engel, Christoph Meier, and David J. Tannor.
+Local Control Theory: Recent Applications to Energy
+and Particle Transfer Processes in Molecules, volume
+141, pages 29–101. John Wiley & Sons, Inc., feb 2009.
+122.  L.  Englert,  M.  Wollenhaupt,  L.  Haag,  C.  Sarpe-
+Tudoran,  B.  Rethfeld,  and  T.  Baumert.   Material
+processing of dielectrics with temporally asymmetric
+shaped  femtosecond  laser  pulses  on  the  nanometer
+scale.Appl. Phys. A, 92(4):749–753, 2008.
+123.  Andreas Enthart, J. Christoph Freudenberger, Julien
+Furrer,  Horst  Kessler,  and  Burkhard  Luy.The
+CLIP/CLAP-HSQC: Pure absorptive spectra for the
+measurement of one-bond couplings.J. Magn. Re-
+son., 192(2):314–322, 2008.
+124.  Richard R Ernst. Nuclear magnetic resonance fourier
+transform spectroscopy (nobel lecture).Angewandte
+Chemie International Edition in English, 31(7):805–
+823, 1992.
+125.  Richard   R   Ernst,   Geoffrey   Bodenhausen,   and
+Alexander Wokaun.Principles of nuclear magnetic
+resonance in one and two dimensions,  volume  14.
+Clarendon Press Oxford, 1987.
+126.  E.   Ferraro,  M.   De   Michielis,   M.   Fanciulli,   and
+E.  Prati.   Coherent  tunneling  by  adiabatic  passage
+of an exchange-only spin qubit in a double quantum
+dot chain.Phys. Rev. B, 91(7):075435, 2015.
+127.  R.  Fisher,  H.  Yuan,  A.  Sp ̈orl,  and  S.  J.  Glaser.
+Timeoptimal generation of cluster states.Phys. Rev.
+A, 79:042304, 2009.
+128.  Frederik F. Floether, Pierre de Fouquieres, and So-
+phie G.  Schirmer.  Robust  quantum gates for  open
+systems via optimal control: Markovian versus non-
+markovian dynamics.New J. Phys.,  14:073023, jul
+2012.
+129.  A.  G.  Fowler and  J. M.  Martinis.  Quantifying the
+effects of local many-qubit errors and non-local two-
+qubit  errors  on  the  surface  code.Phys. Rev. A,
+89:032316, 2014.
+130.  R. Freeman.  Selective excitation in high-resolution
+NMR.Chem. Rev., 91:1397–1312, 1991.
+131.  R. Freeman.  Shaped radiofrequency pulses in  high
+resolution  NMR.Prog. Nucl. Magn. Reson. Spec-
+trosc., 32:59–106, 1998.
+132.  R.  Freeman  and  X.  Wu.   Design  of  magnetic  reso-
+nance  experiments  by  genetic  evolution.J. Magn.
+Reson., 75:184–189, 1987.
+133.  Hadas Frostig, Tim Bayer, Nirit Dudovich, Yonina C
+Eldar, and Yaron Silberberg. Single-beam spectrally
+controlled two-dimensional raman spectroscopy.Na-
+ture Photon., 9:339–343, 2015.
+134.  H. A. F ̈urst, M. H. Goerz, U. G. Poschinger, M. Mur-
+phy, S. Montangero, T. Calarco, F.  Schmidt-Kaler,
+K.  Singer,  and  C.  P.  Koch.   Controlling the  trans-
+port  of  an  ion:  Classical  and  quantum  mechan-
+ical  solutions.New J. Phys.,   16:075007,  2014.
+arXiv:1312.4156.
+135.  A. Garon, S. J. Glaser, and D. Sugny. Time-optimal
+control of SU(2) quantum operations.Phys. Rev. A,
+88:043422, 2013.
+136.  A.  Garon,  R.  Zeier,  and  S.  J.  Glaser.   Visualizing
+operators of  coupled  spins  systems.Phys. Rev. A,
+91:042122/1–28, 2015.
+137.  Matson G.B.  An integrated program for amplitude-
+modulated rf pulse generation and re-mapping with
+shaped gradients.Magn. Reson. Imaging, 12:1205–
+1225, 1994.
+138.  Naum I. Gershenzon, Kyryl Kobzar, Burkhard Luy,
+Steffen J. Glaser, and Thomas E. Skinner.  Optimal
+control design of excitation pulses that accommodate
+relaxation.J. Magn. Reson., 188(2):330–336, 2007.
+139.  Naum  I.  Gershenzon,  Thomas  E.  Skinner,  Bern-
+hard Brutscher, Navin Khaneja, Manoj Nimbalkar,
+Burkhard Luy, and Steffen J. Glaser.  Linear phase
+slope in pulse design: Application to coherence trans-
+fer.J. Magn. Reson., 192(2):235–243, 2008.
+140.  S. J. Glaser and G. Drobny. The tailored TOCSY ex-
+periment: Chemical shift selective coherence transfer.
+Chem. Phys. Lett., 164:456–462, 1989.
+141.  S.  J.  Glaser  and  G.  P.  Drobny.    Assessment  and
+optimization  of  pulse  sequences  for  homonuclear
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control21
+isotropic mixing.Advances in Magnetic Resonance,
+W.S. Warren, Ed., 14:35–58, 1990.
+142.  M. H. Goerz, G. Gualdi, D. M. Reich, C. P. Koch,
+F.  Motzoi,  K.  B.  Whaley,  J.  Vala,  M.  M.  M ̈uller,
+S. Montangero, and T. Calarco. Optimizing for an ar-
+bitrary perfect entangler. ii. application.Phys. Rev.
+A, 91, 2015.  arXiv:1412.7350.
+143.  Michael  H.  Goerz,  Tommaso  Calarco,  and  Chris-
+tiane P. Koch.  The quantum speed limit of optimal
+controlled phasegates for trapped neutral atoms.J.
+Phys. B: At., Mol. Opt. Phys., 44:154011, jul 2011.
+144.  Michael  H.  Goerz,  Eli  J.  Halperin,  Jon  M.  Aytac,
+Christiane P. Koch, and K. Birgitta Whaley. Robust-
+ness  of  high-fidelity  rydberg  gates  with  single-site
+addressability.Phys. Rev. A,  90:032329, sep  2014.
+arXiv:1401.1858.
+145.  Michael  H.  Goerz,  Daniel  M.  Reich,  and  Chris-
+tiane P. Koch.  Optimal control theory for a unitary
+operation under dissipative evolution.New J. Phys.,
+16:055012, may 2014.  arXiv:1310.2271.
+146.  Caroline  Gollub,  Markus  Kowalewski,  and  Regina
+de Vivie-Riedle. Monotonic convergent optimal con-
+trol theory with strict limitations on the spectrum of
+optimized laser fields.Phys. Rev. Lett., 101:073002,
+2008.
+147.  R. J. Gordon and S. A. Rice.  Active control of the
+dynamics of atoms and molecules.Annu. Rev. Phys.
+Chem., 48:601, 1997.
+148.  Alexey V. Gorshkov, Tommaso Calarco, Mikhail D.
+Lukin, and Anders S. Sørensen.  Photon storage in
+Λ-type optically dense atomic media. iv. optimal con-
+trol using gradient ascent.Phys. Rev. A, 77:043806,
+2008.
+149.  J. E. Gough and S. Wildfeuer. Enhancement of field
+squeezing  using  coherent  feedback.Phys. Rev. A,
+80:042107, oct 2009.
+150.  Matthew D. Grace, Jason Dominy, Robert L. Kosut,
+Constantin Brif, and Herschel Rabitz. Environment-
+invariant  measure  of  distance  between  evolutions
+of   an   open   quantum   system.New J. Phys.,
+12(1):015001, jan 2010.
+151.  Loren  Greenman,  Christiane  P.  Koch,  and  K.  Bir-
+gitta Whaley.  Laser pulses for coherent xuv raman
+excitation.Phys. Rev. A, 92:in press, 2015.
+152.  Andrew D. Greentree, Jared H. Cole, A. R. Hamil-
+ton, and Lloyd C. L. Hollenberg. Coherent electronic
+transfer in quantum dot systems using adiabatic pas-
+sage.Phys. Rev. B, 70(23):235317, 2004.
+153.  C.  Griesinger, M.  Bennati,  H.  M.  Vieth,  C.  Luchi-
+nat,  G.  Parigi,  P.  H ̈ofer,  F.  Engelke,  S.  J.  Glaser,
+V. Denysenkov, and T. F. Prisner. Dynamic nuclear
+polarization at high magnetic fields in liquids.Prog.
+NMR Spectrosc., 64:4–28, 2012.
+154.  W. A. Grissom, D. Xu, A. B. Kerr, and J. A. Fessler.
+Fast  large-tip-angle  multidimensional  and  parallel
+RF pulse design in MRI.IEEE Trans. Med. Imag.,
+28:1548–1559, 2009.
+155.  Julian  Grond,  J ̈org  Schmiedmayer,  and  Ulrich  Ho-
+henester.  Optimizing number squeezing when split-
+ting   a   mesoscopic   condensate.Phys. Rev. A,
+79:021603, 2009.
+156.  P.  Gross,  D.  Neuhauser,  and  H.  Rabitz.   Optimal
+control of  curve-crossing systems.J. Chem. Phys.,
+96(4):2834, 1992.
+157.  Peter Gross and Marcos Dantus.  Femtosecond pho-
+toassociation: Coherence and implications for control
+in bimolecular reactions.J. Chem. Phys., 106:8013,
+feb 1997.
+158.  S.  Gu ́erin  and  H.  R.  Jauslin.Control of Quantum
+Dynamics by Laser Pulses: Adiabatic Floquet Theory,
+volume 125, pages 147–267. John Wiley & Sons, Inc.,
+2003.
+159.  T.  H ̈aberle,  D.  Schmid-Lorch,  K.  Karrai,  F.  Rein-
+hard, and J. Wrachtrup.  High-dynamic-range imag-
+ing of nanoscale magnetic fields using optimal control
+of a single qubit.Phys. Rev. Lett., 111:170801, 2013.
+160.  U. Haeberlen.The Principles of Nuclear Magnetism.
+Academic Press, New York, 1976.
+161.  E.  L.  Hahn.   Spin  echoes.Phys. Rev.,  80:580–594,
+1950.
+162.  Peter Hamm and Martin Zanni.Concepts and meth-
+ods of 2D infrared spectroscopy.  Cambridge Univer-
+sity Press, 2011.
+163.  K. Hammerer, G. Vidal, and J. I. Cirac.  Charateri-
+zation of nonlocal gates.Phys. Rev. A, 66(6):062321,
+2002.
+164.  Anders  K.  Hansen,  Magnus  A.  Sørensen,  Peter  F.
+Staanum, and Michael Drewsen. Single-ion recycling
+reactions.Angewandte Chemie International Edi-
+tion, 51(32):7960–7962, 2012.
+165.  J. Herek, M. Wohlleben, X. Cogdell, X. Zeidler, and
+M. Motzkus. Quantum control of energy flow in light
+harvesting.Nature, 417:533, 2002.
+166.  M. Hillery and V. Buzek.  Quantum machines.Con-
+temp. Phys., 50:575–586, 2009.
+167.  I.N. Hincks, C. Granade, T.W. Borneman, and D.G.
+Cory.  Accounting for classical hardware in the con-
+trol of quantum devices.arXiv:1409.8178 [quant-ph],
+2014.
+168.  J.  S.  Hodges,  J.  C.  Yang,  C.  Ramanathan,  and
+D.  G.  Cory.   Universal  control of  nuclear  spins  via
+anisotropic  hyperfine  interactions.Phys. Rev. A,
+78:010303, Jul 2008.
+169.  H. J. Hogben, M. Krzystyniak, G. T. P. Charnock,
+P. J. Hore, and Ilya Kuprov.  Spinach – a software
+library for simulation of spin dynamics in large spin
+systems.J. Magn. Reson., 208(2):179–194, feb 2011.
+170.  Ulrich Hohenester, Per Kristian Rekdal, Alfio Borz`ı,
+and  J ̈org  Schmiedmayer.    Optimal  quantum  con-
+trol of Bose-Einstein condensates in magnetic micro-
+traps.Phys. Rev. A, 75:023602, 2007.
+171.  M.  Z.  Hoque,  M.  Lapert,  E.  Hertz,  F.  Billard,
+D. Sugny, B. Lavorel, and O. Faucher. Observation of
+laser-induced field-free permanent planar alignment
+of molecules.Phys. Rev. A, 84:013409, 2011.
+172.  Y.  Hovav,  A.  Feintuch,  S.  Vega,  and  D.  Goldfarb.
+Dynamic nuclear polarization using frequency mod-
+ulation at 3.34 T.J. Magn. Reson., 238:94–105, 2014.
+22Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+173.  S. Iida, M. Yukawa, H. Yonezawa, N. Yamamoto, and
+A. Furusawa. Experimental demonstration of coher-
+ent feedback control on optical field squeezing.IEEE
+Trans. Automat. Control, 57(8):2045–2050, 2012.
+174.  Mao J, Mareci TH, Scott KN, and Andrew ER.  Se-
+lective  inversion  radiofrequency  pulses  by  optimal
+control.J. Magn. Reson., 70:310–318, 1986.
+175.  Mao J, Mareci TH, Scott KN, and Andrew ER. De-
+sign of adiabatic selective pulses using optimal con-
+trol theory.Magn. Reson. Med., 36:401–409, 1996.
+176.  Georg J ̈ager and Ulrich Hohenester.  Optimal quan-
+tum  control  of  Bose-Einstein  condensates  in  mag-
+netic microtraps: Consideration of filter effects.Phys.
+Rev. A, 88:035601, sep 2013.
+177.  Georg  J ̈ager,  Daniel  M.  Reich,  Michael  H.  Goerz,
+Christiane  P.  Koch,  and  Ulrich  Hohenester.   Opti-
+mal  quantum  control  of  bose-einstein  condensates
+in  magnetic  microtraps:  Comparison  of  gradient-
+ascent-pulse-engineering   and   krotov   optimization
+schemes.Phys. Rev. A, 90:033628, 2014.  1409.2976.
+178.  M. R. James, H. I. Nurdin, and I. R. Petersen.h
+∞
+control of linear quantum stochastic systems.IEEE
+Trans. Automat. Control, 53(8):1787–1803, sep 2008.
+179.  M. A. Janich, M. A. McLean, R. Noeske, S. J. Glaser,
+and R. F. Schulte. Slice-selective broadband refocus-
+ing pulses for the robust generation of crushed spin-
+echoes.J. Magn. Reson., 223:129–137, 2012.
+180.  M. A. Janich, R. F. Schulte, M. Schwaiger, and S. J.
+Glaser.  Robust slice-selective broadband refocusing
+pulses.J. Magn. Reson., 213:126–135, 2011.
+181.  F. Jelezko, T. Gaebel, I. Popa, M. Domhan, A. Gru-
+ber, and J. Wrachtrup.  Observation of coherent os-
+cillation  of  a  single  nuclear  spin  and  realization  of
+a  two-qubit  conditional  quantum  gate.Phys. Rev.
+Lett., 93(13):130501, 2004.
+182.  F.  Jelezko  and  J.  Wrachtrup.    Single  defect  cen-
+tres  in  diamond:  A  review.Phys. Status Solidi A,
+203(13):3207–3225, 2006.
+183.  H. Jirari, F.W.J. Hekking, and O. Buisson. Optimal
+control of superconducting n-level quantum systems.
+Europhys. Lett., 87:28004, 2009.
+184.  J. R. Johansson, P. D. Nation, and F. Nori. Qutip 2:
+A python framework for the dynamics of open quan-
+tum systems.Comp. Phys. Comm., 184:1234, 2013.
+185.  J. A. Jones.  Quantum computing with nmr.Prog.
+NMR Spectrosc., 59:91–120, 2011.
+186.  Alain  Joye.General  adiabatic  evolution  with  a
+gap  condition.Communications in Mathematical
+Physics, 275(1):139–162, 2007.
+187.  Richard  S.  Judson  and  Herschel  Rabitz.Teach-
+ing  lasers  to  control  molecules.Phys. Rev. Lett.,
+68(10):1500–1503, 1992.
+188.  V. Jurdjevic.Geometric Control Theory. Cambridge
+University Press, Cambridge, Cambridge, 1997.
+189.  V. Jurdjevic and H. Sussmann.  Control systems on
+lie groups.Journal of Differential Equations, 12:313–
+329, sep 1972.
+190.  S. Kallush and R. Kosloff. Quantum governor: Auto-
+matic quantum control and reduction of the influence
+of noise without measuring.Phys. Rev. A, 73:032324,
+2006.
+191.  R.  Kalman,  P.  L.  Falb,  and  M.  A.  Arbib.Topics
+in Mathematical System Theory.  McGraw-Hill, New
+York, 1969.
+192.  R. E. Kalman. A new approach to linear filtering and
+prediction problems.J. Basic Engineering, 82:35–45,
+1960.
+193.  Hiroyuki Katsuki, Hisashi  Chiba,  Bertrand Girard,
+Christoph Meier, and Kenji Ohmori.  Visualizing pi-
+cometric  quantum  ripples  of  ultrafast  wave-packet
+interference.Science, 311(5767):1589–1592, 2006.
+194.  Gil Katz, Mark A. Ratner, and Ronnie Kosloff. Con-
+trol by decoherence: weak field control of an excited
+state objective.New J. Phys., 12(1):015003, 2010.
+195.  Ori Katz, Eran Small, Yaron Bromberg, and Yaron
+Silberberg.  Focusing and compression of ultrashort
+pulses  through  scattering  media.Nature Photon.,
+5:372–377, 2011.
+196.  T.  Kaufmann,  J.  M.  Franck,  T.  J.  Keller,  R.  P.
+Barnes,  S.  J.  Glaser,  J.  M.  Martinis,  and  S.  Han.
+DAC-board  based  X-band  EPR  spectrometer  with
+arbitrary   waveform   control.J. Magn. Reson.,
+235:95–108, 2013.
+197.  E. Kawakami, P. Scarlino, D. R. Ward, F. R. Braak-
+man,  D.  E.  Savage,  M.  G.  Lagally,  and  L.  M.  K.
+Vandersypen.  Electrical control of a long-lived spin
+qubit in a Si/SiGe quantum dot.Nat. Nanotechnol.,
+9:666–670, 2014.
+198.  C. Kehlet, A. C. Sivertsen, M. Bjerring, T. O. Reiss,
+N.  Khaneja,  S.  J.  Glaser,  and  N.  C.  Nielsen.   Im-
+proving solid-state nmr  dipolar  recoupling by  opti-
+mal control.J. Am. Chem. Soc., 126:10202–10203,
+2004.
+199.  J. Kelly, R. Barends, B. Campbell, Y. Chen, Z. Chen,
+B.   Chiaro,   A.   Dunsworth,   A.   G.   Fowler,   I.-C.
+Hoi,  E.  Jeffrey,  A.  Megrant,  J.  Mutus,  C.  Neill,
+P. J. J. O’Malley, C. Quintana, P. Roushan, D. Sank,
+A. Vainsencher, J. Wenner, T. C. White, A. N. Cle-
+land, and John M. Martinis.  Optimal quantum con-
+trol  using  randomized  benchmarking.Phys. Rev.
+Lett., 112:240504, jun 2014.
+200.  M. Keyl, R. Zeier, and T. Schulte-Herbr ̈uggen. Con-
+trolling  several  atoms  in  a  cavity.New J. Phys.,
+16:065010, jun 2014.
+201.  N. Khaneja and S. J. Glaser.  Cartan decomposition
+of su(2n), constructive controllability of spin systems
+and  universal  quantum  computing.Chem. Phys.,
+267:11, 2001.
+202.  N.  Khaneja  and  S.  J.  Glaser.   Efficient  transfer  of
+coherence through Ising spin chains.Phys. Rev. A,
+66:060301(R), 2002.
+203.  N.   Khaneja,   B.   Heitmann,   A.   Sp ̈orl,   H.   Yuan,
+T.  Schulte-Herbr ̈uggen,  and  S.  J.  Glaser.    Short-
+est  paths  for  efficient  control  of  indirectly  coupled
+qubits.Phys. Rev. A, 75(1):012322, 2007.
+204.  N. Khaneja, F. Kramer, and S. J. Glaser.  Optimal
+experiments  for  maximizing  coherence  transfer  be-
+tween coupled spins.J. Magn. Reson., 173(1):116–
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control23
+124, 2005.
+205.  N. Khaneja, B. Luy, and S. J. Glaser.  Boundary of
+quantum  evolution  under  decoherence.Proc. Natl.
+Acad. Sci. USA, 100:13162–13166, 2003.
+206.  N. Khaneja, T. Reiss, B. Luy, and S. J. Glaser.  Op-
+timal control of spin dynamics in the presence of re-
+laxation.J. Magn. Reson., 162:311–319, 2003.
+207.  Navin Khaneja. Switched control of electron nuclear
+spin systems.Phys. Rev. A, 76:032326, sep 2007.
+208.  Navin   Khaneja,   Roger   Brockett,   and   Steffen   J.
+Glaser. Time optimal control in spin systems.Phys.
+Rev. A, 63:032308, 2001.
+209.  Navin Khaneja, Steffen J. Glaser, and Roger Brock-
+ett.    Sub-Riemannian  geometry  and  time  optimal
+control  of  three  spin  systems:  Quantum  gates  and
+coherence transfer.Phys. Rev. A, 65:032301, 2002.
+210.  Navin Khaneja, Timo Reiss, Cindie Kehlet, Thomas
+Schulte-Herbr ̈uggen, and Steffen J. Glaser.  Optimal
+control  of  coupled  spin  dynamics:  design  of  NMR
+pulse  sequences  by  gradient  ascent  algorithms.J.
+Magn. Reson., 172(2):296–305, 2005.
+211.  D. Kim, Z. Shi, C. B. Simmonds, D. R. Ward, J. R.
+Prance, T. S. Koh, and M. A.  Eriksson.  Quantum
+control and process tomography of a semiconductor
+quantum dot hybrid qubit.Nature, 511:70–74, 2014.
+212.  Gerhard Kirchmair, Brian Vlastakis,  Zaki Leghtas,
+Simon E. Nigg, Hanhee Paik, Eran Ginossar, Maz-
+yar Mirrahimi, Luigi Frunzio, S. M. Girvin, and R. J.
+Schoelkopf.  Observation of  quantum  state collapse
+and revival due to the single-photon kerr effect.Na-
+ture, 495(7440):205–209, mar 2013.
+213.  D.  E. Kirk.Optimal Control Theory: An introduc-
+tion.  Dover Publications, New York, 2004.
+214.  Denis   Kiselev,   Luigi   Bonacina,   and   Jean-Pierre
+Wolf.   Individual  bioaerosol  particle  discrimination
+by multi-photon excited fluorescence.Opt. Express,
+19(24):24516–24521, 2011.
+215.  K. Kobzar.Optimal Control, Partial Alignment and
+More: The Design of Novel Tools for NMR Spec-
+troscopy of Small Molecules.  Dissertation, Munich,
+2007.
+216.  K. Kobzar, S. Ehni, T. E. Skinner, S. J. Glaser, and
+B. Luy.  Exploring the limits of broadband 90
+◦
+and
+180
+◦
+universal  rotation  pulses.J. Magn. Reson.,
+225:142–160, 2012.
+217.  K.  Kobzar,  B.  Luy,  N.  Khaneja,  and  S.  J.  Glaser.
+Pattern pulses: Design of arbitrary excitation profiles
+as a function of pulse amplitude and offset.J. Magn.
+Reson., 173:229–235, 2005.
+218.  K. Kobzar, T. E. Skinner, N. Khaneja, S. J. Glaser,
+and B. Luy. Exploring the limits of excitation and in-
+version pulses ii. rf-power optimized pulses.J. Magn.
+Reson., 194:58–66, 2008.
+219.  Kyryl Kobzar, Thomas E. Skinner, Navin Khaneja,
+Steffen J. Glaser, and Burkhard Luy.  Exploring the
+limits of broadband excitation and inversion pulses.
+J. Magn. Reson., 170(2):236–243, 2004.
+220.  Christiane  P  Koch,  Jos ́e  P  Palao,  Ronnie  Kosloff,
+and  Fran ̧coise Masnou-Seeuws.   Stabilization  of  ul-
+tracold molecules using optimal control theory.Phys.
+Rev. A, 70(1):013402, 2004.
+221.  Christiane  P.  Koch  and  Moshe  Shapiro.   Coherent
+control of  ultracold  photoassociation.Chem. Rev.,
+212:4928, 2012.
+222.  S. S. K ̈ocher, T. Heydenreich, and S. J. Glaser.  Vi-
+sualization and analysis of modulated pulses in mag-
+netic resonance by joint time–frequency representa-
+tions.J. Magn. Reson., 249(0):63–71, 2014.
+223.  V.  D.  M.  Koroleva,  S.  Mandal,  Y.-Q.  Song,  and
+M. D. H ̈urlimann. Broadband CPMG sequence with
+short composite refocusing pulses.J. Magn. Reson.,
+230:64–75, 2013.
+224.  R. Kosloff, S. A. Rice, P. Gaspard, S. Tersigni, and
+D. J. Tannor. Wavepacket dancing: Achieving chem-
+ical  selectivity  by  shaping  light  pulses.Chemical
+Physics, 139(1):201–220, 1989.
+225.  Hanna   Krauter,   Christine   A.   Muschik,   Kasper
+Jensen,  Wojciech  Wasilewski,  Jonas  M.  Petersen,
+J.  Ignacio  Cirac,  and  Eugene  S.  Polzik.   Entangle-
+ment generated by dissipation and steady state en-
+tanglement of two macroscopic objects.Phys. Rev.
+Lett., 107:080503, 2011.
+226.  V.  F.  Krotov.Global Methods in Optimal Control
+Theory.  Dekker, New York, 1996.
+227.  L.  T.  Kuhn.Hyperpolarization Methods in NMR
+Spectroscopy.  Springer, 2013.
+228.  O. K ̈uhn and L. W ̈oste, editors.Analysis and control
+of ultrafast photoinduced reactions. Springer, Berlin,
+2007.
+229.  Ilya Kuprov.  Spin system trajectory analysis under
+optimal control pulses.J. Magn. Reson., 233(0):107–
+112, aug 2013.
+230.  G. Kurizki, P. Bertet, Y. Kubo, K. Mølmer, D. Pet-
+rosyan,  P.  Rabl,  and  J.  Schmiedmayer.   Quantum
+technologies with hybrid systems.Proc. Natl. Acad.
+Sci. USA, 112:3866–3873, 2015.
+231.  I. Kurniawan, G. Dirr, and U. Helmke. Controllabil-
+ity aspects of quantum dynamics: A unified approach
+for closed and open systems.IEEE Trans. Autom.
+Contr. (IEEE-TAC), 57:1984–1996, 2012.
+232.  N. A. Kurnit, I. D. Abella, and S. R. Hartmann. Ob-
+servation of a photon echo.Phys. Rev. Lett., 13:567–
+568, 1964.
+233.  M. Lapert, E. Ass ́emat, S. J. Glaser, and D. Sugny.
+Understanding   the   global   structure   of   two-level
+quantum systems with relaxation: Vector fields orga-
+nized through the magic plane and the steady-state
+ellipsoid.Phys. Rev. A, 88:033407, 2013.
+234.  M. Lapert, E. Ass ́emat, S. J. Glaser, and D. Sugny.
+Optimal control of the signal-to-noise ratio per unit
+time for a spin-1/2 particle.Phys. Rev. A, 90:023411,
+2014.
+235.  M. Lapert, J. Salomon, and D. Sugny. Time-optimal
+monotonically  convergent  algorithm  with  an  appli-
+cation to the control of spin systems.Phys. Rev. A,
+85:033406, 2012.
+236.  M. Lapert and D. Sugny. Field-free molecular orien-
+tation by terahertz laser pulses at high temperature.
+24Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+Phys. Rev. A, 85:063418, 2012.
+237.  M.  Lapert,  R.  Tehini,  G.  Turinici,  and  D.  Sugny.
+Monotonically convergent optimal control theory of
+quantum  systems  with  spectral  constraints  on  the
+control field.Phys. Rev. A, 79:063411, 2009.
+238.  M.  Lapert, Y.  Zhang, M.  Braun, S.  J.  Glaser, and
+D.  Sugny.   Singular  extremals for  the  time-optimal
+control  of  dissipative  spin
+1
+2
+particles.Phys. Rev.
+Lett., 104:083001, feb 2010.
+239.  M.  Lapert,  Y.  Zhang,  S.  J.  Glaser,  and  D.  Sugny.
+Towards the time-optimal control of dissipative spin
+1/2 particles in nuclear magnetic resonance.J. Phys.
+B: At., Mol. Opt. Phys., 44:154014, 2011.
+240.  M.  Lapert, Y.  Zhang, M. Janich, S.  J. Glaser, and
+D. Sugny. Exploring the physical limits of saturation
+contrast  in  magnetic  resonance imaging.Scientific
+Reports, 2:589, 2012.
+241.  E. B. Lee and L. Markus.Foundations of Optimal
+Control Theory.  Wiley, New York, 1967.
+242.  J.-S. Lee, R.R. Regatte, and A. Jerschow.  Optimal
+nuclear  magnetic  resonance  excitation  schemes  for
+the central transition of a spin 3/2 in the presence
+of  residual  quadrupolar  coupling.J. Chem. Phys.,
+129:224510, 2008.
+243.  Liat Levin, Wojciech Skomorowski, Ronnie Kosloff,
+and Zohar Koch, Christiane P.and Amitay.  Coher-
+ent control of bond making.Phys. Rev. Lett., 114:in
+press, jun 2015.
+244.  R. J. Levis, G. M. Menkir, and H. Rabitz.  Selective
+bond dissociation and rearrangement with optimally
+tailored, strong-field laser pulses.Science, 292:709,
+2001.
+245.  M. H. Levitt.  Composite pulses.Prog. Nucl. Magn.
+Reson. Spectrosc., 18:61–122, 1986.
+246.  M. H. Levitt.Composite pulses.  Wiley, 1996.
+247.  M.  H.  Levitt.Spin Dynamics: Basics of Nuclear
+Magnetic Resonance.  Wiley, 2001.
+248.  Haowen Li, D. Ahmasi Harris, Bingwei Xu, Paul J.
+Wrzesinski, Vadim V. Lozovoy, and Marcos Dantus.
+Coherent  mode-selective  raman  excitation  towards
+standoff  detection.Opt. Express,  16(8):5499–5504,
+2008.
+249.  J.-S. Li and N. Khaneja.  Ensemble control of bloch
+equations.IEEE Trans. Autom. Control, 54(3):528–
+536, 2009.
+250.  J.-S.  Li,  J.  Ruths,  T.-Y.  Yu,  H.  Arthanari,  and
+G. Wagner.  Optimal pulse design in quantum con-
+trol:  A  unified  computational  method.Proc. Natl.
+Acad. Sci. USA, 108:1879–1884, 2011.
+251.  Jr-Shin Li and Navin Khaneja. Control of inhomoge-
+neous quantum ensembles.Phys. Rev. A, 73:030302,
+2006.
+252.  Xuan  Li,  Cian  Menzel-Jones,  David  Avisar,  and
+Moshe  Shapiro.    Solving  the  spectroscopic  phase:
+imaging excited wave packets and extracting excited
+state potentials from fluorescence data.Phys. Chem.
+Chem. Phys., 12:15760–15765, 2010.
+253.  Chien-Yu  Lien,  Christopher  M  Seck,  Yen-Wei  Lin,
+Jason  HV  Nguyen,  David  A  Tabor,  and  Brian  C
+Odom.  Broadband optical cooling of molecular ro-
+tors  from  room  temperature  to  the  ground  state.
+Nat. Commun., 5, 2014.
+254.  H. Liu, S. J. Glaser, and G. Drobny.  Development
+and optimization  of multipulse  propagators: Appli-
+cations to homonuclear spin decoupling in solids.J.
+Chem. Phys., 93:7543–7560, 1990.
+255.  H. Liu and G. B. Matson.  Radiofrequency pulse de-
+signs  for  three-dimensional MRI  providing  uniform
+tipping  in  inhomogeneousb
+1
+fields.Magn. Reson.
+Med., 66:1254–1266, 2011.
+256.  S. Lloyd and S. Montangero.  Information theoreti-
+cal analysis of quantum optimal control.Phys. Rev.
+Lett., 113:010502, 2014.
+257.  S. Lloyd and L. Viola. Engineering quantum dynam-
+ics.Phys. Rev. A, 65:010101, 2001.
+258.  Seth Lloyd. Coherent quantum feedback.Phys. Rev.
+A, 62:022108, jul 2000.
+259.  N. M. Loening, B.-J. van Rossum, and H. Oschkinat.
+Broadband excitation pulses for high-field solid-state
+nuclear magnetic resonance spectroscopy.Magn. Re-
+son. Chem., 50:284–288, 2012.
+260.  Erik  Lucero,  Julian  Kelly,  Radoslaw  C.  Bialczak,
+Mike Lenander,  Matteo  Mariantoni, Matthew  Nee-
+ley, A. D. O’Connell, Daniel Sank, H. Wang, Martin
+Weides, James Wenner, Tsuyoshi Yamamoto, A. N.
+Cleland, and John M. Martinis.  Reduced phase er-
+ror through optimized control of a superconducting
+qubit.Phys. Rev. A, 82:042339, 2010.
+261.  E. Ass ́emat M. Lapert, S. J. Glaser, and D. Sugny.
+Optimal control of the signal-to-noise ratio per unit
+time  of  a  spin  1/2  particle:  The  crusher  gradient
+and the  radiation damping  cases.J. Chem. Phys.,
+142:044202/1–9, 2015.
+262.  Hideo  Mabuchi.   Coherent-feedback  quantum  con-
+trol  with  a  dynamic  compensator.Phys. Rev. A,
+78:032323, 2008.
+263.  A. W. MacGregor, L.A. O’Dell, and R.W. Schurko.
+New  methods  for  the  acquisition  of  ultra-wideline
+solid-state  nmr  spectra  of  spin-1/2  nuclides.J.
+Magn. Reson., 208:103–113, 2011.
+264.  S. Machnes, U. Sander, S. J. Glaser, P. de Fouqui`eres,
+A. Gruslys, S. Schirmer, and T. Schulte-Herbr ̈uggen.
+Comparing,optimizing,andbenchmarking
+quantum-control   algorithms   in   a   unifying   pro-
+gramming  framework.Phys. Rev. A,  84:022305,
+2011.  software avaibable at qlib.info.
+265.  S.  Machnes,  D.  J.  Tannor,  F.  K.  Wilhelm,  and
+E. Ass ́emat.  Gradient optimization of analytic con-
+trols:  the  route  to  high  accuracy quantum  optimal
+control.  arXiv:1507.04261, 2015.
+266.  Yvon  Maday  and  Gabriel  Turinici.   New  formula-
+tions of  monotonically convergent quantum  control
+algorithms.J. Chem. Phys., 118:8191–8196, 2003.
+267.  S. Mandal, T. W. Borneman, V. D. M. Koroleva, and
+M. D. H ̈urlimann.  Direct optimization of signal-to-
+noise ratio of cpmg-like sequences in inhomogeneous
+fields.J. Magn. Reson., 247:54–66, 2014.
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control25
+268.  Peter Mansfield. Snapshot magnetic resonance imag-
+ing  (nobel  lecture).Angewandte Chemie Interna-
+tional Edition, 43(41):5456–5464, 2004.
+269.  L.   Martin,   F.   Motzoi,   H.   Li,   M.   Sarovar,  and
+B.   Whaley.Deterministic   generation   of   re-
+mote  entanglement  with  active  quantum  feedback.
+http://arxiv.org/abs/1506.07888, 2015.
+270.  Una Marvet and Marcos Dantus.  Femtosecond pho-
+toassociation  spectroscopy:  coherent  bond  forma-
+tion.Chem. Phys. Lett., 245(4-5):393–399, 1995.
+271.  R. Marx, A. F. Fahmy, L. Kauffman, S. Lomonaco,
+A.   Sp ̈orl,   N.   Pomplun,   T.   Schulte-Herbr ̈uggen,
+J.  Myers,  and  S.J.  Glaser.   Nuclear  magnetic  reso-
+nance quantum calculations of the jones polynomial.
+Phys. Rev. A, 81:032319, 2010.
+272.  A. Massire, M. A. Cloos, A. Vignaud, D. Le Bihan,
+A. Amadon, and N. Boulant. Design of non-selective
+refocusing  pulses  with  phase-free  rotation  axis  by
+gradient ascent pulse engineering algorithm in paral-
+lel transmission at 7 t.J. Magn. Reson., 230:76–83,
+2013.
+273.  Thomas E. Matthews, Ivan R. Piletic, M. Angelica
+Selim, Mary Jane Simpson, and Warren S. Warren.
+Pump-probe  imaging  differentiates  melanoma  from
+melanocytic  nevi.Science Translational Medicine,
+3(71):71ra15, 2011.
+274.  B. M. Maune, M. G. Borselli, B. Huang, T. D. Ladd,
+P. W. Deelman, K. S. Holabird, and A. T. Hunter.
+Coherent singlet-triplet oscillations in a silicon-based
+double quantum dot.Nature, 481:344–347, 2012.
+275.  I. Maximov, Z. Tosner, and N. C. Nielsen.  Optimal
+control design of NMR and dynamic nuclear polar-
+ization experiments using monotonically convergent
+algorithms.J. Chem. Phys., 128:184505, 2008.
+276.  S.  Meister,  J.  T.  Stockburger,  R.  Schmidt,  and
+J. Ankerhold. Optimal control theory with arbitrary
+superpositions of waveforms.J. Phys. A, 47:495002,
+2014.
+277.  Andrea Merli, Frauke Eimer, Fabian Weise, Albrecht
+Lindinger, Wenzel Salzmann, Terry Mullins, Simone
+G ̈otz, Roland Wester, Matthias Weidem ̈uller, Ruzin
+A ̆gano ̆glu, and Christiane P. Koch. Photoassociation
+and coherent transient dynamics in the interaction of
+ultracold rubidium atoms with shaped femtosecond
+pulses. ii. theory.Phys. Rev. A, 80:063417, 2009.
+278.  Doron  Meshulach  and  Yaron  Silberberg.   Coherent
+quantum control of two-photon transitions by a fem-
+tosecond laser pulse.Nature, 396:239–242, 1998.
+279.  M.  Mirrahimi  and  P.  Rouchon.   Controllability  of
+quantum  harmonic  oscillators.IEEE Trans. Au-
+tomat. Control, 49(5):745–747, may 2004.
+280.  AntoineMonmayrant,S ́ebastienWeber,and
+B ́eatrice  chatel.   A  newcomer’s  guide  to  ultrashort
+pulse shaping and characterization.J. Phys. B: At.,
+Mol. Opt. Phys., 43(10):103001, may 2010.
+281.  Simone Montangero, Tommaso Calarco, and Rosario
+Fazio.  Robust optimal quantum gates for josephson
+charge qubits.Phys. Rev. Lett., 99:170501, 2007.
+282.  M. M ̈ott ̈onen, R. de Sousa, J. Zhang, and K. B. Wha-
+ley. High-fidelity one-qubit operations under random
+telegraph noise.Phys. Rev. A, 73:022332, 2006.
+283.  F. Motzoi, J. M. Gambetta, S. T. Merkel, and F. K.
+Wilhelm. Optimal control methods for rapidly time-
+varying  Hamiltonians.Phys. Rev. A,  84:022307,
+2011.
+284.  F. Motzoi, J. M. Gambetta, P. Rebentrost, and F. K.
+Wilhelm.Simple  pulses  for  elimination  of  leak-
+age  in  weakly  nonlinear  qubits.Phys. Rev. Lett.,
+103:110509, 2009.
+285.  J.  T.  Muhonen,  A.  Laucht,  S.  Simmons,  J.  P.  De-
+hollain,  R.  Kalra,  F.  E.  Hudson,  S.  Freer,  K.  M.
+Itoh, D.  N.  Jamieson, J.  C. McCallum,  A.  S.  Dzu-
+rak, and A. Morello.  Quantifying the quantum gate
+fidelity of single-atom spin qubits in silicon by ran-
+domized benchmarking.J. Phys: Condens. Matter,
+27(15):154205, 2015.
+286.  V. Mukherjee, A. Carlini, A. Mari, T. Caneva, Mon-
+tangerom  S.,  T.  Carlarco,  R.  Fazio,  and  V.  Gio-
+vannetti.  Speeding up and slowing down the relax-
+ation of a qubit by optimal control.Phys. Rev. A,
+88:062326, 2013.
+287.  C.  M ̈uller,  X.  Kong,  J.-M.  Cai,  K.  Melentijevi ́c,
+A.  Stacey,  M.  Markham,  D.  Twitchen,  J.  Isoya,
+S.  Pezzagna,  J.  Meijer,  J.  F.  Du,  M.  B.  Plenio,
+B. Naydenov, L. P. McGuinness, and F. Jelezko. Nu-
+clear  magnetic  resonance  spectroscopy  with  single
+spin sensitivity.Nat. Commun., 5:4703, 2014.
+288.  M.  M.  M ̈uller,  D.  M.  Reich,  M.  Murphy,  H.  Yuan,
+J. Vala, K. B. Whaley, T. Calarco, and C. P. Koch.
+Optimizing  entangling  quantum  gates  for  physical
+systems.Phys. Rev. A, 84:042315, 2011.
+289.  J.  B.  Murdoch,  A.  H.  Lent,  and  M.  R.  Kritzer.
+Computer-optimized  narrowband  pulses  for  multi-
+slice imaging.J. Magn. Reson., 74:226–263, 1987.
+290.  Michael Murphy, Simone Montangero, Vittorio Gio-
+vannetti, and Tommaso Calarco. Communication at
+the quantum speed limit along a spin chain.Phys.
+Rev. A, 82:022318, 2010.
+291.  Navin N. Khaneja, Jr-Shin J.-S. Li, Cindie  Kehlet,
+Burkhard   Luy,   and   Steffen   J.   Glaser.Broad-
+band  relaxation-optimized  polarization  transfer  in
+magnetic  resonance.Proc. Natl. Acad. Sci. USA,
+101(41):14742–14747, 2004.
+292.  J.  L.  Neves,  B.  Heitmann,  N.  Khaneja,  and  S.  J.
+Glaser.  Heteronuclear decoupling by optimal track-
+ing.J. Magn. Reson., 201:7–17, 2009.
+293.  K.  K.  Ni,  S.  Ospelkaus,  M.  H.  G.  de  Miranda,
+A. Pe’er, B. Neyenhuis, J. J. Zirbel, S. Kotochigova,
+P.  S.  Julienne,  D.  S.  Jin,  and  J.  Ye.A  high
+phase-space-density gas of polar molecules.Science,
+322(5899):231–235, 2008.
+294.  Qing Zhe Ni, Daviso E, Can TV, Markhasin E, Jawla
+SK, Swager TM, Temkin RJ, Herzfeld J, and Griffin
+RG.   High  frequency  dynamic nuclear  polarization.
+Accounts in Chemical Research, 46:1933–1941, 2013.
+295.  M.  Nimbalkar, B.  Luy,  T.  E. Skinner,  J.  L.  Neves,
+N. I. Gershenzon, K. Kobzar, W. Bermel, and S. J.
+26Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+Glaser. The fantastic four: A plug ’n’ play set of op-
+timal control pulses for enhancing nmr spectroscopy.
+J. Magn. Reson., 228:16–31, 2013.
+296.  M.  Nimbalkar,  R.  Zeier,  J.  L.  Neves,  H.  Elavarasi,
+S. B. Yuan, N. Khaneja, K. Dorai, and S. J. Glaser.
+Multiple-spin coherence transfer in linear ising spin
+chains  and  beyond:  Numerically  optimized  pulses
+and experiments.Phys. Rev. A, 85:012325, 2012.
+297.  Patrick Nuernberger, Gerhard Vogt, Tobias Brixner,
+and Gustav Gerber.  Femtosecond quantum control
+of molecular dynamics in the condensed phase.Phys.
+Chem. Chem. Phys., 9:2470–2497, 2007.
+298.  Patrick Nuernberger, Daniel  Wolpert,  Horst Weiss,
+and Gustav Gerber.  Femtosecond quantum control
+of molecular bond formation.Proc. Natl. Acad. Sci.
+U.S.A, 107(23):10366–10370, 2010.
+299.  Jennifer  P.  Ogilvie, Delphine  D ́ebarre, Xavier  Soli-
+nas, Jean-Louis Martin, Emmanuel Beaurepaire, and
+Manuel  Joffre.    Use  of  coherent  control  for  selec-
+tive  two-photon  fluorescence  microscopy in  live  or-
+ganisms.Opt. Express, 14(2):759–766, 2006.
+300.  C. O’Meara, G. Dirr, and T. Schulte-Herbr ̈uggen. Il-
+lustrating the geometry of coherently controlled uni-
+tal  open  quantum  systems.IEEE Trans. Autom.
+Contr. (IEEE-TAC),  57:2050–2054,  2012.   (an  ex-
+tended version can be found as arXiv:1103.2703).
+301.  Dan  Oron, Eran Tal,  and  Yaron  Silberberg.   Scan-
+ningless  depth-resolved  microscopy.Opt. Express,
+13(5):1468–1476, 2005.
+302.  A.W. Overhauser.  Polarization of nuclei in metals.
+Phys. Rev., 92:411–415, 1953.
+303.  Jos ́e P.  Palao and  Ronnie  Kosloff.   Quantum  com-
+puting by an optimal control algorithm for unitary
+transformations.Phys. Rev. Lett., 89:188301, 2002.
+304.  Jos ́e P. Palao and Ronnie Kosloff.  Optimal control
+theory  for  unitary  transformations.Phys. Rev. A,
+68:062308, 2003.
+305.  Jos ́e  P.  Palao,  Daniel  M.  Reich,  and  Christiane  P.
+Koch.    Steering  the  optimization  pathway  in  the
+control landscape using  constraints.Phys. Rev. A,
+88:053409, 2013.
+306.  K.  R.  Parthasarathy.An introduction to quantum
+stochastic calculus.  Birkhauser, Basel, 1992.
+307.  G. Passante, O. Moussa, C. Ryan, and R. Laflamme.
+Experimental approximation of the jones polynomial
+by one quantum bit.Phys. Rev. Lett., 103:250501,
+2009.
+308.  Igor Pastirk, Johanna Dela Cruz, Katherine Walow-
+icz,  Vadim  Lozovoy,  and  Marcos  Dantus.Selec-
+tive  two-photon  microscopy  with  shaped  femtosec-
+ond pulses.Opt. Express, 11(14):1695–1701, 2003.
+309.  A. Pechen and H. Rabitz. Incoherent control of open
+quantum systems.Journal of Mathematical Sciences,
+199(6):695–701, jun 2014.
+310.  A.  N.  Pechen  and  D.  J.  Tannor.   Are  there  traps
+in  quantum  control  landscapes?Phys. Rev. Lett.,
+106:120402, 2011.
+311.  A. N. Pechen and D. J. Tannor.  Comment on ”are
+there traps in quantum control landscapes?”: Reply.
+Phys. Rev. Lett., 108:198902, 2012.
+312.  A. Peirce, M. Dahleh, and H. Rabitz.  Optimal con-
+trol of quantum mechanical systems: Existence, nu-
+merical approximations and applications.Phys. Rev.
+A, 37:4950–4962, 1987.
+313.  J. R. Petta, A. C. Johnson, J. M. Taylor, E. A. Laird,
+A. Yacoby, M. D. Lukin, C. M. Marcus, and A. C.
+Gossard.    Coherent  manipulation  of  coupled  elec-
+tron spins in semiconductor quantum dots.Science,
+309(5744):2180–2184, 2005.
+314.  Walter  Pfeiffer,  Martin  Aeschlimann,  and  Tobias
+Brixner.Optical Antennas,  chapter  Coherent  con-
+trol of nano-optical excitations, pages 135–156. Cam-
+bridge University Press, 2013. Cambridge Books On-
+line.
+315.  Rajesh   S.   Pillai,   Caroline   Boudoux,   Guillaume
+Labroille, Nicolas Olivier, Israel Veilleux, Emmanuel
+Farge,  Manuel  Joffre,  and  Emmanuel  Beaurepaire.
+Multiplexed two-photon microscopy ofdynamic bio-
+logical samples with shapedbroadband pulses.Opt.
+Express, 17(15):12741–12752, 2009.
+316.  J.  J.  Pla,  K.  Y.  Tan,  J.  P.  Dehollain,  W.  H.  Lim,
+J.  J.  Morton,  D.  N.  Jamieson,  and  A.  Morello.   A
+single-atom  electron  spin  qubit  in  silicon.Nature,
+489:541–545, 2012.
+317.  J.  J.  Pla,  K.  Y.  Tan,  J.  P.  Dehollain,  W.  H.  Lim,
+J. J. L. Morton, F. A. Zwanenburg, D. N. Jamieson,
+A. S. Dzurak, and A. Morello.  High-fidelity readout
+and control of a nuclear spin qubit in silicon.Nature,
+496:334–338, 2013.
+318.  Felix  Platzer,  Florian  Mintert,  and  Andreas  Buch-
+leitner.   Optimal  dynamical  control  of  many-body
+entanglement.Phys. Rev. Lett., 105(2):020501, 2010.
+319.  N.  Pomplun  and  S.  J.  Glaser.   Exploring  the  lim-
+its of electron-nuclear polarization transfer efficiency
+in  three-spin  systems.Phys. Chem. Chem. Phys.,
+12:5791–5798, 2010.
+320.  N.  Pomplun,  B.  Heitmann,  N.  Khaneja,  and  S.  J.
+Glaser.   Optimization  of  electron–nuclear  polariza-
+tion  transfer.Applied Magnetic Resonance,  34(3–
+4):331–346, 2008.
+321.  L. S. Pontryagin, V. G. Bol’tanskii, R. S. Gamkre-
+lidze, and E. F. Mischenko.The Mathematical The-
+ory of Optimal Processes.    Pergamon  Press,  New
+York, 1964.
+322.  L. S. Pontryagin, V. G. Boltyanskii, R. V. Gamkre-
+lidze, and E. F. Mishchenko.The Mathematical The-
+ory of Optimal Processes.  Wiley, New York, 1962.
+323.  Uffe V. Poulsen, Shlomo Sklarz, David Tannor, and
+Tommaso Calarco.  Correcting errors in a quantum
+gate with pushed ions via optimal control.Phys. Rev.
+A, 82:012339, jul 2010.
+324.  J.  Preskill.    Quantum  computing  and  the  entan-
+glement  frontier.arXiv:1203.5813,  2012.   Rappor-
+teur talk at the 25th Solvay Conference on Physics
+(”The Theory of the Quantum World”), 19-22 Octo-
+ber 2011.
+325.  Valentyn I Prokhorenko, Andrea M Nagy, Stephen A
+Waschuk,  Leonid  S  Brown,  Robert  R  Birge,  and
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control27
+RJ   Dwayne   Miller.Coherent   control   of   reti-
+nal  isomerization  in  bacteriorhodopsin.Science,
+313(5791):1257–1261, 2006.
+326.  H.  Rabitz,  R.  de  Vivie-Riedle,  M.  Motzkus,  and
+K. Kompa.  Whither the future of controlling quan-
+tum phenomena?Science, 288:824, may 2000.
+327.  H. Rabitz, T. S. Ho, R. Long, R. Wu, and C. Brif.
+Comment  on:  Are  there  traps  in  quantum  control
+landscapes?Phys. Rev. Lett., 108:198901, 2012.
+328.  S.  Ramakrishna  and  T.  Seideman.Intense  laser
+alignment in dissipative media as a route to solvent
+dynamics.Phys. Rev. Lett., 95:113001, 2005.
+329.  G. Rancan, T. T. Nguyen, and S. J. Glaser. Gradient
+ascent pulse engineering for rapid exchange satura-
+tion transfer.J. Magn. Reson., 252:1–9, 2015.
+330.  P. Rebentrost, I. Serban, T. Schulte-Herbr ̈uggen, and
+F. K. Wilhelm.  Optimal control of a qubit coupled
+to a non-Markovian environment.Phys. Rev. Lett.,
+102:090401, 2009.
+331.  Jean Rehbinder, Lukas Br ̈uckner, Alexander Wipfler,
+Tiago  Buckup,  and  Marcus  Motzkus.   Multimodal
+nonlinear   optical   microscopy  with   shaped   10   fs
+pulses.Opt. Express, 22(23):28790–28797, 2014.
+332.  Daniel  Reich,  Mamadou  Ndong,  and  Christiane  P.
+Koch.Monotonically  convergent  optimization  in
+quantum control using Krotov’s method.J. Chem.
+Phys., 136:104103, 2012.
+333.  Daniel  M.  Reich,  Nadav  Katz,  and  Christiane  P.
+Koch.Exploiting  non-markovianity  for  quantum
+control.Sci. Rep., 5:12430, 2015.
+334.  Daniel  M.  Reich  and  Christiane  P.  Koch.   Cooling
+molecular  vibrations  with  shaped  laser  pulses:  Op-
+timal  control  theory  exploiting  the  timescale  sep-
+aration  between  coherent  excitation  and  sponta-
+neous emission.New J. Phys., 15(12):125028, 2013.
+arXiv:1308.0803.
+335.  Daniel  M.  Reich,  Jos ́e  P.  Palao,  and  Christiane  P.
+Koch.   Optimal  control  under  spectral  constraints:
+Enforcing  multi-photon  absorption  pathways.J.
+Mod. Opt., 61(10):822, 2014.
+336.  J.  E.  Reiner,  W.  P.  Smith,  L.  A.  Orozco,  H.  M.
+Wiseman, and J. Gambetta.  Quantum feedback in
+a  weakly  driven  cavity  qed  system.Phys. Rev. A,
+70:023819, 2004.
+337.  Tony  Reinsperger  and  Burkhard  Luy.Homonu-
+clear bird-decoupled spectra for measuring one-bond
+couplings  with  highest  resolution:  Clip/clap-reset
+and constant-time-clip/clap-reset.J. Magn. Reson.,
+239:110–120, 2014.
+338.  T.  O.  Reiss,  N.  Khaneja,  and  S.  J.  Glaser.   Time-
+optimal   coherence-order-selective   transfer   of   in-
+phase coherence in heteronuclear is spin systems.J.
+Magn. Reson., 154(2):192–195, 2002.
+339.  T. O. Reiss, N. Khaneja, and S. J. Glaser. Broadband
+geodesic pulses for three spin systems: time-optimal
+realization  of  effective  trilinear  coupling  terms  and
+indirect SWAP gates.J. Magn. Reson., 165(1):95–
+101, 2003.
+340.  S.  Rice  and  M.  Zhao.Optimal control of quantum
+dynamics.  Wiley, New York, 2000.
+341.  S. A. Rice and M. Zhao.Optical control of molecular
+dynamics.  John Wiley & Sons, 2000.
+342.  D. Riste, C. C. Bulting, K. W. Lehnert, and L. Di-
+Carlo.   Feedback  control  of  a  solid-state  qubit  us-
+ing high-fidelity projective measurement.Phys. Rev.
+Lett., 109:240502, 2012.
+343.  G.  Riviello,  K.  Moore  Tibbetts,  C.  Brif,  R.  Long,
+R.-B.  Wu,  T.-S.  Ho,  and  H.  Rabitz.   Searching for
+quantum optimal controls under severe constraints.
+Phys. Rev. A, 91:043401, 2015.
+344.  Katharina Rojan, Daniel  M.  Reich,  Igor  Dotsenko,
+Jean-Michel Raimond, Christiane P. Koch, and Gio-
+vanna Morigi.  Arbitrary-quantum-state preparation
+of  a  harmonic  oscillator  viaoptimal  control.Phys.
+Rev. A, 90:023824, 2014.  arXiv:1406.6572.
+345.  S. Rosi, A. Bernard, N. Fabbri, L. Fallani, C. Fort,
+M.  Inguscio,  T.  Calarco, and  S.  Montangero.   Fast
+closed-loop optimal control of ultracold atoms in an
+optical lattice.Phys. Rev. A, 88:021601, aug 2013.
+346.  Rene Rugango, James E Goeders, Thomas H Dixon,
+John  M  Gray,  NB  Khanyile,  Gang  Shu,  Robert  J
+Clark, and Kenneth R Brown.  Sympathetic cooling
+of molecular ion motion to the ground state.New J.
+Phys., 17(3):035009, 2015.
+347.  A.  Ruschhaupt,  Xi  Chen,  D.  Alonso,  and  J.  G.
+Muga. Optimally robust shortcuts to population in-
+version in two-level quantum systems.New J. Phys.,
+14(9):093040, 2012.
+348.  C. A. Ryan, C. Negrevergne, M. Laforest, E. Knill,
+and R. Laflamme. Liquid-state nuclear magnetic res-
+onance as a testbed for developing quantum control
+methods.Phys. Rev. A, 78:012328, 2008.
+349.  Leonid Rybak, Saieswari Amaran, Liat Levin, Micha l
+Tomza,  Robert  Moszynski,  Ronnie  Kosloff,  Chris-
+tiane P. Koch, and Zohar Amitay. Generating molec-
+ular rovibrational coherence by two-photon femtosec-
+ond photoassociation of thermally hot atoms.Phys.
+Rev. Lett., 107:273001, 2011.
+350.  T. Ryb ́ar, S.N. Filippov, M. Ziman, and V. Buzek.
+Simulation of indivisible  qubit channels in  collision
+models.J. Phys. B: At. Mol. Opt. Phys., 45:154006,
+2012.
+351.  Smith  SA,  Levante  TO,  Meier  BH,  and  Ernst RR.
+Computer  simulations  in  magnetic  resonance.  an
+object-oriented  programming  approach.J. Magn.
+Reson., 106:75–105, 1994.
+352.  J.  Salomon,  C.  Dion,  and  G.  Turinici.Optimal
+molecular  alignment  and  orientation  through  rota-
+tional ladder climbing.J. Chem. Phys., 123:144310,
+2005.
+353.  W.   Salzmann,   T.   Mullins,   J.   Eng,   M.   Albert,
+R.  Wester,  M.  Weidem ̈uller,  A.  Merli,  S.  M.  We-
+ber, F. Sauer, M. Plewicki, F. Weise, L. W ̈oste, and
+A. Lindinger.  Coherent transients in the femtosec-
+ond photoassociation of ultracold molecules.Phys.
+Rev. Lett., 100:233003, jun 2008.
+28Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+354.  M.  S.  Sarandy  and  D.  A.  Lidar.   Adiabatic  quan-
+tum computation in open systems.Phys. Rev. Lett.,
+95:250503, 2005.
+355.  D. V. Savostyanov, S. V. Dolgov, J. M. Werner, and
+Ilya Kuprov.  Exact NMR simulation of protein-size
+spin systems using tensor train formalism.Phys. Rev.
+B, 90:085139, 2014.
+356.  Cl ́ement   Sayrin,  Igor   Dotsenko,  Xingxing   Zhou,
+Bruno   Peaudecerf,   Th ́eo   Rybarczyk,   S ́ebastien
+Gleyzes, Pierre Rouchon, Mazyar Mirrahimi, Hadis
+Amini,  Michel  Brune,  Jean-Michel  Raimond,  and
+Serge  Haroche.   Real-time  quantum  feedback  pre-
+pares and stabilizes photon number states.Nature,
+477:73–77, sep 2011.
+357.  Duckett S.B. and Mewis R.E. Application of parahy-
+drogen induced polarization techniques in nmr spec-
+troscopy  and  imaging.Acc. Chem. Res.,  45:1247–
+1257, 2012.
+358.  Ido  Schaefer  and  Ronnie  Kosloff.   Optimal-control
+theory  of  harmonic  generation.Phys. Rev. A,
+86:063417, 2012.
+359.  Jochen  Scheuer,  Xi  Kong,  Ressa  S.  Said,  Jeson
+Chen, Andrea Kurz, Luca Marseglia, Jiangfeng Du,
+Philip  R.  Hemmer,  Simone  Montangero,  Tommaso
+Calarco, Boris Naydenov, and Fedor Jelezko. Precise
+qubit control beyond the rotating wave approxima-
+tion.New J. Phys., 16(9):093022, 2014.
+360.  F. Schilling and S. J. Glaser. Tailored real-time scal-
+ing  of  heteronuclear  couplings.J. Magn. Reson.,
+223:207–218, 2012.
+361.  F. Schilling, N. I. Warner, T. E. Gershenzon, M. Sat-
+tler,  and  S.  J.  Glaser.   Next-generation  heteronu-
+clear  decoupling  for  high-field  biomolecular  NMR
+spectroscopy.Angew. Chem. Int. Ed., 53:4475–4479,
+2014.
+362.  S. G. Schirmer, H. Fu, and A. I. Solomon. Complete
+controllability  of  quantum  systems.Phys. Rev. A,
+63:063410, may 2001.
+363.  S. G. Schirmer and P. J. Pemberton-Ross. Fast, high-
+fidelity information transmission through spin-chain
+quantum wires.Phys. Rev. A, 80:030301, 2009.
+364.  S.  G.  Schirmer  and  X.  Wang.Stabilizing  open
+quantum  systems  by  markovian reservoir engineer-
+ing.Phys. Rev. A, 81:062306, 2010.
+365.  R. Schmidt, A. Negretti, J. Ankerhold, T. Calarco,
+and J.T. Stockburger. Optimal control of open quan-
+tum systems: Cooperative effects of driving and dis-
+sipation.Phys. Rev. Lett., 107:130404, 2011.
+366.  Markus Schr ̈oder and Alex Brown.  Generalized fil-
+tering of laser fields in optimal control theory: appli-
+cation to symmetry filtering of quantum gate opera-
+tions.New J. Phys., 11:105031, 2009.
+367.  T.    Schulte-Herbr ̈uggen,    R.    Marx,    A.    Fahmy,
+L. Kauffman, S. Lomonaco, N. Khaneja, , and S.J.
+Glaser.  Control aspects of quantum computing us-
+ing pure and mixed states.Phil. Trans. R. Soc. A,
+370:4651, 2012.
+368.  T.  Schulte-Herbr ̈uggen,  A.  Sp ̈orl,  N.  Khaneja,  and
+S. J. Glaser. Optimal control for generating quantum
+gates in open dissipative systems.J. Phys. B: At.,
+Mol. Opt. Phys., 44:154013, aug 2011.
+369.  T. Schulte-Herbr ̈uggen, A. K. Sp ̈orl, N. Khaneja, and
+S. J. Glaser.  Optimal control-based efficient synthe-
+sis of building blocks of quantum algorithms: A per-
+spective from network complexity towards time com-
+plexity.Phys. Rev. A, 72:042331, 2005.
+370.  T.  Schulte-Herbr ̈uggen,  A.  K.  Sp ̈orl,  K.  Waldherr,
+T.  Gradl,  S.  J.  Glaser,  and  T.  Huckle.in: High-
+Performance Computing in Science and Engineer-
+ing, Garching 2007, chapter ’Using the HLRB Clus-
+ter  as  Quantum  CISC  Compiler’,  pages  517–533.
+Springer, Berlin, 2008.  (an extended version can be
+found under: http://arXiv.org/pdf/0712.3227).
+371.  David   Schulze-Suenninghausen,   Johanna   Becker,
+and Burkhard Luy. Rapid heteronuclear single quan-
+tum correlation nmr spectra at natural abundance.
+J. Am. Chem. Soc., 136(4):1242–1245, 2014.
+372.  R. Schutjens, F. Abu Dagga, D. J. Egger, and F. K.
+Wilhelm.   Single-qubit  gates  in  frequency-crowded
+transmon systems.Phys. Rev. A, 88:052330, 2013.
+373.  A.  Schweiger  and  G.  Jeschke.Principles of pulse
+electron paramagnetic resonance.  Oxford University
+Press, 2001.
+374.  T Seideman and E. Hamilton.  Nonadiabatic align-
+ment by intense pulses: Concepts, theory and direc-
+tions.Adv. At. Mol. Opt. Phys., 52:289, 2006.
+375.  I.  Serban,  J.  Werschnik,  and  E.  K.  U.  Gross.   Op-
+timal control of time-dependent targets.Phys. Rev.
+A, 71:053810, may 2005.
+376.  Arnaldo L  Serrano, Ayanjeet  Ghosh,  Joshua S  Os-
+trander,  and  Martin  T  Zanni.   Wide-field  ftir  mi-
+croscopy using mid-ir pulse shaping.Opt. Express,
+23(14):17815–17827, 2015.
+377.  M. Shapiro and P. Brumer.Principles of quantum
+control of mulecular processes.    Wiley,  New  York,
+2003.
+378.  Kilian  Singer,  Ulrich  Poschinger,  Michael  Murphy,
+Peter  Ivanov, Frank  Ziesel,  Tommaso Calarco, and
+Ferdinand  Schmidt-Kaler.Colloquium:  Trapped
+ions as quantum bits: Essential numerical tools.Rev.
+Mod. Phys., 82:2609–2632, 2010.
+379.  T. E. Skinner, M. Braun, K. Woelk, N. I. Gershen-
+zon, and S. J. Glaser.  Design and application of ro-
+bust rf pulses for toroid cavity nmr spectroscopy.J.
+Magn. Reson., 209:282–290, 2011.
+380.  T. E. Skinner and N. I. Gershenzon. Optimal control
+design of pulse shapes as analytic functions.J. Magn.
+Reson., 204:248, 2010.
+381.  T.  E.  Skinner,  N.  I.  Gershenzon,  M.  Nimbalkar,
+W.  Bermel,  B.  Luy,  and  S.  J.  Glaser.   New  strate-
+gies  for  designing  robust  universal  rotation  pulses:
+Application to broadband refocusing at low power.
+J. Magn. Reson., 216:78–87, 2012.
+382.  T. E. Skinner, N. I. Gershenzon, M. Nimbalkar, and
+S. J. Glaser. Optimal control design of band-selective
+excitation pulses that accommodate relaxation and
+rf inhomogeneity.J. Magn. Reson., 217:53–60, 2012.
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control29
+383.  T. E. Skinner, T. O. Reiss, B. Luy, N. Khaneja, and
+S.  J.  Glaser.   Reducing  the  duration  of  broadband
+excitation pulses using optimal control with limited
+RF amplitude.J. Magn. Reson., 167:68–74, 2004.
+384.  TE   Skinner,   K   Kobzar,   B   Luy,   MR   Bendall,
+W  Bermel,  N.  Khaneja,  and  S.  J.  Glaser.Op-
+timal  control  design  of  constant  amplitude  phase-
+modulated  pulses:  Application  to  calibration-free
+broadband excitation.J. Magn. Reson., 179(2):241–
+249, apr 2006.
+385.  TE  Skinner,  TO  Reiss,  B  Luy,  N  Khaneja,  and
+SJ Glaser.  Tailoring the optimal control cost func-
+tion to a desired output: application to minimizing
+phase errors in short broadband excitation pulses.J.
+Magn. Reson., 172(1):17–23, 2005.
+386.  Thomas E. Skinner, Timo O. Reiss, Burkhard Luy,
+Navin Khaneja, and Steffen J. Glaser.  Application
+of optimal control theory to the design of broadband
+excitation pulses for high-resolution NMR.J. Magn.
+Reson., 163(1):8–15, 2003.
+387.  Shlomo E. Sklarz and David J. Tannor.  Loading a
+Bose-Einstein condensate onto an optical lattice: An
+application of optimal control theory to the nonlinear
+Schr ̈odinger equation.Phys. Rev. A,  66(5):053619,
+2002.
+388.  Dimitris Sofikitis, S ́ebastien Weber, Andr ́ea Fioretti,
+Ridha  Horchani,  Maria  Allegrini,  B ́eatrice  Chatel,
+Daniel Comparat, and Pierre Pillet. Molecular vibra-
+tional cooling by optical pumping with shaped fem-
+tosecond pulses.New J. Phys., 11(5):055037, 2009.
+389.  J. Soml ́oi, V. A. Kazakovski, and D. J. Tannor. Con-
+trolled  dissociation of  I
+2
+via optical  transitions be-
+tween the X and B electronic states.Chem. Phys.,
+172:85–98, 1993.
+390.  E. Sontag.Mathematical Control Theory.  Springer,
+New York, 1998.
+391.  Philipp  E.  Spindler,  Yun  Zhang,  Burkhard  Ende-
+ward, Naum Gershernzon, Thomas E. Skinner, Stef-
+fen J. Glaser, and Thomas F. Prisner.  Shaped op-
+timal  control  pulses  for  increased  excitation  band-
+width in EPR.J. Magn. Reson., 218(0):49–58, may
+2012.
+392.  A.   Sp ̈orl,   T.   Schulte-Herbr ̈uggen,   S.   J.   Glaser,
+V. Bergholm, M. J. Storcz, J. Ferber, and F. K. Wil-
+helm.  Optimal control of coupled josephson qubits.
+Phys. Rev. A, 75:012302, 2007.
+393.  H. Stapelfeldt and T. Seideman.  Aligning molecules
+with  strong  laser  pulses.Rev. Mod. Phys.,  75:543,
+2003.
+394.  Henrik Stapelfeldt and Tamar Seideman.Colloquium
+: Aligning molecules with strong laser pulses.Rev.
+Mod. Phys., 75:543–557, apr 2003.
+395.  D. Stefanatos, N. Khaneja, and S. J. Glaser. Optimal
+control of coupled spins in presence of longitudinal
+and transverse relaxation.Phys. Rev. A, 69:022319,
+2004.
+396.  D. Stefanatos, N. Khaneja, and S. J. Glaser.  Relax-
+ation optimized transfer of spin order in ising chains.
+Phys. Rev. A, 72:062320, 2005.
+397.  Andreas Steinbacher, Patrick Nuernberger, and To-
+bias  Brixner.Optical  discrimination  of  racemic
+from  achiral solutions.Phys. Chem. Chem. Phys.,
+17:6340–6346, 2015.
+398.  M.  Sugawara.    General  formulation  of  locally  de-
+signed coherent control theory for quantum system.
+J. Chem. Phys., 118(15):6784, 2003.
+399.  D.  Sugny,  A.  Keller,  O.  Atabek,  D.  Daems,  C.  M.
+Dion, S. Gu ́erin, and H. R. Jauslin.  Reaching opti-
+mally oriented molecular states by laser kicks.Phys.
+Rev. A, 69:033402, mar 2004.
+400.  D. Sugny, C. Kontz, and H. R. Jauslin. Time-optimal
+control  of  a  two-level  dissipative  quantum  system.
+Phys. Rev. A, 76:023419, 2007.
+401.  Benjamin  J.  Sussman,  Dave  Townsend,  Misha  Yu.
+Ivanov, and  Albert  Stolow.  Dynamic  stark control
+of photochemical processes.Science, 314(5797):278–
+281, 2006.
+402.  H.  Sussmann  and  V.  Jurdjevic.   Controllability  of
+nonlinear systems.Journal of Differential Equations,
+12:95–116, 1972.
+403.  D. J. Tannor and A. Bartana.  On the interplay of
+control fields and spontaneous emission in laser cool-
+ing.J. Phys. Chem. A, 103:10359–10363, 1999.
+404.  David J. Tannor.Introduction to Quantum Mechan-
+ics: A Time-Dependent Perspective.  University Sci-
+ence Books, Sausalito, Sausalito, 2007.
+405.  David J. Tannor, Ronnie Kosloff, and Stuart A. Rice.
+Coherent pulse sequence induced control of selectiv-
+ity of reactions: Exact quantum mechanical calcula-
+tions.J. Chem. Phys., 85(10):5805–5820, 1986.
+406.  David J. Tannor and Stuart A. Rice. Control of selec-
+tivity of chemical reaction via control of wave packet
+evolution.J. Chem. Phys.,  83(10):5013–5018, aug
+1985.
+407.  D.J. Tannor, V Kazakov, and V. Orlov.  Control of
+photochemical branching: Novel procedures for find-
+ing  optimal  pulses  and  global  upper  bounds.    In
+J.  Broeckhove  and  L.  Lathouwers,  editors,Time-
+dependent quantum molecular dynamics, pages 347–
+360. Plenum, 1992.
+408.  Carmen   M.   Tesch   and   Regina   de   Vivie-Riedle.
+Quantum  computation  with  vibrationally  excited
+molecules.Phys. Rev. Lett., 89:157901, sep 2002.
+409.  S. Teufel.Adiabatic perturbation theory in quantum
+dynamics.  Springer-Verlag, Berlin, 2003.
+410.  K. Moore Tibbetts and H. Rabitz. Constrained con-
+trol landscape for population transfer in a two-level
+system.Phys. Chem. Chem. Phys., 17:3164, 2015.
+411.  Katharine Moore Tibbetts, Maryam Tarazkar, Tim-
+othy Bohinski, Dmitri A Romanov, Spiridoula Mat-
+sika, and Robert J Levis. Controlling the dissociation
+dynamics of acetophenone radical cation through ex-
+citation of ground and excited state wavepackets.J.
+Phys. B: At., Mol. Opt. Phys., 48(16):164002, 2015.
+412.  N. Timoney, V. Elman, S. Glaser, C. Weiss, M. Jo-
+hanning,   W.   Neuhauser,   and   Chr.   Wunderlich.
+Error-resistant single-qubit gates with trapped ions.
+Phys. Rev. A, 77:052334, may 2008.
+30Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control
+413.  Erik   Torrontegui,   Sara   Ib ́a ̃nez,   Sofia   Mart ́ınez-
+Garaot, Michele Modugno, Adolfo del Campo, David
+Gu ́ery-Odelin,  Andreas  Ruschhaupt,  Xi  Chen,  and
+Juan Gonzalo Muga.  Shortcuts to adiabaticity.  In
+Ennio Arimondo, Paul R. Berman, and Chun C. Lin,
+editors,Advances in Atomic, Molecular, and Optical
+Physics,  volume 62 ofAdvances In Atomic, Molec-
+ular, and Optical Physics, pages 117–169. Academic
+Press, 2013.
+414.  Z.  Tosner,  S.  J.  Glaser,  N.  Khaneja,  and  N.  C.
+Nielsen.  Effective hamiltonians by optimal control:
+Solid-state nmr double-quantum planar and isotropic
+dipolar recoupling.J. Chem. Phys.,  125:184502/1–
+10, 2006.
+415.  Zdenˇek  Toˇsner, Thomas  Vosegaard, Cindie  Kehlet,
+Navin  Khaneja,  Steffen  J.  Glaser,  and  Niels  Chr.
+Nielsen.  Optimal control in NMR spectroscopy: Nu-
+merical implementation in SIMPSON.J. Magn. Re-
+son., 197(2):120–134, apr 2009.
+416.  C.  Trallero-Herrero,  D.  Cardoza,  T.  C.  Weinacht,
+and  J.  L.  Cohen.   Coherent  control  of  strong  field
+multiphoton absorption in the presence of dynamic
+stark shifts.Phys. Rev. A, 71:013423, 2005.
+417.  Carlos  Trallero-Herrero,  J.  L.  Cohen,  and  Thomas
+Weinacht. Strong-field atomic phase matching.Phys.
+Rev. Lett., 96:063603, feb 2006.
+418.  Philipp  Treutlein,  Theodor  W.  H ̈ansch,  Jakob  Re-
+ichel, Antonio Negretti, Markus A. Cirone, and Tom-
+maso  Calarco.    Microwave  potentials  and  optimal
+control for robust quantum gates on an atom chip.
+Phys. Rev. A, 74:022312, aug 2006.
+419.  Gabriel  Turinici.On  the  controllability  of  bilin-
+ear quantum systems.  InMathematical Models and
+Methods for Ab Initio Quantum Chemistry,  vol-
+ume 74 ofLecture Notes in Chemistry, pages 75–92.
+Springer Berlin Heidelberg, 2000.
+420.  Gabriel Turinici and Herschel Rabitz. Optimally con-
+trolling the internal dynamics of a randomly oriented
+ensemble  of  molecules.Phys. Rev. A,  70:063412,
+2004.
+421.  Pavleta Tzvetkova, Svetlana Simova, and Burkhard
+Luy.   Pehsqc:  A  simple  experiment  for  simultane-
+ous and sign-sensitive measurement of ((1)j(ch)+d-
+ch) and ((2)j(hh)+d-hh) couplings.J. Magn. Reson.,
+186(2):193–200, jun 2007.
+422.  JonathanG.Underwood,MichaelSpanner,
+Misha  Yu.  Ivanov,  Jeff  Mottershead,  Benjamin  J.
+Sussman, and Albert Stolow.  Switched wave pack-
+ets:  A  route  to  nonperturbative  quantum  control.
+Phys. Rev. Lett., 90:223001, jun 2003.
+423.  T Untidt, T Schulte-Herbr ̈uggen, B Luy, SJ Glaser,
+C Griesinger, OW Sorensen, and NC Nielsen. Design
+of nmr pulse experiments with optimum sensitivity:
+coherence-order-selective transfer in i2s and i3s spin
+systems.Mol. Phys., 95(5):787–796, 1998.
+424.  L. Van Damme, R. Zeier, S. J. Glaser, and D. Sugny.
+Application of the Pontryagin maximum principle to
+the  time-optimal  control  in  a  chain  of  three  spins
+with  unequal  couplings.Phys. Rev. A,  90:013409,
+2014.
+425.  P. van der Walle, M. T. W. Milder, L. Kuipers, and
+J.  L.  Herek.   Quantum  control  experiment  reveals
+solvation-induced  decoherence.Proceedings of the
+National Academy of Sciences,  106(19):7714–7717,
+2009.
+426.  S.  van  Frank,  A.  Negretti,  T.  Berrada, R.  B ̈ucker,
+S. Montangero, J.-F. Schaff, T. Schumm, T. Calarco,
+and  J.  Schmiedmayer.Interferometry  with  non-
+classical motional states of a Bose–Einstein conden-
+sate.Nat. Commun., 5:4009, may 2014.
+427.  L. M. K. Vandersypen and I. L. Chuang.  Nmr tech-
+niques for quantum control and computation.Rev.
+Mod. Phys., 76:1037, 2005.
+428.  F. Verstraete, M. M. Wolf, and J. I. Cirac. Quantum
+computation and quantum state engineering driven
+by dissipation.Nat. Phys., 5:633–636, 2009.
+429.  M. Veshtort and R. G. Griffin.  SPINEVOLUTION:
+A powerful tool for the simulation of solid and liquid
+state nmr  experiments.J. Magn. Reson., 178:248–
+282, 2006.
+430.  V. Vesterinen, O.-P. Saira, A. Bruno, and L. DiCarlo.
+Mitigating  information  leakage  in  a  crowded  spec-
+trum of weakly anharmonic qubits.  arXiv:1405.0450
+[cond-mat.mes-hall], may 2014.
+431.  A. Viale and S. Aime. Current concepts on hyperpo-
+larized molecules in MRI.Curr. Opin. Chem. Biol.,
+14(1):90–96, 2010.
+432.  G. Vidal, K. Hammerer, and J. I. Cirac.  Interaction
+cost of nonlocal gates.Phys. Rev. Lett., 88:237902,
+2002.
+433.  R.  Vijay,  C.  Macklin,  D.  H.  Slichter,  S.  J.  Weber,
+K. W. Murch, R. Naik, A. N. Korotkov, and I. Sid-
+diqi. Stabilizing Rabi oscillations in a superconduct-
+ing qubit using quantum feedback.Nature, 490:77–
+80, 2012.
+434.  M. S. Vinding, I. I. Maximov, Z. Toˇsner, and N. Chr.
+Nielsen.   Fast  numerical  design  of  spatial-selective
+rf  pulses  in  mri  using  krotov  and  quasi-newton
+based  optimal  control  methods.J. Chem. Phys.,
+137:054203, 2012.
+435.  N.  V.  Vitanov,  T.  Halfmann,  B.  W.  Shore,  and
+K.  Bergmann.    Laser-induced  population  transfer
+by adiabatic passage techniques.Annu. Rev. Phys.
+Chem., 52:763–809, 2001.
+436.  T.   Vosegaard,   C.   Kehlet,   N.   Khaneja,   S.   J.
+Glaser,  and  N.  C.  Nielsen.Improved  excitation
+schemes for multiple-quantum magic-angle spinning
+for  quadrupolar nuclei designed  using optimal con-
+trol  theory.J. Am. Chem. Soc.,  127:13768–13769,
+2005.
+437.  G.   Waldherr,   Y.   Wang,   S.   Zaiser,   M.   Jamali,
+T.  Schulte-Herbr ̈uggen  ad  H.  Abe,  T.  Ohshima,
+J.  Isoya, J.F.  Du,  P.  Neumann,  and  J.  Wrachtrup.
+Quantum error correction in a solid-state hybrid spin
+register.Nature, 506:204, 2014.
+438.  A. Walther, B. Julsgaard, L. Rippe, Yan Ying, and
+S. Kr ̈oll und R. Fisher und S. Glaser. Extracting high
+fidelity  quantum  computer  hardware  from  random
+Steffen J. Glaser et al.: Training Schr ̈odinger’s cat: quantum optimal control31
+systems.Phys. Scr. T, 137:014009, 2009.
+439.  X. Wang and S. G. Schirmer.  Analysis of lyapunov
+method for control of quantum systems.IEEE Trans.
+Autom. Control, 55(10):2259–2270, 2010.
+440.  Xiaoting   Wang,   Abolfazl   Bayat,   Sougato   Bose,
+and  Sophie  G.  Schirmer.Global  control  meth-
+ods  for  Greenberger-Horne-Zeilinger-state  genera-
+tion  on  a  one-dimensional  Ising  chain.Phys. Rev.
+A, 82:012330, 2010.
+441.  Xiaoting Wang, Abolfazl Bayat, S. G. Schirmer, and
+Sougato Bose. Robust entanglement in antiferromag-
+netic Heisenberg chains by single-spin optimal con-
+trol.Phys. Rev. A, 81:032312, mar 2010.
+442.  W. S. Warren, H. Rabitz, and M. Dahlen.  Coherent
+control  of  quantum  dynamics:  The  dream  is  alive.
+Science, 259(5101):1581–1589, 1993.
+443.  P. Watts, J. Vala, M. M. M ̈uller, T. Calarco, K. B.
+Whaley, D. M. Reich, M. H. Goerz, and C. P. Koch.
+Optimizing  for  an  arbitrary  perfect  entangler:  I.
+functionals.Phys. Rev. A, 91, 2015.
+444.  A. M. Weiner. Femtosecond pulse shaping using spa-
+tial light modulators.Rev. Sci. Instrum., 71(5):1929–
+1960, 2000.
+445.  J. Werschnik and E. K. U. Gross. Quantum optimal
+control  theory.J. Phys. B: At., Mol. Opt. Phys.,
+40(18):175–211, 2007.
+446.  H. M. Wiseman and G. J. Milburn. Quantum theory
+of  optical feedback via homodyne detection.Phys.
+Rev. Lett., 70:548–551, 1993.
+447.  H. M. Wiseman and G. J. Milburn.Quantum mea-
+surement and control.  Cambridge University Press,
+Cambridge, 2010.
+448.  M. Wollenhaupt, V. Engel, and T. Baumert.  Fem-
+tosecond laser photoelectron spectroscopy on atoms
+and small molecules: Prototype studies in quantum
+control.Annu. Rev. Phys. Chem., 56:25, 2005.
+449.  Matthew J Wright, SD Gensemer, J Vala, R Kosloff,
+and  PL  Gould.Control  of   ultracold  collisions
+with  frequency-chirped  light.Phys. Rev. Lett.,
+95(6):063001, 2005.
+450.  R.-B. Wu, R. Long, J. Dominy, T.-S. Ho, and H. Ra-
+bitz.   Singularities  of  quantum  control  landscapes.
+Phys. Rev. A, 86:013405, 2012.
+451.  Kurt  W ̈uthrich.NMR  studies  of  structure  and
+function  of  biological  macromolecules  (nobel  lec-
+ture).Angewandte Chemie International Edition,
+42(29):3340–3363, 2003.
+452.  D.  Xu,  K.  F.  King,  Y.  Zhu,  G.C.  McKinnon,  and
+Z.  P.  Liang.   Designing  multichannel,  multidimen-
+sional, arbitrary flip angle rf pulses using an optimal
+control approach.Magn. Reson. Med.,  59:547–560,
+2008.
+453.  Naoki  Yamamoto.Coherent  versus  measurement
+feedback: Linear systems theory for quantum infor-
+mation.Phys. Rev. X, 4:041029, 2014.
+454.  Y. J. Yan, R. E. Gillilan, R. M. Whitnell, K. R. Wil-
+son, and S. Mukamel.  Optical control of molecular
+dynamics:  Liouville-space  theory.J. Phys. Chem.,
+97:2320–2333, 1993.
+455.  T.  Yi-Peng,  N.  Xin-Fang,  L.  Jun,  C.  Hong-Wei,
+Z. Xian-Yi, P. Xin-Hua, and Du Jiang-Feng. Prepar-
+ing  pseudo-pure  states  in  a  quadrupolar  spin  sys-
+tem  using  optimal  control.Chinese Phys. Lett.,
+29:127601, 2012.
+456.  H.  Yuan,  S.  J.  Glaser, and N.  Khaneja.  Geodesics
+for efficient creation and propagation of order along
+Ising spin chains.Phys. Rev. A, 76:012316, 2007.
+457.  H.  Yuan  and  N.  Khaneja.    Time  optimal  control
+of coupled qubits under nonstationary interactions.
+Phys. Rev. A, 72(4):040301(R), 2005.
+458.  H. Yuan and N. Khaneja. Efficient synthesis of quan-
+tum gates on a three-spin system with triangle topol-
+ogy.Phys. Rev. A, 84:062301, 2011.
+459.  H.   Yuan,   D.   Wei,   Y.   Zhang,   S.   Glaser,   and
+N. Khaneja. Efficient synthesis of quantum gates on
+indirectly  coupled  spins.Phys. Rev. A,  89:042315,
+2014.
+460.  H. Yuan, R. Zeier, and N. Khaneja. Elliptic functions
+and efficient control of Ising spin chains with unequal
+couplings.Phys. Rev. A, 77:032340, 2008.
+461.  Haidong Yuan, Christiane P. Koch, Peter Salamon,
+and David J. Tannor.  Controllability on relaxation-
+free  subspaces:  On  the  relationship  between  adia-
+batic population transfer and optimal control.Phys.
+Rev. A, 85:033417, March 2012.  arXiv:1004.4050.
+462.  R. Zeier, M. Grassl, and Th. Beth.  Gate simulation
+and lower bounds on the simulation time.Phys. Rev.
+A, 70:032319, 2004.
+463.  R. Zeier and T. Schulte-Herbr ̈uggen. Symmetry prin-
+ciples in quantum systems theory.J. Math. Phys.,
+52:113510, 2011.
+464.  F.   Zhang,   G.   anf   Schilling,   S.   J.   Glaser,   and
+C.  Hilty.   Chemical  shift  correlations  from  hyper-
+polarized  NMR  using  a  single  shot.Anal. Chem.,
+85:2875–2881, 2013.
+465.  Y. Zhang, M. Lapert, D. Sugny, M. Braun, and S. J.
+Glaser. Time-optimal control of spin 1/2 particles in
+the presence of radiation damping and relaxation.J.
+Chem. Phys., 134:054103, 2011.
+466.  W. Zhu, J. Botina, and H. Rabitz.  Rapidly conver-
+gent iteration methods for quantum optimal control
+of  population.J. Chem. Phys.,  108(5):1953–1963,
+1998.
+467.  Z.  Zimbor ́as, R.  Zeier,  T.  Schulte-Herbr ̈uggen, and
+D. Burgarth. Symmetry decides simulability of effec-
+tive  interactions.   http://arxiv.org/abs/1504.07734,
+2015.

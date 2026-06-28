@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: DOG 1.0: illustrator of protein domain structures
+DATE: 2009-01-20
+SOURCE: OpenAlex
+DOI: 10.1038/cr.2009.6
+URL: https://www.nature.com/articles/cr20096.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

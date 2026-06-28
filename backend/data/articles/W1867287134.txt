@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: An emergent model of orientation selectivity in cat visual cortical simple cells
+DATE: 1995-08-01
+SOURCE: OpenAlex
+DOI: 10.1523/jneurosci.15-08-05448.1995
+URL: https://www.jneurosci.org/content/jneuro/15/8/5448.full.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

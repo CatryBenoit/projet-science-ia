@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: A new quantum mechanical formalism based on the probability representation of quantum states
+DATE: 2023-01-01
+SOURCE: HAL
+DOI: N/A
+URL: https://hal.science/hal-04097022/document
+
+ABSTRACT:
+Aucun résumé disponible.

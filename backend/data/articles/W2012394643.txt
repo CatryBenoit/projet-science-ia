@@ -1,0 +1,8 @@
+--- ABSTRACT ONLY (PUPPETEER) ---
+TITLE: A Dog-Related Outbreak of Q Fever
+DATE: 1996-10-01
+SOURCE: OpenAlex
+URL: https://academic.oup.com/cid/article-pdf/23/4/753/818734/23-4-753.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

@@ -1,0 +1,63 @@
+const axios = require('axios');
+const cheerio = require('cheerio');
+
+class SciHubService {
+    // Les miroirs de Sci-Hub changent souvent, on en met plusieurs
+    static MIRRORS = [
+        'https://sci-hub.se',
+        'https://sci-hub.st',
+        'https://sci-hub.ru'
+    ];
+
+    static async fetchPdfBuffer(doi) {
+        if (!doi) throw new Error("Aucun DOI fourni pour Sci-Hub.");
+
+        let pdfLink = null;
+        let activeMirror = null;
+
+        // 1. On cherche un miroir qui fonctionne et on récupère la page HTML
+        for (const mirror of this.MIRRORS) {
+            try {
+                const url = `${mirror}/${doi}`;
+                const response = await axios.get(url, { timeout: 10000 });
+                
+                // 2. On utilise Cheerio pour analyser le HTML de Sci-Hub
+                const $ = cheerio.load(response.data);
+                
+                // Sci-Hub met le lien du PDF dans une balise <embed id="pdf"> ou un <iframe>
+                let src = $('#pdf').attr('src');
+                
+                if (src) {
+                    // Parfois Sci-Hub renvoie un lien du type "//domain.com/pdf", il faut rajouter "https:"
+                    if (src.startsWith('//')) src = 'https:' + src;
+                    if (src.startsWith('/')) src = mirror + src;
+                    
+                    pdfLink = src;
+                    activeMirror = mirror;
+                    break; // On a trouvé, on sort de la boucle !
+                }
+            } catch (err) {
+                // Ce miroir est bloqué ou mort, on teste le suivant
+                continue; 
+            }
+        }
+
+        if (!pdfLink) {
+            throw new Error("Sci-Hub n'a pas trouvé cet article ou miroirs inaccessibles.");
+        }
+
+        // 3. On télécharge le fichier PDF binaire depuis le lien trouvé
+        console.log(`🏴‍☠️ Sci-Hub a trouvé le PDF ! Téléchargement depuis : ${activeMirror}...`);
+        const pdfResponse = await axios.get(pdfLink, {
+            responseType: 'arraybuffer',
+            timeout: 20000,
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
+            }
+        });
+
+        return Buffer.from(pdfResponse.data);
+    }
+}
+
+module.exports = SciHubService;

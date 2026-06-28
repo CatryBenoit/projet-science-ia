@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: How’s my kitty? Acoustic parameters of cat-directed speech in human-cat interactions
+DATE: 2022-01-01
+SOURCE: HAL
+DOI: 10.1016/j.beproc.2022.104755
+URL: https://hal.science/hal-04510134/document
+
+ABSTRACT:
+Aucun résumé disponible.

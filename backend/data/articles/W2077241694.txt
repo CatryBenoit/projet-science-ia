@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Regulatory role for hepatic low density lipoprotein receptors in vivo in the dog.
+DATE: 1981-02-01
+SOURCE: OpenAlex
+DOI: 10.1073/pnas.78.2.1194
+URL: https://www.pnas.org/content/pnas/78/2/1194.full.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

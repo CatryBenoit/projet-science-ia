@@ -1,0 +1,2294 @@
+Lawrence Berkeley National Laboratory
+LBL Publications
+Title
+Cation Exchange: A Versatile Tool for Nanomaterials Synthesis
+Permalink
+https://escholarship.org/uc/item/3ff7d7nt
+Journal
+The Journal of Physical Chemistry C, 117(39)
+ISSN
+1932-7447
+Authors
+Beberwyck, Brandon J.
+Surendranath, Yogesh
+Alivisatos, A. Paul
+Publication Date
+2013-10-03
+eScholarship.orgPowered by the California Digital Library
+University of California
+Cation Exchange: A Versatile Tool for Nanomaterials Synthesis
+Brandon  J.  Beberwyck,
+†,§
+Yogesh  Surendranath,
+‡,∥
+and  A.  Paul  Alivisatos*
+,†,‡,§
+†
+Department of Materials Science and Engineering and
+‡
+Department of Chemistry, University of California, Berkeley, California
+94720, United States
+§
+Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States
+∥
+Miller Institute for Basic Research in Science, University of California, Berkeley, California 94720, United States
+ABSTRACT:The development of nanomaterials for next
+generation photonic, optoelectronic, and catalytic applications
+requires a robust synthetic toolkit for systematically tuning
+composition, phase, and morphology at nanometer length
+scales. While de novo synthetic methods for preparing
+nanomaterials from molecular precursors have advanced
+considerably in recent years, postsynthetic modi
+fi
+cations of
+these preformed nanostructures have enabled the stepwise
+construction of complex nanomaterials. Among these post-
+synthetic transformations, cation exchange reactions, in which
+the cations ligated within a nanocrystal host lattice are
+substituted with those in solution, have emerged as particularly
+powerful tools for
+fi
+ne-grained control over nanocrystal
+composition and phase. In this feature article, we review the fundamental thermodynamic and kinetic basis for cation exchange
+reactions in colloidal semiconductor nanocrystals and highlight its synthetic versatility for accessing nanomaterials intractable by
+direct synthetic methods from molecular precursors. Unlike analogous ion substitution reactions in extended solids, cation
+exchange reactions at the nanoscale bene
+fi
+t from rapid reaction rates and facile modulation of reaction thermodynamics via
+selective ion coordination in solution. The preservation of the morphology of the initial nanocrystal template upon exchange,
+coupled with stoichiometric control over the extent of reaction, enables the formation of nanocrystals with compositions,
+morphologies, and crystal phases that are not readily accessible by conventional synthetic methods.
+■
+INTRODUCTION
+The physical and chemical properties of periodic extended
+solids change drastically as the crystallite size is reduced to
+nanometer dimensions.
+1
+A quantitative understanding of these
+fundamental scaling laws has emerged as a direct result of
+synthetic advances that permit the preparation of monodisperse
+crystallites of diverse nanoscale size and shape. The direct
+synthesis of nanocrystal colloids is most practically achieved
+using a hot-injection protocol, in which molecular precursors
+are rapidly decomposed at elevated temperatures to produce a
+burst of nanocrystal nucleation followed by uniform steady-
+state growth.
+2,3
+Hot-injection synthetic methods have proven
+particularly powerful for accessing monodisperse II
+−
+VI and
+IV
+−
+VI compound semiconductor nanocrystals. Indeed, a wide
+array of morphological diversity can be achieved among the II−
+VI class of nanocrystals and has enabled their widespread
+utilization in optoelectronic,
+4
+photocatalytic,
+5
+and bioimaging
+6
+applications.
+Direct nanocrystal synthesis methods require a careful tuning
+of nucleation, growth, and s
+urface ligation kinetics at
+temperatures sufficient to crystallize phase-pure extended
+solids.
+2,3
+All of these kinetic processes remain poorly
+understood, and as a consequence, there remain no
+general
+design principles for the de novo synthesis of a nanocrystal of
+arbitrary composition, phase, morphology, or surface structure.
+However, synthetic protocols have been extensively re
+fi
+ned for
+several classes of compound semiconductor nanocrystals which
+may serve as general anion host lattices for the preparation of
+compositionally diverse, morphologically well-defined nanoma-
+terials provided that postsynthetic methods for cation
+substitution can be broadly applied. Recent developments
+suggest that a postsynthetic cation exchange strategy might
+prove particularly versatile for the synthesis of large classes of
+binary nanocrystalline phases that would otherwise be
+inaccessible by application of direct hot-injection synthetic
+methods.
+7
+In this article, we highlight the thermodynamic and
+mechanistic basis for cation exchange reactions at the nanoscale
+and use this as a backdrop to illustrate selected applications of
+cation exchange for the preparation of nanocrystals that are
+challenging to access by direct synthesis from molecular
+precursors. For a broader view of cation exchange in
+nanostructures including applications beyond synthesis, we
+direct the readers to a recent tutorial review.
+8
+Received:
+June 17, 2013
+Revised:August 23, 2013
+Published:September 3, 2013
+Feature Article
+pubs.acs.org/JPCC
+© 2013 American Chemical Society19759dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−19770
+■
+FUNDAMENTALS OF CATION EXCHANGE AT THE
+NANOSCALE
+Ion exchange, the substitution of ions in an extended solid with
+those in solution, is an age-old strategy for modifying the
+composition and properties of crystalline materials. Ion
+substitution reactions are responsible for various re-equilibra-
+tion processes in rocks
+9
+and displacement reactions in metal
+oxides
+10
+and, of more technological relevance, serve as a simple
+processing technique for thin-film semiconductors.
+11
+In
+particular, cation exchange of thin-film semiconductors has
+been utilized to form a broad range of structures including
+optical waveguides, heterojunctions for optoelectronic devices,
+and alloys for infrared photodetectors.
+11
+In recent years, cation exchange reactions have been
+increasingly applied as a synthetic tool for accessing novel
+nanomaterials. For both nanocrystalline colloids and bulk
+extended solids, a typical
+cation exchange procedure is
+extremely simple. For example, exposing nanocrystal colloids
+of CdSe to a methanolic solution of Ag
++
+ions leads to rapid
+formation of Ag
+2
+Se colloids with liberation of Cd
+2+
+from the
+reactant host lattice (Figure 1).
+7
+Microscopically, each
+individual cation substitution reaction can be viewed as the
+extended solid analogue of transmetalation reactions commonly
+observed for molecular coordination compounds.
+12
+In addition
+to their simplicity, nanoscale cation exchange reactions typically
+exhibit excellent morphology retention, rapid reaction rates,
+and tunable thermodynamics making them a particularly
+attractive synthetic tool. While complementary anion exchange
+reactions have also been demonstrated,
+13−15
+the larger size and
+lower di
+ff
+usivity of lattice anions lead to sluggish reaction
+kinetics and poor morphology retention, often giving rise to
+hollow nanostructures.
+16
+While a cation exchange reaction is remarkably simple to
+execute, the outcome of the reaction and the structure of the
+product obtained are dictated by subtle thermodynamic and
+kinetic factors. First among these are the relative thermody-
+namic stabilities of the reactant and product phases. Second are
+the relative thermodynamics of cation solvation and/or specific
+ligation in the liquid phase. While these two parameters, cation
+solvation  and  phase  stability,  can  predict, to  afirst
+approximation, the thermodynamic feasibility of an overall
+ion exchange reaction, they provide little insight into the
+reaction pathway or the structure of the product. Since ion
+exchange reactions must proceed through partially substituted
+alloy intermediates, the thermodynamics of theinterphase
+between reactant and product phases, referred to as the
+exchange reaction zone, dictates the structure and morphology
+of the product crystallite. While these principles apply to solid-
+state ion exchange reactions broadly, regardless of crystallite
+size, we will use contemporary examples of ion exchange
+reactions at the nanoscale to illustrate the importance of bulk,
+solution, and interfacial thermodynamics in dictating the
+reaction outcome.
+Kinetic factors are also key in determining the feasibility of
+an ion exchange reaction. In this respect, the kinetics of ion
+exchange at the nanoscale di
+ff
+er substantially from those
+observed for bulk extended solids because limits on long-range
+solid-state ion di
+ff
+usion are signi
+fi
+cantly relaxed by the large
+surface-to-volume ratios of nanoscale crystallites. Indeed, solid-
+state di
+ff
+usion limitations in bulk crystallites often necessitate
+the application of high temperatures and pressures to achieve
+rapid product formation.
+11
+As an example, Ag
++
+, which possesses
+a relatively high ion diffusivity,
+17
+sluggishly converts a thin
+fi
+lm
+(500 nm) of CdSe to Ag
+2
+Se, requiring several hours at 80
+°
+C,
+18
+whereas the similar reaction in CdSe nanocrystals (see above)
+proceeds to completion in≪1 s at room temperature.
+7
+In the
+subsequent section, we will highlight recent mechanistic studies
+of ion exchange kinetics at the nanoscale to illustrate the
+mechanistic consequences of relaxing limitations on solid-state
+ion diffusion.
+■
+THERMODYNAMICS OF CATION EXCHANGE
+The synthetic feasibility of a cation exchange reaction is
+determined by its net thermodynamic driving force and
+intervening activation barriers.
+19
+For cation exchange to
+become a general synthetic tool, a quantitative understanding
+of the thermodynamics of the exchange process is desired to
+permit the rational design of future exchange reactions.
+Consider, for example, an arbitrary ion exchange reaction
+between two metal sulfides
++⇆+
+++
+SSABBA
+22
+(1)
+where A and B represent divalent metal ions. This overall
+exchange reaction can be divided into two hypothetical
+electrochemical half reactions
+⇆++
++−
+SeSAA2
+20
+(2)
+Figure 1.(A) Reaction scheme for the conversion of CdSe to Ag
+2
+Se
+and Ag
+2
+Se to CdSe. Exposure of CdSe to a methanolic solution of Ag
++
+leads to the rapid formation of Ag
+2
+Se. Ag
+2
+Se is exchanged back to
+CdSe by exposure of the Ag
+2
+Se nanocrystals to excess Cd
+2+
+in the
+presence of a trialkyl phosphine. TEM images of (B) as-synthesized
+CdSe nanocrystals, (C) Ag
+2
+Se nanocrystals synthesized via cation
+exchange, and (D) CdSe nanocrystals recovered from the reverse
+cation exchange reaction. XRD patterns (E), absorption spectra (F),
+and emission spectra (G) of initial CdSe (red), Ag
+2
+Se (blue), and
+recovered CdSe (green) nanocrystals, respectively. Adapted with
+permission from ref 7, copyright 2005 AAAS.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019760
+++⇆
++−
+eSSB2B
+20
+(3)
+each of which may be further decomposed into the
+corresponding standard free energy of formation (
+Δ
+G
+f
+0
+)of
+each phase and the standard reduction potential (
+E
+0
+) of the
+metal ion in question
+⇄+    −ΔSSGAA()
+S
+00
+f
+0
+A
+(4)
+⇄+   −
++−
++
+eEAA2 ()
+0
+20
+A
+2
+(5)
++⇄Δ
+SSG
+BB()
+S
+00
+f
+0
+B
+(6)
++⇄
++−
++
+eEB2 B()
+2
+0
+0
+B
+2
+(7)
+Thus, for this example, the overall aqueous driving force for
+ion exchange (eq 1) is given by
+Δ=Δ−Δ−−
+++
+GGGFEE() () 2[() ()]
+SSreactionf
+0
+Bf
+0
+A
+0
+B
+0
+A
+22
+(8)
+whereFis Faraday’s constant. Since tabulated formation
+energies
+20
+are available for a number of binary chalcogenides,
+oxides, and pnictides and aqueous redox potentials
+21
+are known
+for virtually every metal ion in the periodic table, the aqueous
+thermodynamics of any given ion exchange reaction can be
+readily calculated.
+22
+We wish to stress that this strategy
+provides a convenient method for calculating ion exchange
+thermodynamics but does not imply anything about the
+mechanistic pathway by which ion exchange proceeds. Using
+this simple methodology, aqueous driving forces are presented
+in Table 1 for a select number of metal sul
+fi
+de phases.
+The foregoing discussion highlights the two key determi-
+nants of ion exchange thermodynamics: the difference in
+formation energies of the reactant and product phases and the
+difference in redox potentials of the exchanging ions. For
+simplicity, the above calculation and the values in Table 1 take
+into account only the bulk lattice formation energies for each
+phase and aqueous redox potentials for the attendant metal
+ions. In practice, the thermodynamic driving force for an ion
+exchange may significantly differ from these estimates for the
+following two principle reasons.
+First, nanostructuring is expected to signi
+fi
+cantly depress the
+formation energies of each phase. Formation energies for the
+product and reactant colloid may be highly dependent on
+crystallite size and shape, and signi
+fi
+cant thermodynamic
+contributions to phase stability may arise from ligands bound
+to the surface of the nanocrystal. If these energy contributions
+scale unevenly between the reactant and product phase, the
+actual thermodynamics of an exchange reaction may deviate
+significantly for the values calculated in Table 1. These effects
+are expected to be particularly pronounced for very small
+crystallites (<2 nm), in which a majority of the metal ions
+reside on the surface.
+Second, the ligating environment in solution is expected to
+signi
+fi
+cantly alter the reduction potential of each metal ion.
+23
+While readily accessible aqueous redox potentials provide a
+starting point for estimating ion exchange free energies, these
+potentials are known to vary signi
+fi
+cantly, depending on the
+Table 1. Calculated Aqueous Reaction Free Energies Per Sulfur Equivalent,
+Δ
+G
+reaction
+0
+(kJ mol
+−1
+), for the Cation Exchange of
+Reactant (Abscissa) To Product (Ordinate) Metal Sul
+fi
+des
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019761
+solvating/ligating environment of the solution in which the
+exchange occurs. As a consequence, the thermodynamic
+preference for a given ion exchange can be easily reversed
+(Figure 1) if the ions discharged from the reactant lattice can be
+preferentiallyligated in solution. A ligand’s propensity for
+selective ion binding can be qualitatively understood in the
+context of Pearson
+’
+s hard soft acid base (HSAB) theory, which
+classi
+fi
+es Lewis acids and bases by varying degrees of hardness,
+η, based on their polarizability.
+24
+Hardness serves as a
+qualitative predictor of selective ion binding because like
+interactions, hard−hard and soft−soft, are favored relative to
+opposing, soft−hard, interactions. This principle has been
+exploited to drive the replacement of soft Ag
++
+(η= 6.96 eV)
+and Cu
++
+(η= 6.28 eV) ions in chalcogenide host lattices with
+harder metal ions including Cd
+2+
+(η= 10.29 eV),
+7
+Zn
+2+
+(η=
+10.88 eV),
+25,26
+and Pb
+2+
+(η= 8.46 eV)
+27
+via preferential ligation
+to soft tertiary phosphines (η∼6 eV). This strategy has,
+thereby, enabled both reversible and sequential exchanges.
+While a quantitative assessment of nanostructuring and
+specific ligation effects awaits detailed thermochemical studies
+of nanoscale cation exchange reactions, the above crude
+calculations can provide a starting point for designing ion
+exchange synthetic protocols that take advantage of intrinsic
+thermodynamics or preferential ion ligation.
+■
+MECHANISTIC INSIGHTS INTO NANOSCALE
+CATION EXCHANGE
+While thermodynamic considerations can serve to guide the
+development of new cation exchange syntheses, many of these
+reactions proceed under nonequilibrium conditions, necessitat-
+ing a careful consideration of the mechanistic pathways by
+which they proceed. While a detailed microkinetic description
+of solid-state cation exchange remains elusive, qualitative
+mechanistic pathways have been proposed for these reactions
+in minerals
+9
+and thin-
+fi
+lm semiconductors.
+11
+For ion exchanges
+in semiconductor thinfilms, which are most analogous to the
+corresponding reactions in colloidal nanocrystals, appreciable
+rates of heterogeneous ion substitution at crystallite surfaces
+and rapid solid-state di
+ff
+usion of the exchanging cation are
+required. Experimental results indicate that the rate of diffusion
+within each crystallite is typically much slower than the rate of
+substitution at the crystallite surface. Thus, the composition at
+the surface of the substrate remains in quasi-equilibrium and is
+dictated by the solution composition and temperature,
+independent of the time duration of the reaction. The disparity
+between the surface and bulk composition during a cation
+exchange establishes a chemical potential gradient within the
+film, providing a driving force for directional diffusion of the
+replacing ion in the parent lattice. Reaction progress is then
+kinetically limited by the rate of solid-state di
+ff
+usion. Indeed,
+the compositional profile of a thinfilm undergoing a cation
+exchange can be used to measure the self-diffusion coefficients
+of the constituent ions,finding good agreement with values
+determined by established radiotracer techniques.
+11
+In both mineral replacement reactions and semiconductor
+thin-film ion exchange, the transport of ions to the boundary
+between reactant and product phases is believed to be the rate-
+limiting step.
+9,11
+The ion exchange reaction can then be viewed
+as the propagation of this phase boundary across the crystallite.
+In this fashion, ion exchange reactions can be described by
+analogy to the solid-state heterophase concept of a reaction
+zone.
+28
+The reaction zone, typically a several atomic layer thick
+region between two materials, represents a local variation in the
+chemical composition and charge distribution relative to either
+bulk phase.
+The stability and propagation of the reaction zone have
+direct consequences for particle size-dependent morphology
+retention during a nanocrystal cation exchange.
+7
+For example,
+nanorod morphology retention is strongly dependent on the
+rod diameter for CdSe to Ag
+2
+Se ion exchange reactions (Figure
+2). Small diameter (∼3.5 nm) CdSe nanorods transformed into
+spherical Ag
+2
+Se nanocrystals upon Ag
++
+exchange (Figure 2A),
+whereas larger diameter (
+∼
+5 nm) CdSe nanorods maintained
+their morphology upon conversion to Ag
+2
+Se (Figure 2B).
+These results can be rationalized if we invoke a reaction zone
+on the order of 3 nm in diameter. For thin nanorods, wherein
+the reaction zone dimensions are comparable to the particle
+diameter, the entire structure will reside in a nonequilibrium
+state during the exchange such that both cations and anions can
+rearrange to generate the th
+ermodynamically preferred,
+spherical morphology (Figure 2C). However, if the size of
+the nanocrystal is significantly larger than the reaction zone,
+only a portion of the crystallite experiences significant structural
+distortions during the exchange, while the remainder of the
+lattice remains intact, templating retention of the nanorod
+morphology (Figure 2C). In this fashion, the anion sublattice is
+subject to minimal net reorganization over the course of the
+exchange if the crystal size is much larger than the dimensions
+of the reaction zone.
+When nanoscale crystallites are large enough to preserve
+anionic framework stability, the crystal structure and nanoscale
+morphology remain robust, as demonstrated by performing
+forward and reverse exchanges between CdSe
+→
+Ag
+2
+Se→
+CdSe.
+7
+As a result of quantum con
+fi
+nement, CdSe nanocrystals
+exhibit a characteristic excitonic absorption and narrow
+emission band that is highly sensitive to the size of the particle.
+Through sequential forward and reverse exchanges that serve to
+regenerate the starting phase, the absorption and emission
+maxima remain largely unchanged, indicating that the crystallite
+size and anion stoichiometry remain largely invariant during the
+cation exchange process (Figure 1E, F). The same phenom-
+enon has been observed for exchanges conducted on
+nanoheterostructures, consisting of a CdSe sphere embedded
+in a CdS rod.
+29
+Ion substitution with Cu
++
+was followed by
+Figure 2.TEM images of CdSe nanorods and the product Ag
+2
+Se
+nanocrystals for (A) small diameter nanorods in which the reaction
+zone is comparable to the crystallite dimensions and (B) large
+diameter nanorods in which the reaction zone is significantly smaller
+than the crystallite dimensions. (C) Schematic of size-dependent
+morphology changes during the CdSe to Ag
+2
+Se exchange reaction.
+Orange and blue colors indicate the regions of initial reactant andfinal
+product phase, respectively. The green region indicates the reaction
+zone. Adapted with permission from ref 7, copyright 2005 AAAS.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019762
+reintroduction of Cd
+2+
+to regenerate the initial CdSe/CdS
+core−shell heterostructure. Through this series of ion exchange
+reactions, negligible shifts in the photoluminescence peak
+maxima were observed indicating preservation of the Se core
+sublattice within the S anion shell sublattice. Additionally,
+minimal structural and compositional changes were observed
+by scanning transmission electron microscopy high angle
+annular darkfield (STEM-HAADF) imaging. These results
+establish that for su
+ffi
+ciently large crystallites cation exchange
+reactions can effectively preserve the size, position, and
+interfacial structure of one or more anion sublattices.
+While cation exchanges can be executed for material systems
+with very high volume changes, in the extreme limit, crystallite
+size is a key determinant of morphology retention. This was
+directly investigated in the case of ion exchange from cadmium
+to platinum and palladium chalcogenides, CdE→Pt
+x
+E
+y
+,P
+x
+dE
+y
+(E = S, Se, Te).
+19
+For each chalcogenide, this exchange reaction
+is accompanied by a substantial contraction of the unit cell
+volume (ΔV/V∼−30%). By comparison, the canonical CdSe
+→Ag
+2
+Se exchange results in a <1% change in the unit cell
+volume (ΔV/V< 1%). The ability of the host lattice to
+accommodate large volume changes is highly dependent on
+crystallite size. Small spherical nanocrystals conserved their
+original morphology and transformed into a kinetically frozen
+metastable state until thermally annealed. However, the
+additional stress accumulated in larger spherical particles and
+anisotropic rod structures reached a critical point such that void
+formation or fragmentation occurred during the exchange to
+relieve stress due to the extreme lattice mismatch.
+The above examples showcase the end point structures that
+result from cation exchange. On the pathways toward these
+products, the interfacial thermodynamics of the reaction front
+define the structures of alloy intermediates. By directly probing
+the alloy structures that result from partial ion substitution in a
+nanocrystal host, mechanistic insights into the site selectivity of
+initiation and propagation of the reaction front have been
+revealed.
+Cation exchanges of CdS nanorods with fast di
+ff
+using
+monovalent ions (Cu
++
+,Ag
++
+) provide a clear example of the
+unique nature of the initiation and propagation of cation
+exchange reactions among nanocrystals.
+30−32
+As these reactions
+are highly exergonic at room temperature and exhibit facile
+kinetics,
+33
+the extent of reaction can be easily controlled by
+introducing substoichiometric amounts of the substituting ion.
+Since CdS is largely immiscible with Ag
+2
+S and Cu
+2
+S,
+34,35
+incomplete exchange of CdS with Cu
++
+or Ag
++
+will lead to
+phase-segregated CdS
+−
+Cu
+2
+S and CdS−Ag
+2
+S alloy structures.
+However, the heterostructures produced during incomplete
+exchange are remarkably different for copper vs silver (Figure
+3A
+−
+D), highlighting the disparate interfacial formation
+energetics of the two systems. These di
+ff
+erential energetics
+include contributions from the chemical formation energies at
+each heterophase junction and lattice strain contributions
+arising from epitaxial mismatch.
+The chemical formation energy, reflecting the strength of the
+Cd−S−Ag bond, is negative for the Ag
+2
+S
+−
+CdS interfaces.
+31
+Thus, for Ag
++
+exchange of CdS nanorods, low Ag
++
+concentration leads to the nonselective nucleation of Ag
+2
+S
+islands embedded along the periphery of the CdS nanorod,
+showing no preference for nucleation at speci
+fi
+c facets (Figure
+3A). However, epitaxy of the orthorhombic Ag
+2
+S and wurtzite
+CdS phases requires a 4% expansion of the Ag
+2
+S lattice along
+the plane of the interface and a 15% contraction perpendicular
+to it, adding an elastic strain energy contribution to the
+formation energy.
+30,32
+As the Ag
++
+exchange progresses, these
+Ag
+2
+S islands begin to grow, increasing the elastic strain in the
+Ag
+2
+S segments. Eventually, the elastic strain results in a positive
+total interfacial formation energy of the Ag
+2
+S
+−
+CdS segments,
+causing the larger Ag
+2
+S islands to absorb the smaller ones by
+Ostwald ripening, facilitated by the high diffusivity of the Ag
++
+.
+Once the Ag
+2
+S segments have spanned the diameter of the CdS
+rod, the Ag
+2
+S−CdS regions spontaneously self-order due to the
+elastic repulsion between neighboring segments of Ag
+2
+S arising
+from the lattice-mismatch-induced strainfield (Figure 3B).
+30−32
+Upon addition of more Ag
++
+, the Ag
+2
+S segments become larger
+until the entire CdS structure has been transformed into Ag
+2
+S.
+In contrast, positive chemical interface formation energies of
+Cu
+2
+S−CdS and small elastic contributions from nearly identical
+sulfur sublattices lead to a strongly facet-dependent exchange of
+CdS nanorods with Cu
++
+(Figure 3C, D).
+31
+Epitaxial chemical
+formation energy calculations show that Cu
+2
+S attachment to
+the (0001
+̅
+) facet of CdS, parallel to the rod cross-section, leads
+to the lowest-energy interface, whereas attachment to the
+Figure 3.(A) Schematic of the progressive exchange of CdS nanorods
+with Ag
++
+. (B) TEM image of CdS−Ag
+2
+S nanorods formed from partial
+Ag
++
+exchange displaying superlattices. Adapted with permission from
+ref 30, copyright 2007 AAAS. (C) Schematic of the progressive
+exchange of CdS nanorods with increasing Cu
++
+concentration. (D) Cu
+energy
+fi
+ltered TEM image of CdS
+−
+Cu
+2
+S binary nanorods. The bright
+regions in the images correspond to Cu
+2
+S, and the gray regions
+correspond to the CdS portions of the nanorods. Adapted with
+permission from ref 31, copyright 2009 American Chemical Society.
+(E) Schematic of the progressive exchange of PbSe nanorods with
+increasing Cd
+2+
+concentration. (F) High-resolution TEM images of
+PbSe nanorods at the intermediate stage of Cd
+2+
+exchange, displaying
+rock salt PbSe dots embedded in a zinc blende CdSe rod. Adapted
+with permission from ref 37, copyright 2012 American Chemical
+Society.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019763
+opposing (0001) facet entails a 2.5 times larger energy penalty.
+These unfavorable interface energies dictate that interfacial
+surface area is minimized and aligned perpendicular to the long
+axis of the CdS rod. In agreement, at low Cu
++
+concentration,
+nucleation of Cu
+2
+S appears at the (0001
+̅
+) end facet of the CdS
+rod, forming a Cu
+2
+S−CdS interface parallel to the rod cross-
+section. As the Cu
++
+exchange progresses with the addition of
+Cu
++
+, this interface continues to propagate along the length of
+the rod while maintaining its orientation. At even higher Cu
++
+concentration, the nucleation of Cu
+2
+S on the opposite end of
+the rod ((0001) CdS) begins and progresses, though these two
+Cu
+2
+S regions maintain high asymmetry, consistent with the
+difference in formation energies of these two interfaces (Figure
+3D). These Cu
+2
+S regions continue to propagate until they meet
+and the entire rod has been exchanged.
+The propagation of the reaction front can also be observed in
+the isovalent exchange of PbE→CdE (E = S, Se, Te).
+36
+In
+contrast to Ag
++
+and Cu
++
+exchange reactions of CdE, this
+reaction exhibits a larger activation barrier, permitting facile
+control over the reaction progress by incrementally adjusting
+the reaction temperature. The partial conversion of PbSe→
+CdSe on faceted PbSe nanocrystals including cubes, stars, and
+rods displayed similar progression of exchange, implying that
+this conversion is not preferentially nucleated by selective
+adsorption of the Cd at specific facets.
+37
+However, similar to
+the Cu
++
+exchange, the propagation of the Cd
+2+
+exchange
+appears to be strongly facet dependent, proceeding in a strongly
+anisotropic
+⟨
+111
+⟩
+direction, leading to the formation of
+primarily {111} interfaces between the zinc blende CdSe and
+rock salt PbSe (Figure 3E,F).
+37
+−
+39
+As each {111} layer consists
+of only Cd, Pb, or Se, a sharp interface boundary between these
+immiscible phases may be achieved by propagation along the
+⟨111⟩direction. The highly anisotropic nature of this reaction
+leads to the formation of octahedral cores of PbSe within a
+CdSe rod when subject to partial ion exchange.
+Relative to their bulk crystalline analogues, the reduced
+volume of nanoscale materials significantly relaxes the kinetic
+demands of solid-state di
+ff
+usion. For example, using bulk
+di
+ff
+usion coe
+ffi
+cients,
+17
+Ag
++
+,Cu
++
+, and Au
++
+ions can diffuse the
+entire length of a 5 nm diameter InAs crystal in less than a
+second at ambient temperature.
+40,41
+Thus, the di
+ff
+usion-
+mediated propagation of the reaction zone may no longer be
+rate limiting for many nanoscale cation exchange reactions.
+7
+Indeed, time-resolved micro-X-ray absorption spectroscopy
+(XAS) and stopped
+fl
+ow absorption measurements of the
+topotaxial Ag
++
+exchange of 3.5 nm CdSe nanocrystals indicate
+rapid conversion (
+t
+1/2
+< 100 ms), a strong dependence on the
+concentration of the coordinating ligand, and second-order
+kinetics consistent with a rate-limiting surface reaction step.
+33
+The short time scale and low activation energy (estimated to be
+5 kcal mol
+−
+1
+) emphasize the dramatically accelerated kinetics
+on the nanoscale. While a detailed mechanistic understanding
+of nanoscale cation exchange reactions awaits further study, the
+evidence accumulated thus far suggests that the reactions bear
+more kinetic resemblance to transmetalation reactions of
+molecular coordination complexes than bulk solid-state trans-
+formations. As anticipated, the kinetics of ion exchange
+transition from molecular-like to bulk-like behavior as the
+crystallite size increases. This transition has been observed for
+30 nm diameter CdSe nanowires that exhibit solid-state
+diffusion-limited kinetics for Ag
++
+substitution.
+42
+The isovalent exchange of PbE
+→
+CdE (E = S, Se, Te)
+36
+appears to exhibit a significantly larger activation energy than
+the Ag
++
+exchange. The reaction is self-limiting, forming a shell
+of the exchanged material, which serves to impede further ion
+substitution. The reaction rate appears to follow typical
+Arrhenius behavior for a temperature-dependent activation
+process. These strongly temperature-dependent kinetics, as well
+as the layer-by-layer nature of the exchange (see above), imply
+a vacancy-assisted di
+ff
+usion mechanism.
+37,38
+■
+SYNTHETIC VERSATILITY OF CATION EXCHANGE
+Recent advances in colloidal nanoparticle synthesis have
+provided access to a vast library of high-quality monodisperse
+semiconductor, metal, and metal oxide nanocrystals, with
+exquisite control of size and morphology.
+3,43,44
+By in large,
+these nanocrystals have been prepared by a hot-injection
+synthesis from molecular precursors, wherein delicate control
+over precursor decomposition kinetics, nanocrystal nucleation
+and growth rates, and surfactant binding energies is required to
+achieve size and shape control.
+2,3
+This is especially true for the
+synthesis of morphologically anisotropic nanoparticles which
+rely heavily on facet-selective surfactant binding
+43,45
+and precise
+control over crystallographic polymorphism.
+44
+No general rules
+exist for achieving this across broad classes of materials. Thus,
+despite the exquisite size and shape control accessible for
+certain materials systems via hot-injection methods, such as II
+−
+VI semiconductors, there remain large classes of nanomaterials
+for which morphology-controlled syntheses remain elusive.
+Cation exchange is a powerful tool for circumventing many
+of these challenges because morphological well-de
+fi
+ned nano-
+crystals, prepared by traditional hot-injection methods, can be
+used as anion templates for the preparation of compositionally
+diverse pure and alloy phases that would be inaccessible by
+direct methods. In this section, we review recent applications of
+cation exchange to synthesize covalent phases, metastable
+nanostructures, multicomponent alloys, and doped nanocrystals
+that are all inaccessible by direct synthetic methods. We
+conclude with examples in which cation exchange is combined
+in situ with hot-injection strategies to generate complex
+nanomaterials in a simple, one-pot procedure.
+Synthesis of Covalent Nanocrystal Phases.Whereas
+numerous direct synthetic methods exist for accessing
+monodisperse II−VI semiconductor nanocrystals, hot-injection
+syntheses of III−V nanocrystals fail to generate nanoparticles
+with narrow size dispersity and high crystallinity. Unlike their
+II−VI analogues, III−V semiconductors exhibit highly covalent
+lattices, requiring relativel
+y high temperatures to access
+crystalline materials. However, the molecular precursors
+available for the direct synthesis of III−V nanocrystals
+decompose rapidly at low temperature. Thus, it has proven
+di
+ffi
+cult to balance high precursor reactivity with high
+crystallization temperatures to achieve sufficient temporal
+separation of nucleation and growth, a key requirement for
+the synthesis of monodisperse nanoparticles.
+46
+Indeed,
+mechanistic studies indicate rapid depletion of molecular
+precursors during III
+−
+V syntheses mandating that growth
+occurs via Ostwald ripening and gives rise to broad size
+distributions.
+47
+Cation exchange methods have proven invaluable for
+overcoming this obstacle and have enabled the synthesis of
+monodisperse III−V nanocrystals including GaP and GaAs.
+48
+Utilizing monodisperse Cd
+3
+As
+2
+and Cd
+3
+P
+2
+nanocrystals as host
+anion lattices, III−V nanocrystals can be obtained by treatment
+with group 13 ions (In
+3+
+or Ga
+3+
+) at elevated temperature. The
+difference in lattice energy provides sufficient driving force for
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019764
+the conversion of Cd
+3
+E
+2
+→GaE, InE (E = P, As), while
+maintaining a narrow size distribution. This example illustrates
+the versatility of cation exchange for accessing monodisperse
+nanomaterials recalcitrant to traditional hot-injection methods.
+Synthesis of Metastable Nanocrystals.The mild
+reaction conditions attendant to most cation exchange reactions
+enable the synthesis of nonequilibrium crystal morphologies
+inaccessible by direct hot-injection methods. As highlighted
+above, kinetically controlled morphologies including rods and
+tetrapods can be readily prepared among the cadmium
+chalcogenides and postsynthetically converted into silver or
+copper chalcogenides with excellent morphology retention by
+exposure to Ag
++
+-orCu
++
+-containing solutions at room
+temperature.
+7,31
+Through preferential ligation of trialkyl
+phosphines to soft Ag
++
+and Cu
++
+ions, subsequent exchanges
+with Pb
+2+
+or Zn
+2+
+can be used to further extend these complex
+morphologies to the lead and zinc chalcogenides (Figure
+4).
+26,27
+This cation exchange strategy, therefore, comprises a
+simple three-step synthetic route to anisotropic nanorod
+morphologies of isotropic crystal phases, such as rock salt
+PbS.
+27
+Since cation exchange is a low-temperature, template-based
+synthetic method, it is well suited to the preparation of
+kinetically trapped, metastable crystal phases. The sequential
+exchange of CdSe→Cu
+2
+Se
+→
+ZnSe nanocrystals transferred
+not only the size and shape of the parent nanocrystal but also
+thecrystalstructure(Figure4).
+26
+Wurtzite CdSe was
+transformed to a metastable hexagonal close packed (HCP)
+phase of Cu
+2
+Se by Cu
++
+exchange, and subsequent exchange
+with Zn
+2+
+yielded nanocrystals of ZnSe in the pure HCP phase.
+These examples illustrate that, in certain cases, the anion host
+lattice remains su
+ffi
+ciently rigid to template metastable product
+nanostructures with excellent crystallographic and morpho-
+logicalfidelity, independent of cation composition.
+Synthesis of Alloy Nanocrystals.Exchange reactions in
+which only a fraction of the cations in the host lattice are
+replaced permit incremental compositional control and
+convenient access to both solid solutions and phase-segregated
+alloy nanocrystals. As II−VI compounds are known to form
+solid solutions with other group 12 ions,
+11
+partial exchange of
+II
+−
+VI nanocrystals with Cd
+2+
+,Zn
+2+
+,orHg
+2+
+can be used to
+form homogenously alloyed nanocrystals of constant morphol-
+ogy. This has enabled the investigation of the electronic
+structure of the nanocrystal as a function of composition at
+constant size. For instance, Hg
+2+
+exchange of CdTe nanocryst-
+als produces Hg
+x
+Cd
+1−x
+Te nanocrystals with incrementally
+tunable Hg content from 0 to 60% (x=0−0.6).
+49
+The similar
+lattice parameters but distinct band gaps of CdTe and HgTe
+allow the absorption andfluorescence of the nanocrystals to be
+smoothly varied from the visible to near-infrared (NIR) by
+increasing the extent of Hg
+2+
+substitution. Similarly, cation
+exchange induced alloying has been used to form ternary,
+Cd
+x
+Zn
+1−x
+Se,
+50
+and quaternary, Cu−In−Zn--S,
+51
+chalcogenide
+nanocrystals.
+Cation exchange methods are also well suited to the
+synthesis of phase-segregated alloy nanostructures, also
+known as nanoheterostructures.
+52
+A wide array of nano-
+heterostructures
+53
+−
+57
+have been synthesized by hot-injection
+methods, and these syntheses principally rely on seeded
+growth, in which a nanoparticle serves to induce the
+heterogeneous nucleation of the product phase, giving rise to
+a multicomponent product containing two or more phases in
+direct contact with each other.
+52
+Seeded growth protocols
+require exceptionally well-tuned precursor decomposition and
+growth kinetics to prevent parasitic homogeneous nucleation of
+the second phase and Ostwald ripening of the seed particles
+during the reaction.
+36,52
+Additionally, seeded growth protocol
+often requires registry between the lattices of the two materials
+to encourage efficient heterogeneous nucleation.
+52
+Cation exchange provides an alternative approach for the
+formation of nanoheterostructures. At the most elementary
+level, complete cation exchange of a nanoparticle containing
+two anion sublattices can yield novel heterostructures di
+ffi
+cult
+to access by direct synthetic methods. This has been
+demonstrated in the case of CdSe/CdS seeded rods, a unique
+class of heterostructures, in which the band alignment of the
+selenide and sulfide phases and the wavelength of emission can
+be tuned simply by changing the size of the CdSe seed.
+56,57
+Remarkably, treatment of CdSe/CdS heterostructures with Cu
++
+generates Cu
+2
+Se/Cu
+2
+S heterostructures in which the anion
+sublattice has been largely undisturbed.
+29,58
+Subsequent
+treatment with Pb
+2+
+or Zn
+2+
+generates PbSe/PbS
+29
+and
+ZnSe/ZnS
+58
+seeded rods, respectively, providing opportunities
+for band engineering in the NIR and UV-blue region. Despite
+the low temperatures of these exchange reactions, the product
+nanoheterostructures are of high optical quality.
+59
+Nanocrystals possessing a single anion host lattice can also
+serve as synthons for the preparation of nanoheterostructures
+via cation exchange. Provided that reactant and product phases
+are immiscible, partial cation exchange of a single-phase
+nanocrystal can generate a heterostructured product. This
+strategy affords significant advantages relative to traditional
+seeded growth methods because it obviates any complications
+that may arise from homogeneous nucleation of the product
+phase. As discussed above, the interfacial energetics of the two
+Figure 4.
+(A) TEM images of CdSe, Cu
+2
+Se, and ZnSe nanorods and
+their corresponding (B) optical absorption/emission spectra and (C)
+XRD patterns. The morphology and crystal structure of the initial
+CdSe template is transferred to the Cu
+2
+Se and ZnSe product
+nanocrystals. Adapted with permission from ref 26, copyright 2011
+American Chemical Society.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019765
+coexisting phases dictate the propagation of the reaction zone,
+leading to various structural intermediates over the course of a
+cation exchange reaction. By choosing a starting nanocrystal of
+appropriate composition, morphology, and crystal structure,
+various novel heterostructures can be readily synthesized via
+incomplete cation exchange.
+For example, partial Cd
+2+
+exchange of spherical PbE (E = S,
+Se, Te) forms PbE/CdE core−shell nanocrystals displaying a
+type-I structure, improving their optoelectronic performance
+and environmental stability.
+36
+The mild conditions required for
+this surface cation exchange reaction enable the formation of
+PbE/CdE core/shell nanocrystals with negligible ripening of
+the seed particle, a common complication associated with
+traditional overcoating procedures of PbE. As the substitution
+of Pb
+2+
+with Cd
+2+
+is thermally activated, the thickness of the
+CdE shell can be controlled by varying the reaction
+temperature. The cubic phase of the parent PbE is bestowed
+upon the CdE shell with highfidelity during the exchange,
+resulting in a core−shell structure with a small lattice mismatch.
+The anisotropic nature (see above) of many cation exchange
+reactions can be utilized to generate diverse nanoheteros-
+tructures when partial exchanges are applied to anisotropic
+nanoparticles. As described above, the partial Cu
++
+exchange of
+CdS nanorods leads to highly asymmetric binary Cu
+2
+S−CdS
+heterostructures.
+31
+Performing the Cu
++
+exchange on self-
+assembled, aligned CdS nanorods can be used to further
+increase the asymmetry of this exchange, forming nanorods
+with a single interface Cu
+2
+S
+−
+CdS primed for directional charge
+separation and extraction.
+60
+Likewise, binary nanorod super-
+lattices can be formed by partial Ag
++
+exchange of CdS
+nanorods,
+30
+and these complex heterostructure morphologies
+can be further elaborated to generate divalent metal
+chalcogenide superlattices via two sequential ion substitu-
+tions.
+27
+Heterostructures analogous to seeded rods but
+composed of two different cations within a common anion
+sublattice can also be synthesized via partial exchange. Due to
+the preference of the Cd
+2+
+exchange of lead chalcogenides to
+progress along the⟨111⟩direction, partial Cd
+2+
+exchange of
+anisotropic PbS or PbSe rods forms PbE−CdE (E = S, Se)
+single and multiple dot-in-rod heterostructures,
+37,61
+which are
+practically impossible to access by conventional hot-injection
+synthesis methods.
+The common requirement for heteroepitaxy during tradi-
+tional seeded growth is relaxed considerably for cation
+exchange reactions. Indeed, single crystalline semiconductor
+shells can be formed around metal cores through nonepitaxial
+growth.
+62
+For example, the large lattice mismatch between CdS
+and Au (43%) would preclude the formation of conformal Au/
+CdS core/shell structures by traditional methods. However, the
+Cd
+2+
+,Pb
+2+
+,orZn
+2+
+cation exchange of amorphous, conformal
+Ag
+2
+S shells surrounding Au cores generates the desired Au/
+CdS, Au/PbS, and Au/ZnS heterostructures, respectively,
+despite the fact that the metal chalcogenide shells are not in
+lattice registry with the gold core.
+Synthesis of Doped Nanomaterials.The above examples
+illustrate the utility of quantitative and substoichiometric cation
+exchange. At severe substoichiometry, cation exchange can be
+used to incorporate low concentrations of defects or dopants
+into an otherwise pure nanocrystal host. The ability to
+controllably dope semiconductors with impurities allows the
+modulation of electronic,
+63,64
+optical,
+65,66
+and magnetic proper-
+ties
+67
+of nanocrystals. However, development of hot-injection
+syntheses for the formation of impurity-doped nanocrystals has
+been challenging.
+68
+Kinetic competition between dopant
+inclusion and further overgrowth of the host material typically
+leads to much lower concentrations of dopants in the particle
+than in solution. Furthermore, the addition of dopants during
+the synthesis alters nucleation and growth kinetics, greatly
+complicating nanocrystal syntheses.
+69,70
+Postsynthetic control
+of doping via cation exchange is, therefore, highly desirable. As
+the size, shape, and quality of the nanocrystal host are retained
+during the exchange reaction, the in
+fl
+uence of the impurity and
+its concentration on the nanocrystal
+’
+s properties can be
+investigated in a controlled fashion. Fine-grained control over
+the number of impurities introduced by cation exchange can be
+achieved by regulating either the stoichiometry or kinetics of
+the ion substitution reaction.
+Metal impurity doping of InAs nanocrystals was achieved by
+exposing InAs nanocrystals to dilute solutions of dissolved Ag,
+Cu, and Au salts.
+41
+The postsynthetic incorporation of these
+ions into the InAs host lattice likely occurs by substitution of
+In
+3+
+with Au
+3+
+or Ag
++
+or the formation of interstitial Cu
++
+ions.
+Using scanning tunneling spectroscopy (STS), the effects of the
+impurities on the electronic properties and Fermi level of the
+InAs nanocrystals were systematically probed (Figure 5). STS
+spectra reveal that the Fermi level and band structure remain
+largely unchanged upon isovalent Au
+3+
+substitution. However,
+incorporation of interstitial Cu
++
+and substitutional Ag
++
+led to
+large changes in the Fermi energy and the formation of midgap
+Figure 5.
+Scanning tunneling microscopy (STM) tunneling spectra of
+undoped (black trace), Au-doped (green trace), Cu-doped (blue
+trace), and Ag-doped (red trace) InAs nanocrystals, highlighting the
+relative shifts of the band edges in the doped samples. The inset shows
+an STM image of a single nanocrystal. Reproduced with permission
+from ref 41, copyright 2011 AAAS.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019766
+states. The creation of these midgap states and the associated
+shift in the Fermi energy suggests that ion exchange may be a
+promising strategy for the controlled doping of nanocrystals.
+Cation exchange has also been utilized to dope CdSe with
+Ag
++
+.
+71
+Utilizing conditions similar to the reverse exchange
+reaction from Ag
+2
+Se
+→
+CdSe, CdSe nanocrystals were exposed
+to Ag
++
+in the presence of a large excess of a trialkyl phosphine.
+Preferential phosphine ligation to Ag
++
+reduced the driving force
+for ion substitution, permitting the controlled incorporation of
+Ag
++
+impurities at concentrations as low as∼1Ag
++
+per
+nanocrystal. This methodology has been extended to Ag
++
+doping of PbSefilms, demonstrating its broad applicability to
+synthesizing electronically active materials.
+72
+Cation exchange has also been employed to incorporate
+magnetically active dopants, such as Co
+2+
+and Mn
+2+
+.Co
+2+
+doping in iron oxide nanocrystals is achieved by selective
+substitution of Fe
+2+
+by Co
+2+
+, permitting the modulation of the
+magnetic properties of the hematite host due to the stronger
+spin
+−
+orbit coupling of Co
+2+
+sites.
+73
+The valence selectivity of
+this exchange reaction has been utilized to selectively dope the
+core of core/shell FeO/CoFe
+2
+O
+4
+nanoparticles with Co
+2+
+without modifying the Fe
+3+
+-containing shell. Analogously, the
+commonly employed magnetically active dopant, Mn
+2+
+, can
+also be incorporated by cation exchange.
+74
+ZnTe magic size
+nanocrystals exposed to a Mn(II) precursor at elevated
+temperature display characteristic emission of a Mn
+2+
+dopant
+level in a ZnTe matrix, indicating successful ion substitution.
+In Situ Cation Exchange Syntheses.While we have, thus
+far, drawn stark distinctions between conventional hot-injection
+synthesis and cation exchange, it is important to highlight the
+overlap between these two methods. Clearly, the template
+nature of cation exchange requires robust methods, such as hot-
+injection synthesis, for accessing high-quality nanocrystal
+scaffolds. However, in situ cation exchange, in which cation
+exchange reactions are combined in a one-pot fashion with
+conventional synthetic methods, may provide better synthetic
+control and enable the development of novel nanocrystals. One
+such strategy involves applying cation exchange to generate the
+desired seed particles in situ for immediate use in a subsequent
+growth step. In this approach, nucleation and growth can be
+temporally separated to achieve highly monodisperse nano-
+crystals. For example, a highly reactive precursor of one metal
+cation can efficiently nucleate nanocrystals of a different metal
+cation, provided rapid exchange occurs, as successfully
+demonstrated for the formation of monodisperse PbSe
+nanocrystals using the Sn(II) precursor, Sn[N(SiMe
+3
+)
+2
+].
+75
+Additionally, multicomponent heterostructures can be synthe-
+sized by in situ cation exchange followed by seeded growth.
+The hot injection of large cubic phase Cu
+2−x
+Se nanocrystals
+into a reaction mixture optimized for CdS growth leads to the
+rapid exchange of Cu
+2−x
+Se→CdSe with the growth of CdS
+shells nucleated by the newly formed CdSe seed particles.
+76
+The particular habit of the Cu
+2−x
+Se seed is transferred to the
+CdSe seed upon exchange, leading to the nucleation of
+octagonally symmetric CdS arms, resulting in unique CdSe/
+CdS octapods.
+In situ cation exchange can further be utilized at intermediate
+stages of nanocrystal growth. The combination of conventional
+growth and conformal surface exchange can provide a method
+for radial engineering of nanocrystal composition using a simple
+one-pot method. For example, applying the surface-selective
+Hg
+2+
+exchange of growing CdS nanocrystals leads to the
+formation of CdS/HgS/CdS quantum dots, colloidal nano-
+crystal analogues to thin-
+fi
+lm quantum well structures.
+77
+These
+surface exchanges also provide a simple route for the creation of
+bu
+ff
+er layers to minimize lattice mismatch during overcoating
+procedures, preventing the formation of mis
+fi
+t dislocations that
+lead to deleterious effects on optical quality.
+78
+The in situ Ga
+3+
+surface exchange on InP nanocrystals alters the lattice
+parameter sufficiently to permit epitaxial growth of ZnS shells,
+yielding highly luminescent nanocrystals.
+79
+■
+SUMMARY AND OUTLOOK
+In summary, cation exchange reactions have proven to be an
+invaluable synthetic tool for accessing colloidal semiconductor
+nanocrystals of diverse composition, phase, and morphology.
+The ability to easily tune reaction thermodynamics via
+preferential ion ligation in solution has enabled nanocrystal
+cation exchange reactions with a great diversity of metal ions,
+including Ag
++
+,
+7
+Au
+3+
+,
+41
+Bi
+3+
+,
+14
+Cd
+2+
+,
+7
+Co
+2+
+,
+73
+Cu
++
+,
+31
+Cu
+2+
+,
+7
+Eu
+3+
+,
+80
+Ga
+3+
+,
+48,79
+Gd
+3+
+,
+80
+Hg
+2+
+,
+49,77
+In
+3+
+,
+48
+La
+3+
+,
+80
+Mn
+2+
+,
+74
+Pb
+2+
+,
+25,27
+Pt
+2+
+,
+19
+Pd
+2+
+,
+19
+Sb
+3+
+,
+14
+and Zn
+2+
+.
+25,26
+Furthermore, the
+mild reaction conditions attendant to most exchanges make it a
+particularly powerful strategy for accessing many nonequili-
+brium morphologies, crystal phases, and materials that are
+difficult to prepare by direct hot-injection methods. Control
+over the extent of the exchange reaction further extends the
+utility of cation exchange for accessing a wide variety of
+heterostructures and doped nanocrystals.
+The continued development of cation exchange as a
+synthetic tool would benefit from additional studies of the
+fundamentals of the exchange reaction. Accurate quantification
+of overall reaction thermodynamics and ligand binding energies
+is needed to enable the rational design of nanocrystal ion
+exchanges spanning the periodic table. In situ observation of
+reaction intermediates in nanocrystal ion exchanges would
+serve to clarify lingering mechanistic questions. These studies
+may bene
+fi
+t from recent advances in in situ TEM observation in
+the liquid phase.
+81,82
+Additional studies of nanocrystal ion
+exchange kinetics are essential to establish a unifying
+mechanistic picture across a broad range of anion host lattices,
+exchanging ions, and ligating environments. In this regard, the
+influence of surface ligation and its role in inhibiting or
+catalyzing ion exchange reactions remain underinvestigated.
+While cation exchange reactions have, thus far, largely focused
+on ionic metal chalcogenide phases, future work should expand
+the focus toward a broader class of nanomaterials inaccessible
+by direct synthetic methods.
+■
+AUTHOR INFORMATION
+Corresponding Author
+*
+E-mail: alivis@berkeley.edu.
+Notes
+The authors declare no competingfinancial interest.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019767
+Biographies
+Brandon Beberwyck received his B.S. in Mechanical Engineering from
+the University of Texas at Austin in 2009 and his M.S. degree in
+Materials Science and Engineering at the University of California
+Berkeley in 2011. He is currently a Ph.D. student in the Alivisatos
+group, researching novel synthesis and fundamentals of ion exchange
+reactions in semiconductor nanocrystals.
+Yogesh (Yogi) Surendranath received a B.S. in Chemistry and B.A. in
+Physics from the University of Virginia in 2006, where he conducted
+research in the laboratory of W. Dean Harman. In 2011, he received a
+Ph.D. in Inorganic Chemistry from MIT in the laboratory of Daniel G.
+Nocera, where he studied electrocatalytic oxygen evolution mediated
+by metal oxide based thin-film catalysts. He is currently a Miller
+Postdoctoral Fellow in the Alivisatos group at the University of
+California Berkeley.
+Paul Alivisatos is currently the Samsung Distinguished Professor of
+Nanoscience and Nanotechnology at the University of California
+Berkeley and serves as the seventh director of Lawrence Berkeley
+National Laboratory. He received a Bachelor’s degree in Chemistry
+from the University of Chicago in 1981 and Ph.D. in Chemistry from
+UC Berkeley in 1986 prior to postdoctoral work with Louis Brus at
+AT&T Bell Laboratories. In 2004, he was elected into the National
+Academy of Sciences and the American Academy of Arts and Science.
+He is a fellow of the AAAS, ACS, APS, and MRS and the Co-Editor of
+Nano Letters. His research concerns the fundamental physical and
+chemical properties of nanocrystals and also works to develop practical
+applications of these new materials in biomedicine and renewable
+energy.
+■
+ACKNOWLEDGMENTS
+This work and A.P.A. support provided by the Physical
+Chemistry of Inorganic Nanostructures Program, KC3103,
+Director, Office of Science, Office of Basic Energy Sciences, of
+the United States Department of Energy under contract DE-
+AC02-05CH11231. B.J.B. acknowledges support from the
+Department of Energy Office of Science Graduate Fellowship
+Program (DOE SCGF), made possible in part by the American
+Recovery and Reinvestment Act of 2009 and administered by
+ORISE-ORAU under DOE contract number DE-AC05-
+06OR23100. Y.S. acknowledges the Miller Institute for Basic
+Research in Science for a postdoctoral fellowship. We thank the
+many past and present group members whose research has
+contributed to the development of cation exchange in
+semiconductor nanocrystals.
+■
+REFERENCES
+(1) Alivisatos, A. P. Perspectives on the Physical Chemistry of
+Semiconductor Nanocrystals.J. Phys. Chem.1996,100, 13226−13239.
+(2) Yin, Y.; Alivisatos, A. P. Colloidal Nanocrystal Synthesis and the
+Organic−Inorganic Interface.Nature2005,437, 664−670.
+(3) Park, J.; Joo, J.; Kwon, S. G.; Jang, Y.; Hyeon, T. Synthesis of
+Monodisperse Spherical Nanocrystals.Angew. Chem., Int. Ed.2007,46,
+4630−4660.
+(4) Talapin, D. V.; Lee, J.-S.; Kovalenko, M. V.; Shevchenko, E. V.
+Prospects of Colloidal Nanocrystals for Electronic and Optoelectronic
+Applications.
+Chem. Rev.
+2010
+,
+110
+, 389
+−
+458.
+(5) Han, Z.; Qiu, F.; Eisenberg, R.; Holland, P. L.; Krauss, T. D.
+Robust Photogeneration of H
+2
+in Water Using Semiconductor
+Nanocrystals and a Nickel Catalyst.Science2012,338, 1321−1324.
+(6) Michalet, X.; Pinaud, F. F.; Bentolila, L. A.; Tsay, J. M.; Doose, S.;
+Li, J. J.; Sundaresan, G.; Wu, A. M.; Gambhir, S. S.; Weiss, S. Quantum
+Dots for Live Cells, in Vivo Imaging, and Diagnostics.Science2005,
+307, 538−544.
+(7) Son, D. H.; Hughes, S. M.; Yin, Y.; Alivisatos, A. P. Cation
+Exchange Reactions in Ionic Nanocrystals.
+Science
+2004
+,
+306
+, 1009
+−
+1012.
+(8) Rivest, J. B.; Jain, P. K. Cation Exchange on the Nanoscale: An
+Emerging Technique for New Material Synthesis, Device Fabrication,
+and Chemical Sensing.Chem. Soc. Rev.2013,42,89−96.
+(9) Putnis, A. Mineral Replacement Reactions: From Macroscopic
+Observations to Microscopic Mechanisms.
+Mineral. Mag.
+2002
+,
+66
+,
+689
+−
+708.
+(10) Schmalzried, H.
+Solid State Reactions
+;VerlagChemie:
+Weinheim, Germany, 1981.
+(11) Fedorov, V. A.; Ganshin, V. A.; Korkishko, Y. N. Ion Exchange
+in II-VI Crystals: Thermodynamics, Kinetics, and Technology.Phys.
+Status Solidi A1993,139,9−65.
+(12) Osakada, K.; Yamamoto, T. Transmetallation of Alkynyl and
+Aryl Complexes of Group 10 Transition Metals.
+Coord. Chem. Rev.
+2000
+,
+198
+, 379
+−
+399.
+(13) Dloczik, L.; Engelhardt, R.; Ernst, K.; Fiechter, S.; Sieber, I.;
+Ko
+̈
+nenkamp, R. Hexagonal Nanotubes of ZnS by Chemical
+Conversion of Monocrystalline ZnO Columns.Appl. Phys. Lett.
+2001
+,
+78
+, 3687
+−
+3689.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019768
+(14) Dloczik, L.; Ko
+̈
+nenkamp, R. Nanostructure Transfer in
+Semiconductors by Ion Exchange.Nano Lett.2003,3, 651−653.
+(15) Park, J.; Zheng, H.; Jun, Y.-W.; Alivisatos, A. P. Hetero-Epitaxial
+Anion Exchange Yields Single-Crystalline Hollow Nanoparticles.J. Am.
+Chem. Soc.2009,131, 13943−13945.
+(16) Yin, Y.; Rioux, R. M.; Erdonmez, C. K.; Hughes, S. M.;
+Somorjai, G. A.; Alivisatos, A. P. Formation of Hollow Nanocrystals
+Through the Nanoscale Kirkendall Effect.Science2004,304, 711−714.
+(17) Dutt, M. B.; Sharma, B. L.3DiffusioninCompound
+Semiconductors; Beke, D. L., Ed.;SpringerMaterialsThe Landolt-
+Bo
+̈
+rnstein Database (http://www.springermaterials.com). DOI:
+10.1007/10426818_10.
+(18) Lokhande, C. D.; Gadave, K. M. A Simple Chemical Method for
+Conversion of CdS into Ag
+2
+S and CdSe into Ag
+2
+Se.
+Mater. Chem. Phys.
+1993
+,
+36
+, 119
+−
+123.
+(19) Wark, S.; Hsia, C.-H.; Son, D. H. Effects of Ion Solvation and
+Volume Change of the Reaction on the Equilibrium and Morphology
+in Cation-Exchange Reaction of Nanocrystals.J. Am. Chem. Soc.2008,
+130
+, 9550
+−
+9555.
+(20) Collaboration: Scientific Group Thermodata Europe (SGTE).
+Thermodynamic Properties of Compounds; SpringerMaterials - The
+Landolt-Bo
+̈
+rnstein Database (http://www.springermaterials.com).
+(21) Vanysek, P. Electrochemical Series. InCRC Handbook of
+Chemistry and Physics
+, 87th ed.; Lide, D. R., Ed.; CRC Press: Boca
+Raton, FL, 2006; pp 8/20
+−
+8/29.
+(22) Engelken, R. D.; Ali, S.; Chang, L. N.; Brinkley, C.; Turner, K.;
+Hester, C. Study and Development of a Generic Electrochemical Ion-
+Exchange Process to Form M
+x
+S Optoelectronic Materials from ZnS
+Precursor Films Formed by Chemical-Precipitation Solution Deposi-
+tion.
+Mater. Lett.
+1990
+,
+10
+, 264
+−
+274.
+(23) Chaudhry, M.; Persson, I. Transfer Thermodynamic Study on
+the Copper(II) Ion from Water to Methanol, Acetonitrile, Dimethyl
+Sulfoxide and Pyridine.
+J. Chem. Soc., Faraday Trans.
+1994
+,
+90
+, 2243
+−
+2248.
+(24) Pearson, R. G. Absolute Electronegativity and Hardness:
+Application to Inorganic Chemistry.
+Inorg. Chem.
+1988
+,
+27
+, 734
+−
+740.
+(25) Camargo, P. H. C.; Lee, Y. H.; Jeong, U.; Zou, Z.; Xia, Y. Cation
+Exchange: A Simple and Versatile Route to Inorganic Colloidal
+Spheres with the Same Size but Different Compositions and
+Properties.Langmuir2007,23, 2985−2992.
+(26) Li, H.; Zanella, M.; Genovese, A.; Povia, M.; Falqui, A.;
+Giannini, C.; Manna, L. Sequential Cation Exchange in Nanocrystals:
+Preservation of Crystal Phase and Formation of Metastable Phases.
+Nano Lett.2011,11, 4964−4970.
+(27) Luther, J. M.; Zheng, H.; Sadtler, B.; Alivisatos, A. P. Synthesis
+of PbS Nanorods and Other Ionic Nanocrystals of Complex
+Morphology by Sequential Cation Exchange Reactions.J. Am. Chem.
+Soc.2009,131, 16851−16857.
+(28) Backhaus-Ricoult, M. Solid-State Reactivity at Heterophase
+Interfaces.
+Annu. Rev. Mater. Res.
+2003
+,
+33
+,55
+−
+90.
+(29) Jain, P. K.; Amirav, L.; Aloni, S.; Alivisatos, A. P. Nano-
+heterostructure Cation Exchange: Anionic Framework Conservation.
+J.
+Am. Chem. Soc.2010,132, 9997−9999.
+(30) Robinson, R. D.; Sadtler, B.; Demchenko, D. O.; Erdonmez, C.
+K.; Wang, L.-W.; Alivisatos, A. P. Spontaneous Superlattice Formation
+in Nanorods Through Partial Caiton Exchange.Science2007,317,
+355
+−
+358.
+(31) Sadtler, B.; Demchenko, D. O.; Zheng, H.; Hughes, S. M.;
+Merkle, M. G.; Dahmen, U.; Wang, L.-W.; Alivisatos, A. P. Selective
+Facet Reactivity During Cation Exchange in Cadmium Sulfide
+Nanorods.J. Am. Chem. Soc.2009,131, 5285
+−5293.
+(32) Demchenko, D. O.; Robinson, R. D.; Sadtler, B.; Erdonmez, C.
+K.; Alivisatos, A. P.; Wang, L.-W. Formation Mechanism and
+Properties of CdS-Ag
+2
+S Nanorod Superlattices.ACS Nano2008,2,
+627−636.
+(33) Chan, E. M.; Marcus, M. A.; Fakra, S.; ElNaggar, M.; Mathies, R.
+A.; Alivisatos, A. P. Millisecond Kinetics of Nanocrystal Cation
+Exchange Using Microfluidic X-ray Absorption Spectroscopy.J. Phys.
+Chem. A
+2007
+,
+111
+, 12210
+−
+12215.
+(34) Kubaschewski, O. Silver-Cadmium-Sulfur. InTernary Alloys: a
+Comprehensive Compendium of Evaluated Constitutional Data and Phase
+Diagrams; Petzow, G., Effenberg, G., Eds.; VCH: Weinheim, 1988;
+Vol.
+1
+, pp 419
+−
+428.
+(35) Mizetskaya, I. B.; Oleinik, G. S.; Trishchuk, L. I. Phase Diagram
+of the Cu
+2
+S-CdS System.Inorg. Mater.1982,18, 581−582.
+(36) Pietryga, J. M.; Werder, D. J.; Williams, D. J.; Casson, J. L.;
+Schaller, R. D.; Klimov, V. I.; Hollingsworth, J. A. Utilizing the Lability
+of Lead Selenide to Produce Heterostructured Nanocrystals with
+Bright, Stable Infrared Emission.
+J. Am. Chem. Soc.
+2008
+,
+130
+, 4879
+−
+4885.
+(37) Casavola, M.; van Huis, M. A.; Bals, S.; Lambert, K.; Hens, Z.;
+Vanmaekelbergh, D. Anisotropic Cation Exchange in PbSe/CdSe
+Core/Shell Nanocrystals of Different Geometry.Chem. Mater.2012,
+24
+, 294
+−
+302.
+(38) Bals, S.; Casavola, M.; van Huis, M. A.; Van Aert, S.; Batenburg,
+K. J.; Van Tendeloo, G.; Vanmaekelbergh, D. Three-Dimensional
+Atomic Imaging of Colloidal Core-Shell Nanocrystals.Nano Lett.
+2011,11, 3420−3424.
+(39) Lambert, K.; De Geyter, B.; Moreels, I.; Hens, Z. PbTe|CdTe
+Core
+|
+Shell by Cation Exchange, a HR-TEM Study.
+Chem. Mater.
+2009
+,
+21, 778−780.
+(40) Mokari, T.; Aharoni, A.; Popov, I.; Banin, U. Diffusion of Gold
+into InAs Nanocrystals.
+Angew. Chem., Int. Ed.
+2006
+,
+45
+, 8001
+−
+8005.
+(41) Mocatta, D.; Cohen, G.; Schattner, J.; Millo, O.; Rabani, E.;
+Banin, U. Heavily Doped Semiconductor Nanocrystal Quantum Dots.
+Science
+2011
+,
+332
+,77
+−
+81.
+(42) Dorn, A.; Allen, P. M.; Harris, D. K.; Bawendi, M. G. In Situ
+Electrical Monitoring of Cation Exchange in Nanowires.Nano Lett.
+2010
+,
+10
+, 3948
+−
+3951.
+(43) Peng, X.; Manna, L.; Yang, W.; Wickham, J.; Scher, E.;
+Kadavanich, A.; Alivisatos, A. P. Shape Control of CdSe Nanocrystals.
+Nature
+2000
+,
+404
+,59
+−
+61.
+(44) Manna, L.; Milliron, D. J.; Meisel, A.; Scher, E. C.; Alivisatos, A.
+P. Controlled Growth of Tetrapod-Branched Inorganic Nanocrystals.
+Nat. Mater.
+2003
+,
+2
+, 382
+−
+385.
+(45) Puzder, A.; Williamson, A. J.; Zaitseva, N.; Galli, G.; Manna, L.;
+Alivisatos, A. P. The Effect of Organic Ligand Binding on the Growth
+of CdSe Nanoparticles Probed by Ab Initio Calculations.
+Nano Lett.
+2004,4
+, 2361−2365.
+(46) Heath, J. R.; Shiang, J. J. Covalency in Semiconductor Quantum
+Dots.Chem. Soc. Rev.1998,27,65−71.
+(47) Allen, P. M.; Walker, B. J.; Bawendi, M. G. Mechanistic Insights
+into the Formation of InP Quantum Dots.Angew. Chem., Int. Ed.2009,
+49, 760−762.
+(48) Beberwyck, B. J.; Alivisatos, A. P. Ion Exchange Synthesis of III-
+V Nanocrystals.J. Am. Chem. Soc.2012,134, 19977−19980.
+(49) Smith, A. M.; Nie, S. Bright and Compact Alloyed Quantum
+Dots with Broadly Tunable Near-Infrared Absorption and Fluo-
+rescence Spectra Through Mercury Cation Exchange.J. Am. Chem. Soc.
+2011,133,24−26.
+(50) Zhong, X.; Feng, Y.; Zhang, Y.; Gu, Z.; Zou, L. A Facile Route
+to Violet- to Orange-Emitting Cd
+x
+Zn
+1
+‑
+x
+Se Alloy Nanocrystals via
+Cation Exchange Reaction.
+Nanotechnology
+2007
+,
+18
+, 385606.
+(51) De Trizio, L.; Prato, M.; Genovese, A.; Casu, A.; Povia, M.;
+Simonutti, R.; Alcocer, M. J. P.; D
+’
+Andrea, C.; Tassone, F.; Manna, L.
+Strongly Fluorescent Quaternary Cu
+−
+In
+−
+Zn
+−
+S Nanocrystals Pre-
+pared from Cu
+1‑x
+InS
+2
+Nanocrystals by Partial Cation Exchange.Chem.
+Mater.
+2012
+,
+24
+, 2400
+−
+2406.
+(52) Carbone, L.; Cozzoli, P. D. Colloidal Heterostructured
+Nanocrystals: Synthesis and Growth Mechanisms.Nano Today
+2010,5, 449−493.
+(53) Hines, M. A.; Guyot-Sionnest, P. Synthesis and Characterization
+of Strongly Luminescing ZnS-Capped CdSe Nanocrystals.J. Phys.
+Chem.
+1996
+,
+100
+, 468
+−
+471.
+(54) Peng, X.; Schlamp, M. C.; Kadavanich, A. V.; Alivisatos, A. P.
+Epitaxial Growth of Highly Luminescent CdSe/CdS Core/Shell
+Nanocrystals with Photostability and Electronic Accessibility.J. Am.
+Chem. Soc.1997,119, 7019−7029.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019769
+(55) Kim, S.; Fisher, B.; Eisler, H.-J.; Bawendi, M. Type-II Quantum
+Dots: CdTe/CdSe(Core/Shell) and CdSe/ZnTe(Core/Shell) Heter-
+ostructures.J. Am. Chem. Soc.2003,125, 11466−11467.
+(56) Talapin, D. V.; Nelson, J. H.; Shevchenko, E. V.; Aloni, S.;
+Sadtler, B.; Alivisatos, A. P. Seeded Growth of Highly Luminescent
+CdSe/CdS Nanoheterostructures with Rod and Tetrapod Morphol-
+ogies.Nano Lett.2007,7, 2951−2959.
+(57) Carbone, L.; Nobile, C.; De Giorgi, M.; Sala, F. D.; Morello, G.;
+Pompa, P.; Hytch, M.; Snoeck, E.; Fiore, A.; Franchini, I. R.; Nadasan,
+M.; Silvestre, A. F.; Chiodo, L.; Kudera, S.; Cingolani, R.; Krahne, R.;
+Manna, L. Synthesis and Micrometer-Scale Assembly of Colloidal
+CdSe/CdS Nanorods Prepared by a Seeded Growth Approach.Nano
+Lett.2007,7, 2942−2950.
+(58) Li, H.; Brescia, R.; Krahne, R.; Bertoni, G.; Alcocer, M. J. P.;
+D’Andrea, C.; Scotognella, F.; Tassone, F.; Zanella, M.; De Giorgi, M.;
+Manna, L. Blue-UV-Emitting Zn
+Se(Dot)/ZnS(Rod) Core/Shell
+Nanocrystals Prepared from CdSe/CdS Nanocrystals by Sequential
+Cation Exchange.ACS Nano2012,6, 1637−1647.
+(59) Jain, P. K.; Beberwyck, B. J.; Fong, L.-K.; Polking, M. J.;
+Alivisatos, A. P. Highly Luminescent Nanocrystals From Removal of
+Impurity Atoms Residual From Ion-Exchange Synthesis.
+Angew. Chem.,
+Int. Ed.2012,51, 2387−2390.
+(60) Rivest, J. B.; Swisher, S. L.; Fong, L.-K.; Zheng, H.; Alivisatos, A.
+P. Assembled Monolayer Nanorod Heterojunctions.
+ACS Nano
+2011
+,
+5, 3811−3816.
+(61) Justo, Y.; Goris, B.; Kamal, J. S.; Geiregat, P.; Bals, S.; Hens, Z.
+Multiple Dot-in-Rod PbS/CdS Heterostructures with High Photo-
+luminescence Quantum Yield in the Near-Infrared.J. Am. Chem. Soc.
+2012
+,
+134
+, 5484
+−
+5487.
+(62) Zhang, J.; Tang, Y.; Lee, K.; Ouyang, M. Nonepitaxial Growth of
+Hybrid Core-Shell Nanostructures with Large Lattice Mismatches.
+Science
+2010
+,
+327
+, 1634
+−
+1638.
+(63) Orlinskii, S.; Schmidt, J.; Baranov, P.; Hofmann, D.; de Mello
+Donega
+́
+, C.; Meijerink, A. Probing the Wave Function of Shallow Li
+and Na Donors in ZnO Nanoparticles.
+Phys. Rev. Lett.
+2004
+,
+92
+,
+047603.
+(64) Roy, S.; Tuinenga, C.; Fungura, F.; Dagtepe, P.; Chikan, V.;
+Jasinski, J. Progress Toward Producing n-Type CdSe Quantum Dots:
+Tin and Indium Doped CdSe Quantum Dots.J. Phys. Chem. C2009,
+113, 13008−13015.
+(65) Bhargava, R. N.; Gallagher, D.; Hong, X.; Nurmikko, A. Optical
+Properties of Manganese-Doped Nanocrystals of ZnS.Phys. Rev. Lett.
+1994,72, 416−419.
+(66) Pradhan, N.; Goorskey, D.; Thessing, J.; Peng, X. An Alternative
+of CdSe Nanocrystal Emitters: Pure and Tunable Impurity Emissions
+in ZnSe Nanocrystals.J. Am. Chem. Soc.2005,127, 17586−17587.
+(67) Bryan, J. D.; Gamelin, D. R. Doped Semiconductor Nanocryst-
+als: Synthesis, Characterization, Physical Properties, and Applications.
+Prog. Inorg. Chem.2005,54,47−126.
+(68) Norris, D. J.; Efros, A. L.; Erwin, S. C. Doped Nanocrystals.
+Science2008,319, 1776−1779.
+(69) Tuinenga, C.; Jasinski, J.; Iwamoto, T.; Chikan, V. In Situ
+Observation of Heterogeneous Growth of CdSe Quantum Dots: Effect
+of Indium Doping on the Growth Kinetics.ACS Nano2008,2, 1411−
+1421.
+(70) Beulac, R.; Ochsenbein, S. T.; Gamelin, D. R. Colloidal
+Transition-Metal-Doped Quantum Dots. In
+Nanocrystal Quantum
+Dots; Klimov, V. I., Ed.; CRC Press: Boca Raton, FL, 2010; pp 397−
+453.
+(71) Sahu, A.; Kang, M. S.; Kompch, A.; Notthoff, C.; Wills, A. W.;
+Deng, D.; Winterer, M.; Frisbie, C. D.; Norris, D. J. Electronic
+Impurity Doping in CdSe Nanocrystals.Nano Lett.2012,12, 2587−
+2594.
+(72) Kang, M. S.; Sahu, A.; Frisbie, C. D.; Norris, D. J. Influence of
+Silver Doping on Electron Transport in Thin Films of PbSe
+Nanocrystals.Adv. Mater.2012,25, 725−731.
+(73) Sytnyk, M.; Kirchschlager, R.; Bodnarchuk, M. I.; Primetzhofer,
+D.; Kriegner, D.; Enser, H.; Stangl, J.; Bauer, P.; Voith, M.; Hassel, A.
+W.;Krumeich,F.;Ludwig,F.;Meingast,A.;Kothleitner,G.;
+Kovalenko, M. V.; Heiss, W. Tuning the Magnetic Properties of
+Metal Oxide Nanocrystal Heterostructures by Cation Exchange.
+Nano
+Lett.
+2013
+,
+13
+, 586
+−
+593.
+(74) Eilers, J.; Groeneveld, E.; de Mello Donega
+́
+, C.; Meijerink, A.
+Optical Properties of Mn-Doped ZnTe Magic Size Nanocrystals.J.
+Phys. Chem. Lett.2012
+,3, 1663−1667.
+(75) Kovalenko, M. V.; Talapin, D. V.; Loi, M. A.; Cordella, F.;
+Hesser, G.; Bodnarchuk, M. I.; Heiss, W. Quasi-Seeded Growth of
+Ligand-Tailored PbSe Nanocrystals Through Cation-Exchange-Medi-
+ated Nucleation.Angew. Chem., Int. Ed.2008,47, 3029−3033.
+(76) Deka, S.; Miszta, K.; Dorfs, D.; Genovese, A.; Bertoni, G.;
+Manna, L. Octapod-Shaped Colloidal Nanocrystals of Cadmium
+Chalcogenides via
+“
+One-Pot
+”
+Cation Exchange and Seeded Growth.
+Nano Lett.
+2010
+,
+10
+, 3770
+−
+3776.
+(77) Mews, A.; Eychmu
+̈
+ller, A.; Giersig, M.; Schooss, D.; Weller, H.
+Preparation, Characterization, and Photophysics of the Quantum Dot
+Quantum Well System CdS/HgS/CdS.
+J. Phys. Chem.
+1994
+,
+98
+, 934
+−
+941.
+(78) Dabbousi, B. O.; Rodriguez-Viejo, J.; Mikulec, F. V.; Heine, J.
+R.; Mattoussi, H.; Ober, R.; Jensen, K. F.; Bawendi, M. G. (CdSe)ZnS
+Core−Shell Quantum Dots: Synthesis and Characterization of a Size
+Series of Highly Luminescent Nanocrystallites.J. Phys. Chem. B1997,
+101, 9463−9475.
+(79) Kim, S.; Kim, T.; Kang, M.; Kwak, S. K.; Yoo, T. W.; Park, L. S.;
+Yang, I.; Hwang, S.; Lee, J. E.; Kim, S. K.; Kim, S.-W. Highly
+Luminescent InP/GaP/ZnS Nanocrystals and Their Application to
+White Light-Emitting Diodes.J. Am. Chem. Soc.2012,134, 3804−
+3809.
+(80) Dong, C.; van Veggel, F. C. J. M. Cation Exchange in
+Lanthanide Fluoride Nanoparticles.ACS Nano2008,3, 123−130.
+(81) Zheng, H.; Smith, R. K.; Jun, Y.-W.; Kisielowski, C.; Dahmen,
+U.; Alivisatos, A. P. Observation of Single Colloidal Platinum
+Nanocrystal Growth Trajectories.Science2009,324, 1309−1312.
+(82) Yuk, J. M.; Park, J.; Ercius, P.; Kim, K.; Hellebusch, D. J.;
+Crommie, M. F.; Lee, J. Y.; Zettl, A.; Alivisatos, A. P. High-Resolution
+EM of Colloidal Nanocrystal Growth Using Graphene Liquid Cells.
+Science2012,336,61−64.
+The Journal of Physical Chemistry CFeature Article
+dx.doi.org/10.1021/jp405989z|J.Phys.Chem.C2013, 117, 19759−1977019770
