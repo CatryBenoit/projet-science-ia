@@ -4,9 +4,10 @@ const fs = require('fs').promises;
 const { requireAuth } = require('../middlewares/auth.middleware');
 const router = express.Router();
 
-// 1. Récupérer la liste de tous les articles (sans le gros texte pour que ce soit rapide)
+// 1. Récupérer la liste de tous les articles (MISE À JOUR : on ajoute le project_id dans le SELECT)
 router.get('/articles', requireAuth, (req, res) => {
-    db.all("SELECT id, title, published_date, oa_url FROM articles ORDER BY published_date DESC", [], (err, rows) => {
+    // C'est ici qu'il manquait le "project_id" !
+    db.all("SELECT id, title, published_date, oa_url, project_id FROM articles ORDER BY published_date DESC", [], (err, rows) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: "Erreur lors de la récupération de la bibliothèque." });
@@ -36,6 +37,7 @@ router.get('/articles/:id/content', requireAuth, (req, res) => {
 
 const AiReaderService = require('../services/ai-reader.service');
 
+// 3. Analyser un article avec l'IA
 router.post('/articles/:id/analyze', requireAuth, async (req, res) => {
     const articleId = req.params.id;
 

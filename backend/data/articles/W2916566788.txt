@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Citicolina: revisión farmacológica y clínica, actualización 2022
+DATE: 2022-01-01
+SOURCE: OpenAlex
+DOI: 10.33588/rn.75s05.2022311
+URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC10548480/pdf/RN-75-S1.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

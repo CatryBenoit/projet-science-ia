@@ -1,0 +1,988 @@
+M/S n° 3, vol. 22, mars 2006
+ 288
+Épidémiologie 
+de la maladie 
+d’Alzheimer
+et des syndromes 
+apparentés
+Catherine Helmer, Florence Pasquier,
+Jean-François Dartigues
+La  maladie  d’Alzheimer  et  les  syndromes  apparentés  
+sont  devenus  un  problème  majeur  de  santé  publique  
+en  France  ;  l’objectif  de  cet  article  est  de  présenter  les  
+estimations les plus fiables de prévalence, incidence et 
+durée  de  la  démence,  de  proposer  des  projections  pour  
+un  proche  avenir,  et  de  faire  le  point  sur  les  pistes  de  
+prévention possibles.
+Prévalence et incidence de la maladie
+Estimation de la prévalence
+La  majorité  des  cas  de  démences  se  rencontre  après  
+65  ans,  et  même  après  75  ou  80  ans.  Ce  sont  ces  cas,  
+nombreux,  qui  constituent  un  réel  problème  de  santé  
+publique :   les   don-
+nées  épidémiologiques  
+seront donc présentées 
+uniquement pour ces tranches d’âges.
+La  maladie  existe  pourtant  avant  65,  et  même  avant  
+60  ans  ;  si,  individuellement,  une  maladie  survenant  pré-
+cocement est tragique, ces démences précoces représen-
+tent  en  revanche  une  faible  proportion  de  cas.  Pour  ces  
+cas  plus  jeunes,  les  problèmes  posés  sont  différents  de  
+ceux rencontrés pour les cas plus âgés, et nous ne dispo-
+sons  pas  de  données  épidémiologiques  vraiment  fiables.  
+Des estimations réalisées par le groupe Eurodem (réunis-
+sant  les  données  de  plusieurs  études  de  cohortes  euro-
+péennes)  en  1991  donnaient  une  prévalence  de  démence  
+de 0,5 % chez les femmes et 1,6 % chez les hommes entre 
+60 et 64 ans, et de 0,1 % chez les femmes et 0,2 % chez les 
+hommes  avant  60  ans  [1],  soit  une  estimation  de  32  000  
+personnes  de  moins  de  65  ans  présentant  une  démence  
+en  2004,  en  France.  Ces  démences  précoces  sont  le  plus  
+souvent  diagnostiquées  et  médicalisées,  même  si  l’on  
+peut  supposer  que  le  délai  est  parfois  long  (ce  qui  n’est  
+pas  le  cas  des  démences  plus  tardives),  en  raison  de  la  
+rareté  de  survenue  dans  cette  tranche  d’âge.  Pour  ces  
+cas  précoces,  le  problème  principal  est  le  manque  de  
+structures  adaptées  pour  prendre  en  charge  ces  sujets  
+relativement jeunes.
+> La maladie d’Alzheimer et les syndromes appa-
+rentés (c’est-à-dire les autres causes de démen-
+ces,  essentiellement)  sont  devenus  un  problème  
+majeur  de  santé  publique  en  France  et  sont  en  
+passe de devenir, enfin, une priorité, en raison du 
+vieillissement  de  la  population.  L’épidémiologie  
+de  ces  affections  est  un  des  éléments  essentiels  
+pour  la  décision  en  santé  publique  et  pour  la  
+connaissance de ces maladies et de leurs déter-
+minants. Selon les estimations les plus raisonna-
+bles,  il  y  aurait  actuellement  en  France  environ  
+850 000 cas de maladie d’Alzheimer et syndromes 
+apparentés, et environ 220 000 nouveaux cas par 
+an.  Les  progrès  de  la  prise  en  charge  font  que  
+la  durée  de  la  maladie  augmente,  ainsi  que  le  
+nombre  des  malades.  En  dehors  du  développe-
+ment  d’un  traitement  curatif  bien  peu  probable  
+à  court  terme,  seule  une  politique  de  prévention  
+devrait permettre de contenir l’accroissement de 
+ce  nombre  dans  un  proche  avenir.  Quatre  pistes  
+de prévention sont crédibles : les facteurs de ris-
+ques cardiovasculaire, notamment l’hypertension 
+artérielle ; la nutrition ; les activités stimulantes 
+et physiques ; l’équilibre affectif et social. <
+C. Helmer, J.F. Dartigues :
+Inserm U.593,
+Université de Bordeaux II,
+146, rue Léo Saignat,
+33076 Bordeaux Cedex, France.
+F. Pasquier :
+CMMR, Clinique neurologique, EA 
+2691, CHRU de Lille,
+Hôpital Albert Calmette,
+boulevard
+Professeur Jules Leclercq,
+59037 Lille Cedex, France.
+jean-francois.dartigues@
+isped.u-bordeaux2.fr
+Article reçu le 20 octobre 2005, accepté le 26 décembre 2005.
+MEDECINE/SCIENCES 2006 ; 22 : 288-96
+Dartigues.indd   288Dartigues.indd   28823/02/2006   10:54:1623/02/2006   10:54:16
+Article disponible sur le site http://www.medecinesciences.org ou http://dx.doi.org/10.1051/medsci/2006223288
+M/S n° 3, vol. 22, mars 2006
+REVUES
+SYNTHÈSE
+ 289
+dans  Paquid,  et  à  11,7  %  et  15,4  %,  respectivement,  dans  
+l’étude  italienne  ;  la  prévalence  globale  chez  les  65  ans  et  
+plus est bien sûr beaucoup plus faible, 6,1 % chez les hom-
+mes et 8,9 % chez les femmes.
+En rapportant ces chiffres à la population métropolitaine 
+française  fournie  par  l’Insee  pour  2004  [7],  on  peut  
+estimer  le  nombre  de  sujets  déments  en  France  métro-
+politaine  à  856  662  chez  les  personnes  de  65  ans  et  plus  
+(Tableau  II)  ;  ces  cas  surviennent  pour  72  %  chez  des  
+femmes,  et  pour  73  %  chez  des  personnes  âgées  de  80  
+ans  et  plus.  L’estimation  du  nombre  de  cas  de  démence  
+varie  selon  les  études,  en  raison  essentiellement  des  cas  
+les  plus  difficiles  à  diagnostiquer,  notamment  au  stade  
+de début de la maladie ; il existe moins d’imprécision sur 
+les  cas  à  un  stade  plus  avancé.  Dans  Paquid,  le  degré  de  
+sévérité  de  la  démence  a  été  évalué  grâce  au  MMS  (mini 
+mental  state)  :  ce  test  global  d’évaluation  des  fonctions  
+cognitives  est  coté  de  0  à  30,  les  sujets  ayant  un  score  
+≤  à  15  étant  considérés  comme  ayant  une  démence  à  
+un  stade  modérément  sévère  ou  sévère.  Chez  les  75  ans  
+et  plus,  43,4  %  des  démences  sont  à  un  stade  au  moins  
+modérément  sévère.  En  appliquant  cette  proportion  au  
+nombre  de  cas  estimés  de  démence,  on  peut  estimer  
+que  332  628  personnes  de  75  ans  et  plus  présentaient  
+une  démence  à  un  stade  modérément  sévère  ou  sévère  
+en  France  en  2004.  La  prise  en  compte  de  ce  stade  de  
+sévérité  est  importante  :  en  effet,  si  57  %  de  l’ensemble  
+des  démences  présentent  une  dépendance  pour  les  acti-
+vités  de  base  de  la  vie  quotidienne  (toilette,  habillage,  
+locomotion,  alimentation,  aller  aux  toilettes),  cette  
+proportion  s’élève  à  89  %  pour  les  démences  à  un  stade  
+modérément sévère ou sévère.
+Estimation de l’incidence
+Comme  pour  les  données  de  prévalence,  les  estima-
+tions  d’incidence  sont  très  variables  dans  les  données  
+publiées (Tableau  III).  Devant  ces  dif-
+férentes  estimations,  nous  avons  ré-
+analysé  l’incidence  de  la  démence  sur  
+les  13  années  de  suivi  de  Paquid,  avec  
+des  modèles  biostatistiques  adaptés,  
+permettant  de  prendre  en  compte  les  
+différents  biais  rencontrés  dans  les  étu-
+des  de  cohorte  pour  l’estimation  de  l’in-
+cidence.  Les  résultats  sont  présentés  
+dans la Figure 1.
+En  appliquant  ces  données  d’incidence  
+à  la  population  française  de  2004,  le  
+nombre  de  nouveaux  cas  annuels  de  
+démences  peut  être  estimé  à  225  263,  
+alors qu’il était estimé à 186 586 à partir 
+des données initiales de Paquid.
+En raison du sous-diagnostic de la maladie d’Alzheimer et des syndromes 
+apparentés, et des difficultés du diagnostic de ces maladies en popula-
+tion, des données fiables concernant son épidémiologie ne peuvent être 
+obtenues  qu’à  partir  d’études  longitudinales  réalisées  en  population,  
+dans  lesquelles  un  diagnostic  actif  de  démence  est  réalisé.  Dans  le  
+même  ordre  d’idée,  le  diagnostic  différentiel  avec  un  état  confusionnel  
+persistant plus de deux semaines peut être difficile et nécessite un mini-
+mum de suivi des sujets. Devant les écarts entre les différentes estima-
+tions  concernant  la  prévalence  et  l’incidence  de  cette  maladie,  un  rap-
+port récent de l’OCDE (Organisation de coopération et de développement 
+économiques) [2]  préconisait  de  se  fonder  sur  les  estimations  fournies  
+par  le  groupe  Eurodem  [3].  Toutefois,  le  diagnostic  de  démence  a  con-
+sidérablement  évolué  depuis  quelques  années,  notamment  en  raison  de  
+la  commercialisation  des  premiers  inhibiteurs  de  l’acétylcholinestérase,  
+qui  a  favorisé  une  prise  de  conscience  vis-à-vis  de  cette  maladie  ;  or,  
+les  estimations  fournies  par  Eurodem,  à  partir  de  données  transversa-
+les  le  plus  souvent,  datent  pour  la  plupart  du  début  des  années  90,  et  
+nécessitent  probablement  d’être  ré-actualisées.  De  plus,  une  évolution  
+réelle  de  la  prévalence  de  la  démence  ne  peut  être  exclue  (évolution  de  
+l’espérance de vie, meilleure prise en charge...).
+Du  fait  de  la  durée  et  du  coût  des  études  longitudinales  en  population,  il  
+existe peu de publications récentes concernant la prévalence de la maladie 
+d’Alzheimer et des syndromes apparentés. Les estimations les plus récentes 
+ont  été  publiées  en  2003  (pour  la  France)  [4],  2004  (pour  les  États-Unis) 
+[5]  et  2005  (pour  l’Italie)  [6] (Tableau I)  ;  ces  estimations  montrent  une  
+grande disparité, avec des prévalences beaucoup plus faibles dans l’étude 
+Eurodem  et  beaucoup  plus  élevées  dans  la  Cardiovascular  health  study 
+(CHS)  nord-américaine.  Devant  la  disparité  de  ces  chiffres  (les  raisons  
+citées précédemment pouvant expliquer les faibles prévalences retrouvées 
+dans  Eurodem)  et  la  similarité  des  estimations  retrouvées  en  France  et  en  
+Italie, il semble raisonnable de se fonder sur les données de l’étude Paquid 
+(Personnes  âgées  Quid)  pour  fournir  des  estimations  françaises  de  préva-
+lence  et  d’incidence  de  démence  après  l’âge  de  75  ans  ;  les  données  pour  
+la  tranche  d’âge  65-74  ans  ont,  quant  à  elles,  été  estimées  à  partir  des  
+données  italiennes.  Globalement,  la  prévalence  chez  les  sujets  de  75  ans  
+et plus est estimée à 13,2 % pour les hommes et à 20,5 % pour les femmes 
+Europe
+Eurodem [3]
+France
+Paquid [4]
+Italie
+[6]
+États-Unis
+CHS [5]
+ÂgeHFHFHFHF
+65 - 691,61,0--0,761,213,710,4
+70 - 742,93,1--1,83,2
+75 - 795,66,07,75,75,66,015,420,6
+80 - 8411,012,612,516,615,013,133,332,6
+> 8518,025,023,938,423,834,642,950,9
+Tableau I. Prévalence (%) de la maladie d’Alzheimer et des syndromes apparentés en fonction de 
+l’âge et du sexe. CHS : Cardiovascular health study.
+Dartigues.indd   289Dartigues.indd   28923/02/2006   10:54:2323/02/2006   10:54:23
+M/S n° 3, vol. 22, mars 2006
+ 290
+Projections pour les prochaines années
+Des projections sur le nombre de personnes atteintes 
+de  maladie  d’Alzheimer  ou  d’un  syndrome  apparenté  
+dans  les  prochaines  années  peuvent  être  réalisées  en  partant  des  
+projections  de  populations  fournies  par  l’Insee  [7].  Les  scénarios  
+démographiques de l’Insee (scénario central, scénario de fécondité 
+haute et scénario de fécondité basse) montrent une augmentation 
+de  la  population  totale  de  la  France  pour  les  prochaines  années,  
+mais  surtout  une  augmentation  de  la  proportion  des  personnes  
+âgées : à titre d’exemple, selon le scénario central de projection de 
+population, la proportion de personnes de 65 ans et plus, qui était 
+de 16,5 % en 2004, devrait passer à 21 % en 2020 et 28 % en 2040 ; 
+pour  les  75  ans  et  plus,  les  chiffres  sont  encore  plus  impression-
+nants, puisque ces proportions devraient passer respectivement de 
+8,0 % à 9,6 %, puis à 16,1 %.
+Estimations
+Dans l’hypothèse d’une prévalence cons-
+tante  de  la  maladie,  le  nombre  absolu  
+de  démences  augmentera  dans  l’avenir  
+(Tableau  IV),  mais  également  l’âge  des  
+malades  :  alors  que  73  %  des  déments  
+avaient  80  ans  ou  plus  en  2004,  cette  
+proportion  devrait  augmenter  à  79,4  %  
+en  2020,  et  à  83,1  %  en  2040.  Du  fait  de  
+la  nature  des  scénarios  choisis,  fondés  
+sur  une  variation  de  la  fécondité,  le  
+nombre  absolu  de  personnes  atteintes  
+de  démence  ne  devrait  pas  varier  en  
+fonction  du  scénario  employé  jusqu’en  
+2040.  Le  taux  pour  1  000  habitants,  en  
+revanche,  variera  :  de  14,5  ‰  en  2004,  
+il  devrait  passer  à  21,3  ‰  en  2020  et  
+36,3  ‰  en  2040,  selon  l’hypothèse  de  
+fécondité  basse,  et  à  20,3  ‰  en  2020  et  
+31,9 ‰ en 2040, selon l’hypothèse de fécondité haute.
+Sous l’hypothèse d’une répartition constante de la sévé-
+rité des démences, les estimations pour les démences à 
+un  stade  modérément  sévère  ou  sévère  chez  les  75  ans  
+et  plus  seraient  de  500  330  cas  en  2020  et  877  910  (soit  
+plus que le nombre de démences actuelles) en 2040.
+Remarques
+Tout  d’abord,  proposer  des  estimations  jusqu’en  2040  
+est  un  exercice  délicat.  On  peut  en  effet  espérer  que,  
+d’ici  2040,  des  progrès  auront  été  réalisés  et  un  traite-
+ment curatif efficace mis au point. Si tel est le cas, ces 
+estimations  seront  totalement  dépassées.  Les  récents  
+essais concernant le « vaccin », bien qu’interrompus en 
+raison  d’effets  secondaires  importants,  ont  fait  naître  
+des espoirs dans ce sens [10].
+Figure 1. Incidence des démences selon l’âge (données Paquid 1988-2001).
+0
+2
+4
+6
+8
+10
+12
+14
+16
+65707580859095
+Âge (années)
+Incidence (%)
+HommesFemmes
+ÂgeHommesFemmesTotal
+65-699 14916 56125 710
+70-7419 71144 81664 527
+75-7965 79871 349137 147
+80-8471 217164 112235 329
+85-8940 491121 165161 656
+>  9031 841200 452232 293
+Total  >  65238 207618 455856 662
+Total  >  75209 347557 078766 425
+Tableau  II. Estimation  du  nombre  de  personnes  atteintes  de  
+démence en 2004 en France métropolitaine (d’après [4, 6]).
+Europe
+Eurodem [8]
+France
+Paquid*
+États-Unis
+CHS [5]
+Italie
+[9]
+ÂgeHFHFHFHF
+< 75----13,710,4--
+65-692,42,53,41,8--8,78,5
+70-746,44,76,64,8--25,621,3
+75-7913,717,519,118,526,736,226,260,7
+80-8427,634,126,536,358,457,040,365,7
+85-8938,853,837,353,0----
+> 9040,181,757,0106,7----
+> 85----84,3108,283,0138,3
+Tableau  III. Incidence  de  la  maladie  d’Alzheimer  et  des  syndromes  apparentés  en  fonction  de  
+l’âge et du sexe. *Sur 10 années de suivi, données non publiées.
+Dartigues.indd   290Dartigues.indd   29023/02/2006   10:54:2323/02/2006   10:54:23
+M/S n° 3, vol. 22, mars 2006
+ 291
+Par  ailleurs,  les  estimations  précédentes  ont  été  réalisées  dans  
+l’hypothèse  d’une  prévalence  constante  de  la  maladie,  alors  
+qu’il  est  difficile  de  savoir  si,  même  en  l’absence  de  thérapeuti-
+ques  innovantes,  la  prévalence  sera  constante  sur  les  prochaines  
+années.  Dans  l’étude  Paquid,  à  âge  égal,  la  prévalence  est  plus  
+élevée  10  ans  après  le  début  de  l’étude  (1998-99)  qu’à  la  phase  
+d’inclusion  (1988-89)  [11].  Bien  qu’il  s’agisse  d’une  évolution  au  
+sein  de  la  même  étude  de  recherche,  nous  ne  pouvons  exclure  que  
+cette augmentation de prévalence soit en partie expliquée par une 
+meilleure  sensibilisation  au  diagnostic  de  démence.  De  plus,  les  
+estimations  de  prévalence  réalisées  en  1998-99,  après  10  ans  de  
+suivi  des  performances  cognitives  des  personnes,  reposent  sur  un  
+diagnostic  probablement  plus  précis  qu’à  l’inclusion.  Néanmoins,  
+les  récentes  données  d’incidence  obtenues  dans  une  cohorte  ita-
+lienne  présentent  des  chiffres  d’incidence,  obtenus  entre  1999  et  
+2004,  bien  plus  élevés  que  ceux  publiés  jusqu’à  maintenant  [9] : 
+ces  chiffres  pourraient  refléter  une  augmentation  réelle  de  l’inci-
+dence des démences.
+Plusieurs  hypothèses  peuvent  être  formulées  concernant  l’évolution  
+de l’incidence, et donc de la prévalence des démences : il est possible 
+qu’une  meilleure  prise  en  charge  des  autres  pathologies,  et  notam-
+ment  des  maladies  cardiovasculaires,  entraîne,  pour  un  âge  donné,  
+une  augmentation  de  prévalence  des  démences.  Un  des  facteurs  de  
+risque  intervenant  dans  la  maladie  d’Alzheimer  est  un  variant  allé-
+lique  (
+ε4)  du  gène  codant  pour  l’apolipoprotéine  E,  impliquée  dans  
+le transport des lipides : les personnes présentant un ou deux allèles 
+ε4  sont  plus  à  risque  de  développer  la  maladie  que  celles  ayant  la  
+forme allélique ε2 [13]. Ce gène est également un facteur de risque 
+de maladie cardiovasculaire [14]. Or, les progrès de la chirurgie car-
+diaque  (pontage,  dilatation)  réalisés  ces  dernières  années  devrait  
+permettre  la  survie  de  patients  qui,  en  raison  de  certains  facteurs  
+de  risque  communs  aux  deux  maladies,  sont  probablement  plus  à  
+risque de développer une démence dans l’avenir. Le même raisonne-
+ment  peut  être  appliqué  à  d’autres  facteurs  de  risque  
+potentiels,  comme  les  facteurs  de  risque  vasculaires,  
+notamment, et pourrait aussi se vérifier pour d’autres 
+maladies, comme le cancer.
+D’un  autre  côté,  on  peut  supposer  que,  grâce  à  une  
+évolution  du  mode  de  vie  (meilleure  prise  en  charge  
+de  l’état  de  santé,  meilleur  contrôle  des  facteurs  de  
+risque,  meilleure  hygiène  de  vie),  l’âge  de  début  de  
+maladie  soit,  à  l’avenir,  plus  tardif,  ce  qui  s’accom-
+pagnerait d’une diminution de la prévalence. En 1998, 
+des  estimations  sur  la  population  américaine  ont  été  
+effectuées, montrant que si l’âge de début de maladie 
+reculait de 1 an, la prévalence diminuerait de 7,3 % au 
+bout de 10 ans, et de 8,9 % au bout de 50 ans [12]. De 
+plus,  outre  l’incidence  et  l’âge  de  début  de  maladie,  
+la  durée  de  la  maladie  doit  également  être  prise  en  
+compte  pour  prédire  la  prévalence  :  si  l’on  s’occupe  
+mieux  des  malades,  cette  durée  pourrait  augmenter  
+dans les années futures. Néanmoins, la prise en charge 
+doit  avoir  pour  objectif  d’augmenter  la  durée  à  la  
+phase  précoce  de  la  maladie,  avant  l’apparition  des  
+complications.
+En raison de la difficulté d’élaborer des hypothèses réa-
+listes  dans  le  sens  d’une  augmentation  ou  au  contraire  
+d’une  diminution  de  prévalence,  il  est  raisonnable  de  
+considérer  une  fourchette  de  ±  10  %  de  variation  de  
+prévalence  dans  laquelle  celle-ci  a  de  grandes  chances  
+de  se  situer  dans  les  prochaines  années  (en  l’absence,  
+bien  sûr,  de  la  mise  au  point  d’un  traitement  curatif).  
+Le Tableau V propose les bornes inférieure et supérieure 
+du  nombre  estimé  de  personnes  atteintes  de  démen-
+ces,  pour  2020  et  pour  2040,  ainsi  que  les  taux  pour  
+1 000 habitants.
+HommesFemmesTotal
+Âge202020402020204020202040
+65-6913 51114 21523 97824 44137 48938 656
+70-7427 97231 13157 85163 99785 82395 128
+75-7972 183119 92567 480110 730139 663230 655
+80-8488 063155 024177 088289 551265 151444 575
+85-89101 356194 337254 758418 838356 114613 175
+>  9061 785142 395330 122592 034391 907734 429
+Total  >  65364 870657 027911 2771 499 5911 276 1472 156 618
+Total  >  75323 387611 681829 4481 411 1531 152 8352 022 834
+Tableau  IV.  Estimation*  du  nombre  de  personnes  atteintes  de  démence  en  France  métropolitaine  en  2020  et  en  2040.  *Dans  l’hypothèse  d’une  
+prévalence constante de la démence.
+REVUES
+SYNTHÈSE
+Dartigues.indd   291Dartigues.indd   29123/02/2006   10:54:2423/02/2006   10:54:24
+M/S n° 3, vol. 22, mars 2006
+ 292
+Durée de la maladie
+La  majorité  des  études  s’accordent  sur  le  fait  que  
+la  démence  diminue  l’espérance  de  vie  [15-17]. 
+Néanmoins,  les  données  de  la  littérature  concer-
+nant la durée de survie des sujets déments sont très 
+variables  :  ces  durées  de  vie  moyennes,  obtenues  
+souvent  à  partir  d’échantillons  très  sélectionnés,  
+suivis  dans  des  centres  spécialisés,  sont  fréquem-
+ment  surestimées,  mettant  en  évidence  des  durées  
+de  survie  pouvant  aller  de  5  à  10  ans.  Pour  évaluer  
+correctement  cette  durée,  il  est  nécessaire  de  
+se  fonder  sur  des  études  en  population  :  dans  la  
+Canadian  study  of  aging,  la  médiane  de  survie  a  
+été estimée à 3,3 ans (2,7-4,0) [15-17]. Toutefois, 
+la  durée  de  vie  des  personnes  démentes  varie  bien  
+sûr  en  fonction  de  l’âge  :  une  telle  valeur  a  été  
+estimée  à  partir  des  13  années  de  suivi  de  Paquid,  
+et  comparée  aux  données  publiées  aux  États-Unis  
+[18] (Tableau  VI)  :  les  résultats  sont  très  proches,  
+avec  des  espérances  de  vie  supérieures  chez  les  
+femmes,  mais  nettement  plus  faibles  que  celles  de  
+la  population  générale  française.  Cependant,  du  
+fait  de  l’évolution  du  diagnostic  et  de  la  considé-
+ration  apportée  à  cette  maladie,  il  est  impossible  
+aujourd’hui  d’indiquer,  de  façon  fiable,  si  la  survie  
+des  personnes  démentes  a  augmenté  ou  non  au  
+cours des dernières années.
+Pistes de prévention
+De  nombreux  facteurs  de  risque  ont  été  
+incriminés  dans  la  survenue  de  la  mala-
+die  d’Alzheimer.  Parmi  les  principaux,  
+l’âge,  l’allèle  
+ε4  de  l'apolipoprotéine  E  
+et  le  sexe  ne  sont  bien  évidemment  pas  
+accessibles  à  la  prévention.  D’autres  
+facteurs  potentiels  ont  également  été  
+évoqués,  et  des  pistes  de  prévention,  
+passant  par  le  contrôle  de  ces  facteurs  
+de  risque,  peuvent  être  envisagées.  Il  ne  
+s’agit toutefois que de pistes qui ne sont 
+pas  encore  confirmées.  Néanmoins,  pour  la  plupart  d’entre  elles,  les  
+recommandations  qui  peuvent  être  faites  devraient  aussi  entraîner  
+un  bénéfice  pour  d’autres  pathologies,  et  participer  à  une  meilleure  
+qualité de vie des personnes âgées.
+Facteurs de risque vasculaires
+Plusieurs  facteurs  de  risque  vasculaires,  notamment  à  l’âge  moyen  de  
+la  vie,  pourraient  être  des  facteurs  de  risque  de  démence,  notamment  
+de  maladie  d’Alzheimer  :  hypertension  artérielle  [19-21],  diabète  
+[22-24],  hypercholestérolémie  [21],  tabagisme  [25-27],  alcoolisme  
+chronique [25],  surpoids  [28],  accidents  vasculaires  cérébraux  (AVC)  
+[29-35],  fibrillation  auriculaire  [36],  athérosclérose  [37]  ou,  encore,  
+hyperhomocystéinémie [38,  39]...  Des  études  d’observation  ont  montré  
+que  les  patients  hypertendus  traités  semblaient  avoir  moins  de  risque  
+de  démence  que  les  hypertendus  non  traités  [20,  40-43],  de  même  que  
+les  patients  hypercholestérolémiques  traités  semblaient  avoir  moins  de  
+risque  de  démence  que  les  hypercholestérolémiques  non  traités  [44-
+46].  Cependant,  seul  le  traitement  de  l’hypertension  a  confirmé  une  
+efficacité sur la prévention de la démence dans des études prospectives 
+randomisées (études Syst-Eur [47, 48] et Progress [49]).
+Par ailleurs, si les AVC sont un facteur de risque de démence, la démence 
+est  en  retour  un  facteur  de  risque  d’AVC  [50-52]  ;  l’incidence  des  AVC  
+et  celle  de  la  démence  sont  ainsi  liées  chez  les  personnes  de  plus  de  85  
+ans [53].  Une  démence  préexistant  à  un  AVC  (retrouvée  chez  environ  
+15  %  des  patients  de  plus  de  40  ans  hospitalisés  pour  un  AVC  [54-57]) 
+est  associée  à  un  risque  de  confusion  mentale  [58],  de  symptômes  
+dépressifs [59],  d’épilepsie  tardive  (au-delà  de  3  mois)  [60],  d’un  
+pronostic  fonctionnel  moins  bon  [61],  de  récidive  [62]  et  de  mortalité  
+à  3  ans  (indépendamment  du  risque  de  
+récidive) [63].  Or  la  démence,  qui  est  le  
+plus  souvent  de  nature  dégénérative,  de  
+type  maladie  d’Alzheimer  [64,  65],  n’est  
+pas diagnostiquée dans la plupart des cas 
+au  moment  de  l’AVC,  et  la  prévention  des  
+complications  secondaires  n’est  pas  mise  
+en place.
+On  ne  connaît  pas  l’influence  de  la  
+démence sur la tolérance aux traitements 
+de la phase aiguë de l’AVC (thrombolyse, 
+20202040
+nBorne 
+inférieure
+Borne 
+supérieure
+Borne 
+inférieure
+Borne 
+supérieure
+>  651 148 5331 403 7631 940 9572 372 281
+>  751 037 5521 268 1191 820 5512 225 118
+Taux18,322,430,136,8
+Tableau V. Estimation des bornes inférieure et supérieure du nombre de cas de démences (n) et de 
+leur taux (pour 1 000 habitants) en 2020 et en 2040.
+Démences
+(Paquid)
+Alzheimer
+[18]
+Population 
+générale
+HommesFemmesHommesFemmesHommesFemmes
+70 ans6,911,14,48,013,216,9
+80 ans3,9  5,83,65,3  8,1  9,9
+90 ans2,3  2,92,72,1  5,2  5,8
+Tableau VI. Espérance de vie selon l’âge chez les sujets déments et en population générale.
+Dartigues.indd   292Dartigues.indd   29223/02/2006   10:54:2423/02/2006   10:54:24
+M/S n° 3, vol. 22, mars 2006
+REVUES
+SYNTHÈSE
+ 293
+agents  antiplaquettaires)  ou  de  sa  prévention  secondaire  (agents  
+antiplaquettaires,  chirurgie  carotidienne).  Certaines  indications  
+tendent  à  montrer  que  le  contrôle  des  facteurs  de  risque  vasculaires  
+(comme  la  fibrillation  auriculaire  [66]  ou  l’hypercholestérolémie  
+[67]) aurait un effet bénéfique sur la cognition.
+À  lésions  «  Alzheimer  »  (plaques  amyloïdes,  dégénérescences  neu-
+rofibrillaires)  équivalentes  dans  le  cerveau,  la  démence  est  plus  
+sévère, ou s’exprime plus vite, chez les patients ayant également des 
+lésions lacunaires (de nature vasculaire) dans le cerveau, même s’ils 
+n’ont jamais présenté d’AVC [68, 69]. Chez les sujets âgés, les lésions 
+dues à la maladie d’Alzheimer sont rarement isolées, des lésions vas-
+culaires étant associées de façon significative chez au moins un tiers 
+des patients [70-72].
+Chez  les  patients  atteints  de  maladie  d’Alzheimer  avérée,  si  la  pré-
+sence de petites lésions vasculaires ne semble pas influencer le déclin 
+cognitif [73-75],  elle  est  associée  à  des  troubles  moteurs  (de  type  
+parkinsonien)  et  de  la  marche  [76,  77],  des  symptômes  psycholo-
+giques  et  comportementaux  (dont  des  symptômes  dépressifs)  [78], 
+et  une  dysautonomie  cardiovasculaire  (hypotension  orthostatique,  
+hypersensibilité vagale) [79].
+Autres facteurs
+Les  facteurs  favorisant  le  maintien  d’activités  cognitives  stimulantes  
+sont  probablement  une  autre  voie  d’action  préventive  possible  :  les  
+personnes  ayant  un  haut  niveau  d’éducation,  de  même  que  celles  
+pratiquant  certaines  activités  de  loisirs  développeraient  en  effet  la  
+maladie plus tardivement [80, 81]. La promotion d’une vie active et de 
+la  pratique  d’activités  après  la  retraite  pourrait  ainsi  aider  à  retarder  
+l’apparition d’une démence.
+De  même,  l’environnement  social  des  personnes  âgées  semble  très  
+important, et les personnes célibataires, ou ayant un faible entourage 
+social,  semblent  plus  à  risque  de  développer  une  démence  [8,  82] ;  là 
+encore, il semble nécessaire de favoriser les contacts sociaux chez les 
+personnes  âgées.  La  dépression  pourrait  aussi  être  un  facteur  favori-
+sant  la  survenue  d’une  démence  [83],  et  une  prise  en  charge  adaptée  
+de  la  dépression,  souvent  négligée  chez  les  personnes  âgées,  pourrait  
+être bénéfique.
+L’alimentation  pourrait  aussi  jouer  un  rôle.  Une  consommation  modé-
+rée de vin, une consommation régulière de poisson, et une consomma-
+tion  suffisante  de  fruits  et  de  légumes  pourraient  être  associées  à  un  
+risque moindre de développer la maladie [84-86] : plusieurs mécanis-
+mes  sous-jacents,  passant  par  des  effets  anti-oxydants,  vasculaires  
+ou  anti-inflammatoires  ont  été  proposés.  Les  bénéfices  observés  ne  
+sont peut-être pas uniquement dus à l’alimentation, mais également à 
+tout ce qui accompagne les repas : choix des aliments, environnement 
+et convivialité des repas. Les recommandations faites dans le cadre du 
+Programme national nutrition santé (PNNS) semblent adaptées égale-
+ment pour la prévention du risque de démence [87].
+Enfin,  trois  études  récentes  ont  mis  en  évidence  que  la  pratique  de  
+la  marche  ou  du  sport  pourrait  être  associée  à  un  risque  moindre  de  
+développer une démence [88-90]. L’activité physique pourrait en effet 
+jouer  un  rôle  par  différents  mécanismes  ;  quel  que  soit  le  mécanisme  
+impliqué (que l’activité physique agisse directement ou 
+en favorisant les contacts sociaux entre les personnes), 
+de  tels  résultats  devraient  inciter  à  conseiller  aux  per-
+sonnes  âgées  la  pratique  d’une  ou  plusieurs  activités  
+physiques adaptées à leur âge.
+Essais thérapeutiques de prévention
+Outre ces pistes de prévention visant à mieux prendre en 
+charge  des  facteurs  de  risque  ou  à  inciter  à  la  pratique  
+d’activités  préventives,  un  effet  préventif  de  certains  
+traitements  a  été  évoqué.  Pour  l’instant,  aucun  essai  
+thérapeutique  n’a  pu  confirmer  l’efficacité  réelle  d’un  
+traitement  préventif,  hormis  le  traitement  de  l’hyper-
+tension  artérielle,  mais  toutes  les  conditions  n’étaient  
+pas réunies pour apporter une réponse définitive.
+Hypolipémiants
+In  vitro,  le  cholestérol  favorise  la  formation  de  
+peptide β-amyloïde [91,  92]  et  accélère  le  déve-
+loppement  de  la  pathologie  amyloïde  chez  l’animal  
+transgénique [93, 94] ; une étude autopsique a aussi 
+montré  un  lien  entre  hypercholestérolémie,  dépôts  
+amyloïdes  et  dégénérescence  neurofibrillaire  [95]. 
+De  plus,  l’hypercholestérolémie  est  associée  à  une  
+augmentation de l’activation de la microglie et à une 
+infiltration  leucocytaire,  comme  on  peut  l’observer  
+dans  les  plaques  amyloïdes.  Cette  activation  micro-
+gliale  contribuerait  à  la  neurodégénérescence  via  la  
+production  de  cytokines  et  de  radicaux  libres  [96]. 
+Les  statines  réduisent  le  niveau  intracellulaire  de  
+cholestérol  et  ont  un  effet  inhibiteur  sur  la  produc-
+tion  de  bêta-amyloïde  dans  les  cultures  cellulaires  
+[97,  98]  ;  elles  ont  également  des  effets  pléiotropes  
+qui  pourraient  ralentir  la  progression  de  la  maladie  
+[99].  Si  certaines  études  d’observation  ont  montré  
+un effet bénéfique des statines sur le déclin cognitif 
+[44-46], deux essais thérapeutiques n’ont pu confir-
+mer  leur  efficacité  pour  la  prévention  des  démences  
+[100,  101]  :  ces  essais  n’ont  pas  mis  en  évidence  
+d’effet  statistiquement  significatif  sur  la  cognition,  
+que ce soit avec la pravastatine ou avec la simvasta-
+tine [100,  101].  Toutefois,  la  cognition  était  analy-
+sée comme critère secondaire dans ces essais.
+Œstrogènes
+Les données épidémiologiques montrent que les femmes 
+ont  un  risque  plus  élevé  de  maladie  d’Alzheimer  que  
+les  hommes  après  l’âge  de  80  ou  85  ans  ;  la  diminution  
+post-ménopausique  des  œstrogènes  endogènes  pour-
+rait  en  partie  expliquer  ce  risque.  Les  œstrogènes  exer-
+ceraient des effets neuroprotecteurs sur le cerveau âgé, 
+Dartigues.indd   293Dartigues.indd   29323/02/2006   10:54:2423/02/2006   10:54:24
+M/S n° 3, vol. 22, mars 2006
+ 294
+notamment via  l’inhibition  de  la  formation  de  peptides  
+bêta-amyloïde [102],  la  stimulation  de  l’activité  cho-
+linergique  et  la  diminution  des  lésions  cellulaires  liées  
+au  stress  oxydatif  [103].  Plusieurs  études  ont  exploré  
+le  rôle  du  traitement  hormonal  substitutif  (THS)  sur  le  
+risque  de  maladie  d’Alzheimer  chez  les  femmes  âgées  ;  
+les  résultats  sont  mitigés  :  une  méta-analyse  incluant  
+10  études  d’observation,  dont  8  études  cas-témoins  et  
+2 études prospectives, a montré que le risque de mala-
+die  d’Alzheimer  chez  les  femmes  ménopausées  ayant  
+été  traitées  par  œstrogènes  était  réduit  de  29  %  par  
+rapport aux femmes qui n’avaient jamais reçu d’œstro-
+gènes [104].  Cependant,  dans  ces  études,  les  femmes  
+sous  THS  pourraient  avoir  un  niveau  d’éducation,  un  
+statut  économique  et  un  accès  aux  soins  médicaux  
+meilleurs  que  les  autres  femmes.  L’étude  prospective  
+Cache  study  montre  que  le  THS  est  surtout  utile  au  
+moment  de  la  ménopause,  au  moment  où  la  déplétion  
+en  œstrogènes  pourrait  avoir  les  conséquences  les  plus  
+importantes  sur  les  neurones  [105].  Deux  autres  étu-
+des  vont  dans  ce  même  sens  d’un  rôle  neuroprotecteur  
+d’autant  plus  efficace  que  le  traitement  est  appliqué  
+longtemps  avant  l’apparition  des  signes  cliniques  de  
+maladie  d’Alzheimer  [106,  107]  ;  les  œstrogènes  ne  se  
+montrent d’ailleurs pas efficaces lorsque la maladie est 
+installée [108-110].
+L’essai  négatif  de  la  Women’s  health  initiative  memory  
+study  (WHIMS)  [111,  112],  réalisée  avec  des  œstrogè-
+nes  équins  non  utilisés  en  France,  n’est  pas  complète-
+ment  concluant  dans  la  mesure  où  les  femmes  ont  été  
+traitées à l’âge de 65 et plus, alors que c’est au moment 
+de  la  ménopause  (chute  brutale  en  œstrogènes)  que  le  
+traitement  serait  le  plus  pertinent  [113]  ;  cette  étude  
+ne  devrait  pas  mettre  un  frein  à  l’exploration  de  cette  
+voie  thérapeutique  [114].  Il  est  également  possible  
+que  le  polymorphisme  génétique  entraîne  une  variation  
+des effets des œstrogènes selon les femmes [115] : il a 
+notamment  été  montré  que  les  traitements  par  œstro-
+gènes  avaient  un  effet  différent  sur  la  cognition  des  
+femmes  selon  qu’elles  étaient  ou  non  porteuses  d’un  
+allèle 
+ε4 de l’apolipoprotéine E [18, 116].
+La génétique, outre son intérêt en recherche fondamen-
+tale, aurait donc un intérêt clinique non seulement dia-
+gnostique, mais aussi, peut-être, dans la détermination 
+des  traitements  ou  des  associations  de  traitements  de  
+prévention les plus favorables, à l’échelon individuel ou 
+à celui d’une population.
+À juste titre, le rapport d’orientation réalisé par l’Anaes 
+(Agence  nationale  d’accréditation  et  d’évaluation  
+en  santé)  sur  ce  sujet  ne  recommande  pas,  à  l'heure  
+actuelle,  la  prise  d’un  traitement  hormonal  substitutif  
+pour la prévention des démences.
+Anti-inflammatoires non stéroïdiens (AINS)
+Les  essais  de  traitement  par  les  AINS,  reposant  sur  l’observation  que  
+les  sujets  ayant  reçu  des  anti-inflammatoires  au  long  cours  avaient  
+moins  de  risque  de  démence  que  les  sujets  n’en  ayant  pas  reçu,  n’ont  
+pas  confirmé  l’efficacité  des  AINS  ;  par  ailleurs,  un  essai  sur  le  sujet  
+(Alzheimer’s  disease  anti-inflammatory  prevention  trial, 
+Adapt)  a  été  interrompu,  en  raison  d’une  augmentation  des  effets  
+secondaires cardiovasculaires dans le groupe des sujets traités.
+Conclusions
+La  maladie  d’Alzheimer  et  les  syndromes  apparentés  concernent  donc  
+aujourd’hui  un  peu  plus  de  855  000  personnes  en  France  métropoli-
+taine,  avec  chaque  année  plus  de  225  000  nouveaux  cas  ;  si  les  choses  
+n’évoluent  pas,  près  de  1  300  000  personnes  devraient  être  atteintes  en  
+2020.  Les  études  de  cohorte  sont  indispensables  pour  suivre  l’évolution  
+de  cette  maladie.  Les  personnes  participant  à  la  cohorte  Paquid  ont  
+maintenant  vieilli  (elles  ont  aujourd’hui  82  ans  et  plus),  ce  qui  rendra  
+impossible le suivi de cette maladie chez les plus jeunes dans les années 
+à venir. Dans un proche avenir, la cohorte des 3 Cités [117], même si elle 
+n’est  pas  représentative  de  la  population  des  personnes  âgées,  devrait  
+pouvoir  fournir  des  indications,  notamment  sur  l’adéquation  entre  l’al-
+location  personnalisée  d’autonomie  (APA)  et  la  démence.  Néanmoins,  il  
+semble  nécessaire  de  se  donner  les  moyens  de  surveiller  cette  maladie  
+à  plus  long  terme,  en  mettant  en  place  et  en  suivant  des  cohortes  de  
+grande envergure, représentatives de la population des personnes âgées. 
+Idéalement,  afin  d’assurer  une  meilleure  représentativité  et  un  meilleur  
+suivi,  ces  cohortes  pourraient  être  développées  à  partir  des  données  de  
+l’Assurance  maladie.  Enfin,  afin  de  tester  l’efficacité  de  stratégies  pré-
+ventives, la mise en place d’essais d’intervention de grande taille, asso-
+ciant des actions sur plusieurs facteurs de risque, semble nécessaire. 
+‡
+SUMMARY
+Epidemiology of Alzheimer disease and related disorders
+Alzheimer’s  disease  and  related  disorders  (dementia)  are  a  major  
+public  health  problem  due  to  the  number  of  cases  in  the  general  
+population,  the  projections  for  the  future,  and  the  consequences  of  
+these diseases. We can estimate that about 850 000 cases of demen-
+tia  were  present  in  France  in  2005  and  this  number  will  increase  to  
+1 200 000 in 2020 and 2 100 000 in 2040 if the incidence and the dura-
+tion of the disease did not change. The development of prevention is 
+therefore  necessary.  Four  ways  of  prevention  are  credible.  The  most  
+important  is  the  treatment  of  vascular  risk  factors  and  particularly  
+hypertension. Other ways are nutritionnal factors, stimulating leisure 
+activities and depression. 
+‡
+RÉFÉRENCES
+ 1.  Hofman A, Rocca WA, Brayne C, et al. The prevalence of dementia in Europe : a collaborative 
+study of 1980-1990 findings. Eurodem prevalence research group. Int J Epidemiol 1991 ; 
+20 : 736-48.
+ 2.  Moise P, Schwarzinger M, Um MY, and the dementia Experts’ Group. Dementia care in 9 OECD 
+countries : a comparative analysis. Paris : Organisation de Coopération et de Développement 
+Économiques (OCDE), 2004.
+Dartigues.indd   294Dartigues.indd   29423/02/2006   10:54:2423/02/2006   10:54:24
+M/S n° 3, vol. 22, mars 2006
+REVUES
+SYNTHÈSE
+ 295
+ 3.  Lobo A, Launer LJ, Fratiglioni L, et al. Prevalence of dementia and major subtypes in Europe : 
+a collaborative study of population-based cohorts. Neurology 2000 ; 54 (suppl 5) : S4-9.
+ 4.  Ramaroson H, Helmer C, Barberger-Gateau P, et al. Prévalence de la démence et de la 
+maladie d’Alzheimer chez les personnes de 75 ans et plus : données réactualisées de la 
+cohorte Paquid. Rev Neurol 2003 ; 159 : 405-11.
+ 5.  Fitzpatrick AL, Kuller LH, Ives DG, et al. Incidence and prevalence of dementia in the 
+Cardiovascular health study. J Am Geriatr Soc 2004 ; 52 : 195-204.
+ 6.  De Ronchi D, Berardi D, Menchetti M, et al. Occurrence of cognitive impairment and dementia 
+after the age of 60 : a population-based study from Northern Italy. Dement Geriatr Cogn 
+Disord 2005 ; 19 : 97-105.
+ 7.  Institut National de la Statistique et des Études Economiques (INSEE). Projections 
+démographiques pour la France, ses régions et ses départements (Horizon 2030/2050). Paris : 
+INSEE Résultats, 2003 : 3-38.
+ 8.  Fratiglioni L, Wang HX, Ericsson K, et al. Influence of social network on occurence of 
+dementia : a community-based longitudinal study. Lancet 2000 ; 355 : 1315-9.
+ 9.  Ravaglia G, Forti P, Maioli F, et al. Incidence and etiology of dementia in a large elderly 
+Italian population. Neurology 2005 ; 64 : 1525-30.
+ 10.  Gilman S, Koller M, Black RS, et al. Clinical effects of Abeta immunization (AN1792) in 
+patients with AD in an interrupted trial. Neurology 2005 ; 64 : 1553-62.
+ 11.  Letenneur L, Dequae L, Jacqmin H, et al. Prévalence de la démence en Gironde (France). Rev 
+Epidemiol Sante Publ 1993 ; 41 : 139-45.
+ 12.  Brookmeyer R, Gray S, Kawas C. Projections of Alzheimer’s disease in the United States and 
+the public health impact of delaying disease onset. Am J Publ Health 1998 ; 88 : 1337-42.
+ 13.  Farrer LA, Cupples LA, Haines JL, et al. Effects of age, sex, and ethnicity on the association 
+between apolipoprotein E genotype and Alzheimer disease. A meta-analysis. APOE and 
+Alzheimer disease meta-analysis consortium. JAMA 1997 ; 278 : 1349-56.
+ 14.  Cumming AM, Robertson F. Polymorphism at the apo E locus in relation to risk of coronary 
+disease. Clin Genet 1984 ; 25 : 310-3.
+ 15.  Agero-Torres H, Fratiglioni L, Guo Z, et al. Mortality from dementia in advanced age : a 5-year 
+follow-up study of incident dementia cases. J Clin Epidemiol 1999 ; 52 : 737-43.
+ 16.  Wolfson C, Wolfson DB, Asgharian M, 
+et al. A reevaluation of the duration of survival after the 
+onset of dementia. N Engl J Med 2001 ; 344 : 1111-6.
+ 17.  Helmer C, Joly P, Letenneur L, et al. Mortality with dementia : results from a French 
+prospective community-based cohort. Am J Epidemiol 2001 ; 154 : 642-8.
+ 18.  Larson EB, Shadlen MF, Wang L, et al. Survival after initial diagnosis of Alzheimer disease. Ann 
+Intern Med 2004 ; 140 : 501-9.
+ 19.  Skoog I, Lernfelt B, Landahl S, et al. 15-year longitudinal study of blood pressure and 
+dementia. Lancet 1996 ; 347 : 1141-5.
+ 20.  Launer LJ, Ross GW, Petrovitch H, et al. Midlife blood pressure and dementia : the Honolulu-
+Asia aging study. Neurobiol Aging 2000 ; 21 : 49-55.
+ 21.  Kivipelto M, Helkala E-L, Laasko MP, et al. Midlife vascular risk factors and Alzheimer’s 
+disease in later life : longitudinal, population based study. Br Med J 2001 ; 322 : 1447-51.
+ 22.  Ott A, Stolk RP, Hofman A, et al. Association of diabetes mellitus and dementia : the 
+Rotterdam study. Diabetologia 1996 ; 39 : 1392-7.
+ 23.  Knopman D, Boland LL, Mosley T, et al. Cardiovascular risk factors and cognitive decline in 
+middle-aged adults. Neurology 2001 ; 56 : 42-8.
+ 24.  Xu WL, Qiu CX, Wahlin A, et al. Diabetes mellitus and risk of dementia in the Kungsholmen 
+project : a 6-year follow-up study. Neurology 2004 ; 63 : 1181-1186.
+ 25.  Graves A, Van Duijn C, Chandra V, et al. Alcohol and tobacco consumption as risk factors for 
+Alzheimer’s disease : a collaborative reanalysis of case-control studies. Eurodem risk factors 
+research group. Int J Epidemiol 1991 ; 20 : 48-57.
+ 26.  Ott A, Slooter AJ, Hofman A, et al. Smoking and risk of dementia and Alzheimer’s disease in a 
+population-based cohort study : the Rotterdam Study. Lancet 1998 ; 351 : 1840-3.
+ 27.  Juan D, Zhou DH, Li J, et al. A 2-year follow-up study of cigarette smoking and risk of 
+dementia. Eur J Neurol 2004 ; 11 : 277-82.
+ 28.  Gustafson D, Rothenberg E, Blennow K, et al. An-18-year follow-up of overweight and risk of 
+Alzheimer disease. Arch Intern Med 2003 ; 163 : 1524-8.
+29.  Tatemichi TK, Paik M, Bagiella E, et al. Risk of dementia after stroke in a hospitalized cohort : 
+results of a longitudinal study. Neurology 1994 ; 44 : 1885-91.
+ 30.  Prencipe M, Ferretti C, Casini AR, et al. Stroke, disability, and dementia : results of a 
+population survey. Stroke 1997 ; 28 : 531-6.
+ 31.  Henon H, Durieu I, Guerouaou D, et al. Poststroke dementia : incidence and relationship to 
+prestroke cognitive decline. Neurology 2001 ; 57 : 1216-22.
+ 32.  Desmond DW, Moroney JT, Sano M, Stern Y. Incidence of dementia after ischemic stroke : results 
+of a longitudinal study. Stroke 2002 ; 33 : 2254-60.
+ 33.  Lowery K, Ballard C, Rodgers H, et al. Cognitive decline in a prospectively studied group of 
+stroke survivors, with a particular emphasis on the > 75’s. Age Ageing 2002 ; 31 (suppl 3) : 24-
+7.
+ 34.  Ivan CS, Seshadri S, Beiser A, et al. Dementia after stroke : the Framingham study. Stroke 
+2004 ; 35 : 1264-8.
+ 35.  Altieri M, Di Piero V, Pasquini M, et al. Delayed poststroke dementia : a 4-year follow-up 
+study. Neurology 2004 ; 62 : 2193-7.
+ 36.  Ott A, Breteler MMB, De Bruyne MC, et al. Atrial fibrillation and dementia 
+in a population-based study. The Rotterdam study. Stroke 1997 ; 
+28 : 316-21.
+ 37.  Hofman A, Ott A, Breteler MMB, et al. Atherosclerosis, apolipoprotein E, 
+and prevalence of dementia and Alzheimer’s disease in the Rotterdam 
+study. Lancet 1997 ; 349 : 151-4.
+ 38.  Kalmijn S, Launer LJ, Lindemans J, et al. Total homocysteine and cognitive 
+decline in a community-based sample of elderly subjects : the Rotterdam 
+Study. Am J Epidemiol 1999 ; 150 : 283-9.
+ 39.  Hogervorst E, Ribeiro HM, Molyneux A, et al. Plasma homocysteine 
+levels, cerebrovascular risk factors, and cerebral white matter changes 
+(leukoaraiosis) in patients with Alzheimer disease. Arch Neurol 2002 ; 
+59 : 787-93.
+ 40.  Guo Z, Fratiglioni L, Zhu L, et al. Occurence and progression of dementia 
+in a community population aged 75 years and older : relationship of 
+antihypertensive medication use. Arch Neurol 1999 ; 56 : 991-6.
+ 41.  Tzourio C, Dufouil C, Ducimetière P, Alpérovitch A. Cognitive decline in 
+individuals with high blood pressure. Neurology 1999 ; 53 : 1948-52.
+ 42.  Richards SS, Emsley CL, Roberts J, et al. The association between vascular 
+risk-factor-mediating medications and cognition an dementia diagnosis 
+in a community-based sample of African-Americans. J Am Geriatr 
+Soc 2000 ; 48 : 1035-41.
+ 43.  in t’ Veld BA, Ruitenberg A, Hofman A, et al. Antihypertensive drugs and 
+incidence of dementia : the Rotterdam study. Neurobiol Aging 2001 ; 
+22 : 407-12.
+ 44.  Jick H, Zornberg GL, Jick SS, et al. Statins and the risk of dementia. 
+Lancet 2000 ; 356 : 1627-31.
+ 45.  Wolozin B, Kellman W, Ruosseau P, et al. Decreased prevalence of 
+Alzheimer disease associated with 3-hydroxy-3-methyglutaryl coenzyme 
+A reductase inhibitors. Arch Neurol 2000 ; 57 : 1439-43.
+ 46.  Yaffe K, Barrett-Connor E, Lin F, Grady D. Serum lipoprotein levels, statin 
+use, and cognitive function in older women. Arch Neurol 2002 ; 59 : 378-84.
+ 47.  Forette F, Seux M-L, Staessen JA, et al. Prevention of dementia in 
+randomised double-blind placebo-controlled systolic hypertension in 
+Europe (Syst-Eur) trial. Lancet 1998 ; 352 : 1347-51.
+ 48.  Forette F, Seux ML, Staessen JA, et al. The prevention of dementia with 
+antihypertensive treatment : new evidence from the systolic hypertension 
+in Europe (Syst-Eur) study. Arch Intern Med 2002 ; 162 : 2046-52.
+ 49.  Tzourio C, Anderson C, Chapman N, et al. Effects of blood pressure 
+lowering with perindopril and indapamide therapy on dementia and 
+cognitive decline in patients with cerebrovascular disease. Arch Intern 
+Med 2003 ; 163 : 1069-75.
+ 50.  Ferrucci L, Guralnik JM, Salive ME, et al. Cognitive impairment and risk of 
+stroke in the older population. J Am Geriatr Soc 1996 ; 44 : 237-41.
+ 51.  Zhu L, Fratiglioni L, Guo Z, et al. Incidence of stroke in relation to 
+cognitive function and dementia in the Kungsholmen project. 
+Neurology 2000 ; 54 : 2103-07.
+ 52.  Helmer C, Joly P, Letenneur L, et al. Mortality with dementia : results from 
+a French prospective community-based cohort. Am J Epidemiol 2001 ; 
+54 : 642-8.
+ 53.  Liebetrau M, Steen B, Skoog I. Stroke in 85-year-olds : prevalence, 
+incidence, risk factors, and relation to mortality and dementia. 
+Stroke 2003 ; 34 : 2617-22.
+ 54.  Henon H, Pasquier F, Durieu I, et al. Preexisting dementia in stroke 
+patients. Baseline frequency, associated factors, and outcome. 
+Stroke 1997 ; 28 : 2429-36.
+ 55.  Barba R, Castro MD, del Mar Morin M, et al. Prestroke dementia. 
+Cerebrovasc Dis 2001 ; 11 : 216-24.
+ 56.  Klimkowicz A, Dziedzic T, Slowik A, Szczudlik A. Incidence of pre- and 
+poststroke dementia : Cracow stroke registry. Dement Geriatr Cogn 
+Disord 2002 ; 14 : 137-40.
+ 57.  Tang WK, Chan SS, Chiu HF, et al. Frequency and determinants of 
+prestroke dementia in a Chinese cohort. J Neurol 2004 ; 251 : 604-8.
+ 58.  Henon H, Lebert F, Durieu I, et al. Confusional state in stroke : relation to 
+preexisting dementia, patient characteristics, and outcome. 
+Stroke 1999 ; 30 : 773-9.
+ 59.  Verdelho A, Hénon H, Lebert F, et al. Depressive symptoms after stroke 
+and relationship with dementia : a three-year follow-up study. 
+Neurology 2004 ; 62 : 905-11.
+ 60.  Cordonnier C, Henon H, Derambure P, et al. Influence of pre-stroke 
+dementia on the risk of post-stroke epileptic seizures. J Neurol Neurosurg 
+Psychiatry 2005 ; 76 : 1649-53.
+Dartigues.indd   295Dartigues.indd   29523/02/2006   10:54:2523/02/2006   10:54:25
+M/S n° 3, vol. 22, mars 2006
+ 296
+ 61.  Heruti RJ, Lusky A, Dankner R, et al. Rehabilitation outcome of elderly 
+patients after a first stroke : effect of cognitive status at admission on 
+the functional outcome. Arch Phys Med Rehabil 2002 ; 83 : 742-9.
+ 62.  Moroney JT, Bagiella E, Tatemichi TK, et al. Dementia after stroke increases 
+the risk of long-term stroke recurrence. Neurology 1997 ; 48 : 1317-25.
+ 63.  Henon H, Durieu I, Lebert F, et al. Influence of prestroke dementia on 
+early and delayed mortality in stroke patients. J Neurol 2003 ; 250 : 10-6.
+ 64.  Henon H, Pasquier F, Durieu I, et al. Medial temporal lobe atrophy in 
+stroke patients : relation to pre-existing dementia. J Neurol Neurosurg 
+Psychiatry 1998 ; 65 : 641-7.
+ 65.  Pohjasvaara T, Mantyla R, Aronen HJ, et al. Clinical and radiological 
+determinants of prestroke cognitive decline in a stroke cohort. J Neurol 
+Neurosurg Psychiatry 1999 ; 67 : 742-8.
+ 66.  Kilander L, Andren B, Nyman H, et al. Atrial fibrillation is an independent 
+determinant of low cognitive function : a cross-sectional study in elderly 
+men. Stroke 1998 ; 29 : 1816-20.
+ 67.  Masse I, Bordet R, Deplanque D, et al. Lipid-lowering agents are 
+associated with a slower cognitive decline in Alzheimer’s disease. 
+J Neurol Neurosurg Psychiatry 2005 ; 76 : 1624-9.
+ 68.  Snowdon DA, Greiner LH, Mortimer JA, et al. Brain infarction and the 
+clinical expression of Alzheimer disease. The Nun study. JAMA 1997 ; 
+277 : 813-7.
+ 69.  Nagy Z, Esiri MM, Jobst KA, et al. The effects of additional pathology on 
+the cognitive deficit in Alzheimer’s disease. J Neuropathol Exp Neurol 
+1997 ; 56 : 165-70.
+ 70.  Kalaria RN, Ballard C. Overlap between pathology of Alzheimer disease 
+and vascular dementia. Alzheimer Dis Assoc Disord 1999 ; 
+13 (suppl 3) : S115-23.
+ 71.  Jellinger KA, Mitter-Ferstl E. The impact of cerebrovascular lesions in Alzheimer 
+disease : a comparative autopsy study. J Neurol 2003 ; 250 : 1050-5.
+ 72.  Fernando MS, Ince PG. Vascular pathologies and cognition in a 
+population-based cohort of elderly people. J Neurol Sci 2004 ; 226 : 13-7.
+ 73.  Bowler JV, Munoz DG, Merskey H, Hachinski V. Factors affecting the age of 
+onset and rate of progression of Alzheimer’s disease. J Neurol Neurosurg 
+Psychiatry 1998 ; 65 : 184-90.
+ 74.
+  Lee JH, Olichney JM, Hansen LA, et al. Small concomitant vascular lesions 
+do not influence rates of cognitive decline in patients with Alzheimer 
+disease. Arch Neurol 2000 ; 57 : 1474-9.
+ 75.  Jellinger KA. Small concomitant cerebrovascular lesions are not 
+important for cognitive decline in severe Alzheimer disease. Arch 
+Neurol 2001 ; 58 : 520-1.
+ 76.  Guo X, Skoog I, Matousek M, et al. A population-based study on motor 
+performance and white matter lesions in older women. J Am Geriatr 
+Soc 2000 ; 48 : 967-70.
+ 77.  Frisoni GB, Geroldi C. Cerebrovascular disease affects noncognitive 
+symptoms in Alzheimer disease. Arch Neurol 2001 ; 58 : 1939-40.
+ 78.  O’Brien J, Ames D, Chiu E, et al. Severe deep white matter lesions and 
+outcome in elderly patients with major depressive disorder : follow-up 
+study. Br Med J 1998 ; 317 : 982-4.
+ 79.  Ballard C, O’Brien J, Barber B, et al. Neurocardiovascular instability, 
+hypotensive episodes, and MRI lesions in neurodegerative dementia. Ann 
+NY Acad Sci 2000 ; 903 : 442-5.
+ 80.  Fabrigoule C, Letenneur L, Dartigues JF, et al. Social and leisure activities 
+and risk of dementia : a prospective longitudinal study. J Am Geriatr 
+Soc 1995 ; 43 : 485-90.
+ 81.  Letenneur L, Gilleron V, Commenges D, et al. Are sex and educational level 
+independent predictors of dementia and Alzheimer’s disease? Incidence 
+data from the PAQUID project. J Neurol Neurosurg Psychiatry 1999 ; 
+66 : 177-83.
+ 82.  Helmer C, Damon D, Letenneur L, et al. Marital status and risk of 
+Alzheimer’s disease : a French population-based cohort study. 
+Neurology 1999 ; 53 : 1953-8.
+ 83.  Jorm AF. Is depression a risk factor for dementia or cognitive decline? 
+A review. Gerontology 2000 ; 46 : 219-27.
+ 84.  Engelhart MJ, Geerlings MI, Ruitenberg A, et al. Dietary intake of 
+antioxidants and risk of Alzheimer disease. JAMA 2002 ; 287 : 3223-9.
+ 85.  Morris MC, Evans DA, Bienias JL, et al. Dietary intake of antioxidant 
+nutrients and the risk of incident Alzheimer disease in a biracial 
+community study. JAMA 2002 ; 287 : 3230-7.
+ 86.  Larrieu S, Letenneur L, Helmer C, et al. Nutritional factors and risk of 
+incident dementia in the PAQUID longitudinal cohort. J Nutr Health 
+Aging 2004 ; 8 : 150-4.
+ 87.  Programme National Nutrition Santé (PNNS). La santé vient en mangeant. Le guide 
+alimentaire pour tous. Paris : INPES, 2002.
+ 88.  Abbott RD, White LR, Ross GW, et al. Walking and dementia in physically capable elderly men. 
+JAMA 2004 ; 292 : 1447-53.
+ 89.  Weuve J, Kang JH, Manson JE, et al. Physical activity, including walking, and cognitive function 
+in older women. JAMA 2004 ; 292 : 1454-61.
+ 90.  Podewils LJ, Guallar E, Kuller LH, et al. Physical activity, APOE genotype, and dementia risk : 
+findings from the Cardiovascular health cognition study. Am J Epidemiol 2005 ; 161 : 639-51.
+ 91.  Bodovitz S, Klein WL. Cholesterol modulates alpha-secretase cleavage of amyloid precursor 
+protein. J Biol Chem 1996 ; 271 : 4436-40.
+ 92.  Frears ER, Stephens DJ, Walters CE, et al. The role of cholesterol in the biosynthesis of beta-
+amyloid. NeuroReport 1999 ; 10 : 1699-705.
+ 93.  Howland DS, Trusko SP, Savage MJ, et al. Modulation of secreted beta-amyloid precursor 
+protein and amyloid beta-peptide in brain by cholesterol. J Biol Chem 1998 ; 273 : 16576-82.
+ 94.  Refolo LM, Malester B, LaFrancois J, et al. Hypercholesterolemia accelerates the Alzheimer’s 
+amyloid pathology in a transgenic mouse model. Neurobiol Dis 2000 ; 7 : 321-31.
+ 95.  Launer LJ, White LR, Petrovitch H, et al. Cholesterol and neuropathologic markers of AD. A 
+population-based autopsy study. Neurology 2001 ; 57 : 1447-52.
+ 96.  Streit WJ, Sparks DL. Activation of microglia in the brains of humans with heart disease and 
+hypercholesterolemic rabbits. J Mol Med 1997 ; 75 : 130-8.
+ 97.  Simons M, Keller P, De Strooper B, et al. Cholesterol depletion inhibits the generation of beta-
+amyloid in hippocampal neurons. Proc Natl Acad Sci USA 1998 ; 95 : 6460-4.
+ 98.  Fassbender K, Simons M, Bergmann C, et al. Simvastatin strongly reduces levels of Alzheimer’s 
+disease beta -amyloid peptides Abeta 42 and Abeta 40 in vitro and in vivo. Proc Natl Acad 
+Sci USA 2001 ; 98 : 5856-61.
+ 99.  Crisby M, Carlson LA, Winblad B. Statins in the prevention and treatment of Alzheimer disease. 
+Alzheimer Dis Assoc Disord 2002 ; 16 : 131-6.
+ 100. Shepherd J, Blauw GJ, Murphy MB, et al. Pravastatin in elderly individuals at risk of vascular 
+disease (PROSPER) : a randomised controlled trial. Lancet 2002 ; 360 : 1623-30.
+ 101. Heart Protection Study Collaborative Group. MRC/BHF Heart Protection Study of cholesterol 
+lowering with simvastatin in 20 536 high-risk individuals : a randomised placebo controlled 
+trial. Lancet 2002 ; 360 : 7-22.
+ 102. Xu H, Gouras GK, Greenfield JP, et al. Estrogen reduces neuronal generation of Alzheimer beta-
+amyloid peptides. Nat Med 1998 ; 4 : 447-51.
+ 103. McEwen BS. Clinical review 108 : the molecular and neuroanatomical basis for estrogen 
+effects in the central nervous system. J Clin Endocrinol Metab 1999 ; 84 : 1790-7.
+ 104. Yaffe K, Sawaya G, Lieberburg I, Grady D. Estrogen therapy in postmenopausal women : effects 
+on cognitive function and dementia. JAMA 1998 ; 279 : 688-95.
+ 105. Zandi PP, Carlson MC, Plassman BL, et al. Hormone replacement therapy and the incidence of 
+Alzheimer disease in older women. The Cache County study. JAMA 2002 ; 288 : 2123-9.
+ 106. Tang MX, Jacobs D, Stern Y, et al. Effect of oestrogen during menopause on risk and age at 
+onset of Alzheimer’s disease. Lancet 1996 ; 348 : 429-32.
+ 107. Kawas C, Resnick S, Morrison A, et al. A prospective study of estrogen replacement therapy 
+and the risk of developing Alzheimer’s disease : the Baltimore longitudinal study of aging. 
+Neurology 1997 ; 48 : 1517-21.
+ 108. Henderson VW, Paganini-Hill A, Miller BL, et al. Estrogen for Alzheimer’s disease in women : 
+randomized, double-blind, placebo-controlled trial. Neurology 2000 ; 54 : 295-301.
+ 109. Mulnard RA, Cotman CW, Kawas C, et al. Estrogen replacement therapy for treatment of mild 
+to moderate Alzheimer’s disease : a 1-year randomized controlled trial. Alzheimer’s disease 
+cooperative study. JAMA 2000 ; 283 : 1007-15.
+ 110. Marder K, Sano M. Estrogen to treat Alzheimer’s disease : too little, too late? So what’s a 
+woman to do? Neurology 2000 ; 54 : 2035-7.
+ 111. Rapp SR, Espeland MA, Shumaker SA, et al. Effect of estrogen plus progestin on global 
+cognitive function in postmenopausal women. JAMA 2003 ; 289 : 2663-72.
+ 112. Shumaker SA, Legault C, Rapp SR, et al. Estrogen plus progestin and the incidence of 
+dementia and mild cognitive impairment in postmenopausal women. The Women’s health 
+initiative memory study : a randomized controlled trial. JAMA 2003 ; 289 : 2651-62.
+ 113. Henderson VW, Benke KS, Green RC, et al. Postmenopausal hormone therapy and Alzheimer’s 
+disease risk : interaction with age. J Neurol Neurosurg Psychiatry 2005 ; 76 : 103-5.
+ 114. Bluming AZ. Hormone replacement therapy : the debate should continue. Geriatrics 2004 ; 
+59 : 30-1, 35-7.
+115. Yaffe K. Hormone therapy and the brain. Déjà vu all over again? JAMA 2003 ; 289 : 2717-9.
+ 116. Burkhardt MS, Foster JK, Laws SM, et al. Oestrogen replacement therapy may improve memory 
+functioning in the absence of APOE epsilon4. J Alzheimer Dis 2004 ; 6 : 221-8.
+ 117. 3C Study Group. Vascular factors and risk of dementia : design of the Three-City study and 
+baseline characteristics of the study population. Neuroepidemiology 2003 ; 22 : 316-25.
+TIRÉS À PART
+J.F. Dartigues
+Dartigues.indd   296Dartigues.indd   29623/02/2006   10:54:2523/02/2006   10:54:25

@@ -53,61 +53,58 @@ const AiReaderService = require('../services/ai-reader.service');
 
 router.post('/:id/synthesis', requireAuth, async (req, res) => {
     const projectId = req.params.id;
+    const nemotronModel = "nemotron-3-ultra-550b"; // Modèle de raisonnement ultime de ta liste
 
-    console.log(`\n🧠 Lancement de la Synthèse Transversale pour le projet #${projectId}...`);
+    console.log(`\n👑 [Nemotron Ultra] Lancement de la Synthèse Transversale pour le projet #${projectId}...`);
 
-    // 1. Récupérer toutes les analyses liées aux articles de ce projet
     const query = `
-        SELECT a.title, aa.synthesis, aa.notes 
+        SELECT a.title, aa.metadata, aa.synthesis, aa.notes 
         FROM articles a
         JOIN article_analysis aa ON a.id = aa.article_id
         WHERE a.project_id = ?
     `;
 
     db.all(query, [projectId], async (err, rows) => {
-        if (err) return res.status(500).json({ error: "Erreur lors de la lecture de la base de données." });
-        
+        if (err) return res.status(500).json({ error: "Erreur BDD" });
         if (!rows || rows.length === 0) {
-            return res.status(400).json({ error: "Aucun article analysé trouvé pour ce projet. Lancez l'Agent Lecteur d'abord." });
+            return res.status(400).json({ error: "Aucun article analysé trouvé. Lancez d'abord l'analyse sur vos articles." });
         }
 
-        console.log(`📚 ${rows.length} articles analysés trouvés. Préparation des données...`);
+        console.log(`📚 Fusion des données de ${rows.length} articles analysés...`);
 
-        // 2. Agréger intelligemment les données pour ne pas saturer la mémoire de l'IA
-        // On ne prend que le titre et la petite synthèse de chaque article.
+        // Agrégation des résumés pour Nemotron
         let aggregatedData = rows.map((row, index) => {
-            return `### Étude ${index + 1} : ${row.title}\n${row.synthesis}\n`;
+            return `### ÉTUDE ${index + 1} : ${row.title}\n${row.synthesis}\n`;
         }).join('\n');
 
-        // Sécurité : si le texte est vraiment gigantesque, on le tronque un peu (ex: 50 000 caractères max)
-        if (aggregatedData.length > 50000) {
-            aggregatedData = aggregatedData.substring(0, 50000) + "\n\n[... Données tronquées pour éviter la surcharge cognitive de l'IA ...]";
+        // Sécurité Context Window
+        if (aggregatedData.length > 60000) {
+            aggregatedData = aggregatedData.substring(0, 60000) + "\n\n[... Données tronquées pour éviter la surcharge du modèle ...]";
         }
 
         try {
-            // 3. Appeler l'IA pour le travail d'écriture
-            const systemPrompt = `Tu es un Directeur de Recherche Scientifique de renommée mondiale. 
-Ton rôle est de lire les résumés d'une multitude d'études sur un même sujet et d'en faire un rapport de synthèse transversal de niveau universitaire (en Markdown).
-Ton rapport doit obligatoirement inclure :
-1. Une Introduction (Le contexte global).
-2. Les Consensus (Ce sur quoi toutes les études sont d'accord).
-3. Les Divergences ou Limites (Les contradictions entre les études ou les manques).
-4. Une Conclusion (Pistes pour les futures recherches).`;
+            const systemPrompt = `Tu es le Directeur de Recherche Scientifique Principal. Ton rôle est de concevoir une méta-analyse et une synthèse transversale de niveau universitaire à partir de résumés d'études.
+Tu dois adopter un ton académique, ultra-critique et analytique. Ton rapport final doit obligatoirement être structuré en Markdown avec les sections suivantes :
+1. 🔬 INTRODUCTION & CONTEXTE GLOBAL
+2. 🤝 CONSENSUS SCIENTIFIQUE (Ce sur quoi la majorité des études s'accordent, avec statistiques agrégées s'il y en a)
+3. ⚔️ DIVERGENCES, CONTRADICTIONS & LIMITES (Mets en évidence les études qui se contredisent au niveau des résultats ou des méthodes, ex: CNN vs ViT)
+4. 🔍 LACUNES DE LA LITTÉRATURE & OPPORTUNITÉS (Identifie ce qui n'a JAMAIS été testé, les populations oubliées ou les angles morts)
+5. 🚀 HYPOTHÈSES DE RECHERCHE FUTURES (Propose de nouvelles pistes innovantes pour le chercheur)`;
 
-            const userPrompt = `Voici les conclusions individuelles de ${rows.length} études scientifiques.\n\n${aggregatedData}\n\nRédige ton rapport de synthèse complet maintenant.`;
+            const userPrompt = `Voici les analyses condensées de ${rows.length} publications scientifiques sur notre thème d'étude.\n\n${aggregatedData}\n\nRédige la synthèse transversale stratégique dès maintenant.`;
 
-            const finalReport = await AiReaderService.askAI(userPrompt, systemPrompt);
+            // Appel à l'arme lourde : Nemotron 3 Ultra
+            const finalReport = await AiReaderService.askAI(userPrompt, systemPrompt, nemotronModel);
 
-            // 4. Sauvegarder la synthèse en base de données (INSERT OR REPLACE met à jour si elle existe déjà)
+            // Sauvegarde dans la base de données
             db.run(
                 `INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, 
                 [projectId, finalReport],
                 (insertErr) => {
-                    if (insertErr) {
-                        console.error("Erreur de sauvegarde de la synthèse:", insertErr);
-                    }
+                    if (insertErr) console.error("Erreur sauvegarde synthèse projet:", insertErr);
+                    
                     res.json({ 
-                        message: "Synthèse générée avec succès !", 
+                        message: "Rapport de synthèse globale rédigé avec succès par l'IA !", 
                         article_count: rows.length,
                         report: finalReport 
                     });
@@ -115,8 +112,8 @@ Ton rapport doit obligatoirement inclure :
             );
 
         } catch (aiError) {
-            console.error("Erreur IA lors de la synthèse :", aiError);
-            res.status(500).json({ error: "L'IA a rencontré un problème lors de la rédaction du rapport." });
+            console.error("Erreur critique d'analyse transversale :", aiError);
+            res.status(500).json({ error: "Nemotron Ultra a rencontré une erreur lors de la génération du rapport." });
         }
     });
 });

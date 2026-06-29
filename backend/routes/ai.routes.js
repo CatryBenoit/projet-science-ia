@@ -1,64 +1,55 @@
 const express = require('express');
+const axios = require('axios');
 const { requireAuth } = require('../middlewares/auth.middleware');
 const router = express.Router();
 
-// Route pour interroger l'API NVIDIA
+// On récupère les variables du fichier .env
+const API_URL = process.env.AI_API_URL;
+const API_KEY = process.env.AI_API_KEY;
+
 router.post('/ask-nvidia', requireAuth, async (req, res) => {
-    const { prompt, modelName } = req.body;
-    const apiKey = process.env.NVIDIA_API_KEY;
-
-    if (!apiKey) return res.status(500).json({ error: "Clé API NVIDIA non configurée." });
-
-    try {
-        // Fetch natif de Node.js (v18+)
-        const response = await fetch('https://integrate.api.nvidia.com/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
-            },
-            body: JSON.stringify({
-                model: modelName || "meta/llama-3.1-8b-instruct",
-                messages: [{ role: "user", content: prompt }],
-                max_tokens: 1000,
-                temperature: 0.7
-            })
-        });
-
-        if (!response.ok) throw new Error(`Erreur NVIDIA: ${response.status}`);
-
-        const data = await response.json();
-        res.json({ reply: data.choices[0].message.content });
-
-    } catch (error) {
-        console.error("Erreur API NVIDIA:", error);
-        return res.status(500).json({ error: "Impossible de contacter l'IA de NVIDIA." });
+    const { prompt, system, model } = req.body;
+    
+    // Sécurité : Vérifie que la clé API est bien configurée
+    if (!API_KEY) {
+        return res.status(500).json({ error: "Clé API manquante dans le fichier .env du serveur." });
     }
-});
-
-// Future route pour interroger Ollama sur ton PC 2 local
-router.post('/ask-ollama', requireAuth, async (req, res) => {
-    const { prompt, modelName } = req.body;
-    const ollamaUrl = process.env.OLLAMA_API_URL;
 
     try {
-        const response = await fetch(`${ollamaUrl}/api/generate`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: modelName || "llama3", // Modèle installé sur ton PC 2
-                prompt: prompt,
-                stream: false
-            })
+        console.log(`🚀 Envoi de la requête au modèle cloud : ${model}...`);
+
+        // Format standard de requête (Compatible NVIDIA NIM, OpenRouter, OpenAI, Groq, etc.)
+        const response = await axios.post(API_URL, {
+            model: model,
+            messages: [
+                { role: "system", "content": system },
+                { role: "user", "content": prompt }
+            ],
+            temperature: 0.1, // Température très basse (0.1) pour forcer l'IA à être factuelle et scientifique !
+            max_tokens: 4000  // On autorise des réponses longues pour la synthèse
+        }, {
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            timeout: 120000 // On laisse 2 minutes à l'IA pour réfléchir (important pour Nemotron)
         });
 
-        if (!response.ok) throw new Error("Le PC IA semble éteint ou Ollama ne tourne pas.");
+        // Extraction de la réponse texte depuis le JSON renvoyé par l'API
+        const aiResponseText = response.data.choices[0].message.content;
         
-        const data = await response.json();
-        res.json({ reply: data.response });
+        // On renvoie la réponse à notre AiReaderService
+        res.json({ response: aiResponseText });
 
     } catch (error) {
-        res.status(500).json({ error: "Impossible de joindre le serveur IA local (Ollama)." });
+        // Gestion propre des erreurs (ex: crédit épuisé, mauvais nom de modèle)
+        const errorMsg = error.response?.data?.error?.message || error.message;
+        console.error(`❌ Erreur API IA [${model}]:`, errorMsg);
+        
+        res.status(500).json({ 
+            error: "Échec de la communication avec l'API IA.",
+            details: errorMsg
+        });
     }
 });
 

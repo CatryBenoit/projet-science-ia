@@ -15,6 +15,8 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
+const AiReaderService = require('./ai-reader.service');
+
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
 
@@ -219,10 +221,10 @@ class ResearchServiceMassive {
     // ══════════════════════════════════════════════════════════════════════════
     // ENTRÉE PUBLIQUE ET BOUCLE MASSIVE
     // ══════════════════════════════════════════════════════════════════════════
-    static async startMassiveResearch(query, amount, projectId) {
+    static async startMassiveResearch(query, amount, projectId, depth = 0) {
         const uniqueArticles = await AggregatorService.searchAndMerge(query, amount);
         if (uniqueArticles.length > 0) {
-            await this.processMassiveDownloads(uniqueArticles, projectId); // On le passe ici
+            await this.processMassiveDownloads(uniqueArticles, projectId, depth); // On passe la profondeur
         } else {
             console.log("Aucun article trouvé.");
         }
@@ -275,11 +277,25 @@ class ResearchServiceMassive {
                     }
 
                     if (textToSave.length > 50) {
+                        // 1. On sauvegarde l'article brut
                         await fs.writeFile(filePath, textToSave, 'utf8');
                         db.run(
                             `INSERT OR IGNORE INTO articles (id, title, published_date, oa_url, local_file_path, project_id) VALUES (?, ?, ?, ?, ?, ?)`,
                             [safeId, article.title, article.published_date, article.oa_url, filePath, projectId]
                         );
+
+                        // 2. AUTOMATISATION : On lance l'analyse IA immédiatement après le téléchargement !
+                        try {
+                            console.log(`  🧠 Lancement de l'analyse IA pour cet article...`);
+                            const analysis = await AiReaderService.analyzeArticle(filePath);
+                            db.run(
+                                `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
+                                [safeId, analysis.meta, analysis.notes, analysis.synthesis]
+                            );
+                            console.log(`  ✅ Analyse IA terminée et sauvegardée.`);
+                        } catch (aiErr) {
+                            console.log(`  🔴 Échec de l'analyse IA automatique : ${aiErr.message}`);
+                        }
                     }
 
                 } catch (err) {
@@ -296,11 +312,89 @@ class ResearchServiceMassive {
         }
 
         console.log(`\n${'═'.repeat(50)}`);
-        console.log(`🏁 Terminé !`);
+        console.log(`🏁 Téléchargements et analyses individuelles terminés !`);
         console.log(`   ✅ Textes intégraux : ${stats.full}`);
-        console.log(`   🟡 Abstracts seuls  : ${stats.abstract}`);
-        console.log(`   🔴 Échecs critiques : ${stats.failed}`);
         console.log(`${'═'.repeat(50)}\n`);
+
+        // 3. AUTOMATISATION : On génère le rapport final, en passant la profondeur actuelle !
+        console.log(`👑 Lancement automatique de la synthèse globale du projet...`);
+        this.generateAutoSynthesis(projectId, depth);
+    }
+
+    static generateAutoSynthesis(projectId, depth = 0) {
+        const query = `
+            SELECT a.title, aa.synthesis 
+            FROM articles a JOIN article_analysis aa ON a.id = aa.article_id 
+            WHERE a.project_id = ?
+        `;
+
+       db.all(query, [projectId], async (err, rows) => {
+            if (err || !rows || rows.length === 0) return console.log("⚠️ Impossible de faire la synthèse.");
+            
+            // 1. On intègre le score de qualité (les étoiles) et le type d'étude dans le texte envoyé à l'IA
+            let aggregatedData = rows.map((r, i) => {
+                let scoreText = "⭐⭐⭐ (Non noté)";
+                let studyType = "Inconnu";
+                try {
+                    const meta = JSON.parse(r.metadata); // On lit le JSON généré par l'Agent Lecteur
+                    if (meta.quality_score) scoreText = '⭐'.repeat(meta.quality_score);
+                    if (meta.study_type) studyType = meta.study_type;
+                } catch(e) {}
+                
+                return `### ÉTUDE ${i + 1} : ${r.title} \n[Type: ${studyType} | Fiabilité: ${scoreText}]\n${r.synthesis}\n`;
+            }).join('\n');
+
+            if (aggregatedData.length > 60000) aggregatedData = aggregatedData.substring(0, 60000) + "\n[... Tronqué ...]";
+
+            try {
+                // 2. On durcit le Prompt du Directeur de Recherche
+                const systemPrompt = `Tu es Directeur de Recherche. Fais une méta-analyse et une synthèse transversale (Markdown) de ces études. 
+Règle Absolue : Tu dois pondérer tes conclusions en fonction de la Fiabilité (les étoiles ⭐) de chaque étude. Les affirmations issues d'études à 4 ou 5 étoiles doivent primer sur celles à 1 ou 2 étoiles en cas de contradiction.
+
+Format attendu: 
+1. 🔬 Contexte Global
+2. ⚖️ Poids des Preuves (Analyse de la qualité globale des études fournies)
+3. 🤝 Consensus Scientifique (Basé principalement sur les études haute fiabilité)
+4. ⚔️ Contradictions
+5. 🔍 Lacunes de la littérature.`;
+                
+                const finalReport = await AiReaderService.askAI(aggregatedData, systemPrompt, "meta/llama-3.1-70b-instruct");
+
+                db.run(`INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, [projectId, finalReport]);
+                console.log(`🎉 MÉGA-SYNTHÈSE TERMINÉE ! Le rapport du projet #${projectId} a été mis à jour.`);
+
+                // ─── LA BOUCLE D'AUTO-INSPIRATION ───
+                const MAX_DEPTH = 5; // 1 = l'IA a le droit de relancer UNE SEULE FOIS une recherche dérivée.
+
+                if (depth < MAX_DEPTH) {
+                    console.log(`\n💡 L'IA réfléchit aux zones d'ombre de sa propre synthèse...`);
+                    const newQueries = await AiReaderService.generateInspirationQueries(finalReport);
+
+                    if (newQueries.length > 0) {
+                        console.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets :`, newQueries);
+
+                        // L'IA lance ses propres recherches de manière asynchrone
+                        for (const query of newQueries) {
+                            console.log(`\n🚀 [Auto-Pilote] L'IA lance une recherche sur : "${query}"`);
+
+                            // On demande à l'Aggregator 3 articles par nouvelle idée (pour ne pas saturer)
+                            const newArticles = await AggregatorService.searchAndMerge(query, 3);
+                            if (newArticles.length > 0) {
+                                // On relance le pipeline avec depth + 1 pour ne pas boucler à l'infini
+                                await this.processMassiveDownloads(newArticles, projectId, depth + 1);
+                            }
+                        }
+                    } else {
+                        console.log(`  🛑 L'IA estime que le sujet est suffisamment couvert.`);
+                    }
+                } else {
+                    console.log(`  🛡️ Arrêt de l'Auto-Inspiration (Limite de profondeur atteinte).`);
+                }
+
+            } catch (err) {
+                console.log(`🔴 Échec de la synthèse ou de l'auto-inspiration : ${err.message}`);
+            }
+        });
     }
 }
 
