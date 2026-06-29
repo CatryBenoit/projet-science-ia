@@ -1,8 +1,130 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Beware of the dog! Septic shock due to Capnocytophaga canimorsus revealed on peripheral blood smear
-DATE: 2019-01-01
-SOURCE: HAL
-URL: https://hal.science/hal-03049697/document
-
-ABSTRACT:
-Aucun résumé disponible.
+Beware of the dog! Septic shock due to Capnocytophaga
+canimorsus revealed on peripheral blood smear
+Florent Gosset, Benoît Sarret, Sébastien Mortreux, Olivier Moquet
+In  Annales de Biologie Clinique 2019/6 Vol. 77 , pages 685 to 686
+Publisher JLE
+ISSN 0003-3898
+DOI 10.1684/abc.2019.1508
+Uploaded: 09/16/2024
+Article available online at
+https://stm.cairn.info/revue-annales-de-biologie-clinique-2019-6-page-685?lang=en
+Discover the contents of this issue, follow the journal by email, subscribe...
+Scan this QR code to access the page for this issue on Cairn.info.
+Electronic distribution Cairn.info for JLE.
+You are authorized to reproduce this article within the limits of the terms of use of Cairn.info or, where applicable, the terms and conditions of the license subscribed to by your
+institution. Details and conditions can be found at cairn.info/copyright.
+Unless otherwise provided by law, the digital use of these resources for educational purposes is subject to authorization by the Publisher or, where applicable, by the collective
+management organization authorized for this purpose. This is particularly the case in France with the CFC, which is the approved organization in this area.
+Journal Identification = ABCArticle Identification = 1508Date: December 3, 2019Time: 3:45 pm
+doi:10.1684/abc.2019.1508
+685
+Pour citer cet article : Gosset F, Sarret B, Mortreux S, Moquet O. Beware of the dog! Septic shock due toCapnocytophaga canimorsusrevealed on peripheral blood smear.
+Ann Biol Clin2019 ; 77(6) : 685-6 doi:10.1684/abc.2019.1508
+Biological pictures
+Ann Biol Clin 2019 ; 77 (6) : 685-6
+Beware of the dog! Septic shock
+due toCapnocytophaga canimorsusrevealed
+on peripheral blood smear
+Attention au chien ! Choc septique àCapnocytophaga canimorsus
+détecté sur le frottis sanguin
+Florent Gosset
+1
+Benoît Sarret
+1
+Sébastien Mortreux
+2
+Olivier Moquet
+1
+1
+Centre de biologie du Nivernais,
+Centre hospitalier de l’agglomération de
+Nevers, Nevers, France
+2
+Service de réanimation polyvalente,
+Centre hospitalier de l’agglomération de
+Nevers, Nevers, France
+Article rec ̧u le 08 juillet 2019,
+accept
+ ́
+e le 06 novembre 2019
+Abstract.A blood smear examination led to the diagnosis of severe bacterial
+infection in a splenectomized patient. The knowledge of a relevant clinical infor-
+mation (recent dog bite) could have led to immediate presumptive identification
+of the causative agent,Capnocytophaga canimorsus.
+Key words:Capnocytophaga canimorsus, thin blood smear, dog bite, asplenia,
+septic shock
+Résumé.L’examen d’un frottis sanguin a permis de détecter rapidement au
+laboratoire une infection bactérienne sévère chez un patient splénectomisé. La
+connaissance d’un renseignement clinique adéquat (morsure de chien récente)
+aurait pu permettre de poser une identification présomptive immédiate de la
+bactérie impliquée,Capnocytophaga canimorsus.
+Mots clés :Capnocytophaga canimorsus, frottis sanguin, morsure de chien,
+asplénie, choc septique
+A 60-year-old man presented to the emergency department
+with fever and diarrhea since 6 hours.
+He  had  a  medical  history  of  splenectomy  for  a  splenic
+abscess.
+Clinical  examination  showed  a  temperature  of  40.7
+◦
+C,
+tachycardia, polypnea and slight wounds on the left hand.
+The patient’s condition rapidly worsened with confusion,
+metabolic acidosis, hypotension partially resistant to cate-
+cholamines and volemic filling.
+He was intubated and transferred to the intensive care unit.
+Initial laboratory investigations were notable for elevated
+CRP (240 mg/L) and PCT (41g/L), neutropenia (1.2 G/L)
+and acute renal failure (creatinine 212mol/L).
+A  May-Grünwald  Giemsa-stained  blood  smear  exam-
+ination   revealed   Howell-Jolly   bodies   in   erythrocytes,
+consistent  with  asplenia,  Döhle  bodies  in  neutrophils,
+and  numerous  extracellular  and  intracellular  thin  bacilli
+(figure 1).
+Cefotaxim was started for 3 days.
+One of 3 aerobic blood cultures turned positive in 17 hours.
+Subculture on chocolate agar incubated in 5% CO
+2
+grew in
+48 hours and led to the identification by MALDI TOF of
+Capnocytophaga canimorsus
+The patient’s wife then reported that he had been bitten by
+a dog one week before.
+Antibiotherapy was switched to amoxicillin-clavulanate for
+7 days and the patient was discharged after 11 days and a
+full recovery.
+Capnocytophaga  canimorsusisanencapsulated,
+capnophilic,    thin,    Gram-negative    bacillus    found    in
+the normal oral flora of dogs and cats [1].
+It has emerged as a leading cause of severe infection after
+dog or cat bites and scratches [2].
+Severe  infections  occur  mainly  in  immunocompromised
+patients (alcoholism, malignancies), especially those with
+asplenia which is a well-known risk factor for infection by
+encapsulated pathogens.
+The definitive diagnosis is based on culture, but may be
+delayed or missed due to fastidious culture and slow growth
+of the bacteria.
+Correspondance :O. Moquet
+<olivier.moquet@ch-nevers.fr>
+JLE| Downloaded on 06/29/2026 from https://stm.cairn.info (IP: 90.48.38.59)
+Journal Identification = ABCArticle Identification = 1508Date: December 3, 2019Time: 3:45 pm
+686Ann Biol Clin, vol. 77, n
+◦
+6, novembre-decembre 2019
+Biological pictures
+Figure 1.Thin blood smear revealing Howell-Jolly bodies in erythrocytes, extracellular and intracellular bacilli (May-Grünwald Giemsa
+stain,×1,000 magnification.
+The blood smear examination can lead to a rapid presump-
+tive diagnosis if a relevant clinical context is communicated
+to the laboratory.
+Conflict of interest :none of the authors has any conflict
+of interest to disclose.
+Références
+1.  Brenner  DJ,  Hollis  DG,  Fanning  GR,  Weaver  RE.Capnocytophaga
+canimorsussp. nov, (formerly CDC group DF-2), a cause of septicemia
+following dog bite, andC. cynodegmisp. nov., a cause of localized wound
+infection following dog bite. J Clin Microbiol1989 ; 27 : 231-5.
+2.  Butler T.Capnocytophaga canimorsus: an emerging cause of sepsis,
+meningitis,  and  post-splenectomy  infection  after  dog  bites. Eur J Clin
+Microbiol Infect Dis2015 ; 34(7) : 1271-80.
+JLE| Downloaded on 06/29/2026 from https://stm.cairn.info (IP: 90.48.38.59)

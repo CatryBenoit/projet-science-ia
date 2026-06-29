@@ -1,0 +1,392 @@
+Bardou 
+et al. BMC Res Notes  (2015) 8:626 
+DOI 10.1186/s13104-015-1615-9
+CASE REPORT
+Meningitis caused by Pasteurella 
+multocida in a dog owner without a dog bite: 
+clonal lineage identification by MALDI-TOF mass 
+spectrometry
+Matthieu Bardou
+1,2
+, Estelle Honnorat
+1,2
+, Gregory Dubourg
+2
+, Carine Couderc
+2
+, Pierre Edouard Fournier
+2
+, 
+Piseth Seng
+1,2*
+  and Andreas Stein
+1,2
+Abstract 
+Background: Pasteurella multocida meningitis in an immunocompetent patient is rare and commonly occurs after 
+animal bite. To our knowledge, only 48 cases have been reported in the literature since 1989. P. multocida meningitis is 
+commonly linked to animal contagion. Here we report on a new case of P. multocida meningitis in an immunocompe-
+tent patient who is a dog owner without a dog bite. We used the matrix-assisted laser desorption/ionization-time of 
+flight (MALDI-TOF) mass spectrometry to investigate the clonal lineage between animal and human isolates.
+Case presentation: In our case, a 25-year-old immunocompetent French Caucasian woman with nothing notable 
+in her medical history was admitted for meningitis caused by P. multocida. Clonal lineage of P. multocida strains from 
+cerebrospinal fluid and blood culture and her dog’s oral cavity has been recognized by MALDI-TOF mass spectrom-
+etry dendrograms and clustering of the 21 P. multocida isolates in our centres. She was treated by a combination of 
+intravenous ceftriaxone (2 g/day) and oral levofloxacin (1 g/day). She was discharged on the 6th day of admission. The 
+antimicrobial therapy was conducted for 15 days. The dog was treated by clavulanic-acid amoxicillin for 3 weeks by 
+the veterinarian. The evolution of the patient at the 5th month after the end of the antimicrobial therapy was normal 
+without any neurological after-effects.
+Conclusion: The meningitis caused by P. multocida could be considered a cause of human meningitis in dog lovers 
+without an animal bite. MALDI-TOF mass spectrometry should be considered as it is an accurate tool to identify clonal 
+lineage between animal and human isolates.
+Keywords: The matrix-assisted laser desorption/ionization-time of flight mass spectrometry, MALDI-TOF, Clonal 
+lineage, Typing, Pasteurella multocida, Meningitis, Infection, Bacteria, Human
+© 2015 Bardou et al. This article is distributed under the terms of the Creative Commons Attribution 4.0 International License 
+(http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, 
+provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, 
+and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/
+publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.
+Background
+Pasteurella  multocida  are  small  Gram-negative  cocco-
+bacilli which appeared to be a common flora in oral cav-
+ity of dogs and cats [1]. Skin and soft tissue infection is a 
+main human pasteurelloses; and P. multocida meningitis 
+in  an  immunocompetent  patient  is  rare  and  commonly  
+occurred after animal bite [2–5].
+Species  identification  of  Pasteurella  in  routine  clinical  
+microbiology  laboratories  is  mainly  based  on  conven
+-
+tion  phenotypic  identification.  The  variation  of  pheno-
+typic characteristic between isolates from different hosts 
+may   results   in   imprecise   species   identification   and   
+needs  molecular  identification  such  as  16S  rRNA  gene  
+sequence analysis in these cases [6]. Matrix-assisted laser 
+desorption/ionization-time of flight (MALDI-TOF) mass 
+spectrometry  has  been  recently  introduced  to  clinical  
+microbiology  laboratories  for  accurate  bacterial  species  
+identification  [7].  Zangenah  et  al.  have  recently  reported  
+Open Access
+*Correspondence:  sengpiseth@yahoo.fr 
+1
+ Service de maladies infectieuses, Hôpital de la conception, Assistance 
+publique-hôpitaux de marseille, 147, Boulevard baille, Marseille, France
+Full list of author information is available at the end of the article
+Page 2 of 5
+Bardou 
+et al. BMC Res Notes  (2015) 8:626 
+an  advantage  of  MALDI-TOF  mass  spectrometry  in  P.   
+multocida   comparing   to   conventional   microbiological   
+methods  and  VITEK
+®
+  2  microbial  identification  system  
+(bioMérieux) [8].
+Here  we  report  on  a  rare  case  of  P.  multocida  menin
+-
+gitis  in  an  immunocompetent  dog  owner  without  a  dog  
+bite. We used MALDI-TOF mass spectrometry to inves
+-
+tigate  the  clonal  lineage  between  animal  and  human  
+isolates.
+Case presentation
+In January 2015, a 25-year-old French Caucasian woman 
+was  admitted  to  the  infectious  disease  department  of  
+the  university  hospital  in  Marseille  for  a  headache,  nasal  
+congestion  and  vomiting.  Prior  to  the  headache,  she  
+had  been  fine  with  nothing  notable  in  her  medical  his
+-
+tory.  She  lives  with  a  dog  and  she  had  not  travelled  to  
+a  tropical  area.  We  did  not  find  any  recent  indication  
+of  an  animal  bite  or  a  skin  wound  in  her  medical  his
+-
+tory.  On  admission,  she  had  a  high  fever  (40.3  °C),  her  
+pulse  was  117  beats/min,  and  her  blood  pressure  was  
+138/41  mmHg.  The  clinical  examination  showed  a  sub
+-
+arachnoid   syndrome   and   frontal-occipital   headache.   
+Laboratory  investigations  revealed  an  elevation  of  the  
+C-reactive  protein  level  (275  mg/L;  normal  <  5  mg/L),  
+an  elevation  of  the  plasmatic  fibrinogen  level  (6.82  g/L;  
+normal values = 1.8–4 g/L), an elevated leukocyte count 
+(13,000/μL),  predominantly  neutrophil  granulocytes,  a  
+low  lymphocyte  level  (430  μL;  normal =  1500–4000  μL) 
+involving  T  cells,  although  B  and  NK  cells,  a  normal  
+haemoglobin concentration (14.8 g/dL), and a low plate
+-
+let  count  (148 ×  10
+3
+/μL;  normal =  150–400 ×  10
+3
+/μL). 
+Cerebrospinal  fluid  sample  (CSF)  analysis  revealed  an  
+elevated  protein  level  of  2  g/dL,  a  low  glucose  level  of  
+74  mg/dL  (plasmatic  glucose  level =  189  mg/dL)  and  a  
+WBC  count  of  1200  cells/mm
+3
+  with  90  %  neutrophils.  
+CSF  cultures  and  blood  cultures  revealed  positive  for  P.   
+multocida as identified by MALDI-TOF mass spectrom
+-
+etry.  Laboratory  tests  including  complement  and  immu-
+noglobulin analysis did not find immunodeficiency.
+She  was  treated  by  an  empirical  intravenous  antimi
+-
+crobial  therapy  with  a  combination  of  cefotaxime  (4  g/
+day),  amoxicillin  (12  g/day)  and  acyclovir  (2  g/day),  the  
+antimicrobial  therapy  was  modified  for  a  combination  
+of  intravenous  ceftriaxone  (2  g/day)  and  oral  levofloxa
+-
+cin  (1  g/day).  The  patient  improved  rapidly  with  a  dis-
+appearance  of  the  subarachnoid  syndrome  at  2  days  of  
+treatment  but  the  fever  persisted.  A  cerebral  magnetic  
+resonance imaging (MRI) did not reveal any abnormality 
+and she became afebrile only on the 4th day of antibiotic 
+01002003004005006007008009001000
+Distance Level
+Our case - Cerebrospinal fluid sample
+Wound Patient 1
+Our patient’s Dog
+Our case – Blood culture
+Wound Patient 2
+Wound Patient 3
+Wound Patient 4
+Blood culture Patient 5
+Wound patient 6
+Wound patient 7
+Wound patient 8
+Wound patient 9
+Wound patient  10
+Wound patient  11
+Sputum patient  12
+Wound patient  13
+Sputum patient  14
+Pleural effusion patient  15
+Wound patient 16
+Wound patient 17
+Wound patient 18
+Main Spectrum Projection Dendrogram
+Fig. 1 The matrix-assisted laser desorption/ionization-time of flight mass spectrometry mass spectrometry dendrograms and clustering of P. multo-
+cida isolated from CSF and blood culture of our patients and P. multocida isolates in our centres
+Page 3 of 5
+Bardou 
+et al. BMC Res Notes  (2015) 8:626 
+F6-Q150242141 0:F6 MS, BaselineSubtracted
+0
+2000
+4000
+6000
+Intens. [a.u.]
+20004000600080001000012000140001600018000
+m/z
+H9-Q150242201 0:H9 MS, BaselineSubtracted
+0
+2000
+4000
+6000
+8000
+Intens. [a.u.]
+20004000600080001000012000140001600018000
+m/z
+D9-Q150246579 0:D9 MS Raw
+0
+1000
+2000
+3000
+Intens. [a.u.]
+20004000600080001000012000140001600018000
+m/z
+a
+b
+c
+Fig. 2 The matrix-assisted laser desorption/ionization-time of flight mass spectrometry mass spectra obtain from colonies isolated from: a the 
+patient’s blood culture, b the patient’s cerebrospinal fluid sample (CSF), c the patient’s dog oral cavity
+Page 4 of 5
+Bardou 
+et al. BMC Res Notes  (2015) 8:626 
+treatment. She was discharged on the 6th day of admis-
+sion.   The   antimicrobial   therapy   was   conducted   for   
+15 days. The evolution at the 5th month after the end of 
+the  antimicrobial  therapy  was  normal  without  any  neu
+-
+rological after-effects.
+Bacterial  cultures  in  the  oral  cavity  of  her  dog  tested  
+positive   for   P.   multocida,   which   displayed   the   same   
+antibiotic  susceptibility  pattern  than  isolates  from  the  
+patient’s  blood  and  CSF.  In  addition,  main  spectrum  
+projection  (MSP)  enabled  to  group  the  three  strains  
+in  a  same  cluster  as  defined  by  an  arbitrary  distance  
+level  <300,  indicating  they  were  closely  related  (Figs. 1, 
+2). The dog was treated by clavulanic-acid amoxicillin for 
+3 weeks by the veterinarian.
+Discussion
+We  herein  report  a  new  case  of  meningitis  caused  by  P.   
+multocida  in  a  young  immunocompetent  patient  who  
+was  probably  infected  by  her  dog  without  a  dog  bite.  In  
+the literature, the main risk factor for P. multocida men
+-
+ingitis  is  an  animal  contact,  which  has  been  reported  in  
+84  %  of  cases  [2].  To  our  knowledge,  only  48  adult  cases  
+of  meningitis  caused  by  P.  multocida  in  immunocompe
+-
+tent  and  immunodeficiency  patients  have  been  reported  
+[2–5]. Only nine cases of neurological complications have 
+been  reported  including  epidural  empyema,  cerebrals  
+abscess, convulsion, cognitive deficit, paralysis, acute dis
+-
+seminated   encephalomyelitis   and   meningoencephalitis   
+[2–5, 9]. According to previous studies, risk factors for P.   
+multocida  meningitis  include  age  >55  years  old  [2]  and  
+alcoholism [9].
+In  26  %  of  cases  a  medical  past-history  of  recent  neu
+-
+rosurgical surgery was found [2]. In our case, the patient 
+had  no  apparent  immunodeficiency  factors  and  no  neu
+-
+rological  surgery.  She  was  discharged  and  cured  after  
+15  days  of  antibiotic  treatment  with  ceftriaxone  2  g/
+day  and  levofloxacin  1  g/day.  In  the  literature,  antibiotic  
+treatment  with  intravenous  betalactamin  with  median  
+duration of 21 days (range: 10–27 days) has been usually 
+reported [2]. Nevertheless, ten of the 48 reported cases of 
+P. multocida meningitis died.
+Human  pasteurellosis  is  not  frequent.  Some  cases  of  
+human  pasteurellosis  have  occurred  in  animal  lovers  by  
+kissing  pets  [10, 11]  and  pigs  [5].  However  the  carriage  
+rate of P. multocida in an animal’s oral cavity is high (12–
+75 %) [1]. Pulsed field gel electrophoresis (PFGE) by using 
+2-D gel electrophoresis and molecular analysis have long 
+been considered as the gold standard for clonal analysis. 
+These methods have been used in the studies of 117 por
+-
+cine and human isolates of P. multocida [12], and 23 field 
+and  vaccine  strains  [13].  In  the  last  decades,  MALDI-
+TOF  mass  spectrometry  identification  become  a  routine  
+method  in  clinical  laboratories  [7].  In  some  condition,  
+this  technique  has  been  used  to  identify  clonal  line
+-
+age  bacteria  in  previous  studies  [7, 14–16].  In  our  case,  
+the P.  multocida  strains  of  the  patient  and  her  dog  were  
+revealed  to  be  closely  related  as  identified  MALDI-TOF  
+mass spectrometry.
+Conclusion
+The  meningitis  caused  by  P.  multocida  could  be  con-
+sidered  a  rare  cause  of  human  meningitis  that  can  be  
+occurred  in  immunocompetent  patient  without  an  ani
+-
+mal  bites  or  scratches.  In  the  alternative  of  molecular  
+identification, MALDI-TOF mass spectrometry is a rapid 
+and  accurate  identification  method  of  P.  multocida  iso
+-
+lates. The clonal lineage characterization between animal 
+and  human  isolates  in  our  study  was  possible  using  rou
+-
+tine MALDI-TOF mass spectrometry.
+Consent
+This  study  was  approved  by  the  institutional  research  
+ethics  board  (Comite  de  Protection  des  Personnes  Sud  
+Méditerranée   1),   and   written   informed   consent   was   
+obtained  from  the  patient  for  publication  of  this  case  
+report  and  any  accompanying  images.  Written  informed  
+consent  was  obtained  from  the  patient  to  take  samples  
+from her dog.
+Abbreviations
+P. multocida: Pasteurella multocida; MALDI-TOF mass spectrometry: the matrix-
+assisted laser desorption/ionization-time of flight mass spectrometry; CSF: 
+cerebrospinal fluid sample; PFGE: pulsed field gel electrophoresis; MSP: main 
+spectrum projection; NK cells: natural killer cells.
+Authors’ contributions
+MB: clinical data collection and has been involved in drafting the manuscript. 
+EH has been involved in drafting the manuscript, clinical data verification, 
+manuscript revising. GD: microbiological data collection, dendrograms crea-
+tion, manuscript revising. CC: MALDI-TOF spectra analysis, manuscript revising. 
+PEF: microbiological data verification, manuscript revising. PS has made 
+substantial contributions to study conception and design, clinical data veri-
+fication, discussion section, manuscript revising. AS: clinical data verification, 
+discussion section, final approval of the version to be published. All authors 
+read and approved the final manuscript.
+Author details
+1
+ Service de maladies infectieuses, Hôpital de la conception, Assistance 
+publique-hôpitaux de marseille, 147, Boulevard baille, Marseille, France. 
+2
+ Aix-
+Marseille Université, URMITE, UM 63, CNRS 7278-IRD 198, INSERM 1095, Faculté 
+de Médecine, 27 Bd Jean Moulin, 13385 Marseille, France. 
+Acknowledgements
+The authors thank Catherine Peruffo for her assistance in acquisition of data. 
+The authors obtained permission from Catherine Peruffo to acknowledge.
+Competing interests
+The authors declare that they have no competing interests.
+Funding
+The authors have no relevant affiliations or involvement with any organiza-
+tion or entity with a financial interest or conflict with the subject matter or 
+materials discussed in the manuscript. No writing assistance was utilized in 
+the production of this manuscript.
+Page 5 of 5
+Bardou 
+et al. BMC Res Notes  (2015) 8:626 
+Received: 6 August 2015   Accepted: 21 October 2015
+References
+ 1. Griego RD, Rosen T, Orengo IF, Wolf JE. Dog, cat, and human bites: a 
+review. J Am Acad Dermatol. 1995;33:1019–29.
+ 2. Grillon A, Guillard T, Brasme L, Limelette A, Novella J-L, de Champs 
+C. Méningite mortelle à Pasteurella multocida. Médecine Mal Infect. 
+2012;42:374–5.
+ 3. Foguem C. Rare case of catastrophic diffuse hemorrhage complicating 
+sepsis and meningitis due to Pasteurella stomatis in an elderly woman 
+mimicking hemorrhagic septicemia. J Am Med Dir Assoc. 2014;15:527–8.
+ 4. Nguefack S, Moifo B, Chiabi A, Mah E, Bogne J-B, Fossi M, Fru F, Mbonda 
+E, Djientcheu V-P. Méningite à Pasteurella multocida compliquée d’abcès 
+cérébral. Arch Pédiatrie. 2014;21:306–8.
+ 5. López C, Sanchez-Rubio P, Betrán A, Terré R. Pasteurella multocida bacterial 
+meningitis caused by contact with pigs. Braz J Microbiol. 2013;44:473–4.
+ 6. De Melo Oliveira MG, Abels S, Zbinden R, Bloemberg GV, Zbinden A. 
+Accurate identification of fastidious Gram-negative rods: integration of 
+both conventional phenotypic methods and 16S rRNA gene analysis. 
+BMC Microbiol. 2013;13:162.
+ 7. Seng P, Rolain J-M, Fournier PE, La Scola B, Drancourt M, Raoult D. MALDI-
+TOF-mass spectrometry applications in clinical microbiology. Future 
+Microbiol. 2010;5:1733–54.
+ 8. Zangenah S, Güleryüz G, Boräng S, Ullberg M, Bergman P, Ozenci V. 
+Identification of clinical Pasteurella isolates by MALDI-TOF—a comparison 
+with VITEK 2 and conventional microbiological methods. Diagn Microbiol 
+Infect Dis. 2013;77:96–8.
+ 9. Kawashima S, Matsukawa N, Ueki Y, Hattori M, Ojika K. Pasteurella multo-
+cida meningitis caused by kissing animals: a case report and review of 
+the literature. J Neurol. 2010;257:653–4.
+ 10. Rhodes  M. Pasturella multocida meningitis in a dog lover (or don’t kiss 
+pets!). J R Soc Med. 1986;79:747–8.
+ 11. Arashima Y, Kumasaka K, Okuyama K, Kawabata M, Tsuchiya T, Kawano K, 
+Asano R, Hokari S. Clinicobacteriological study of Pasteurella multocida as 
+a zoonosis (1). Condition of dog and cat carriers of Pasteurella, and the 
+influence for human carrier rate by kiss with the pets. Kansenshōgaku 
+Zasshi J Jpn Assoc Infect Dis. 1992;66:221–4.
+ 12. Marois C, Fablet C, Gaillot O, Morvan H, Madec F, Kobisch M. Molecular 
+diversity of porcine and human isolates of Pasteurella multocida. J Appl 
+Microbiol. 2009;107:1830–6.
+ 13. Moustafa AM, Bennett MD, Edwards J, Azim K, Mesaik MA, Choudhary MI, 
+Pathanasophon P, Worarach A, Ali Q, Abubakar M, Anjum R. Molecular 
+typing of haemorrhagic septicaemia-associated Pasteurella multocida 
+isolates from Pakistan and Thailand using multilocus sequence typing 
+and pulsed-field gel electrophoresis. Res Vet Sci. 2013;95:986–90.
+ 14. Clark CG, Kruczkiewicz P, Guan C, McCorrister SJ, Chong P, Wylie J, van 
+Caeseele P, Tabor HA, Snarr P, Gilmour MW, Taboada EN, Westmacott GR. 
+Evaluation of MALDI-TOF mass spectroscopy methods for determination 
+of Escherichia coli pathotypes. J Microbiol Methods. 2013;94:180–91.
+ 15. Berrazeg M, Diene SM, Drissi M, Kempf M, Richet H, Landraud L, Rolain 
+J-M. Biotyping of multidrug-resistant klebsiella pneumoniae clini-
+cal isolates from France and Algeria using MALDI-TOF MS. PLoS One. 
+2013;8:e61428.
+ 16. Khennouchi NCEH, Loucif L, Boutefnouchet N, Allag H, Rolain J-M. 
+MALDI-TOF MS as a tool to detect a nosocomial outbreak of extended-
+spectrum-β-Lactamase- and ArmA methyltransferase-producing entero-
+bacter cloacae clinical isolates in Algeria. Antimicrob Agents Chemother. 
+2015;59:6477–83.
+Submit your next manuscript to BioMed Central
+and take full advantage of: 
+• Convenient online submission
+• Thorough peer review
+• No space constraints or color figure charges
+• Immediate publication on acceptance
+• Inclusion in PubMed, CAS, Scopus and Google Scholar
+• Research which is freely available for redistribution
+Submit your manuscript at 
+www.biomedcentral.com/submit

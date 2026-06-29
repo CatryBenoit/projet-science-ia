@@ -10,6 +10,7 @@ const adminRoutes = require('./routes/admin.routes');
 const aiRoutes = require('./routes/ai.routes');
 const researchRoutes = require('./routes/research.routes');
 const projectRoutes = require('./routes/project.routes');
+const logsRoutes = require('./routes/logs.routes'); // <-- AJOUTE CECI
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -43,6 +44,7 @@ app.use('/api/ai', aiRoutes);
 app.use('/api/research', researchRoutes);
 app.use('/api/library', libraryRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/logs', logsRoutes);
 
 
 // --- LANCEMENT DU SERVEUR ---

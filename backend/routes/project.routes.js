@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../config/db');
 const { requireAuth } = require('../middlewares/auth.middleware');
 const router = express.Router();
+const Logger = require('../services/logger.service');
 
 // 1. CRÉER un nouveau projet
 router.post('/', requireAuth, (req, res) => {
@@ -55,7 +56,7 @@ router.post('/:id/synthesis', requireAuth, async (req, res) => {
     const projectId = req.params.id;
     const nemotronModel = "nemotron-3-ultra-550b"; // Modèle de raisonnement ultime de ta liste
 
-    console.log(`\n👑 [Nemotron Ultra] Lancement de la Synthèse Transversale pour le projet #${projectId}...`);
+    Logger.log(`\n👑 [Nemotron Ultra] Lancement de la Synthèse Transversale pour le projet #${projectId}...`);
 
     const query = `
         SELECT a.title, aa.metadata, aa.synthesis, aa.notes 
@@ -70,7 +71,7 @@ router.post('/:id/synthesis', requireAuth, async (req, res) => {
             return res.status(400).json({ error: "Aucun article analysé trouvé. Lancez d'abord l'analyse sur vos articles." });
         }
 
-        console.log(`📚 Fusion des données de ${rows.length} articles analysés...`);
+        Logger.log(`📚 Fusion des données de ${rows.length} articles analysés...`);
 
         // Agrégation des résumés pour Nemotron
         let aggregatedData = rows.map((row, index) => {

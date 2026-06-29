@@ -1,8 +1,937 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Large scale dog population demography, dog management and bite risk factors analysis: A crucial step towards rabies control in Cambodia
-DATE: 2021-01-01
-SOURCE: HAL
-URL: https://hal.inrae.fr/hal-03326490/document
-
-ABSTRACT:
-Aucun résumé disponible.
+RESEARCHARTICLE
+Largescaledogpopulationdemography,dog
+managementandbiteriskfactorsanalysis:A
+crucialsteptowardsrabiescontrolin
+Cambodia
+Ve
+ ́
+roniqueChevalier
+ID
+1,2,3
+*,   HollDavun
+4
+, SopheakSorn
+3
+, PitouLy
+3,5
+, VuthaPov
+3
+,
+SowathLy
+3
+1InternationalCenterof Research in AgricultureforDevelopment(CIRAD),UMRASTRE,Montpellier,
+France,2ASTRE,Universityof Montpellier,CIRAD,INRA,PhnomPenh,Cambodia,3EpidemiologyUnit,
+InstitutPasteurduCambodge,PhnomPenh,Cambodia,4GeneralDirectorateof AnimalHealthand
+Production,Ministryof Agriculture,ForestryandFisheries, PhnomPenh,Cambodia,5RoyalUniversityof
+Agriculture,PhnomPenh,Cambodia
+*veronique.chevalier@cirad.fr
+Abstract
+Cambodiais a rabid-endemic country.However,dataondogpopulationcharacteristicsare
+lacking,andthereis nonationaldogvaccinationprogram.Weimplementedthefirstexten-
+sivedoor-to-doorlongitudinalsurveyin 2 Cambodianprovinces,namelyKandalandBat-
+tambang,to estimatedogpopulationdemographicparameters,identifydogownership
+determinants,analyzedogmanagementpracticesandestimatetheyearlycumulativebite
+incidenceandassociatedfactors.Duringthefirstsession,morethan5000dogswere
+recordedandidentified.Dataonfamilies,dogsandcatscharacteristics, aswellasthenum-
+berof bitesexperiencedtheyearbeforein thefamily,wererecorded.Oneyearlater,a sec-
+ondsessionwasperformedin bothprovincesto recordmissingdogsandthereasonsfor
+missing.Age-specificsurvivalratesof thedogpopulations werecomputedusingKaplan-
+Meierestimates.Ownershipdeterminantsandbiteriskfactorswereidentifiedusinga nega-
+tivebinomialregressionmodel.Dogtradeanddogmeatconsumptionwereoftenreported.
+Weestimatedhighdog-to-humanratios(1:3.8in Kandal,and1:3.3in Battambang). The
+meanageof dogpopulations was26.4monthsin Kandalagainst24.3in Battambang,witha
+survivalrateof 52%at 24monthsin Kandal(34%onlyin Battambang).Theywerenoferal
+dogs,butthelargemajorityof recordeddogswerefreeroaming.In bothprovinces,thenum-
+berof dogssignificantlyincreasedin familieswithchildrenyoungerthan15,andwhenthe
+headof thefamilywasa male.Theestimatedyearlycumulativebiteincidenceswere2.3
+and3.1%in KandalandBattambangprovincesrespectively,andareamongthehighestin
+theworld.Oursurveyprovidesvaluabledatato focusinformationprograms,parametrize
+transmissionmodelsandidentifyefficientvaccinationstrategiesto controlrabiesin Cambo-
+diain thefuture.
+PLOS ONE
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20211 / 18
+a1111111111
+a1111111111
+a1111111111
+a1111111111
+a1111111111
+OPENACCESS
+Citation:ChevalierV, DavunH, SornS, Ly P, Pov
+V, Ly S (2021)Largescaledog population
+demography, dog management and bite risk
+factorsanalysis: A crucialstep towardsrabies
+controlin Cambodia. PLoSONE 16(7):e0254192.
+https://doi.org/10.1371/journal.pone.0254192
+Editor:SiyanYi, NationalUniversityof Singapore,
+SINGAPORE
+Received:April 5, 2021
+Accepted:June21, 2021
+Published:July 8, 2021
+Copyright:©2021Chevalieret al. This is an open
+accessarticledistributedunderthe termsof the
+CreativeCommonsAttributionLicense,which
+permitsunrestricted use, distribution, and
+reproductionin any medium,providedthe original
+authorand sourceare credited.
+DataAvailability Statement:All relevantdata are
+withinthe paperand its Supporting information
+files.
+Funding:The author(s)receivedno specific
+fundingfor this work.
+Competinginterests:The authorshave declared
+that no competinginterestsexist.
+Introduction
+Everyyear,therearemorethan50,000humandeathsgloballyduetorabies.Rabiesis a zoo-
+noticviraldiseasecausedbya virusinthefamilyRhabdoviridae.It is a fearedanddreadeddis-
+ease:onceclinicalsignsappeared,theissueis almost100%fatal.Rabiesvirusis transmitted
+frominfectioustosusceptibledogsbybite,andthevastmajorityofhumandeathsworldwide
+aretheresultofbitesfromrabiddogs[1].MostdeathsoccurinAsia[1–4].Rabiesis alsoa vac-
+cine-preventabledisease.Indeed,andsincedogsarethemainreservoirandsourceofinfection
+forhumans,vaccinationofdogsis recognizedasthemostcost-effectiveandpermanentsolu-
+tiontorabiesprevention[5].Rabiescontrolis feasiblebecausethebasicreproductionnumber
+(R0),theaveragenumberofsecondaryinfectionsproducedbyaninfectedindividual–dogsin
+thiscase,ina fullysusceptiblepopulationis generallylow,andtheoreticalandempirical
+researchhasdemonstratedthatrabiescanbeeliminatedwhere70%coverageis sustained
+[6,7].Numerousrecentprogramshavefacilitatedrabiescontrolinlowormid-resourceset-
+tings.However,reachingandmaintainingthisvaccinationcoveragecanbechallengingin
+thesecountries.Indeed,dogpopulationturnoveris a criticalfactor.Vaccinationcoverage
+declinesasvaccinatedanimalsdieandsusceptiblepuppiesareborn,ornewunvaccinatedani-
+malsarebroughtintothepopulation.Inareaswheredoglifeexpectancyis short,thefastdog
+populationturnoveracceleratesvaccinationcoveragedecline[8].Comprehensivenessofvacci-
+nationcampaignsis anothercriticalpoint.A highproportionsoffreeroamingdogs,orowned
+butaggressivedogsmayresultina substantialfractionofunvaccinateddogs[9].Theseunvac-
+cinateddogsmaycreateviruspersistencepocketsandjeopardizecontrolefforts.Vaccination
+campaignsshould,therefore,seektoachievenotjusthighcoverage,buthomogeneouslyhigh
+coverage[10].Dogsareman’scommensal:theirlifeexpectancyandtheiraccessibilityare
+stronglylinkedwithdog/humaninteractions,andthewayhumantakecareofthem,ornot.
+Tosettleadaptedandefficientdogvaccinationstrategiesthatguaranteesufficientandsus-
+tainedvaccinationcoverageindomesticdogpopulations,anin-depthknowledgeofthe
+dogpopulationsaswellasanunderstandingoftherelationshipsdogshavewithhumanis cru-
+cial[11].
+Cambodiais a rabid-endemiccountry.Thefirstreportofrabiesandvaccinationindogs
+hasbeenpublishedin1936,andmentionsa highfrequencyofrabiescasesincarnivoresand
+ruminantsintheKepprovince[12].Nowadays,thereis noofficialreportingofrabieshuman
+cases,butthelastnumberofestimateddeathswas810peryearin2007[13].WithIndiawhere
+theestimatedincidencewas2–3casesper100,000,thiswasamongthehighestpublishedfig-
+uresinAsia[14].However,dataondogpopulationcharacteristicsarelacking,andthereis no
+nationaldogvaccinationplaninCambodia.Theonlycontroltoolexistingforbittenpeopleis
+thePost-Exposure-Prophylaxis(PEP),providedbyfivenon-privateentities:InstitutPasteur
+duCambodge(IPC)vaccinationcentersinPhnomPenh,BattambangandKampongCham,
+AngkorHospitalforChildren(AHC)inSiemReapandNationalInstitutesofPublicHealth
+(NIPH)clinicinPhnomPenh.Someprivateclinicsalsoproviderabiesvaccinethroughoutthe
+country.However,availability,quality,andcostofPEPattheseprivateclinicsremainlargely
+unknown[15].
+Thepresentsurveyis a contributiontothedevelopmentofrabiescontrolstrategiesindogs
+inCambodia.Thegoalswere(i)toprovideupdatedknowledgeasprerequisitetodesigna dog
+vaccinationstrategyadaptedtotheCambodiancontext,i.e.tocharacterizedogpopulationsof
+2 Cambodianprovinces,namelyKandalandBattambang,tomeasuredemographicparame-
+tersofthestudieddogpopulations,toidentifydogownershipdeterminantsandanalyzedog
+managementpractices,and(ii)toestimatebiteincidenceandassociatedfactorstobetteradapt
+andfocusinformationandpreventionactions.
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20212 / 18
+Methodology
+Studyareas
+Twocontrastedprovinces,KandalandBattambang,werepurposivelyselectedtoimplement
+oursurvey.Kandalprovinceis surroundingPhnomPenh,thecapitalofCambodia,and
+encompassing11districts.Coveringa 3,179km
+2
+surfacearea,thisprovinceconsistsofa typical
+plainwetarea,dominatedbycultivatedfieldsanda mosaicofruralandperi-urbanareas.
+Humandensityis 376hab/km
+2
+. Mostpeopleoftheprovincearebeingemployedingarment
+andfootwearfactories,orhandicrafts.Transportationinfrastructuresarewelldevelopedand
+theprovinceis consideredasa centralbaseforbusinessandtradeinCambodia[16].Inthis
+province,theKsachKandaldistrictwasrandomlychosenamongthe11existingdistricts.
+Then,inthisdistrict,10villageswereconvenientlychosenaccordingtotheirestimatednum-
+berofhouseholds(givenlogisticalandfinancialconstraints,weestimatedthata totalnumber
+ofhouseholds<300wouldallowa comprehensivedoor-to-doorsurveysurvey)andtheir
+accessibility.Thesevillageswereclosetoeachotherandlocatedinanareadominatedbyrice
+fields.Thesecondselectedprovince,Battambang,is thefifthlargestprovinceofCambodiaand
+is locatedinthefarnorthwestofthecountry.It is mainlya ruralarea,witha surfaceof11702
+km
+2
+anda humandensityof84hab/km
+2
+[16].In2017,InstitutPasteurduCambodge(IPC),
+supportedbytheMinistryofHealth,theMinistryofAgriculture,ForestryandFisheries,and
+theMinistryofEducation,YouthandSportsofCambodiaaswellastheOccitanieRegion
+(France),andincollaborationwiththeInternationalCenterofResearchinAgronomyfor
+Development(CIRAD),launcheda programtohelpcontrollingrabiesinthisprovince.Banan
+districtwasrandomlychosenamongthe13existingdistricts.Assumingthatthedog-to-
+humanratioandthemanagementpracticesmaydependontheenvironmentandsomedevel-
+opmentmetrics,werandomlyselected2 communeswithinthedistrict:theBanancommune,
+a peri-urbanarealocatedattheclosevicinityofBattambangcity,andtheSnoengcommune,a
+ruralarealocated20kmfromBattambang.Then5 villageswererandomlychosenineachcom-
+mune(Fig1).
+Ineachvillage,a preliminarymissionwasconductedtomeettheheadsofthevillages,
+explainthegoalsandthemethodologyofthesurvey.Werecordedthenumberofhouseholds,
+thepopulationsizebasedonthechiefknowledgeorofficialcensus,anda mapofthestructure
+ofeachvillage.A verbalconsentwasobtainedfromeachheadofallvillagesincludedinthe
+survey.
+Censusandinterviews
+InMarch2017inKandalandFebruary2018inBattambang,a firstdoor-to-doorvisitwascon-
+ductedineachselectedvillage(S1).Duringthesevisits,headsofhouseholdsandindividuals
+bittenbydogsorcatswhentheywerepresent,wereinterviewedbytrainedinterviewers.Before
+eachinterview,goalsandmethodologyofthesurveywerepresentedagainanda verbalconsent
+wasobtainedfromeachinterviewee.Threestandardizedquestionnaireswereused,onefor
+headsofhouseholds,onefortheanimalidentificationandfollow-upandoneforinjuredper-
+sonsandif any(S1Questionnaires).TheinterviewswereadministeredinCambodianlan-
+guage.Inadditiontothefamilycharacteristicsdata(ageandsexofthefamilyhead,number
+andageofchildren,occupation),thefollowingdatawererecorded:numberofdogsandcats,
+age,sex,andoriginofdogs(gift,purchased,adopted,found).Regardingtopuppies,theman-
+agementofunwantedpuppies(culled,abandon,gift,orraised)aswellasthepreferredgender
+werenoticed.Thefunctionofdogsinthefamily—familymember,dogmeattrade,house
+guardingorhunting,andthemodeofconfinement–keptona leash,orfreeroaming,were
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20213 / 18
+noticed.Lastly,peoplewereaskedwhethertheyusetoconsumedogmeat.Eachdogandcat
+wasvaccinatedagainstrabieswith1 doseofRabisin
+1
+vaccineandindividuallyidentifiedwith
+2 or3 pictureswiththeowneranddisplayofIDcodes.Thenumberofbiteeventsthat
+occurredinthepreviousyearwasrecorded.InBattambang,thebitingspeciesandwhether
+thisanimalbelongedtothefamilyornotwasalsorecorded.A secondsession(S2)wasper-
+formedinbothprovincesoneyearlater,inMarch2018and2019respectively.Duringthissec-
+ondsession,thesameprotocolwasappliedwitha specificfocusonmissingdogsandthe
+reasonsformissing.Eachhouseholdwasvisitedagain.Ownerswereaskedtorecognizeand
+identifyeachofthedogshe/sheownsusingpicturestakentheyearbefore(S1).Eachdog
+alreadyrecordedduringS1wasrecordedagainif seenbytheinterviewteamordeclaredalive
+bytheownerbutnotvisibleduringthevisit.Eachmissingdogwasidentifiedandthereason
+formissingdetailedbytheowner.Dataweresubsequentlyanonymized.
+Statisticalanalysis
+Householdsandanimalpopulationgeneralcharacteristics,dogdemographicparame-
+ters.Chi-squaretestswereusedtocomparehuman-to-dogratiosandproportionsoffemales
+betweenvillagesorzones.
+Ineachprovince,cumulativeagedistribution,meanandmedianageswerecomputedfor
+theglobalstudiedpopulations,aswellasforeachvillageandforeachzone,i.e.ruralvsperi-
+Fig1.Localizationofthestudysites,KandalandBattambang provinces, Cambodia 2017–2018.
+https://doi.org/10.1371/journal.pone.0254192.g001
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20214 / 18
+urbaninBattambang,usingthefitdistripluspackageofR 3.6.0software[17].Weusedthe
+Welchtesttocompareeachvillage-specificagemeantothemeanofthestudiedpopulationin
+Kandal,andthemeanagesoftheruralandtheperi-urbandogpopulationinBattambang.
+Accordingtoowners,missingdogsinS2diedfromillness,accident,weresold,givenordisap-
+pearedwithoutanyidentifiedreason.Chi-squaretestswereusedtoassesswhetherthepropor-
+tionofmissingmalesandfemales,andthepercentageofmissingdogsdifferedbetween
+villagesorzones(Battambangonly).Inbothprovinces,thesurvivalcurvesandage-specific
+survivalratesofthestudiedpopulationswerecomputedirrespectiveofmissingreasons,using
+Kaplan-Meierestimates[18].R survivalpackagewasusedforstatisticalanalyses[17].Thelog-
+ranktestwasusedtoassessanydifferenceofsurvivalratebetweensex,village,andruraland
+peri-urbanzonesinBattambangonly.
+Dogownership.Totakeintoaccountoverdispersion,ownershipfactorswereanalyzed
+usingnegativebinomialregressionmodel,withthenumberofdogsperfamilyasmodelout-
+come,thenumberofchildrenyoungerthan15yrsoldperfamily,thesexandageofthefamily’s
+head—ageoftheheadofthefamilywascategorizedin6 classes,i.e.<30yrs,30–40,40–50,50–
+60,60–70,>70,theoccurrenceofatleastonebiteeventinthefamilyinthepreviousyear,and
+thevillageaspotentialexplanatoryvariables.Occupationoftheheadofthefamilyandthe
+zonewasaddedasanadditionalpotentialpredictorinBattambang.Foreachprovince,the
+bestmodelwasselectedusinga forward/backwardprocedureusingAkaikeInformationCrite-
+rion(AIC)[19].
+Biteriskfactors.Theriskfactorsofbiteeventswereidentifiedusinga negativebinomial
+generalizedlinearmodel,withthenumberofbiteeventsperfamilyduringthepastyearasout-
+come.Potentialexplanatoryvariableswerethesexandtheageoftheheadofthefamily,the
+numberofchildren<15yrs,thenumberofdogs,thenumberofcats,orofpets(dogsand/or
+cats)if any,andthevillage.Thebestmodelswereselectedwitha forward/backwardprocedure
+usingAIC[19].
+Ethicalstatement
+Duringthisstudy,wefollowedtheWorldAnimalHealthOrganization(OIE)guidingprinci-
+plesonanimalwelfareincludedintheOIETerrestrialAnimalHealthCode(https://www.oie.
+int/en/what-we-do/standards/codes-and-manuals/terrestrial-code-online-access/).Theproto-
+colofthesurveyhasbeenapprovedbytheGeneralDirectionofAnimalProductionand
+HealthGDAPH)fromofMinistryofAgriculture,ForestryandFisheries(MAFF).Allinter-
+viewswereimplementedbytrainedIPC’sofficerswiththesupervisionofGDAPHagents,
+localveterinaryservicesandlocalvillageauthorities.Alldatawereanonymized.
+Results
+Householdsandanimalpopulationgeneralcharacteristics
+Noneofthesecommunitieshadbeenengagedinanydogpopulationmanagementinterven-
+tionsbylocalauthoritiesoranimalwelfareorganizations.Furthermoreandaccordingto
+ownerdeclarations,noneoftherecordeddogsorcatsinKandalandBattambangwerevacci-
+natedorneutredwhenstartingthesurvey.RecordeddataareprovidedinS1Datasets.
+InKandal,1723over1908ofthedeclaredhouseholds,i.e.a householdparticipationrateof
+90.1%(95%CI89–92),andrepresenting8404individuals,wereincorporatedinthesurvey.
+Meanageoftherespondentpopulationwas46.8yrs(sd= 14.7).Generalinformationondog
+andcatpopulationsareprovidedinS1.1Table.Asa whole,2205dogswereidentifiedinKan-
+dal,with1001malesfor1204females.Theproportionoffemales,rangingfrom34%to61%,
+differedsignificantlybetweenvillages(p-value<10
+−5
+). Theglobalestimateddog-to-human
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20215 / 18
+ratiowas1:3.8withlargevariationsbetweenvillages(1:2.9to1:12.6).Fourhundredfortycats
+wererecorded,witha globalcat-to-humanratioof1:19.1,rangingfrom1:16.2to1.35.4,anda
+cat-to-dogratioof1:5.0.A largeproportionofrecordeddogsandcats—92.2%and87.5%
+respectively,couldbevaccinatedagainstrabiesduringS1.
+InBattambang,2082families,representing71.8%ofthedeclaredfamiliesand9797persons,
+wereinterviewed.Meanageoftherespondentpopulationwas47.7(sd= 14.9).Generalinfor-
+mationondogandcatpopulationsareprovidedinS1.2Table.Asa whole,3010dogswere
+recorded,fromwhich1431werefemales(female-to-maleratio:1:1.1).Theproportionof
+femalesdifferedbetweenvillages(p-value= 0.03).Theestimateddog-to-humanratiowas
+1:3.3,rangingfrom1:2.4to1:6.2invillages(p-value<10
+−10
+). Highestratioswereobservedin
+theruralvillages.Onethousandfortythreecatswererecorded,witha globalcat-to-human
+ratioof1:9.4rangingfrom1:6.9to1:11.9anda globalcat-to-dogratioof1:2.9.Seventyseven
+percentofidentifieddogs(2315/3010)and73%(765/1043)ofrecordedcatswerevaccinated
+againstrabiesduringS1.
+Demographicparameters
+InKandal,20dogswithmissingagesinS1werediscardedfromthedatasetusedforageanaly-
+ses.Amongthe2185dogsincludedintheanalyses,1194werefemales(54.6%).Cumulative
+distributioncurvesofdog’sagesofKandalandBattambangprovincesareprovidedinFig2.
+TheKandalstudieddogpopulationwasyoung,withanestimatedmeanageof26.4months
+(sd= 30.6),a medianageof12months,anddogagesrangingfrom1 to180months.Theesti-
+matedmeanandmedianageswere26.8(sd= 28.8)and17.5forthefemalepopulationand26
+(sd= 32.6),and12forthemalepopulationrespectively.Cumulativedistributionsofdog’sages
+ofeachvillageareprovidedinS1Fig.Village-specificage’smeansrangedfrom18.3to39.8
+months.DogpopulationsofTaKoatLech,TaKoatKaeut,PreakThmeiandChheuTealand
+ina lesserextentCheyTouchandSwaySomietweresignificantlyyoungerthantheglobalone
+(W-testp-value<10
+−3
+) (S1.3Table).
+Fig2.Cumulativedistributioncurvesofdog’sagesofKandalandBattambang provinces, Cambodia 2017–2018.
+https://doi.org/10.1371/journal.pone.0254192.g002
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20216 / 18
+EachhouseholdvisitedduringS1wasvisitedagainduringS2.Amongthe2185dogs
+recordedduringS1andincorporatedinthesurvivalanalysis,1013(46.3%;95%CI44.2–48.3)
+werestillalive,presentduringthevisitandcouldbeformallyidentifiedagain.Therewasnot
+significantdifferencebetweenmissingmales(537/1172)andfemales(635/1172)proportions
+(p= 0.7)(S1.4Table).Percentagesofmissingdogssignificantlydifferedbetweenvillages,rang-
+ingfrom34.8to80.1%(p<10
+−5
+). AmongdogsidentifiedinS1,557(47.5%;95%CI44.6–50.4)
+diedofillness,205(17.5%;95%CI15.4–19.8)weresold,209(17.8%;95%CI15.7–20.2)disap-
+peared,64(5.5%;95%CI4.3–7.0)wereculled,67(5.7%;95%CI4.5–7.2)weregiven,and70
+(6.0%;95%CI4.7–7.5)diedfromroadaccident.AccordingtotheKaplan-Meierestimates,the
+survivalrateoftheKandalsurveypopulationat12monthswas62%,52%at24months,46%at
+36months,and41%at48months(S1.5Table).Theglobalsurvivalratewasequivalentinboth
+sexes(log-ranktestp-value= 0.31;Fig3),butdifferentbetweenvillages(log-ranktestp-
+value= 10
+−4
+; Fig4).Accordingtotheseestimates,thevillage-specificsurvivalratesranged
+from43to79%at12months,from34to71%at24months,24to61%at48monthsand19to
+53%at72months.
+SimilarlytoKandal,thestudieddogpopulationofBattambangwasyoung,withanesti-
+matedagemeanof24.3months(sd= 29.4),a medianageof12months,anddog’sagesranging
+from2 weeksto204months(Fig2).Themeanandmedianageswere23.4(sd= 28.5)and12
+forthefemalepopulationand25.4(sd= 30.2),and12forthemalepopulationrespectively.
+Cumulativedistributionsofdog’sagesoftheruralandperi-urbanzonesareprovidedinS2
+Fig.Onaverage,theruralpopulation(n= 2146;meanage= 22.8months)wassignificantly
+younger(p-value<10
+−4
+) thantheperi-urbanpopulation(n= 864;meanage= 27.8months).
+DuringS2,overthe2082familiesinitiallyinterviewed,646couldnotbevisitedduetologis-
+ticalconstraintsorreluctanceofownerstoparticipateagaintothesurvey.Among3010dogs
+identifiedduringS1,1673dogscouldthusbeincorporatedinthesurvivalanalysis.Among
+Fig3.Survivalprobabilitycurvesofdogspersex,inKandal(left)andBattambang(right)provinces,Cambodia2017–2018.
+https://doi.org/10.1371/journal.pone.0254192.g003
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20217 / 18
+these1673dogsidentifiedduringS1,1169(69.9%;95%CI67.6–72.1)werestillalive,present
+duringtheinterviewandcouldbeformallyre-identifiedduringS2.Amongmissingdogs,265
+weremales,239werefemales.Theproportionofmissingdogsrangedfrom18.7to38.2%and
+significantlydifferedbetweenvillages(p= 2.10
+−3
+) (S1.4Table).Threehundredandeighteen
+missingdogs(63.1%;95%CI58.7–67.3)diedfromdisease,50(9.9%;95%CI7.5–12.9)were
+sold,49(9.7%;95%CI7.3–12.7)wereadopted,39(7.7%;95%CI5.6–10.4)disappeared,31
+(6.2%;95%CI4.3–8.7)diedfromroadaccident,17(3.4%;95%CI2.0–5.3)wereculled.Accord-
+ingtotheKaplan-Meierestimates,thesurvivalrateoftheBattambangdogpopulationat12
+monthswas57%,34%at24months,22%at36months,and17%at48months(S1.5Table).
+Thesurvivalrateofthewholestudiedpopulationwashigherformales(log-ranktestp-
+value= 0.01;Fig3),andsignificantlydifferedbetweenvillages(p<10
+−4
+; Fig4);thesurvival
+rateoftheruralpopulationwaslowerthanfortheperi-urbanone(log-ranktest:p-
+value= 0.01).Age-specificsurvivalrateswerealsolowerinBattambangthaninKandal,with
+73%vs76%inKandalat6 months,then57%vs62%at12months,34%vs52%at24months,
+22%vs46%at36monthsand17%vs41%at48months(S1.5Table).
+Dogownership.InKandal,overthe1723familiesinterviewedduringS1,1017(59%;95%
+CI56.7–61.4)declaredowningatleast1 dog.Themeannumberofdogsperfamilywas1.3
+(sd= 1.6),and2.2(sd= 1.5)forfamilieshavingatleast1 dog.Themaximumnumberofdogs
+perfamilywas14(S1.6Table).Thebestregressionmodelincorporatedthenumberofchildren
+youngerthan15yrs,thesexandageofthefamily’shead,theoccurrenceofatleastonebite
+eventduringthepreviousyearandthevillageasexplanatoryvariables.Accordingtothis
+model(Table1),familiesweremorepronetoowndogswhentheheadofthefamilywasa
+male(p<10
+−3
+). Headoffamiliesbetween50and60yearsoldhadmoredogsthanyounger
+people(p= 0.03).Thenumberofdogsperfamilysignificantlyincreasedwiththenumberof
+Fig4.Survivalprobabilitycurvesofdogspervillages,inKandal(left)andBattambang(right)provinces,Cambodia2017–2018.
+https://doi.org/10.1371/journal.pone.0254192.g004
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20218 / 18
+childrenyoungerthan15yrs(p<10
+−10
+), butdecreasedwhenbiteeventsoccurredinthefamily
+duringthepreviousyear(p<10
+−10
+). Ownershipdifferedbetweenvillages,witha smallernum-
+berofdogsperfamilyinCheyLoas,SvayRomiet,PreakTaBaenandSlavillages,comparedto
+TaKoatKaeut.
+InBattambang,1260offamilies(60.5%)declaredowningatleast1 dog(S1.7Table(a,b)).
+Themeannumberofdogsperfamilyofthewholestudiedpopulationwas1.4(sd= 1.8),and
+2.4(sd= 1.7)forfamilieshavingatleast1 dog.Themaximumnumberofdogswas8 inthe
+peri-urbanzoneagainst14intheruralzone.Thebestmodelincorporatedtheageofthe
+owner,his/hersex,thevillageandthenumberofchildrenyoungerthan15yrs.Accordingto
+thismodel,andsimilarlytoKandal,thenumberofdogsperfamilyincreasedwiththenumber
+ofchildren<15yrs(p= 4.10
+−3
+), whentheheadofthefamilywasa male(p<10
+−5
+), andfor
+ownersbeingbetween40and60yrsold(p= 2.10
+−4
+and3.10
+−4
+). ComparedtoAnnachit,
+locatedintheperi-urbanzone,thenumberofdogsperfamilyincreasedinBoengPrey
+(p<10
+−5
+), PreahSre(p<10
+−5
+), RumChey(p= 0.02)andSnoengKeut(p= 3.10
+−3
+), alllocated
+intheruralzone(Table2).Neitherowner’soccupationnorthezoneortheoccurrenceofbite
+eventsinthepreviousyearinfluencedthedogownership.
+Dogmanagement
+ResultsareprovidedinS1.8Table.Thefunctionofdogsinthefamilysignificantlydiffered
+betweenKandalandBattambang(p<10
+−5
+). Themajorityoffamilies,78.1%(95%CI75.4–80.6)
+Table1.DogownershipdeterminantsinKandalprovince:Resultsofthenegative binomial regressionmodelwiththenumberofdogsperfamilyasmodeloutcome,
+thenumberofchildrenyoungerthan15yrs,thesexandageofthefamily’shead,occurrenceofatleastonebiteeventduringthepreviousyearandthevillageas
+explanatoryvariable.
+EstimateIncidencerateratio(CI2.5%-97.5%)p-value
+Intercept0.01521.02(0.80–1.28)0.90
+Sexfemalerefrefref
+male0.17291.19(1.07–1.32)<10
+−3
+Age<30yrsrefrefref
+30–40-0.02700.97(0.80–1.19)0.79
+40–500.15371.17(0.95–1.43)0.14
+50–600.23011.26(1.03–1.55)0.03
+60–700.200771.22(0.98–1.53)0.07
+>700.098261.10(0.85–1.43)0.46
+VillageTaKoatLechrefrefref
+TaKoatKaeut0.02251.02(0.83–1.27)0.84
+CheyTouch-0.08420.92(0.74–1.15)0.46
+CheyLoas-0.31750.73(0.56–0.95)0.02
+PreakThmei0.02801.03(0.83–1.27)0.80
+SvayRomiet-0.60630.54(0.42–0.71)<10
+−5
+ChheuTeal0.25351.29(0.97–1.70)0.07
+PreakTaBaen-0.68580.50(0.39–0.65)<10
+−6
+Kandal0.192881.21(0.96–1.54)0.11
+Sla-1.46880.23(0.16–0.33)<10
+−10
+Nbofchildren<15y0.13541.15(1.09–1.20)<10
+−10
+Biteevent0refrefref
+1-0.78320.46(0.36–0.57)<10
+−10
+2-1.23660.296.10
+−3
+https://doi.org/10.1371/journal.pone.0254192.t001
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 20219 / 18
+inKandaland98.1%(95%CI97.2–98.8)inBattambang,raiseddogstoprotectthehouse.
+However,20.4%offamiliesinKandal(95%CI17.9–23.0)considereddogsas“familymember”,
+against1.4%(95%CI0.9–2.3)onlyinBattambang.Inbothprovinces,a lowpercentageoffami-
+liesdeclaredraisingdogsforbusinessand/ordogmeattrade:1.4%(95%CI0.8–2.3)inKandal
+and0.2%(95%CI0.06–0.80)inBattambang.However,datacollectedduringthissurveyclearly
+showedthatdogtradeexists:inKandal,79.2%(95%CI77.2–81.2)ofthe1723interviewedfam-
+ilies,and27.5%(95%CI24.8–30.4)offamilieshavingdogs,declaredsellingand/orbuying
+dogs.InBattambang,only18.2%(95%CI16.1–20.4)offamilieswithdogsdeclaredtrading
+dogs,against13.4%(95%CI14.0–17.5)oftheoverallnumberofinterviewedfamilies.Only2
+families,inbothKandalandBattambanguseddogsforhunting.
+Accordingtoourdata,dogmeatconsumptionwasmorefrequentinBattambangthanin
+Kandal(p<10
+−10
+): 58.6%(95%CI56.4–60.8)ofallinterviewedfamilies,and64.4%(95%CI
+61.7–67.1)offamilieshavingdogsinBattambangdeclaredconsumingdogmeatfromtimeto
+time,against23.4%(95%CI21.5–25.5)oftheKandalstudiedpopulation,and28.7%(95%CI
+25.8–31.4)offamilieshavingdogs.Consumeddogsbelongtothefamilyorarepurchased
+fromeithertradersorrestaurants.
+Themajorityofdogswerefree-roaminginbothprovinces:only6 families(0.6%;95%CI
+0.24–1.30)usedtoconfinetheirdogsinKandaland13inBattambang(1%;95%CI0.60–1.80).
+Mostoffamilies,i.e98.3%(CI95%97.3–99.0)and99.5%(CI95%98.9–99.8)inKandaland
+Battambangrespectively,usedtokeeppuppiesandraisethem.Otherfamiliesusetogivethem
+toneighborsortofamilymembers.Remainingfamiliesdeclaredselling,cullingorabandoning
+theunwantedpuppies.Ourresultsshoweda clearpreferenceformalesinBattambangcom-
+paredtoKandal(p-value<10
+−6
+). Regardingtodog’sorigins,43.8%(95%CI41.7–45.9)and
+50.2%ofrecordeddogsduringS1(95%CI48.4–52.1)inKandalandBattambangrespectively
+Table2.DogownershipdeterminantsinBattambang province:Resultsofthenegativebinomialregressionmodelwiththenumberofdogsperfamilyasmodelout-
+come,thenumberofchildrenyoungerthan15yrsold,thesexandageofthefamily’sheadandthevillageasexplanatoryvariable.
+EstimateIncidencerateratio(CI2.5%-97.5%)p-value
+Intercept-0.22400.80(0.63–1.01)0.06
+Sexfemalerefrefref
+male0.25341.29(1.16–1.43)<10–5
+Age<30yrsrefrefref
+30–400.120.13(0.94–1.36)0.18
+40–500.33961.40(0.16–1.70)3.10
+−4
+50–600.33531.40(1.17–1.68)2.10
+−4
+60–700.12871.31(0.93–1.39)0.21
+>700.061.07(0.84–1.35)0.58
+VillageAnnaChitrefrefref
+BoengPrey0.49061.63(1.33–2.10)<10
+−5
+ChheuTeal-0.399340.67(0.52–1.12)3.10
+−3
+KampangLech-0.231820.79(0.56–1.12)0.2
+Khna0.01991.02(0.79–1.32)0.8
+PreahSre0.52451.70(1.34–2.13)<10
+−5
+RumChey0.26941.31(1.04–1.65)0.02
+SnoengKeut0.32641.39(1.12–1.72)3.10
+−3
+SnoengLech-0.1890.83(0.64–1.08)0.1
+SvayPrakeab0.14721.16(0.90–1.50)0.26
+Number ofchildren<15yrs0.05961.06(1.02–1.11)5.10
+3
+https://doi.org/10.1371/journal.pone.0254192.t002
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202110/ 18
+wereborninthefamily;30.7%(95%CI28.8–32.7)weregiveninKandaland45.2%(95%CI
+43.4–47.0)inBattambang.Arounda quarter(23%;95%CI21.3–24.9)ofrecordeddogswere
+purchasedinKandalagainstonly1.4%(95%CI0.9–1.8)inBattambang.A verylowfractionof
+recordeddogswerefound,i.e2.4%and3.2%inKandalandBattambangrespectively.
+Biteincidenceandriskfactors.InKandal,196biteeventsthatoccurredintheprevious
+yearwererecordedfor8404peopleincludedinthesurvey,i.e.a yearlybiteincidenceof2,3%
+(CI95%2.0–2.7).Fourteenfamiliesdeclared2 biteevents.58.7%ofbitesoccurredinfamilies
+withoutdogs.YearlybiteincidenceestimationspervillageareprovidedinS1.1Table.Strong
+differencesareobservedbetweenvillages,withbiteincidencerangingfrom0.9to4.2%.This
+resultis confirmedbythebeststatisticalmodelwhichincorporatesthenumberofchildren
+<15yrsinthefamily,thevillageandthenumberofanimals(dogorcats)ownedbyfamilies.
+Accordingtothismodel,thenumberofbiteeventsrecordedperfamilyandperyearsignifi-
+cantlyincreasedwiththenumberofyoungchildren(p<10
+−4
+). Asexpected,thenumberofani-
+malsownedbyfamilieshasnoeffectontheyearlybiteincidence(Table3).
+InBattambang,304biteeventsweredeclaredfor9797peopleincludedinthesurvey,i.e.a
+yearlybiteincidenceof3.1%(CI95%2.8–3.5).Thirtytwofamiliesdeclared2 biteevents,and4
+families3 bitesevents.Eightyfourbites(27.6%;CI95%22.7–33.1)werecausedbycats,183
+(60.2%;CI95%54.5–65.7)byanimalsthatdidnotbelongtothefamily(162dogs,21cats),and
+121(39.8%;CI95%34.3–45.6)biteswererecordedinfamilieswithoutdogs.Thevillage-spe-
+cificincidenceraterangedfrom2.2to4.9%(S1.2Table).Accordingtothebestmodelthat
+incorporatesthenumberofchildrenyoungerthan15yrs,thenumberofcatsperfamilyand
+thevillage,familiesowningcatsexperiencedmorebiteeventsduringtheyear(p= 4.10
+−4
+). The
+numberofbiteeventsalsoincreasedwiththenumberofchildrenyoungerthan15yrs
+(p<10
+−5
+). Theriskofbeingbitten,atthefamilylevel,wasalsolinkedtothevillage:familiesliv-
+inginBoengPreyappearedlessatriskthanothervillages,andinparticularcomparedtoAnna
+Chit,thereferencevillage(Table4).
+Discussion
+Cambodiais a rabid-endemiccountry,witha highestimatedyearlyburdenonhumanhealth
+[13].However,datadocumentingthedogpopulationcharacteristics,aswellasthehuman/dog
+Table3.Identification ofbiteriskfactorsontheinterviewedpopulation(n= 8404)inKandalprovince:Resultsofthenegative binomialgeneralizedlinearmodel
+withthenumberofbiteeventsperfamilyandperyearasoutput,andthevillage,thenumberofchildren<15yrsinthefamilyandthenumberofanimals(dogand/
+orcat)ownedbythefamilyasexplanatoryvariables.
+EstimateOR(CI2.5%-97.5%)p value
+Intercept-2.080.13(0.08–0.18)<10
+−10
+Numberofowneddogand/orcats0.061.06(0.98–1.14)0.12
+VillageTaKoatLechRefrefref
+TaKoatKaeut0.011.01(0.64–1.63)0.96
+CheyTouch-0.390.67(0.40–1.14)0.14
+CheyLoas-1.440.23(0.09–0.54)10
+−3
+PreakThmei-0.750.47(0.28–0.80)5.10
+−3
+SvayRomiet-0.830.44(0.22–0.83)0.01
+ChheuTeal-0.650.52(0.22–1.10)0.11
+PreakTaBaen-0.710.49(0.26–0.90)0.02
+Kandal-1.050.35(0.16–0.70)5.10
+−3
+Sla-0.910.40(0.19–0.81)0.01
+Nbofchildren<15yrs0.201.22(1.11–1.32)10
+−5
+https://doi.org/10.1371/journal.pone.0254192.t003
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202111/ 18
+relationshipsthatareessentialtodesignfuturevaccinationcampaignsarelacking.Thispaper
+presentstheresultsofthefirstlargescaledogpopulationdoor-to-doorsurveyinCambodia,
+withmorethan5000dogsrecorded,andprovidesvaluabledatatodesigninformationpro-
+grams,parametrizetransmissionmodelsandidentifyefficientvaccinationstrategiestocontrol
+rabiesinthiscountryinthefuture.
+Manysurveyshavebeenimplementedaroundtheworldtoestimatedog-to-humanratios
+asbasicbutfundamentalknowledgeneededtoplanmassivedogvaccinationprogramsagainst
+rabies.Theseratiosvaryfrom91dogsforevery100peopleinthePhilippines[20]to2 dogsfor
+every100peopleinurbanareasofZambia[21].InChile,thehuman-to-dogratiorangedfrom
+5.2to6.2incities,from2.3to5.3intowns,andfrom1.1to2.1inruralareas[22].Howeverfor
+mostofstudiedpopulations,thisratiostandsbetween1 and3.3dogsper100people[23].In
+Cambodia,a firstcensuswasperformedin7 provincesbetween2005and2007:a totalof2670
+owneddogswererecordedfor8269individualssurveyedyieldinga ratioof1 dogto3.1
+humans(95%CI1∶3.0–1∶3.2)[13].A secondsurveywasconductedin2007:thedog-to-human
+ratiowas1:4.3inKandaland1:4.8inPhnomPenh,thecapital[24].Thelastsurveywasper-
+formedinSiemReapin2013.Thedog-to-humanratiowas1:2.8[25].Ourestimations—1:3.8
+inKandal,and1:3.3inBattambang-areveryclosetothepreviousones,suggestinga stable
+dog-to-humanratiooveryears.Evenif rarelyincludedinthesekindsofsurvey,therecorded
+catpopulationwasfarfromnegligible,witha globalcat-to-humanratioof1:9.4inBattam-
+bang.Asa matteroffact,from2000to2016,12headsofbitingcatsover46(26.7%)testedpos-
+itiveforrabiesintheframeofthepassivesurveillanceimplementedbyIPC(L.Sowath,
+personalcom),suggestingthatcatsprobablyparticipatetorabiesburdeninCambodia,and
+shouldbeincorporatedina futuremassivevaccinationcampaigninthiscountry.
+Thestudieddogpopulationsappearedyoungwitha lowsurvivalratebeforetheageof2yrs.
+Demographicparametervaluesareveryclosetowashasbeenestimatedinotherlowormiddle
+incomeandrabidendemiccountries.InTanzania,themeanageofthestudieddogpopulation
+was2.23years(95%CI= 2.06–2.55/ Median= 2yrs).Age-specificmortalitywasveryhighin
+theunderoneyearolds(72%)andthefouryearolds(80%)[26].InKenya,50%ofthe
+recordeddogswere1 yearoldorless,andtheoverallmeanagewas1.9years(2.1yearsfor
+Table4.Identification ofbiteriskfactorsontheinterviewedpopulation(n= 9797)inBattambangprovince:Resultsofthenegative binomialgeneralized linear
+modelwiththenumberofbiteeventsperfamilyperyearasoutputandthevillage,thenumberofchildren<15yrsinthefamilyandthenumberofcatsownedby
+thefamilyasexplanatoryvariables.
+EstimateOR(CI2.5%-97.5%)p value
+Intercept0.121.13(1.06–1.20)2.10
+−4
+Numberofownedcats0.031.03(1.01–1.05)4.10
+−4
+VillageAnnaChitrefrefref
+BoengPrey-0.100.90(0.84–0.97)5.10
+−3
+ChheuTeal-0.090.92(0.85–0.99)0.04
+KampangLech0.021.02(0.92–1.14)0.71
+Khna0.050.96(0.88–1.04)0.30
+PreySre-0.050.95(0.88–1.04)0.23
+RumChey-0.010.99(0.91–1.07)0.78
+SnoengKeut-0.0040.99(0.93–1.07)0.92
+SnoengLech-0.080.92(0.85–1.00)0.05
+SvayPrakeab-0.080.92(0.84–1.00)0.06
+Nbofchildren<15yrs0.031.031(1.02–1.05)<10
+−5
+https://doi.org/10.1371/journal.pone.0254192.t004
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202112/ 18
+malesand1.6yearsforfemales)[27].Meanandmediaageswererespectivelyof2.1and2
+yearsina ruralareaofBali[28].
+Evenif individualidentificationofdogsusingmicrochipscouldnotbedoneduetologisti-
+calconstraints,alldogsincludedinthesurvivalanalysiswerestrictlyandsystematicallyre-
+identifiedduringS2byownersusingthe2 or3 picturestakenofeachdogwiththeownerora
+memberofthefamilytheyearbefore.Ageofanimalsweregiveninmonthsbyowners.Since
+mostoftheseanimalswereyoung,weassumedthatthememorybiaswasreduced.Wedidnot
+askanyquestionsaboutthedateofthedogdisappearance.TheBattambangdogpopulation
+wasyoungerthantheKandalone,withanestimatedsurvivalrateof17%at48monthsagainst
+48%inKandal.WithinBattambangprovince,theruralpopulationwasyoungerthantheperi-
+urbanone.IllnessandpoorhealthconditionsobservedinBattambang,especiallyintherural
+zoneprobablylinkedtolowereconomicanddevelopmentmetricsandpoordogmanagement,
+maypartiallyexplainthesedifferences.Asa matteroffact,20.4%ofinterviewedfamiliesin
+Kandalconsidereddogsas“familymember”,against1.4%onlyinBattambang.Furthermore
+62%ofdogsrecordedinS1diedbetweenS1andS2fromillnessinBattambangagainst47.5%
+inKandal.Inbothprovinces,largedisparitiesofthesurvivalrateswereobservedbetweenvil-
+lages.Thesedifferencesmaybeexplainedbydogtradepractices,oragain,bylackofattention
+paidtothedogs.Whateverthereasons,thesedifferencesmayhaveconsequencesintermsof
+vaccinationefficiency,shouldthehighestsurvivalratebeappliedinsteadofthelowestto
+designthevaccinationframe.Despitea globallowsurvivalrate,estimateddog-to-human
+ratiosarecomparabletowhathasbeenestimatedin2007,suggestingagainthatthedogpopu-
+lationsizeis stableinareasofconcern,thehighlevelmortalitybeingcompensatedbya high
+birthrate.Survivalrateswerecomputedirrespectiveofmissingreasons.Someofmissingdogs
+weregivenorsold,tobeculledortobereplaced,ornot,byanotherdog.Inthecaseofa vacci-
+natedpopulation,someofthesesoldorculleddogswouldbereplacedbysusceptibleanimals,
+whereassomeofthesedogswouldsimplybemovedfroma villagetoanotherone,aliveand
+immune.Inoursurvivalanalysis,wethusconsideredtheworstcasescenarioinwhich,what-
+everthereason,eachmissingdogcouldpotentiallybereplacedbya newsusceptibledog.
+Informaldiscussionwithownersconfirmedthattheywerenoorveryfewferaldogsinthe
+studiedareas,butthelargemajorityofrecordeddogswerefreeroaming.Ownershipdetermi-
+nantswerequitesimilarinbothprovinces:thenumberofdogsincreasedinfamilieswithchil-
+drenyoungerthan15yearsold,andwhentheheadofthefamilywasa male.Females
+frequentlyexplainedduringtheinformalinterviewthattheywerefrightenedbydogs.
+Dogmovements,human-mediatedornot,haveanimportantimpactonrabiesspread[29,
+30].Indeed,thefrequencyofcampaignsrequiredtomaintainvaccinationcoverageabovea
+criticalthresholddependsontheintroductionsofsusceptibleindividualsintothepopulation
+bypeoplethroughtheacquisitionofdogsbornlocallyorfromoutsidethepopulationandthe
+lossofvaccinatedindividualsthroughdeathsandtherelocationofdogsbypeople:ignoring
+dogmovementsmayleadtovaccinationprogramfailure[31].Oursurveyshowedthatdog
+tradewasprevalentinbothprovinces,butapparentlymorefrequentinKandalthaninBattam-
+bang.Ontheopposite,dogmeatconsumptionseemedmorefrequentinBattambang.We
+observeddiscrepanciesinbothprovincesbetweenthelowpercentageofpeoplewhodeclared
+havingdogsfortrade(insteadofguardingthehouseorasa familymember)andpeoplewho
+declaredselling/buyingdogsfromtimetotime.Oursurveydidnotfocusondogtradeper se.
+Whenpeoplewereaskedaboutthefunctionofthedoginthefamily,themodality“raising
+dogsformeat“wasunderstoodasa commercialandregularactivity,explainingwhymostof
+peopleanswered“no”:inbothstudiedprovinces,peopledonotraisedogsforbusiness.How-
+ever,opportunistictradedogpracticesremainfrequent:peoplemayselldogswhentheyneed
+moneyorneedtobarterit againstcookingmaterialforinstance.Peoplealsosometimeseat
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202113/ 18
+dogmeatwhentheyarecelebrating(birth,wedding..).So,whenpeoplewereaskedwhythey
+owneddogs,thesepeoplespontaneouslyreplied“toguardthehouse”,butwhenasking
+whethertheysometimestradedogs,a largemajorityofthemansweredyes,asif therewasno
+relationshipbetweenthefunctionofthedogathome,andthewaytheycanoccasionallyuseit
+whenneeded.
+ExistenceofdogmeattradehasalreadybeendocumentedinCambodia.A surveycon-
+ductedbytheFourPawsnon-governmentalorganizationshowedthatSiemReapprovince,
+locatedinthenorthofthecountry,wasa ‘hotspot’fordogsourcing,supplyingthedemand
+fordogmeatintheEasternhalfofthecountry,mostnotablyPhnomPenh.Someoftraded
+dogsarestolenpets.Investigationfoundminivansfilledwithdogsarrivingatslaughterhouses
+inKandalProvince,amongothers,fromSiemReapdaily.Anestimated3750livedogswould
+beexportedoutofSiemReapprovinceeverymonthforslaughtering.Atthecountrylevel,2–3
+milliondogsmaybeslaughteredforthetradeinCambodiaannually[32].Thesetradeddogs
+probablydonotparticipatetorabieslongdistance-spreadsincetheyareculledassoonasthey
+aredelivered.However,themajorfractionofthishighlydensedogpopulationis freeroaming
+beforebeingcapturedandtraded,andthereforemaycontributetorabiesendemicityinCam-
+bodia.Furthermore,around50%ofourrecordeddogsonlywereborninthefamilies.The
+otherdogscamefroma neighboringvillage,butsometimes,andaccordingtoinformaldiscus-
+sionstheinterviewershadwithparticipants,fromanotherdistrict,provinceorevenanother
+country.Oursurveydidnotspecificallyfocusedondogmovements.Howeverourpreliminary
+resultssuggestthatdogmovementpatternsanddriversatlocal,mediumandlargescalein
+Cambodiaarepartofa complexsocio-economicsystemthatshouldbedeeplyunderstoodto
+maximizetheefficiencyofrabiescontrolprograms.
+Accordingtoourdata,theestimatedyearlybiteincidenceratewas2.3and3.1%inKandal
+andBattambangprovincesrespectively.Anaveragebiteincidencerateof2.5%roughlyextrap-
+olatedtothewholecountry–theestimatedCambodianpopulationsizeis 17millions)would
+imply425000bitesinjuriesperyear.In2020,around50000peoplecametoIPCPEPcenter
+togetvaccinatedafterbeingbitten(S.Lypersonalcom):a largeproportionofbittenpeople
+probablyremainuntreatedandthereis anurgentneedtoestimatethenumberofpeoplewho
+havebeenexposedtorabiesamongthesepeople.Ourestimatedbiteincidenceratesarehigher
+thanestimationsprovidedinPhnomPenh,thecapital,andKandalprovincesin2009(1,12%
+(95%CI1.05–1.19)[24],andsimilartowhatwasfoundinIndia(17–19.6/1000)confirming
+thatCambodia,withBangladesh(72.9/1000)is oneofthecountriesexperiencingthehighest
+biteincidencerateintheworld[33–35].Forcomparison,theestimatedannualdogbiteinci-
+dencewas5.2per1000personyearsina ruralareaofCongoin2017[36].Similarlytoprevious
+surveysperformedinCambodiaandothercountries,childrenrepresenta high-riskpopulation
+inbothprovincesandneedtobeproperlyeducatedaboutdogbitesrisks[24,28,34,36,37].In
+bothprovincesalso,a largeproportionofbitesarecausedbyanimalsthatdonotbelongtothe
+family,theseprobablyresultingfromthehighproportionoffreeroamingdogs.Thebiteinci-
+dencealsosignificantlyvariedbetweenvillages.Underlyingexplanationsshouldbefurther
+investigatedtoimproveinformationandpreventionactions.Catsareresponsibleofa signifi-
+cantnumberofbites,emphasizingagaintheneedtoincludethemina futurevaccinationcam-
+paignagainstrabies.
+Themostcriticalfactorsthatdeterminetheeffectivenessofvaccinationarethelevelofvac-
+cinationcoverageachievedandthecomprehensivenessofcampaigns[10].Ourinitialgoalwas
+tovaccinate100%ofrecordeddogsandcats.Wegloballyhadgoodaccesstodogs,withhigher
+successrateinKandalthaninBattambangwheredogsweremoreaggressiveanddifficultto
+handle.
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202114/ 18
+Oursurveyprovidecrucialknowledgetoimplementrabiescontrolstrategiesindogpopula-
+tioninCambodia.KandalandBattambangresultsarerathersimilar.However,theycanprob-
+ablynotbeextrapolatedtothewholecountry.MondolkiriorRatanakiriprovincesfor
+instance,locatedinthenortheasternpartofthecountry,arecharacterizedbylargeprotected
+areaswherecommunitiesstillusetohuntwithdogs,andwhereferaldoggroupsmaybe
+observed.Intheseprovinces,a largeproportionofdogscannotbehandledevenif parenteral
+vaccinationremainsthemethodofchoicetocontrolrabiestransmissionindogpopulations.
+OralvaccinationhasshownitsefficacybyeliminatingsylvaticrabiesoveralmostalltheEuro-
+peanUnionterritoryandshouldbeconsidereda usefulalternative[38–40].Howeverdogvac-
+cinationalonemaynotbesufficient.Inadequateknowledgeofrabies,povertyandpoordog
+managementaremajorobstaclestothecontrolofrabies[25,41].InCambodia,rabiescontrol
+shouldrelyona OneHealth,multidisciplinaryandmulti-sectoralapproach:besidesdogvacci-
+nation,animportanteffortshouldbededicated,first,toinformationandprevention,andsec-
+ond,toanin-depthunderstandingofthesocio-economicalcontextofdogownership,inorder
+toproposeadaptedrabiescontrolmeasuresthatcanbeendorsedbycommunitiesanddog
+owners.
+Supportinginformation
+S1Questionnaires.
+(PDF)
+S1Datasets.
+(XLSX)
+S1Table.
+(PDF)
+S1Fig.Cumulativedistributionsofdog’sagesofpervillageinKandalprovince,Cambo-
+dia,2017.
+(TIFF)
+S2Fig.Cumulativedistributionsofdog’sagesoftheruralandperi-urbanzonesinBattam-
+bang.
+(TIFF)
+Acknowledgments
+Wewarmlythankthedogandcatownersaswellasthewholepopulationofthevillages
+includedinthesurvey.WealsothanktheGeneralDirectorateofAnimalHealthandProduc-
+tionofCambodiawhosupervisedinterviewsaswellasrecordingandvaccinationofdogsand
+cats.ThissurveyhasbeenjointlygrantedbytheSwedishResearchCouncil,RegionOccitanie,
+theFrenchEmbassyinCambodia,andtheWorldHealthOrganization.
+AuthorContributions
+Conceptualization:Ve
+ ́
+roniqueChevalier,SowathLy.
+Datacuration:Ve
+ ́
+roniqueChevalier,SopheakSorn,PitouLy,VuthaPov.
+Formalanalysis:Ve
+ ́
+roniqueChevalier,PitouLy.
+Fundingacquisition:Ve
+ ́
+roniqueChevalier,SowathLy.
+Investigation:Ve
+ ́
+roniqueChevalier,HollDavun,SopheakSorn,PitouLy,VuthaPov.
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202115/ 18
+Methodology:Ve
+ ́
+roniqueChevalier,PitouLy,SowathLy.
+Projectadministration:Ve
+ ́
+roniqueChevalier.
+Resources:Ve
+ ́
+roniqueChevalier,HollDavun,SowathLy.
+Supervision:Ve
+ ́
+roniqueChevalier,HollDavun,SowathLy.
+Validation:Ve
+ ́
+roniqueChevalier,HollDavun,SowathLy.
+Visualization:Ve
+ ́
+roniqueChevalier.
+Writing– originaldraft:Ve
+ ́
+roniqueChevalier,HollDavun,SowathLy.
+Writing– review&editing:Ve
+ ́
+roniqueChevalier.
+References
+1.TaylorL, NelL. Globalepidemiologyof caninerabies:past,present,andfutureprospects.Veterinary
+Medicine:ResearchandReports.2015;6:361.https://doi.org/10.2147/VMRR.S51147PMID:
+30101121
+2.ShwiffS,HampsonK,AndersonA.Potentialeconomicbenefitsof eliminatingcaninerabies.Antiviral
+Research.2013;98(2):352–6. https://doi.org/10.1016/j.antiviral.2013.03.004PMID:23499650
+3.CleavelandS,LankesterF, TownsendS,LemboT, HampsonK.Rabiescontrolandelimination:a test
+caseforOneHealth.VetRec.2014;17(8):188–93https://doi.org/10.1136/vr.g4996PMID:25172649
+4.FooksA,BanyardA,HortonD,JohnsonN,McElhinneyL, JacksonA.Currentstatusof rabiesandpros-
+pectsforelimination.Lancet2014;384:1389–99.https://doi.org/10.1016/S0140-6736(13)62707-5
+PMID:24828901
+5.ZinsstagJ, Du ̈ rr S,PennyM,MindekemR,RothF, Menendez Gonzalez S,et al.Transmissiondynam-
+icsandeconomicsof rabiescontrolin dogsandhumansin anAfricancity.ProcNatlAcadSciUSA.
+2009;106(35):14996–5001.https://doi.org/10.1073/pnas.0904740106PMID:19706492
+6.ColemanP,DyeC.Immunizationcoveragerequiredto preventoutbreaksof dograbies.Vaccine1996;
+14(3):185–6. https://doi.org/10.1016/0264-410x(95)00197-9 PMID:8920697
+7.Hampson K,DushoffJ, Cleaveland S,HaydonD,KaareM,PackerC,et al.Transmissiondynamics
+andprospectsfortheeliminationof caninerabies.PLoSBiol.2009;7(3).https://doi.org/10.1371/
+journal.pbio.1000053PMID:19278295
+8.AriefR,HampsonK,JatikusumahA,Widyastuti M,Sunandar,BasriC,et al.Determinants of Vaccina-
+tionCoverageandConsequencesforRabiesControlin Bali,Indonesia.FrontVetSci.2017;9(3).
+https://doi.org/10.3389/fvets.2016.00123PMID:28119919
+9.Mitmoonpitak C,TepsumethanonV,WildeH.Rabiesin Thailand.EpidemiologyandInfection1998;
+120:165–9.https://doi.org/10.1017/s0950268897008601PMID:9593486
+10.TownsendS,Sumantra I, Pudjiatmoko,BagusG,BrumE,CleavelandS,et al.Designingprograms for
+eliminating caninerabiesfromislands:Bali,Indonesiaasa casestudy.PlosNeglTropDis2013;7(8):
+e2372.https://doi.org/10.1371/journal.pntd.0002372eCollection2013.PMID:23991233
+11.Le
+ ́
+chenneM,Oussiguere A,NaissengarK,MindekemR,MosimannL, RivesG,et al.Operational per-
+formanceandanalysisof tworabiesvaccinationcampaignsin N’Djamena, Chad.Vaccine2016;
+34:571–7.https://doi.org/10.1016/j.vaccine.2015.11.033Epub2015Nov27.PMID:26631415
+12.JauffretR.Unecampagnedevaccinationcontrela RageduchienauCambodge.ArchivesdesInstituts
+Pasteurd’Indochine.1936;VI(23).
+13.LyS,BuchyP,HengN,OngS,ChhorN,BourhyH,et al.Rabiessituationin Cambodia.PlosNeglTrop
+Dis.2009;3: 3, e511.https://doi.org/10.1371/journal.pntd.0000511 PMID:19907631
+14.SudarshanM,M SN,Mahendra B,RaoN,AshwathNarayanaD,AbdulRahmanS.Assessingthebur-
+denof humanrabiesin India:resultsof a nationalmulticenter epidemiologicalsurvey.IntJ InfectDisOff
+PublIntSocInfectDis.2007;11(29–35). https://doi.org/10.1016/j.ijid.2005.10.007PMID:16678463
+15.Li A,SreenivasanN,SiddiqiU,TahminaS,PenjorK,SovannL, et al.Descriptiveassessment of rabies
+post-exposureprophylaxis procurement,distribution,monitoring,andreportingin fourAsiancountries:
+Bangladesh, Bhutan,Cambodia,andSriLanka,2017–2018.37(A14–A19).https://doi.org/10.1016/j.
+vaccine.2018.10.011PMID:30314908
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202116/ 18
+16.Ministryof planning.GeneralPopulationCensusof theKingdomof Cambodia2019.PhnomPenh,
+Cambodia:NationalInstituteof Statistics, Ministryof Planning,2019.50p
+17.R software.A LanguageandEnvironmentforStatisticalComputing[Internet].Vienna,Austria2014.
+18.GoelM,KhannaP,KishoreJ. Understandingsurvivalanalysis:Kaplan-Meierestimate.IntJ Ayurveda
+Res.20101(4):274–8. PMID:21455458
+19.BurnhamKP,AndersonDR.Modelselectionandmultimodelinference:a practicalinformation-theoretic
+approach.New-York:Springer-Verlag;2002.496p.
+20.BeranGW.Ecologyof dogsin theCentralPhilippines in relationto rabiescontrolefforts.CompImmunol
+MicrobiolInfectDis.1982;5(2):265–70. https://doi.org/10.1016/0147-9571(82)90047-9 PMID:7128081
+21.DeBaloghK,WandelerA,MeslinFX.A dogecologystudyin anurbananda semi-ruralareaof Zambia.
+Onderstepoort J VetRes.1993;60:437–43.PMID:7777333
+22.Acosta-JamettG,CleavelandS,CunninghamA,deBronsvoort B.Demography of domesticdogsin
+ruralandurbanareasof theCoquimboregionof Chileandimplications fordiseasetransmission.Prev
+VetMed.2010;94:272–81. https://doi.org/10.1016/j.prevetmed.2010.01.002 PMID:20096943
+23.DavlinS,VonvilleH.Caninerabiesvaccinationanddomesticdogpopulationcharacteristicsin the
+developingworld:a systematicreview.Vaccine.2012;30:3492–502.https://doi.org/10.1016/j.vaccine.
+2012.03.069PMID:22480924
+24.LunneyM,FèvreS,StilesE,LyS,SanS,VongS.Knowledge,attitudesandpracticesof rabiespreven-
+tionanddogbiteinjuriesin urbanandperi-urbanprovincesin Cambodia,2009InternationalHealth.
+2012;4(1):4–9.https://doi.org/10.1016/j.inhe.2011.12.001PMID:24030875
+25.SorS,HiguchiM,SarkerM,HamajimaN.Knowledgeof rabiesanddog-related behaviors amongpeo-
+plein SiemReapProvince, Cambodia.TropMedHealth2018;46(20).https://doi.org/10.1186/s41182-
+018-0102-0 PMID:29930480
+26.GsellA,KnobelD,KazwalaR,VounatsouP,ZinsstagJ. Domesticdogdemographicstructureand
+dynamicsrelevantto rabiescontrolplanningin urbanareasin Africa:thecaseof Iringa,Tanzania.BMC
+VetRes.2012;8(236).https://doi.org/10.1186/1746-6148-8-236PMID:23217194
+27.KitalaP,McDermott J, KyuleM,GathumaJ, PerryB,Wandeler A.Dogecologyanddemographyinfor-
+mationto supporttheplanningof rabiescontrolin MachakosDistrict,KenyaActaTrop2001;78
+(3):217–e
+ ́
+30.https://doi.org/10.1016/s0001-706x(01)00082-1PMID:11311185
+28.MustianaA,ToribioJ, Abdurrahman M,SuadnyaI, Hernandez-JoverM,AgungGdePutraA,et al.
+OwnedandUnownedDogPopulationEstimation,DogManagement andDogBitesto InformRabies
+PreventionandResponseonLombokIsland,Indonesia.PlosOne.2015;10(5):e0124092.https://doi.
+org/10.1371/journal.pone.0124092PMID:25932916
+29.ChenJ, ZouL, JinZ, RuanS.Modeling thegeographicspreadof rabiesin China.PLoSNeglTropDis.
+2015;9(5):e0003772.https://doi.org/10.1371/journal.pntd.0003772eCollection2015.PMID:26020234
+30.BourhyH,Nakoune
+ ́
+E,HallM,NouvelletP,LepelletierA,TalbiC,et al.RevealingtheMicro-scaleSig-
+natureof Endemic ZoonoticDiseaseTransmissionin anAfricanUrbanSetting.PlosPathog2016;12
+(4):e1005525.https://doi.org/10.1371/journal.ppat.1005525PMID:27058957
+31.Wilson-AggarwalJ, OzellaL, TizzoniM,CattutoC,SwanG,MoundaiT, et al.High-resolutioncontact
+networksof free-rangingdomesticdogsCanisfamiliarisandimplications fortransmissionof infection.
+PlosNeglTropDis.2019;13(7):e0007565.https://doi.org/10.1371/journal.pntd.0007565eCollection
+2019Jul.PMID:31306425
+32.FourPawnsassociation.TheDogandCatMeatTrade:a GlobalHealthRisk.Vienna,Austria: Four
+Pawnsreport,2021.20pp
+33.SharmaS,Agarwal A,KhanA,IngleG.Prevalence of DogBitesin RuralandUrbanSlumsof Delhi:A
+Community-basedStudy.AnnMedHealthSciRes.2016;(6):115–9.PMID:27213095
+34.OverallKL,LoveM.Dogbitesto humans—Demography,epidemiology,injury,andrisk.J AmVetMed
+Assoc.2001;218:1923–34.https://doi.org/10.2460/javma.2001.218.1923PMID:11417736
+35.MuruganV,AmolD,KalaiselvanG.Communitybasedcrosssectionalstudyof dogbitesin childrenin a
+ruraldistrictof TamilNadu.IntJ MedSciPublicHealth.2016;6:109–12.
+36.MbiloC,KabongoJ, PyanaP,NlondaL, NzitaR,LuntadilaB,et al.DogEcology,BiteIncidence,and
+DiseaseAwareness:A Cross-SectionalSurveyamonga Rabies-AffectedCommunityin theDemocratic
+Republicof theCongo.Vaccines2019;7(3):98.https://doi.org/10.3390/vaccines7030098PMID:
+31454908
+37.SalomãoC,NacimaA,CuambaL, GujralL, AmielO,BaltazarC,et al.Epidemiology,clinicalfeatures
+andriskfactorsforhumanrabiesandanimalbitesduringanoutbreakof rabiesin MaputoandMatola
+cities,Mozambique,2014:Implicationsforpublichealthinterventionsforrabiescontrol.PlosNeglTrop
+Dis.2017;11(7):e0005787.https://doi.org/10.1371/journal.pntd.0005787eCollection2017Jul.PMID:
+28742094
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202117/ 18
+38.FreulingC,HampsonK,Selhorst T, Schro
+ ̈
+derR,MeslinF, Mettenleiter T, et al.Theeliminationof fox
+rabiesfromEurope:determinantsof successandlessonsforthefuture.PhilosTransR SocLondB Biol
+Sci2013;368(1623).https://doi.org/10.1098/rstb.2012.0142PMID:23798690
+39.CliquetF, AubertM.Eliminationof terrestrialrabiesin WesternEuropeancountries. DevBiol2004;
+119:185–204. PMID:15747421
+40.LeelahapongsathonK,KasemsuwanS,PinyopummintrT, BooddeO,PhawaphutayanchaiP,AiyaraN,
+et al.HumoralImmuneResponseof ThaiDogsafterOralVaccination againstRabieswiththeSPBN
+GASGASVaccineStrain.Vaccines.2020;8(4):573.https://doi.org/10.3390/vaccines8040573PMID:
+33019605
+41.WallaceR,MehalJ, NakazawaY,RecuencoS,BakamutumahoB,OsinubiM,et al.Theimpactof pov-
+ertyondogownershipandaccessto caninerabiesvaccination:resultsfroma knowledge, attitudesand
+practicessurvey,Uganda2013.InfectDisPoverty.2017;6(97).https://doi.org/10.1186/s40249-017-
+0306-2PMID:28569185
+PLOS ONE
+Dogdemography,ownership, management,andbiteriskfactorsin Cambodia
+PLOSONE| https://doi.org/10.1371/journal.pone.0254192July8, 202118/ 18

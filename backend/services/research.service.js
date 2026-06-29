@@ -10,6 +10,7 @@ const path = require('path');
 const db = require('../config/db');
 const AggregatorService = require('./aggregator.service');
 const SciHubService = require('./providers/scihub.service'); // 🏴‍☠️ IMPORT DE SCI-HUB ICI
+const Logger = require('./logger.service'); // <-- AJOUTE CECI
 
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -58,7 +59,7 @@ class ResearchServiceMassive {
     static async getUnpaywallPdfUrl(article) {
         const doi = article.doi;
         if (!doi) {
-            console.log(`  ⏭️  Pas de DOI — skip Unpaywall`);
+            Logger.log(`  ⏭️  Pas de DOI — skip Unpaywall`);
             return null;
         }
 
@@ -83,18 +84,18 @@ class ResearchServiceMassive {
                 });
 
             if (sorted.length === 0) {
-                console.log(`  🔒 Unpaywall : aucun PDF OA trouvé`);
+                Logger.log(`  🔒 Unpaywall : aucun PDF OA trouvé`);
                 return null;
             }
 
             const urls = sorted.map(l => l?.url_for_pdf || l?.url).filter(Boolean);
-            console.log(`  🔓 Unpaywall : ${urls.length} URL(s) OA trouvée(s) [priorité repository]`);
+            Logger.log(`  🔓 Unpaywall : ${urls.length} URL(s) OA trouvée(s) [priorité repository]`);
             return urls;
         } catch (err) {
             if (err.response?.status === 404) {
-                console.log(`  ⚠️  Unpaywall : DOI non référencé`);
+                Logger.log(`  ⚠️  Unpaywall : DOI non référencé`);
             } else {
-                console.log(`  ⚠️  Unpaywall : ${err.message}`);
+                Logger.log(`  ⚠️  Unpaywall : ${err.message}`);
             }
             return null;
         }
@@ -167,10 +168,10 @@ class ResearchServiceMassive {
             for (const oaUrl of oaUrls) {
                 try {
                     const buf = await this.downloadWithAxios(oaUrl);
-                    console.log(`  🟢 PDF complet via Unpaywall → ${oaUrl.substring(0, 50)}...`);
+                    Logger.log(`  🟢 PDF complet via Unpaywall → ${oaUrl.substring(0, 50)}...`);
                     return { buffer: buf, method: 'unpaywall_axios' };
                 } catch (e) {
-                    console.log(`  ⚠️  Unpaywall Axios échoué [${e.message}]`);
+                    Logger.log(`  ⚠️  Unpaywall Axios échoué [${e.message}]`);
                 }
             }
         }
@@ -178,14 +179,14 @@ class ResearchServiceMassive {
         // ── 2. NOUVEAU : SCI-HUB (Le pirate) ───────────────
         if (article.doi) {
             try {
-                console.log(`  🏴‍☠️ Tentative Sci-Hub pour le DOI: ${article.doi}...`);
+                Logger.log(`  🏴‍☠️ Tentative Sci-Hub pour le DOI: ${article.doi}...`);
                 const buf = await SciHubService.fetchPdfBuffer(article.doi);
                 if (buf && isPDF(buf)) {
-                    console.log(`  🟢 PDF complet via Sci-Hub`);
+                    Logger.log(`  🟢 PDF complet via Sci-Hub`);
                     return { buffer: buf, method: 'scihub' };
                 }
             } catch (e) {
-                console.log(`  ⚠️  Sci-Hub échoué (${e.message})`);
+                Logger.log(`  ⚠️  Sci-Hub échoué (${e.message})`);
             }
         }
 
@@ -193,10 +194,10 @@ class ResearchServiceMassive {
         if (article.oa_url) {
             try {
                 const buf = await this.downloadWithAxios(article.oa_url);
-                console.log(`  🟢 PDF complet via URL originale`);
+                Logger.log(`  🟢 PDF complet via URL originale`);
                 return { buffer: buf, method: 'original_axios' };
             } catch (e) {
-                console.log(`  ⚠️  Axios original échoué (${e.message})`);
+                Logger.log(`  ⚠️  Axios original échoué (${e.message})`);
             }
         }
 
@@ -204,17 +205,17 @@ class ResearchServiceMassive {
         const puppeteerUrl = oaUrls?.[0] || article.oa_url;
         if (puppeteerUrl) {
             try {
-                console.log(`  🛡️ Déploiement Puppeteer pour ${puppeteerUrl.substring(0, 40)}...`);
+                Logger.log(`  🛡️ Déploiement Puppeteer pour ${puppeteerUrl.substring(0, 40)}...`);
                 const buf = await this.downloadWithPuppeteer(puppeteerUrl);
-                console.log(`  🟢 PDF complet via Puppeteer`);
+                Logger.log(`  🟢 PDF complet via Puppeteer`);
                 return { buffer: buf, method: 'puppeteer' };
             } catch (e) {
-                console.log(`  ⚠️  Puppeteer échoué (${e.message})`);
+                Logger.log(`  ⚠️  Puppeteer échoué (${e.message})`);
             }
         }
 
         // ── 5. Fallback ultime : abstract uniquement ──────────────────────────
-        console.log(`  🔴 Repli sur abstract uniquement`);
+        Logger.log(`  🔴 Repli sur abstract uniquement`);
         return { buffer: null, method: 'abstract_only' };
     }
 
@@ -226,12 +227,12 @@ class ResearchServiceMassive {
         if (uniqueArticles.length > 0) {
             await this.processMassiveDownloads(uniqueArticles, projectId, depth); // On passe la profondeur
         } else {
-            console.log("Aucun article trouvé.");
+            Logger.log("Aucun article trouvé.");
         }
     }
 
     static async processMassiveDownloads(articles, projectId) {
-        console.log(`\n🚀 Démarrage — ${articles.length} articles à traiter (pipeline 5 niveaux)\n`);
+        Logger.log(`\n🚀 Démarrage — ${articles.length} articles à traiter (pipeline 5 niveaux)\n`);
 
         const storageDir = path.resolve(__dirname, '../data/articles');
         await fs.mkdir(storageDir, { recursive: true });
@@ -242,13 +243,13 @@ class ResearchServiceMassive {
             const batch = articles.slice(i, i + BATCH_SIZE);
             const groupNum = Math.floor(i / BATCH_SIZE) + 1;
             const totalGroups = Math.ceil(articles.length / BATCH_SIZE);
-            console.log(`\n──────────── Groupe ${groupNum}/${totalGroups} ────────────`);
+            Logger.log(`\n──────────── Groupe ${groupNum}/${totalGroups} ────────────`);
 
             await Promise.all(batch.map(async (article) => {
                 const safeId = article.id.replace(/[^a-zA-Z0-9]/g, '_');
                 const filePath = path.join(storageDir, `${safeId}.txt`);
                 const shortTitle = article.title?.substring(0, 40) || 'Sans titre';
-                console.log(`\n📄 "${shortTitle}..."`);
+                Logger.log(`\n📄 "${shortTitle}..."`);
 
                 try {
                     const { buffer, method } = await this.downloadArticle(article);
@@ -286,38 +287,38 @@ class ResearchServiceMassive {
 
                         // 2. AUTOMATISATION : On lance l'analyse IA immédiatement après le téléchargement !
                         try {
-                            console.log(`  🧠 Lancement de l'analyse IA pour cet article...`);
+                            Logger.log(`  🧠 Lancement de l'analyse IA pour cet article...`);
                             const analysis = await AiReaderService.analyzeArticle(filePath);
                             db.run(
                                 `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
                                 [safeId, analysis.meta, analysis.notes, analysis.synthesis]
                             );
-                            console.log(`  ✅ Analyse IA terminée et sauvegardée.`);
+                            Logger.log(`  ✅ Analyse IA terminée et sauvegardée.`);
                         } catch (aiErr) {
-                            console.log(`  🔴 Échec de l'analyse IA automatique : ${aiErr.message}`);
+                            Logger.log(`  🔴 Échec de l'analyse IA automatique : ${aiErr.message}`);
                         }
                     }
 
                 } catch (err) {
                     stats.failed++;
-                    console.log(`  🔴 Échec critique : ${err.message}`);
+                    Logger.log(`  🔴 Échec critique : ${err.message}`);
                 }
             }));
 
             if (i + BATCH_SIZE < articles.length) {
                 const delay = jitter(2000, 2000);
-                console.log(`\n😴 Pause ${delay}ms avant le prochain groupe...`);
+                Logger.log(`\n😴 Pause ${delay}ms avant le prochain groupe...`);
                 await sleep(delay);
             }
         }
 
-        console.log(`\n${'═'.repeat(50)}`);
-        console.log(`🏁 Téléchargements et analyses individuelles terminés !`);
-        console.log(`   ✅ Textes intégraux : ${stats.full}`);
-        console.log(`${'═'.repeat(50)}\n`);
+        Logger.log(`\n${'═'.repeat(50)}`);
+        Logger.log(`🏁 Téléchargements et analyses individuelles terminés !`);
+        Logger.log(`   ✅ Textes intégraux : ${stats.full}`);
+        Logger.log(`${'═'.repeat(50)}\n`);
 
         // 3. AUTOMATISATION : On génère le rapport final, en passant la profondeur actuelle !
-        console.log(`👑 Lancement automatique de la synthèse globale du projet...`);
+        Logger.log(`👑 Lancement automatique de la synthèse globale du projet...`);
         this.generateAutoSynthesis(projectId, depth);
     }
 
@@ -329,7 +330,7 @@ class ResearchServiceMassive {
         `;
 
        db.all(query, [projectId], async (err, rows) => {
-            if (err || !rows || rows.length === 0) return console.log("⚠️ Impossible de faire la synthèse.");
+            if (err || !rows || rows.length === 0) return Logger.log("⚠️ Impossible de faire la synthèse.");
             
             // 1. On intègre le score de qualité (les étoiles) et le type d'étude dans le texte envoyé à l'IA
             let aggregatedData = rows.map((r, i) => {
@@ -361,21 +362,21 @@ Format attendu:
                 const finalReport = await AiReaderService.askAI(aggregatedData, systemPrompt, "meta/llama-3.1-70b-instruct");
 
                 db.run(`INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, [projectId, finalReport]);
-                console.log(`🎉 MÉGA-SYNTHÈSE TERMINÉE ! Le rapport du projet #${projectId} a été mis à jour.`);
+                Logger.log(`🎉 MÉGA-SYNTHÈSE TERMINÉE ! Le rapport du projet #${projectId} a été mis à jour.`);
 
                 // ─── LA BOUCLE D'AUTO-INSPIRATION ───
                 const MAX_DEPTH = 5; // 1 = l'IA a le droit de relancer UNE SEULE FOIS une recherche dérivée.
 
                 if (depth < MAX_DEPTH) {
-                    console.log(`\n💡 L'IA réfléchit aux zones d'ombre de sa propre synthèse...`);
+                    Logger.log(`\n💡 L'IA réfléchit aux zones d'ombre de sa propre synthèse...`);
                     const newQueries = await AiReaderService.generateInspirationQueries(finalReport);
 
                     if (newQueries.length > 0) {
-                        console.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets :`, newQueries);
+                        Logger.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets :`, newQueries);
 
                         // L'IA lance ses propres recherches de manière asynchrone
                         for (const query of newQueries) {
-                            console.log(`\n🚀 [Auto-Pilote] L'IA lance une recherche sur : "${query}"`);
+                            Logger.log(`\n🚀 [Auto-Pilote] L'IA lance une recherche sur : "${query}"`);
 
                             // On demande à l'Aggregator 3 articles par nouvelle idée (pour ne pas saturer)
                             const newArticles = await AggregatorService.searchAndMerge(query, 3);
@@ -385,14 +386,14 @@ Format attendu:
                             }
                         }
                     } else {
-                        console.log(`  🛑 L'IA estime que le sujet est suffisamment couvert.`);
+                        Logger.log(`  🛑 L'IA estime que le sujet est suffisamment couvert.`);
                     }
                 } else {
-                    console.log(`  🛡️ Arrêt de l'Auto-Inspiration (Limite de profondeur atteinte).`);
+                    Logger.log(`  🛡️ Arrêt de l'Auto-Inspiration (Limite de profondeur atteinte).`);
                 }
 
             } catch (err) {
-                console.log(`🔴 Échec de la synthèse ou de l'auto-inspiration : ${err.message}`);
+                Logger.log(`🔴 Échec de la synthèse ou de l'auto-inspiration : ${err.message}`);
             }
         });
     }

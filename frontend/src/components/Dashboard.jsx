@@ -5,6 +5,7 @@ import ResearchPanel from './ResearchPanel';
 import LibraryPanel from './LibraryPanel';
 import ProjectPanel from './ProjectPanel';
 import SynthesisPanel from './SynthesisPanel';
+import TerminalPanel from './TerminalPanel';
 
 function Dashboard({ user, onLogout }) {
     const [isOnline, setIsOnline] = useState(false);
@@ -80,9 +81,11 @@ function Dashboard({ user, onLogout }) {
             {/* NOUVEAU : Le panneau de recherche scientifique */}
             <ResearchPanel activeProjectId={activeProjectId}/>
 
-            <LibraryPanel />
 
+            <TerminalPanel/>
+           <LibraryPanel activeProjectId={activeProjectId} />
             <SynthesisPanel activeProjectId={activeProjectId} />
+
 
             {/* Carte de discussion avec l'IA (NVIDIA/Ollama) */}
             <div className="card ai-card">
