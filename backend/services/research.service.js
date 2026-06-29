@@ -9,14 +9,14 @@ const fs = require('fs').promises;
 const path = require('path');
 const db = require('../config/db');
 const AggregatorService = require('./aggregator.service');
-const SciHubService = require('./providers/scihub.service'); // 🏴‍☠️ IMPORT DE SCI-HUB ICI
-const Logger = require('./logger.service'); // <-- AJOUTE CECI
+const SciHubService = require('./providers/scihub.service'); 
 
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 const AiReaderService = require('./ai-reader.service');
+const Logger = require('./logger.service'); // LE MÉGAPHONE DU TERMINAL
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
@@ -53,9 +53,6 @@ const isPDF = (buf) => Buffer.isBuffer(buf) && buf.slice(0, 5).toString() === '%
 
 class ResearchServiceMassive {
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // OUTILS DE TÉLÉCHARGEMENT
-    // ══════════════════════════════════════════════════════════════════════════
     static async getUnpaywallPdfUrl(article) {
         const doi = article.doi;
         if (!doi) {
@@ -157,12 +154,7 @@ class ResearchServiceMassive {
         }
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // PIPELINE PRINCIPAL : Unpaywall → Sci-Hub → Axios(original) → Puppeteer → Abstract
-    // ══════════════════════════════════════════════════════════════════════════
     static async downloadArticle(article) {
-
-        // ── 1. Unpaywall (Axios) ───────────────
         const oaUrls = await this.getUnpaywallPdfUrl(article);
         if (oaUrls?.length) {
             for (const oaUrl of oaUrls) {
@@ -176,7 +168,6 @@ class ResearchServiceMassive {
             }
         }
 
-        // ── 2. NOUVEAU : SCI-HUB (Le pirate) ───────────────
         if (article.doi) {
             try {
                 Logger.log(`  🏴‍☠️ Tentative Sci-Hub pour le DOI: ${article.doi}...`);
@@ -190,7 +181,6 @@ class ResearchServiceMassive {
             }
         }
 
-        // ── 3. Axios sur l'URL originale de l'article ───────────────────────
         if (article.oa_url) {
             try {
                 const buf = await this.downloadWithAxios(article.oa_url);
@@ -201,7 +191,6 @@ class ResearchServiceMassive {
             }
         }
 
-        // ── 4. Puppeteer sur la meilleure URL dispo ──────────────────────────
         const puppeteerUrl = oaUrls?.[0] || article.oa_url;
         if (puppeteerUrl) {
             try {
@@ -214,24 +203,20 @@ class ResearchServiceMassive {
             }
         }
 
-        // ── 5. Fallback ultime : abstract uniquement ──────────────────────────
         Logger.log(`  🔴 Repli sur abstract uniquement`);
         return { buffer: null, method: 'abstract_only' };
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // ENTRÉE PUBLIQUE ET BOUCLE MASSIVE
-    // ══════════════════════════════════════════════════════════════════════════
     static async startMassiveResearch(query, amount, projectId, depth = 0) {
         const uniqueArticles = await AggregatorService.searchAndMerge(query, amount);
         if (uniqueArticles.length > 0) {
-            await this.processMassiveDownloads(uniqueArticles, projectId, depth); // On passe la profondeur
+            await this.processMassiveDownloads(uniqueArticles, projectId, depth);
         } else {
             Logger.log("Aucun article trouvé.");
         }
     }
 
-    static async processMassiveDownloads(articles, projectId) {
+    static async processMassiveDownloads(articles, projectId, depth = 0) {
         Logger.log(`\n🚀 Démarrage — ${articles.length} articles à traiter (pipeline 5 niveaux)\n`);
 
         const storageDir = path.resolve(__dirname, '../data/articles');
@@ -256,12 +241,16 @@ class ResearchServiceMassive {
                     let textToSave = '';
 
                     if (buffer && isPDF(buffer)) {
-                        // Texte intégral extrait du PDF
+                        // ─── NOUVEAU : SAUVEGARDE DU VRAI PDF ───
+                        const pdfFilePath = path.join(storageDir, `${safeId}.pdf`);
+                        await fs.writeFile(pdfFilePath, buffer);
+                        Logger.log(`  💾 PDF original sauvegardé avec succès sur le disque.`);
+
+                        // Texte intégral extrait du PDF pour la lecture
                         const parsed = await pdfParse(buffer);
                         textToSave = parsed.text.replace(/\n\s*\n/g, '\n').trim();
                         stats.full++;
                     } else {
-                        // Abstract de secours
                         const abstract = article.abstract || "Aucun résumé disponible.";
                         textToSave = [
                             `--- ABSTRACT ONLY [${method.toUpperCase()}] ---`,
@@ -278,16 +267,14 @@ class ResearchServiceMassive {
                     }
 
                     if (textToSave.length > 50) {
-                        // 1. On sauvegarde l'article brut
                         await fs.writeFile(filePath, textToSave, 'utf8');
                         db.run(
                             `INSERT OR IGNORE INTO articles (id, title, published_date, oa_url, local_file_path, project_id) VALUES (?, ?, ?, ?, ?, ?)`,
                             [safeId, article.title, article.published_date, article.oa_url, filePath, projectId]
                         );
 
-                        // 2. AUTOMATISATION : On lance l'analyse IA immédiatement après le téléchargement !
                         try {
-                            Logger.log(`  🧠 Lancement de l'analyse IA pour cet article...`);
+                            Logger.log(`  🧠 Lancement de l'analyse IA (Texte + Vision)...`);
                             const analysis = await AiReaderService.analyzeArticle(filePath);
                             db.run(
                                 `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
@@ -317,14 +304,13 @@ class ResearchServiceMassive {
         Logger.log(`   ✅ Textes intégraux : ${stats.full}`);
         Logger.log(`${'═'.repeat(50)}\n`);
 
-        // 3. AUTOMATISATION : On génère le rapport final, en passant la profondeur actuelle !
         Logger.log(`👑 Lancement automatique de la synthèse globale du projet...`);
         this.generateAutoSynthesis(projectId, depth);
     }
 
     static generateAutoSynthesis(projectId, depth = 0) {
         const query = `
-            SELECT a.title, aa.synthesis 
+            SELECT a.title, aa.metadata, aa.synthesis 
             FROM articles a JOIN article_analysis aa ON a.id = aa.article_id 
             WHERE a.project_id = ?
         `;
@@ -332,12 +318,11 @@ class ResearchServiceMassive {
        db.all(query, [projectId], async (err, rows) => {
             if (err || !rows || rows.length === 0) return Logger.log("⚠️ Impossible de faire la synthèse.");
             
-            // 1. On intègre le score de qualité (les étoiles) et le type d'étude dans le texte envoyé à l'IA
             let aggregatedData = rows.map((r, i) => {
                 let scoreText = "⭐⭐⭐ (Non noté)";
                 let studyType = "Inconnu";
                 try {
-                    const meta = JSON.parse(r.metadata); // On lit le JSON généré par l'Agent Lecteur
+                    const meta = JSON.parse(r.metadata); 
                     if (meta.quality_score) scoreText = '⭐'.repeat(meta.quality_score);
                     if (meta.study_type) studyType = meta.study_type;
                 } catch(e) {}
@@ -348,7 +333,6 @@ class ResearchServiceMassive {
             if (aggregatedData.length > 60000) aggregatedData = aggregatedData.substring(0, 60000) + "\n[... Tronqué ...]";
 
             try {
-                // 2. On durcit le Prompt du Directeur de Recherche
                 const systemPrompt = `Tu es Directeur de Recherche. Fais une méta-analyse et une synthèse transversale (Markdown) de ces études. 
 Règle Absolue : Tu dois pondérer tes conclusions en fonction de la Fiabilité (les étoiles ⭐) de chaque étude. Les affirmations issues d'études à 4 ou 5 étoiles doivent primer sur celles à 1 ou 2 étoiles en cas de contradiction.
 
@@ -364,24 +348,19 @@ Format attendu:
                 db.run(`INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, [projectId, finalReport]);
                 Logger.log(`🎉 MÉGA-SYNTHÈSE TERMINÉE ! Le rapport du projet #${projectId} a été mis à jour.`);
 
-                // ─── LA BOUCLE D'AUTO-INSPIRATION ───
-                const MAX_DEPTH = 5; // 1 = l'IA a le droit de relancer UNE SEULE FOIS une recherche dérivée.
+                const MAX_DEPTH = 3; // L'IA peut relancer jusqu'à 3 niveaux de recherche.
 
                 if (depth < MAX_DEPTH) {
                     Logger.log(`\n💡 L'IA réfléchit aux zones d'ombre de sa propre synthèse...`);
                     const newQueries = await AiReaderService.generateInspirationQueries(finalReport);
 
                     if (newQueries.length > 0) {
-                        Logger.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets :`, newQueries);
+                        Logger.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets : ${JSON.stringify(newQueries)}`);
 
-                        // L'IA lance ses propres recherches de manière asynchrone
                         for (const query of newQueries) {
                             Logger.log(`\n🚀 [Auto-Pilote] L'IA lance une recherche sur : "${query}"`);
-
-                            // On demande à l'Aggregator 3 articles par nouvelle idée (pour ne pas saturer)
                             const newArticles = await AggregatorService.searchAndMerge(query, 3);
                             if (newArticles.length > 0) {
-                                // On relance le pipeline avec depth + 1 pour ne pas boucler à l'infini
                                 await this.processMassiveDownloads(newArticles, projectId, depth + 1);
                             }
                         }
