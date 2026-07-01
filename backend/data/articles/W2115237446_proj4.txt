@@ -1,0 +1,9 @@
+--- ABSTRACT ONLY [ABSTRACT_ONLY] ---
+TITLE: Dog bites: how big a problem?
+DATE: 1996-03-01
+SOURCE: OpenAlex
+DOI: 10.1136/ip.2.1.52
+URL: https://injuryprevention.bmj.com/content/injuryprev/2/1/52.full.pdf
+
+ABSTRACT:
+Aucun résumé disponible.

@@ -1,0 +1,781 @@
+Does My Dog “Speak” Like Me? The Acoustic Correlation between Pet Dogs and
+Their Human Owners
+Jieyi Huang
+1
+, Chunhao Zhang
+2
+, Yufei Wang
+3
+, Mengyue Wu
+4
+, Kenny Zhu
+5*
+1,2,3,4
+Shanghai Jiao Tong Univerisity
+5
+The University of Texas at Arlington
+1
+xsiling1@gmail.com,
+2
+forest_zch@sjtu.edu.cn,
+3
+arthur-w@sjtu.edu.cn
+4
+wumengyue@cs.sjtu.edu.cn,
+5
+kenny.zhu@uta.edu
+Abstract
+How hosts language influence their pets’ vocalization is an
+interesting yet underexplored problem. This paper presents a
+preliminary investigation into the possible correlation between
+domestic dog vocal expressions and their human host’s lan-
+guage environment. We first present a new dataset of Shiba Inu
+dog vocals from YouTube, which provides 7500 clean sound
+clips, including their contextual information of these vocals
+and their owner’s speech clips with a carefully-designed data
+processing pipeline. The contextual information includes the
+scene category in which the vocal was recorded, the dog’s
+location and activity. With a classification task and prominent
+factor analysis, we discover significant acoustic differences
+in the dog vocals from the two language environments. We
+further identify some acoustic features from dog vocalizations
+that are potentially correlated to their host language patterns
+1
+.
+1    Introduction
+Understanding animals’ verbal expressions is an interesting
+interdisciplinary scientific challenge. This is particular true
+with pet dogs, who closely interact with humans. Previous
+research endeavors to comprehend dog vocal sounds for a
+number of reasons, such as for a better understanding of
+animal biological evolution (Pongrácz 2017), applying their
+language to information technology, or just curiosity about
+dogs’ intention when they make a sound (Pongrácz et al.
+2011; Jégh-Czinege, Faragó, and Pongrácz 2020). However,
+this task is challenging not only due to the unknown acoustic
+pattern of dogs but also the lack of a suitable and high-quality
+dataset.
+Previous researchers have demonstrated that a dog’s vocal-
+ization indeed reflects their individual characteristics (Pon-
+grácz, Molnár, and Miklósi 2010; Larranaga et al. 2015),
+emotional expression (Thorndike and Bruce 2017; Hantke,
+Cummins, and Schuller 2018; Paladini 2020) and percep-
+tion of outside world (Larranaga et al. 2015; Molnár et al.
+2008). However, despite the fact that dogs are human’s most
+familiar animals, little research has looked into the influence
+on dogs’ communication arising from their interaction with
+human hosts. As a matter of fact, dogs exhibit many modes of
+communication ranging from behavioural patterns to vocal-
+izations, in this paper we pay attention to their vocal sounds,
+1
+The  data,  code  and  a  live  demo  are  available  at  https://
+anonymous.4open.science/r/EJSHIBAVOICE-0DC5.
+which serve as one of the most important communication
+channels (Siniscalchi et al. 2018). In our work, we hypothe-
+size that a dog’s acoustic characteristics may be correlated
+with such interaction, particularly the host’s spoken language.
+To verify that, we explore the vocal difference of a particular
+dog breed (Shiba Inu) from two different host language envi-
+ronments (English vs. Japanese) (Figure 1). Shiba Inu dogs
+are chosen as the subject of this study because Shiba Inus are
+very popular among dog owners and there is an abundance of
+their audio/video resources available online. Moreover, we
+choose to work on dogs in English and Japanese language
+environments because these two widely-spoken languages
+have very different phonetic systems, and at the same time,
+Shiba Inu dogs are very popular in both Japanese and English-
+speaking households (i.e., in Japan and in the US).
+One may argue that the host language is not the only factor
+that might influence how dogs sound in the online videos.
+For example, social norms and customs play also play apart
+in these countries/cultures. We believe these factors are inter-
+related with the languages that are in question in this paper.
+Having correlation between dog vocals and human speeches
+does not nullify the correlation between dog vocals and social
+norms and cultural behaviors, and vice versa. In fact, these
+two kinds of correlations can strengthen each other.
+Figure 1: A dog’s vocalization may be accousticly correlated
+with its host language, so that a “Japanese” dog should vo-
+calize differently than an “American” dog under the same
+context such as “eating on the lawn”.
+We verify the above hypothesis via a two-stage pipeline.
+First, we conduct classification experiments to investigate
+the possible existence of interesting acoustic properties that
+distinguish dog vocalizations from one language environment
+arXiv:2309.13085v1  [cs.SD]  21 Sep 2023
+to the other. The classification experiment is performed on
+pairs of Japanese and English dog vocal clips under the same
+contextwhich is composed of thescene category,location,
+andactivityof the dog during the recording, so as to exclude
+these confounding non-linguistic factors, which may affect
+how dogs voice out.
+In stage two, to discover the most prominent factors that
+distinguish dog vocals by their language environments, we
+perform an importance analysis of different factors using
+Shapley values. A similar analysis is also performed on host
+languages, to study the acoustic difference between English
+and Japanese. Moreover, we compute the Pearson correlation
+between dog vocals and their host speech. The fact that sev-
+eral most important acoustic characteristics differentiating
+dogs have substantial correlations with those of their host
+language (i.e., English or Japanese) supports our hypothesis
+that the domestic dog vocal expressions do share a few acous-
+tic similarities with its host language. It is possible that the
+host language environment has an influence over the dog’s
+vocalization.
+Previous dog vocalization datasets are mostly collected
+under controlled evironment, i.e. the researchers raised sev-
+eral dogs and recorded their physical as well as vocal be-
+haviours (Ide et al. 2021; Ehsani et al. 2018; Molnár et al.
+2008; Hantke, Cummins, and Schuller 2018). However, such
+data acquisition methods are not only costly but also lack-
+ing generalization capability as the number of dogs is highly
+restricted. Since webly data provides a large amount of dog
+vocalizations with plenty of metadata featuring the dog breed,
+language environment and contextual information, we de-
+rive a pipeline to obtain and filter the vocals from social
+media, leading to a large-scale of dog vocalization dataset
+“EJShibaVoice”. The number of families for Japanese and
+English respectively stand at 219 and 275, much larger than
+any other similar studies previously reported. Moreover, we
+use the context information tagged with the vocal clips to
+eliminate the confounding factors in our experiments. Specif-
+ically, we develop a framework that crawls Shiba Inu audio
+clips from both English and Japanese-speaking host families,
+extracts the vocal clips, segments the clips into contiguous
+singular sounds, and tags them with contextual information.
+Our main contributions are summarized as follows:
+•A newly-defined task to uncover the human linguistic
+influence  on  the  vocal  expressions  of  domestic  Shiba
+Inu dogs via a unique data-driven and computational ap-
+proach, which can inspire further research on animal lan-
+guages. (Section 2)
+•
+We construct a large-scale Shiba Inu vocalization dataset
+EJShibaVoicecontaining clean audio clips produced by
+dogs from two different language environments: English
+and  Japanese,  including  dogs’  host  speech  clips.  The
+dog vocal and human speech data undergo a systematic
+pipeline, which extracts clean dog voices and the corre-
+sponding host speech from the social media videos. (Sec-
+tion 2)
+•We discover prominent acoustic differences between dogs
+from different language environments: Shiba Inus vocal-
+izations from English-speaking households have alower
+frequency, while those from Japanese environments have
+faster speed, which correlates with these two human lan-
+guages, respectively. (Section 4.1)
+2    Problem and Dataset
+In this paper, we ask two research questions:
+1.Do pet dogs from different human language environments
+sound differently?
+2.
+If so, is their vocalization related to their host’s language
+in any way?
+To   answer   these   questions,   we   construct   a   dataset
+“EJShibaVoice”, which is composed of Shiba Inu vocal sam-
+ples from Japanese and English language environments and
+their corresponding hosts speech. Additionally, each audio
+sample is also tagged with metadata such as the begin and
+end timestamps, and the context under which the vocal sound
+is made. Additionally, host’s speech from the same video is
+extracted using a similar approach as we process dog vocal-
+izations. This procedure will be described in detail in Section
+2.4.
+To ensure the high quality of the dataset, we develop a
+rigorous processing pipeline to extract pure dog sounds in a
+variety of environments, with little or no extraneous noises
+such as human speech or background music. We segment
+dog audio clips into minimal units, which is a full singular
+bark, for the purpose of fine-grained acoustic comparison
+between different language environments. We further provide
+detailed extraneous context for each vocal clip, as there are
+other variables other than language environments that could
+potentially influence dog’s sound, for example whether a dog
+is eating or playing, outdoor or indoor(Larranaga et al. 2015;
+Molnár et al. 2008). We make this fine distinction on the
+context of the dog sounds so as to constrain confounding
+factors  other  than  the  linguistic  environment  of  the  dogs.
+Hereby, with the sound segmentation and context tagging,
+each clean singular vocalization has a corresponding context.
+Next, we present the full data processing pipeline (Figure
+2) for constructing the EJShibaVoice dataset.
+2.1    Sourcing Dog Vocalization Sounds Online
+Since YouTube contains a large amount of user-uploaded
+videos about their pet dogs, our first step is to source relevant
+clips from two language environments via searching for the
+keyword “Shiba Inu” and a scene category term on YouTube.
+In this study, we use a total of eight scene categories, which
+are defined in Table 1. These eight categories were proposed
+in previous work about dog activity classification (Larranaga
+et al. 2015). For example, to download videos about Shiba
+Inu eating, we search for the query “Shiba Inu Eat -Coin” for
+English and the correponding Japanese of this query for vo-
+cals under Japanese host language environment. Here “-Coin”
+is used as there are a large number of Shiba Inu Coin videos,
+we add this term to filter out those irrelevant videos. All eight
+scenes are searched under the same keyword patterns.
+Because YouTube videos are not typically tagged with
+original language or locale, we infer the language environ-
+ment of a video by the languages ofits caption or title. For
+example, if the title contains Japanese characters, we consider
+(a)  source  videos  and  tag  lan-
+guage.
+(b)    sentence-level    segmenta-
+tions.
+(c) clean data after noise remov-
+ing.
+(d) word-level barks.
+(e) context tagging.
+Figure 2: The procedure of dataset construction.
+it as a video recorded in an Japanese-speaking environment,
+whereas a video with purely English title is considered to be
+recorded in an English-speaking environment.
+After all the videos are downloaded and tagged, 16,161
+videos in total are collected. Among them we randomly sam-
+ple 1,000 clips to verify the host language tagging accuracy
+by watching the video clips. The accuracy is 93.2%, which
+indicates that the majority of the Shiba Inu videos are tagged
+with the correct host language environments, and fit our re-
+search purpose.
+2.2    Dog Vocalizations Extraction
+The original audios downloaded from YouTube contain long
+uninformative segments where dogs are silent or background
+noises muffling the vocalizations. To ensure the quality of our
+dataset, we have adopted a systematic and rigorous pipeline
+of three steps to extract pure and singular vocal segments
+from the audios.
+Step 1: sentence-level segmentations extractionAs a pre-
+liminary step, we extract long segments in which contains a
+continuous series of dog vocalizations. Such long segments,
+which we call a dog “sentence”, can be detected because they
+are preceded or followed by significant periods of silence.
+We apply PANNs (Kong et al. 2020), a pre-trained large
+sound event detection model including as many as 527 sound
+classes for recognizing the sound events. The continous seg-
+ments detected by PANNs with the event class “barking” are
+considered as the sentence-level bark segmentations.
+Step 2: noise eliminationFrom our practical experience,
+we have found that sometimes vocalizations will be unclear
+due to the background music and human talking. Thus in
+the second step, among those sentence-level segmentations,
+those with co-existing event “speech” and “music” detected
+by PANNs are removed from the dataset.
+Step 3: word-level vocalizations extractionAnother chal-
+lenge is that the coarse-grained sound clips may have some
+short pauses in the middle. To remove these pauses, we fine-
+tune a sound event detection model to determine the start and
+end time of singular vocalizations, which we call “words” in
+this paper.
+PANNs is used as the pretrained model, which is trained
+on AudioSet (Gemmeke et al. 2017) for all the sound classes
+first. We then manually made framewise labels for the event
+“barking” on 246 audio clips with a total length of 715 seconds
+and fine-tuned this pretrained model. This fine-tuned model
+can precisely detect dog vocals in the audio with the start time
+and end time. Based on the precise start time and end time,
+we use the fine-tuned model to remove the pause segments
+between barkings.
+At the end of these three steps, only a singular dog vocal-
+ization is left in each clip. In total, 7,500 clips from 1,551 raw
+videos remained. While we acknowledge the fact that the data
+noise induced by recording devices and audio ambience is dif-
+ficult to eliminate via web data, such factors/biases should be
+well mitigated with the large and diverse data source coming
+from either side of the Pacific that we curated on YouTube.
+2.3    Context Metadata Tagging
+We list the range of possible values forscene,locationand
+activity, three components of the context in Table 1. The set
+of values for locations values is a subset of the location set
+from Inception-ResNet-V2 model.
+ContextPossible values
+SceneAlone, Bath, Eat, Fight, Play, Run, Stranger, Walk
+Location76 possible locations, such as lawn, street, office, recre-
+ation_room and so on
+Activitya 768-dimentional real valued vector
+Table 1: Description of the context metadata.
+For locations and activites, we sample 10 images (equi-
+spaced) from the video segment that coincides with the du-
+ration  of  the  audio  bark  sample,  and  classify  the  images
+into one of the location labels listed in Table 1. The loca-
+tions are inferred from Inception-ResNet-V2 model(Szegedy
+et al. 2017) trained on AI Challenge 2017 Scene Classifi-
+cation dataset. We apply image caption and visual question
+answering (VQA) models from OFA (Wang et al. 2022) to
+first generate a caption for an image and then ask the model
+“what is the dog doing in the image?”. The caption results are
+transformed into word embeddings with pre-trained BERT
+model(Devlin et al. 2019), and the 10 word embeddings of
+the 10 images are averaged to obtain the overall activity em-
+bedding of that bark sample. Besides, the timestamp of each
+bark clip in the original video is provided. Some samples
+from this dataset are shown in Figure 3.
+Figure 3: One audio sample in EJShibaVoice with its meta-
+data of language environment, timestamps, and context.
+2.4    Host Speech Extraction
+To address the second research question, which is to find
+the correlation between the barks and their host languages,
+we  need  the  audio  speech  data  from  dogs’  hosts  as  well.
+The  human  speech  in  the  original  audio  track  is  also  ex-
+tracted by a strict pipeline. The first few steps are similar
+to dog barking extraction: we start by getting those contin-
+uous segments tagged as “speech” by PANNs and remove
+those tagged as “music” from them to reduce the noises. As
+it is normal for several people talking simultaneously, we
+further apply a speaker diarization model Pyannote(Bredin
+et al. 2020; Bredin and Laurent 2021) to separate them from
+each other and retain speech of a single person in more fine-
+grained segments.
+2.5    The Final Product
+The dataset consists of two parts: the barks and the corre-
+sponding host speech. After the whole processing, 7,500
+clean bark sounds and 15,197 corresponding host speech
+clips finally remain in our EJShibaVoice dataset (Table 2).
+# of ClipsAvg Len (s)Var of Len (s
+2
+)English Per(%)
+Bark75000.610.28846.72
+Speech151971.562.13444.01
+Table 2: EJShibaVoice Statistics.
+As the data statistics indicate, we include roughly equal
+number of audio clips from English and Japanese environ-
+ments, leading to a balanced dataset that can well support our
+investigation on the influence of language environment.
+The number of clips of each scene differs (Figure 4). As
+we use the same method to process each scene, the possible
+reason for imparity is that Shiba Inu barks diversely under
+different conditions. For example, dogs tend to bark more to
+show their strength when fighting, therefore the number of
+clips under “fight” is the largest.
+3    Methodology
+To verify our assumptions that dogs from different human lan-
+guage environments have different vocals and the difference
+Figure 4: The percentage of bark clips for different scenes.
+is related to their host’s language, we conduct classification-
+based experiments and analyze the Shapley value to find
+which features are important in distinguishing their vocals.
+3.1    To Answer the First Question: Pairwise
+Classification
+To better control context and language environment, we adopt
+a 4-way classification for pairwise comparison. Specifically,
+we pair the dog vocalizations from the same context but under
+different language environments in 4 ways: En-En, Ja-Ja, En-
+Ja, and Ja-En. Two clips are considered to be from the same
+context if they have the same scene category, the same loca-
+tion, and their activity vectors with a cosine similarity of 0.95
+or above. The problem is then defined as the classification of
+these pairs into any of the above four classes. Our classifica-
+tion models include xgboost, KNN, Logistic Regression, and
+Random Forest. Multiple acoustic features including spectral
+features (filterbank (Strang and Nguyen 1996), PLP (Her-
+mansky 1990), MFCC (Davis and Mermelstein 1980)) and
+handcrafted feature-sets (eGeMAPs, GeMAPs (Eyben et al.
+2015), ComParE (Schuller et al. 2013)) are utilized to feed
+into the model.
+Dogs may also differ by their age and sex, but these at-
+tributes are hard to obtain from the YouTube data even manu-
+ally. Given the large size of our dataset, we believe a signifi-
+cantly higher than random classification accuracy will show
+that we can distinguish English dogs with Japanese dogs just
+by acoustic features.
+An alternative method is to group all fine-grained clips by
+the contexts, and then do a two-way (English or Japanese
+environment) classification in each group using only acoustic
+features. However given the complex combination of scene,
+location and activity, few samples from both languages share
+exactly the same context hence we conducted the more diffi-
+cult four-class experiment.
+3.2    To Answer the Second Question: Correlation
+on Prominent Factors
+To ascertain the influence of the host language on dog vo-
+calizations, we analyze prominent factors that distinguish
+Japanese and English dogs’ sounds. Shapley value is com-
+monly adopted to explain feature importance for a given
+machine learning model, which can help determine the promi-
+nent features influencing dog vocalizations.
+To compare the relationships between a dog vocalization
+and the host language, we also include features extracted from
+human speech (English and Japanese corpus). The speech
+sources include 8,000 clips from CommonVoice (Ardila et al.
+2019), which is an open source multilingual speech dataset
+contributed by volunteers around the world, and host speech
+from EJShibaVoice. We adopt two different sets of speech
+data because they provide distinctive features. Speech from
+EJShibaVoice has direct relation with vocalizations, so that
+we can conduct Pearson value analysis between them, while
+CommonVoice is purer and more common to help us find
+universal feature of human speech. Similar procedures are
+conducted on human language and the prominent factors
+are later compared with those inferred from dog vocaliza-
+tions (Section 4.2). Furthermore, to ascertain the correlation
+between vocalizations and their host speech in a statistical
+way, we analyze the Pearson correlation between them. In
+the meantime, the Pearson correlation between vocalizations
+and random speech is shown to compare (Section 4.2).
+4    Results and Analysis
+In  this  section,  we  present  the  classification  results  from
+different machine learning models with different features
+extracted from our dataset EJShibaVoice. We further compare
+Shapley values on the GeMAPs feature to find the prominent
+factors. We also try several different classification models on
+both spectral and handcrafted acoustic features.
+4.1    Results of Pairwise Classification
+xgboostKNNLRRF
+filterbank0.98270.90570.63740.9603
+PLP
+0.97330.77010.43750.9123
+MFCC0.98280.91610.54410.9587
+ComParE0.98680.57170.60040.9520
+GeMAPs0.98360.73170.62300.9474
+eGeMAPs0.98400.74320.69010.9567
+Table 3: 4-class classification accuracy on the vocal pairs.
+In total, we form 9,200 pairs of vocal clips. Among these,
+we formed 4 different pairs, EN-EN, JA-JA, EN-JA, and
+JA-EN, with 2,300 clips in each set respectively. And we
+perform 5-fold cross-validation on this paired dataset. The
+overall classification results are presented in Table 3, where
+six commonly-adopted audio features are compared using
+four different classification models. Among these features,
+filterbank, PLP, and MFCC are extracted from the spectral
+transformation and have 24, 13, and 13 dimensions respec-
+tively. By contrast, ComParE, GeMAPs, and eGeMAPs are
+human-crafted features and have 6373, 62, and 88 dimen-
+sions respectively. These features are easier to explain from
+perception perspectives, however, they might be less informa-
+tive than direct spectral features, resulting in relatively lower
+accuracy in some models.
+Our first observation is that no matter which feature set
+or which model is used, dog vocals from different host lan-
+guage environments can be clearly distinguished, because
+the accuracies are all clearly higher than 0.25 (the random
+guess). In other words, this indicates that there is a certain
+acoustic difference between the dog vocals in these two lan-
+guage environments. Specifically, the accuracy of ComParE
+significantly drops while using KNN, which is due to the
+curse of dimensionality of this 6,373 dimension feature. XG-
+Boost shows the highest classification accuracy, with all six
+features demonstrating an accuracy higher than 0.90. This
+result affirms thatdog vocals under English environments
+are distinctly different from those under Japanese envi-
+ronments.
+Next, we will find out what are the crucial features that
+distinguish the English dogs from the Japanese dogs.
+4.2    Results of Correlation on Prominent Factors
+Prominent Analysis on GeMAPsThe results of SHAP
+values can be seen in Figure 5 and details of the selected
+dimensions are listed in Table 4.
+Figure  5:  The  average  SHAP  values  (absolute  value)  of
+GeMAPs  sorting  from  high  to  low.  Features  with  SHAP
+values higher than 0.04 are considered prominent because of
+the sudden drop in SHAP values to the right those features.
+DimensionDim TypeSHAP
+loudness_sma3_ameanEnergy0.1336
+F0semitoneFrom27.5Hz_sma3nz_percentile50.0Frequency0.0622
+loudness_sma3_meanRisingSlopeEnergy0.0590
+logRelF0-H1-A3_sma3nz_stddevNormFrequency0.0561
+loudnessPeaksPerSecTemporal0.0507
+F0semitoneFrom27.5Hz_sma3nz_percentile80.0Frequency0.0498
+hammarbergIndexV_sma3nz_stddevNorm
+Spectral0.0491
+slopeV0-500_sma3nz_ameanTemporal0.0490
+loudness_sma3_percentile80.0Energy0.0470
+slopeV500-1500_sma3nz_stddevNorm
+Temporal0.0467
+Table 4: Details of Prominent Dimensions in GeMAPs.
+The ten prominent factors in Table 4 fall into four cate-
+gories:spectral,temporal,energy, andfrequency, accord-
+ing to the original GeMAPS definition. Most of the promi-
+nent factors are spectral parameters, including dimensions of
+HammerbergIndex and slope. HammerbergIndex represents
+the ratio of the strongest peak in the 0-2kHz region to the
+strongest peak in the 2-5kHz region, while Slope represents
+the linear regression slope of the spectral power spectrum
+within the given band. F0semitone-related factors describe
+the pitch, which is highly related to the fundamental fre-
+quency. The factors about segment length are temporal param-
+eters. The energy-related parameter loudness, which repre-
+sents the sound intensity, is largely affected by the recording
+device and environment.
+Considering these factors, the results show that dog vo-
+cals from two host language environments have distinctive
+differences in their energy distribution over frequency. In
+quantitative analysis, vocals from the Japanese language en-
+vironment have a higher frequency than those from English.
+In order to better compare the vocals with human language,
+we conduct a SHAP analysis on human speech datasets: open
+public language corpus CommonVoice and the host speech
+extracted from the same videos as the dog vocals. To find out
+the difference between these two languages, we use xgboost
+as well to classify human speech into English or Japanese
+and then compute Shapley values, with results presented in
+Figure 6.
+Figure 6: (a) and (b) are the results of SHAP analysis ranked
+by descending SHAP values on open corpus and extracted
+human speech audios, respectively. The top six dimensions
+are shown on the right, and those that overlap with prominent
+factors in vocals of dogs are bolded.
+In the human speech analysis, the difference between En-
+glish and Japanese concentrates on the slope, loudness, and
+F0semitone. From the above, we can conclude that the dif-
+ference between vocals coming from different host language
+environments is mainly related to frequency. In the meantime,
+from our analysis of prominent acoustic factors, the vocalsvo-
+cals of dogs and voices of humans share several common
+prominent factors, suggesting that the host human language
+have a correlation with the vocals of dogs.
+Furthermore, to ascertain the correlation between vocals
+and speech more directly besides the overlap of their promi-
+nent factors, we calculate the Pearson’s correlation between
+the two from the same videos in the ten prominent dimensions
+selected (Table 5).
+Language Speed ComparisonDog vocals under English
+and Japanese host language environments differ not only in
+these acoustic dimensions above, but a more intuitive dimen-
+sion:speed.
+A formal measure of the speed of speech is the number
+of syllables in a given time duration. For speech from the
+same video as the dog voices, we apply an automatic speech
+recognition (ASR) model in Whisper (Radford et al. 2022),
+one of the state-of-the-art ASR models which smoothly tran-
+scribes the extracted speech into either English or Japanese
+texts. At the same time, CommonVoice already provides cor-
+responding texts for their audio. The segmentation of text into
+sequences of syllables is done by some subfunction ofeS-
+peak(Duddington and Dunn 2012), which is a compact open
+source software speech synthesizer for English and other
+languages. However, as there is no concept of “syllable” nor
+alphabet for Shiba Inu barks, we adopt another similar way
+for syllablizing dog clips. The dog clips are divided into se-
+quences of syllable-like units according to an oscillator-based
+algorithm (Räsänen, Doyle, and Frank 2018).
+Figure 7: The speed comparison for barks, host speech from
+same video and speech from CommonVoice.
+The number of syllables or syllable-like units per second
+is shown in Figure 7. We make the following discoveries:
+First, dog vocals from Japanese environment and Japanese
+human speech clips are generally faster than dog vocals from
+English environment and English speech clips. This suggests
+that when it comes to speed, there is a correlation between
+dog vocals and human speech. Second, it appears that human
+speech in EJShibaVoice dataset is faster than that of Com-
+monVoice. The difference in speed can be attributed to the
+recording style of CommonVoice, which tends to be slower
+than typical speech.
+Here we illustrate the spectrograms of two typical dog
+vocal samples from the two language environments in Figure
+8. It is clear that in the same time length, the vocal under
+Japanese language environment has more syllable-like units
+than that under English language environment while the fre-
+quency of those vocals in the English environment is closer
+to the low-frequency region.
+Dimension
+With Host SpeechWith Random Speech
+Pearson Coefficientp-valuePearson Coefficientp-value
+loudness_sma3_amean0.5372.73e-830.0250.405
+F0semitoneFrom27.5Hz_sma3nz_percentile50.00.1054.76e-4-0.0120.691
+loudness_sma3_meanRisingSlope0.1591.08e-70.0430.155
+logRelF0-H1-A3_sma3nz_stddevNorm0.0020.9414.25e-40.989
+loudnessPeaksPerSec0.1243.75e-51.20e-30.968
+F0semitoneFrom27.5Hz_sma3nz_percentile80.0
+0.1626.40e-8-0.0110.714
+hammarbergIndexV_sma3nz_stddevNorm9.13e-30.7626.47e-30.830
+slopeV0-500_sma3nz_amean0.5807.37e-1000.0290.334
+loudness_sma3_percentile80.00.4363.03e-520.0300.322
+slopeV500-1500_sma3nz_stddevNorm
+0.0170.573-4.40e-30.884
+Table 5: The correlation analysis is on two groups of data. In the first group, the analysis is on the correlation between dog vocals
+and their host speech, in the second group the correlation is between dog vocals and random speech. The dimensions of high
+correlation with p-value lower than 0.05 are bold.
+(a) A Bark under Japanese Env.(b) A Bark under English Env.
+Figure 8: The spectrogram of two audio samples which are
+from different language environmentsand similar situations.
+4.3    Summary of Findings
+Through all the above analysis, we can find thatthe key
+accoustic features that distinguish Shiba Inus from two
+language environments are frequency and speed, which
+correlate well with human speech.
+Our findings corroborate with previous literature (Coupé
+et al. 2019; Graham 2014) that the syllable speed of Japanese
+surpasses that of English and many other languages. At the
+same time, the frequency of Japanese is relatively higher than
+that of English. All these findings show that the vocals under
+English and Japanese language environments are different
+and in two dimensions of frequency and speed. To explain in
+detail, English dog vocals at a lower frequency than Japanese
+dogs, but Japanese dog vocals faster than English dogs. The
+same phenomenon can be observed with human speakers of
+these two languages.
+4.4    Human Evaluation on Acoustic Features
+Alongside acoustic analysis, we assess cross-linguistic dog
+vocals via surveys. We pick 20 vocal pairs with distinct lan-
+guage settings from Section 3. Each of the 20 questionnaires,
+given to 30 participants, makes 600 in total. Pair sequence is
+randomized. When spotting differences, participants gauge
+from four dimensions below: (1)urgency, which represents
+the speed (2)pitch (3)duty ratio, which is the ratio of the dura-
+tion of the voiced segments to that of the unvoiced segments
+(4)loudness.
+Among four above dimensions, 74.01%, 79.09%, 67.23%
+and 63.56% of the questionnaires which says that there are
+differences between the two clips report dimension differ-
+ence respectively. This shows that from a human perspective
+the differences are most revealed by pitch, which is highly
+frequency related. This is in line with our acoustic analysis.
+4.5    Restrictions
+Compared to previous studies, we adopt a first-of-its-kind
+method of collecting data from the Internet. Some may argue
+that former studies have a more controllable environment to
+eliminate confounding factors. However, it is very unlikely to
+cultivate exactly the same growing environment as subjectiv-
+ity always exists. On the contrary, with the large amount of
+data from various families, we can remedy the confounding
+factors in a statistical way. Our pipeline is hence beneficial
+as we can scale up the data in the future and further validate
+our argument.
+5    Conclusion
+In this paper, we define a new problem of discovering the
+linguistic influence of the host on the sounds of their pet dogs.
+Experiments have shown that there is a significant difference
+in audio frequency and speed between the voice of dogs in the
+Japanese language environment and the English environment.
+Specifically, English dogs bark at a lower pitch than Japanese
+dogs, while Japanese dogs bark faster than English ones. The
+phenomena can be observed in humans as well.
+We sourced our data from YouTube, which, though noisy,
+ensures the quantity and variety and has rarely been covered
+in previous studies. The fact that we removed quite a lot of
+data from the raw videos is due to the rigorous pipeline we
+developed for quality purposes. Eventually, our EJShibaVoice
+dataset, which contains a large number of Shiba Inu sound
+clips  and  their  corresponding  host  speech  under  various
+scenes will facilitate future research in this field.
+Future direction can be a larger dataset for a more gen-
+eral investigation, i.e. more breeds and more sound clips, as
+well as more various language environments in addition to
+Japanese and English in this study. Note that the pipeline we
+proposed is language-agnostic and hence can be applied to
+other studies with similar purposes.
+References
+Ardila, R.; Branson, M.; Davis, K.; Henretty, M.; Kohler, M.;
+Meyer, J.; Morais, R.; Saunders, L.; Tyers, F. M.; and Weber,
+G. 2019. Common Voice: A Massively-Multilingual Speech
+Corpus.CoRR, abs/1912.06670.
+Bredin, H.; and Laurent, A. 2021.  End-to-end speaker seg-
+mentation for overlap-aware resegmentation. InProc. Inter-
+speech 2021.
+Bredin,  H.;  Yin,  R.;  Coria,  J.  M.;  Gelly,  G.;  Korshunov,
+P.; Lavechin, M.; Fustes, D.; Titeux, H.; Bouaziz, W.; and
+Gill, M.-P. 2020. pyannote.audio: neural building blocks for
+speaker diarization.  InICASSP 2020, IEEE International
+Conference on Acoustics, Speech, and Signal Processing.
+Coupé, C.; Oh, Y. M.; Dediu, D.; and Pellegrino, F. 2019.
+Different languages, similar encoding efficiency: Comparable
+information rates across the human communicative niche.
+Science Advances, 5(9): eaaw2594.
+Davis, S.; and Mermelstein, P. 1980.  Comparison of para-
+metric representations for monosyllabic word recognition
+in continuously spoken sentences.IEEE transactions on
+acoustics, speech, and signal processing, 28(4): 357–366.
+Devlin,  J.;  Chang,  M.;  Lee,  K.;  and  Toutanova,  K.  2019.
+BERT: Pre-training of Deep Bidirectional Transformers for
+Language Understanding.   In Burstein, J.; Doran, C.; and
+Solorio, T., eds.,Proceedings of the 2019 Conference of the
+North American Chapter of the Association for Computa-
+tional Linguistics: Human Language Technologies, NAACL-
+HLT 2019, Minneapolis, MN, USA, June 2-7, 2019, Volume 1
+(Long and Short Papers), 4171–4186. Association for Com-
+putational Linguistics.
+Duddington, J.; and Dunn, R. 2012.  eSpeak text to speech.
+Web publication: http://espeak. sourceforge. net.
+Ehsani, K.; Bagherinezhad, H.; Redmon, J.; Mottaghi, R.;
+and  Farhadi,  A.  2018.   Who  let  the  dogs  out?  modeling
+dog behavior from visual data. InProceedings of the IEEE
+Conference on Computer Vision and Pattern Recognition,
+4051–4060.
+Eyben,  F.;  Scherer,  K.  R.;  Schuller,  B.  W.;  Sundberg,  J.;
+André, E.; Busso, C.; Devillers, L. Y.; Epps, J.; Laukka, P.;
+Narayanan, S. S.; et al. 2015. The Geneva minimalistic acous-
+tic parameter set (GeMAPS) for voice research and affective
+computing.IEEE transactions on affective computing, 7(2):
+190–202.
+Gemmeke,  J.  F.;  Ellis,  D.  P.;  Freedman,  D.;  Jansen,  A.;
+Lawrence, W.; Moore, R. C.; Plakal, M.; and Ritter, M. 2017.
+Audio set: An ontology and human-labeled dataset for audio
+events. In2017 IEEE international conference on acoustics,
+speech and signal processing (ICASSP), 776–780. IEEE.
+Graham, C. 2014. Fundamental frequency range in Japanese
+and English: The case of simultaneous bilinguals.Phonetica,
+71(4): 271–295.
+Hantke, S.; Cummins, N.; and Schuller, B. 2018.  What is
+my dog trying to tell me? The automatic recognition of the
+context and perceived emotion of dog barks. In2018 IEEE
+International Conference on Acoustics, Speech and Signal
+Processing (ICASSP), 5134–5138. IEEE.
+Hermansky,  H.  1990.   Perceptual  linear  predictive  (PLP)
+analysis of speech.the Journal of the Acoustical Society of
+America, 87(4): 1738–1752.
+Ide, Y.; Araki, T.; Hamada, R.; Ohno, K.; and Yanai, K. 2021.
+Rescue  dog  action  recognition  by  integrating  ego-centric
+video, sound and sensor information.  InPattern Recogni-
+tion. ICPR International Workshops and Challenges: Virtual
+Event, January 10–15, 2021, Proceedings, Part III, 321–333.
+Springer.
+Jégh-Czinege,  N.;  Faragó,  T.;  and  Pongrácz,  P.  2020.   A
+bark of its own kind – the acoustics of ‘annoying’ dog barks
+suggests a specific attention-evoking effect for humans.Bioa-
+coustics, 29(2): 210–225.
+Kong, Q.; Cao, Y.; Iqbal, T.; Wang, Y.; Wang, W.; and Plumb-
+ley, M. D. 2020. Panns: Large-scale pretrained audio neural
+networks for audio pattern recognition.IEEE/ACM Trans-
+actions  on Audio, Speech, and  Language  Processing,  28:
+2880–2894.
+Larranaga, A.; Bielza, C.; Pongrácz, P.; Faragó, T.; Bálint,
+A.; and Larranaga, P. 2015. Comparing supervised learning
+methods for classifying sex, age, context and individual Mudi
+dogs from barking.Animal cognition, 18(2): 405–421.
+Molnár,  C.;  Kaplan,  F.;  Roy,  P.;  Pachet,  F.;  Pongrácz,  P.;
+Dóka, A.; and Miklósi, Á. 2008. Classification of dog barks:
+a machine learning approach.Animal Cognition, 11(3): 389–
+400.
+Paladini, A. 2020.  The bark and its meanings in inter and
+intra-specific language.Dog behavior, 6(1): 21–30.
+Pongrácz, P. 2017.   Modeling evolutionary changes in in-
+formation transfer: Effects of domestication on the vocal
+communication of dogs (Canis familiaris).European Psy-
+chologist, 22(4): 219.
+Pongrácz, P.; Molnár, C.; Dóka, A.; and Miklósi, Á. 2011.
+Do children understand man’s best friend? Classification of
+dog barks by pre-adolescents and adults.Applied animal
+behaviour science, 135(1-2): 95–102.
+Pongrácz, P.; Molnár, C.; and Miklósi, Á. 2010. Barking in
+family dogs: an ethological approach.The Veterinary Journal,
+183(2): 141–147.
+Radford, A.; Kim, J. W.; Xu, T.; Brockman, G.; McLeavey,
+C.;  and  Sutskever,  I.  2022.Robust  speech  recogni-
+tion  via  large-scale  weak  supervision.arXiv  preprint
+arXiv:2212.04356.
+Räsänen, O.; Doyle, G.; and Frank, M. C. 2018. Pre-linguistic
+segmentation of speech into syllable-like units.Cognition,
+171: 130–150.
+Schuller, B.; Steidl, S.; Batliner, A.; Vinciarelli, A.; Scherer,
+K.; Ringeval, F.; Chetouani, M.; Weninger, F.; Eyben, F.;
+Marchi, E.; et al. 2013.   The INTERSPEECH 2013 com-
+putational paralinguistics challenge: Social signals, conflict,
+emotion, autism. InProceedings INTERSPEECH 2013, 14th
+Annual Conference of the International Speech Communica-
+tion Association, Lyon, France.
+Siniscalchi, M.; d’Ingeo, S.; Minunno, M.; and Quaranta, A.
+2018. Communication in dogs.Animals, 8(8): 131.
+Strang, G.; and Nguyen, T. 1996.Wavelets and filter banks.
+SIAM.
+Szegedy, C.; Ioffe, S.; Vanhoucke, V.; and Alemi, A. A. 2017.
+Inception-v4,  inception-resnet  and  the  impact  of  residual
+connections on learning. InThirty-first AAAI conference on
+artificial intelligence.
+Thorndike, L.; and Bruce, D. 2017.Animal intelligence:
+Experimental studies. Routledge.
+Wang, P.; Yang, A.; Men, R.; Lin, J.; Bai, S.; Li, Z.; Ma,
+J.; Zhou, C.; Zhou, J.; and Yang, H. 2022.   OFA: Unify-
+ing Architectures, Tasks, and Modalities Through a Simple
+Sequence-to-Sequence Learning Framework.  162: 23318–
+23340.

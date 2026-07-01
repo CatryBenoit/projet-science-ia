@@ -231,7 +231,8 @@ class ResearchServiceMassive {
             Logger.log(`\n──────────── Groupe ${groupNum}/${totalGroups} ────────────`);
 
             await Promise.all(batch.map(async (article) => {
-                const safeId = article.id.replace(/[^a-zA-Z0-9]/g, '_');
+                // CORRECTION 1 : On ajoute l'ID du projet pour rendre cet article unique à ce projet précis
+                const safeId = article.id.replace(/[^a-zA-Z0-9]/g, '_') + '_proj' + projectId;
                 const filePath = path.join(storageDir, `${safeId}.txt`);
                 const shortTitle = article.title?.substring(0, 40) || 'Sans titre';
                 Logger.log(`\n📄 "${shortTitle}..."`);
@@ -241,12 +242,10 @@ class ResearchServiceMassive {
                     let textToSave = '';
 
                     if (buffer && isPDF(buffer)) {
-                        // ─── NOUVEAU : SAUVEGARDE DU VRAI PDF ───
                         const pdfFilePath = path.join(storageDir, `${safeId}.pdf`);
                         await fs.writeFile(pdfFilePath, buffer);
                         Logger.log(`  💾 PDF original sauvegardé avec succès sur le disque.`);
 
-                        // Texte intégral extrait du PDF pour la lecture
                         const parsed = await pdfParse(buffer);
                         textToSave = parsed.text.replace(/\n\s*\n/g, '\n').trim();
                         stats.full++;
@@ -267,19 +266,41 @@ class ResearchServiceMassive {
                     }
 
                     if (textToSave.length > 50) {
+                        // 1. Écriture du fichier texte brut
                         await fs.writeFile(filePath, textToSave, 'utf8');
-                        db.run(
-                            `INSERT OR IGNORE INTO articles (id, title, published_date, oa_url, local_file_path, project_id) VALUES (?, ?, ?, ?, ?, ?)`,
-                            [safeId, article.title, article.published_date, article.oa_url, filePath, projectId]
-                        );
 
+                        // CORRECTION 2 : Verrouillage de la base de données et INSERT OR REPLACE
+                        await new Promise((resolve) => {
+                            db.run(
+                                `INSERT OR REPLACE INTO articles (id, title, published_date, oa_url, local_file_path, project_id) VALUES (?, ?, ?, ?, ?, ?)`,
+                                [safeId, article.title, article.published_date, article.oa_url, filePath, projectId],
+                                function(dbErr) {
+                                    if (dbErr) {
+                                        Logger.log(`  ❌ [BDD] Impossible d'enregistrer l'article : ${dbErr.message}`);
+                                    } else {
+                                        Logger.log(`  💾 [BDD] Article enregistré et validé (ID: ${safeId}).`);
+                                    }
+                                    resolve(); // Débloque la suite du code
+                                }
+                            );
+                        });
+
+                        // 3. Analyse de l'IA (Texte + Vision)
                         try {
                             Logger.log(`  🧠 Lancement de l'analyse IA (Texte + Vision)...`);
                             const analysis = await AiReaderService.analyzeArticle(filePath);
-                            db.run(
-                                `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
-                                [safeId, analysis.meta, analysis.notes, analysis.synthesis]
-                            );
+                            
+                            // Pareil ici, on verrouille la sauvegarde de l'analyse
+                            await new Promise((resolve) => {
+                                db.run(
+                                    `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
+                                    [safeId, analysis.meta, analysis.notes, analysis.synthesis],
+                                    (analysisErr) => {
+                                        if (analysisErr) Logger.log(`  ❌ [BDD] Erreur sauvegarde analyse : ${analysisErr.message}`);
+                                        resolve();
+                                    }
+                                );
+                            });
                             Logger.log(`  ✅ Analyse IA terminée et sauvegardée.`);
                         } catch (aiErr) {
                             Logger.log(`  🔴 Échec de l'analyse IA automatique : ${aiErr.message}`);
@@ -291,6 +312,7 @@ class ResearchServiceMassive {
                     Logger.log(`  🔴 Échec critique : ${err.message}`);
                 }
             }));
+            
 
             if (i + BATCH_SIZE < articles.length) {
                 const delay = jitter(2000, 2000);

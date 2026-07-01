@@ -1,0 +1,1825 @@
+Balancing  Efficiency  and  Comfort  in  Robot-Assisted  Bite  Transfer
+Suneel Belkhale
+1
+, Ethan K. Gordon
+2
+, Yuxiao Chen
+1
+,
+Siddhartha Srinivasa
+2
+, Tapomayukh Bhattacharjee
+3
+, Dorsa Sadigh
+1
+Stanford University
+1
+,  University of Washington
+2
+,  Cornell University
+3
+Fig. 1: Our method finds feasible bite transfer trajectories in simulation. Given the food geometry and pose on the fork, we sample at leastNgoal food
+poses that are checked for collisions with the mouth geometry using a learned constraint model. Next, we cluster the goal poses and use heuristic-guided
+BiRRT to reach cluster centroids with comfort (blue) and bite volume efficiency (orange) heuristics.
+Abstract— Robot-assisted feeding in household environments
+is challenging because it requires robots to generate trajectories
+that effectively bring food items of varying shapes and sizes into
+the mouth while making sure the user is comfortable. Our key
+insight  is  that  in  order  to  solve  this  challenge,  robots  must
+balance  theefficiencyof  feeding  a  food  item  with  thecomfort
+of  each  individual  bite.  We  formalize  comfort  and  efficiency
+as  heuristics  to  incorporate  in  motion  planning.  We  present
+an approach based on heuristics-guided bi-directional Rapidly-
+exploring  Random  Trees  (h-BiRRT)  that  selects  bite  transfer
+trajectories of arbitrary food item geometries and shapes using
+our  developed  bite  efficiency  and  comfort  heuristics  and  a
+learned constraint model. Real-robot evaluations show that op-
+timizing  both  comfort  and  efficiency  significantly  outperforms
+a  fixed-pose  based  method,  and  users  preferred  our  method
+significantly  more  than  that  of  a  method  that  maximizes  only
+user comfort. Videos and Appendices are found on our website:
+https://tinyurl.com/bticra22.
+I.  INTRODUCTION
+Imagine  a  setting  where  you  want  to  pick  up  a  piece  of
+food,  e.g.,  a  baby  carrot,  from  a  salad  bowl  to  eat.  Non-
+disabled people might overlook the complexity of this daily
+task  —  they  might  use  a  fork  to  pick  up  the  carrot,  while
+carrying  a  conversation  and  not  paying  as  much  attention
+on  how  the  carrot  is  placed  on  the  fork.  Regardless  of
+this  placement,  they  move  the  fork  in  a  manner  that  is  not
+only  efficient  in  how  much  food  can  be  eaten  but  is  also
+comfortable for the duration of the motion. This task presents
+numerous  challenges  for  more  than  12  million  people  with
+mobility-related  disabilities  [1].  Assistive  robot  arms  have
+the  potential  to  bridge  this  gap,  and  therefore  provide  care
+for  those  with  disabilities.  However,  operating  these  arms
+can  be  challenging  [2],  [3].  In  our  initial  surveys,  people
+with mobility impairment mentioned the need for intelligent
+autonomy  that  optimizes  comfort  and  adapts  to  the  food
+item  being  fed.  We  envision  intelligent  algorithms  that  are
+aware  of  user  comfort  without  the  need  for  explicit  user
+input.  Achieving  this  level  of  autonomy  presents  a  number
+of challenges which carry over to other robotics applications,
+including: 1)perceivingand choosing the next bite of food
+on  a  plate,  2)acquiringthe  food  item  with  an  appropriate
+tool, 3)transferringthese items into the mouth in an efficient
+and  comfortable  manner.  In  recent  years,  there  has  been
+significant  advances  in  food  perception  and  acquisition  [4],
+[5]. It turns out that the food acquisition strategy (e.g. fork
+skewering  angle)  heavily  affects  a  user’s  comfort  during
+bite  transfer  [5];  however,  prior  bite  transfer  methods  rely
+on  predetermined  transfer  trajectories  for  a  discrete  set  of
+acquisition strategies and food geometries [6].
+To  handle  a  wide  variety  of  food  items  and  acquisition
+methods, a bite transfer strategy must optimize its trajectories
+on the fly by bringing food into a mouth without sacrificing
+user  comfort.  However,  this  is  challenging  with  real  world
+sources of variation (e.g. food geometries, sizes, acquisition
+poses  on  the  fork,  and  mouth  shapes).  Even  with  one  food
+geometry and acquisition pose, there are often many different
+“collision-free”  paths  into  the  mouth,  so  the  feeding  agent
+should  filter  this  solution  space  intelligently.  For  instance,
+arXiv:2111.11401v2  [cs.RO]  24 Jun 2022
+consider a vertically aligned baby carrot oriented perpendic-
+ular to the fork, as shown in Fig. 1. There are a wide range
+of  possible  feeding  paths;  some  may  come  too  close  to  a
+person’s face, affecting comfort, while others may only bring
+the tip of the carrot into the mouth, limiting bite volume.
+Regardless of the orientation or type of food on our fork,
+caregivers will intuitively balance the bite volumeefficiency
+for  a  single  bite  with  thecomfortof  that  bite.  Motivated
+by  this  behavior,  we  present  a  bite  transfer  algorithm  for
+selecting  trajectories  in  a  continuous  space  of  mouth  sizes,
+food geometries, and poses. Our approach (Section III) takes
+as  input  a  food  mesh  and  an  acquisition  pose  on  the  fork
+from the real world, and generates an analogous simulation
+environment.  We  learn  a  constraint  model  to  sample  goal
+food  poses  near  the  mouth,  and  perform  motion  planning
+based  on  a  novel  set  of  heuristics  (Section  IV)  to  shape
+the  perceived  comfort  and  bite  volume  efficiency  of  each
+transfer.  To  our  knowledge,  our  approach  is  the  first  to
+formulate comfort and efficiency for bite transfer, to consider
+non-bite  sized  food  items,  and  to  work  for  a  continuum  of
+acquisition poses and food geometries. We demonstrate our
+algorithm  in  practice  through  a  limited  user  study  (Section
+V). Our results show that while comfort alone and efficiency
+alone  are  able  to  outperform  fixed  trajectories  on  average,
+our approach of blending comfort and efficiency is theonly
+method  to  outperform  a  fixed  pose  baseline  with  statistical
+significance.  We  run  our  method  on  various  food  items  of
+differing geometries and scales in simulation (Appendix IV).
+II.  RELATEDWORK
+Our work draws inspiration not only from the state-of-the-
+art in the robot-assisted feeding literature but also from the
+shared autonomy and general robot-human handovers.
+Robot-assisted  Feeding:  Bite  acquisition  and  transfer.
+Several specialized feeding devices for people with disabili-
+ties have come to market in the past decade. Although several
+automated  feeding  systems  exist  [7],  [8],  [9],  [10],  they
+lack widespread acceptance as they use minimal autonomy,
+demanding a time-consuming food preparation process [11],
+or pre-cut packaged food and cannot adapt the bite transfer
+strategies  to  large  variations  due  to  pre-programmed  move-
+ments.  Existing  autonomous  robot-assisted  feeding  systems
+such as [4], [5], [12], and [13] can acquire and feed a fixed
+set of food items, but it is not clear whether these systems can
+adapt to different food items that are either not bite-sized and
+require multiple bites or require other bite transfer strategies.
+Fenget  al.[4]  and  Gordonet  al.[14]  developed  an  online
+learning  framework  using  the  SPANet  network  and  showed
+acquisitiongeneralization  to  previously-unseen  food  items,
+but did not address thebite transferproblem. Gallenbergeret
+al.[5] showed a relationship exists between bite acquisition
+and  transfer,  but  did  not  propose  how  to  transfer  bites  for
+non  bite-sized  items  in  such  a  setting.  Our  paper  aims  to
+close this gap in bite transfer by developing a context-aware
+framework  for  robot-assistive  feeding  which  generalizes  to
+food items that are not bite-sized.
+Shared  Autonomy  for  Robotic  Assistance.Adding auton-
+omy to provide robotic assistance to tasks by inferring human
+intent is a well-studied field [15], [2], [16], [17], [18], [19],
+[20], [3]. This is especially relevant for precise manipulation
+tasks  such  as  bite  acquisition  or  bite  transfer  during  robot-
+assisted feeding, while drawing parallels to other tasks such
+as  peg-in-hole  insertion  [21],  [22].  For  example,  there  has
+been  work  on  using  the  concept  of  shared  autonomy  for
+bite  acquisition  tasks  such  as  stabbing  a  bite,  scooping  in
+icing, or dipping in rice [23], where the researchers combined
+embeddings from a learned latent action space with robotic
+teleoperation to provide assistance. Unlike this body of work,
+this  paper  focuses  on  completely  autonomous  bite  transfer
+of  food  items  by  keeping  in  mind  our  end  user  population,
+which may have severe mobility limitations.
+Robot-human Handovers.There are many works analyzing
+robot-human  handovers,  but  most  of  the  studies  focus  on
+objects  that  are  handed  over  without  using  an  intermediate
+tool  [24],  [25],  [26]  in  a  single  attempt.  In  this  paper,  we
+focus  on  tool-mediated  handover  of  food-items  that  may
+not  be  bite-sized,  and  thus  may  require  multiple  handover
+attempts. The feeding handover situation poses an additional
+challenge of transferring to a constrained mouth, instead of a
+hand [5]. Gallenberger et al. [5] explore the problem of bite-
+transfer  by  providing  the  insight  that  bite  transfer  depends
+on bite acquisition and thus the transfer trajectories are not
+only food-item dependent but are also based on how a food
+was acquired. Cakmak et al. [27] study the handover problem
+in  an  application-agnostic  way,  where  they  identify  human
+preferences for object orientations and grasp types. Similarly,
+Aleotti et al. [28] confirmed that orienting items in specific
+ways  can  make  handover  easier.  Canal  et  al.  [29]  take  a
+step  further  and  explore  how  bite  transfer  can  change  with
+personal preferences. In our paper, we focus on tool-mediated
+bite-transfer  of  food  items  that  may  not  be  bite-sized  and
+hence may require multiple transfer attempts.
+III.  CONTEXT-AWAREMULTI-BITETRANSFER
+A  caregiver  can  guide  a  food  item  into  their  patient’s
+mouth  agnostic  to  the  orientation  of  the  food  on  the  fork
+—  they  do  not  spend  minutes  optimizing  how  the  food
+should be placed on the fork for the most optimal transfer. In
+this section, we first formalize the goal offood acquisition-
+agnosticbite transfer, and then discuss our approach.
+A.  Bite Transfer Problem Formulation
+To  begin  bite  transfer  iteration,  we  are  given  a  3D  mesh
+M
+food
+of  the  food  item,  the  constant  posep
+f
+∈R
+6
+of  the
+food item on the fork, a kinematics model for the robot and
+fork  system  with  corresponding  meshM
+R
+,  and  the  pose
+estimate  of  the  mouthp
+m
+∈R
+6
+.  To  capture  the  motion  of
+the  food  item  into  the  mouth,  we  want  to  find  waypoints
+of  the  food  item  over  time,  represented  by  posesp∈R
+6
+.
+Additionally,  we  assume  the  mouth  can  be  represented  by
+a  simple  elliptical  tubeM
+mouth
+,  where  the  ellipse  axes  are
+in  the  face  plane,  and  open  mouth  dimensionsd
+m
+∈R
+2
+are  specified  per  end  user.  These  inputs  are  visualized  in
+our  PyBullet-based  simulation  environment  in  Fig.  2.  We
+outline  our  method  for  acquiring  these  inputs  in  Appendix
+III. Given these inputs, we formulate the goal of bite transfer
+as finding a sequence of food posesT={p
+0
+,...,p
+L−1
+}of
+varying  lengthLrespecting  a  set  of  physical  constraintsC
+and  cost  functionJ(T),  shown  in  Eq.  (1).  For  the  task  of
+bite transfer,Cconsists of physical constraints.C
+0
+(Eq. (2))
+andC
+1
+(Eq.  (3))  ensure  no  collisions  between  the  mouth
+meshM
+mouth
+of dimensionsd
+m
+with posep
+m
+and the food
+meshM
+food
+for each posep
+i
+∈Tas well as the robot-fork
+meshM
+R
+respectively.C
+2
+(Eq. (4)) constrains the final food
+pose to be near the mouth opening, i.e.,p
+G
+.
+=p
+L−1
+is in the
+support of goal pose distributionD
+g
+.
+T
+∗
+= argmin
+T
+J(T)s.t.C
+i
+(T) = 1∀C
+i
+∈C(1)
+C
+0
+(T) =M
+food
+(p
+j
+)∩M
+mouth
+(p
+m
+) =∅ ∀p
+j
+∈T(2)
+C
+1
+(T) =M
+R
+(p
+j
+)∩M
+mouth
+(p
+m
+) =∅ ∀p
+j
+∈T(3)
+C
+2
+(T) =p
+G
+∈D
+g
+(4)
+B.  Approach Overview
+When  taking  a  bite,  a  person  intuitivelysimulatesthe
+physics  of  their  mouth’s  interaction  with  a  carrot  on  our
+fork,  regardless  of  the  carrot’s  orientation,  or  where  their
+arm  starts.  They  might  initially  visualize  where  the  carrot
+should be in the mouth and work backwards to find the most
+comfortable  and  efficient  path.  Our  approach  captures  this
+intuition.  Our  simulation  environment  (see  Fig.  2)  reflects
+the  real  world  setup,  where  the  mouth  is  replaced  with  a
+static  elliptical  mouth  model,  allowing  us  to  simulate  the
+interactions between the human mouth and the food item.
+Our  approach  in  Fig.  1  consists  of  three  phases:  sam-
+pling,  clustering,  and  planning.  Since  the  space  of  feasible
+goal  food  poses  in  the  mouth  is  continuous,  we  outline
+two efficient goal sampling methods (Projection&Learned
+Constraints),  which  leverage  simulation  to  batch  sample
+from  a  set  of  “feasible”  orientations  and  offsets  from  the
+mouth, defined by the distributionD
+g
+, and then check these
+samples  against  the  constraintsCto  generate  a  varied  set
+of  feasible  goal  food  posesp
+G
+near  the  mouth.  Next,  we
+cluster the constraint satisfying poses into a set ofKgoals
+with  broad  coverage  overD
+g
+.  We  use  heuristic  guided  bi-
+directional rapidly-exploring random trees to search for paths
+to goal food poses within the mouth that respect the physical
+constraintsC.  We  guide  the  addition  of  new  nodes  to  the
+h-BiRRT  with  a  cost-to-come  functionhand  a  cost-so-far
+functiong,  where  the  sum  ofhandgdefines  the  overall
+predicted costJof a node in the h-BiRRT produced graph:
+J(T)≈J({p
+0
+...p
+i
+},p
+G
+) =g(p
+0
+...p
+i
+) +h(p
+i
+,p
+G
+)(5)
+Section  IV  discusses  how  we  incorporate  comfort  and
+efficiency intohandg. Here, we first outline a method for
+generating goal posesp
+G
+∼D
+g
+to satisfy the constraintsC.
+Sampling  Food  Objects  with  Projection.When  sampling
+goal  food  poses,  there  are  certain  fork  orientations  that  are
+impossible  or  unsafe  for  the  arm  to  reach  (e.g.  the  fork
+pointing  backwards  relative  to  the  face).  We  restrict  the
+orientations of the robot end effector to be within a spherical
+cut  centered  on  the  into-mouth  axis,  and  position  offsets
+from the mouth center are bounded. These bounds form the
+uniform goal distributionD
+g
+. The full sampling algorithm is
+outlined  in  the  appendix  in  Algorithm  1.  We  first  generate
+batches of food goal poses fromD
+g
+and check for collision,
+Fig.  2:Left:PyBullet  sim  with  robot  mesh  (Franka  Emika  Panda)M
+R
+,
+food object meshM
+food
+(e.g. carrot) at posep, and mouth meshM
+mouth
+(cylindrical tube, radii fromd
+m
+) at posep
+m
+.Right:End-to-end algorithm
+timing for learned constraint model compared to projection-based sampling
+(100 trajectories each).
+repeating this process until reachingNcollision-free samples
+or timing out. Since a person’s true mouth cavity fits within
+the  tube-like  elliptical  mouth  in  simulation,  which  has  a
+constant  cross  section  in  the  mouth  plane  (see  Fig.  2),  we
+accelerate the 3D collision check by slicing the food by the
+mouth plane and then projecting the inner food mesh vertices
+for  each  goal  pose  onto  the  mouth  plane  (Projection).  The
+second image from the left in Fig. 7 (Appendix I) shows the
+slicing plane, with a sample carrot geometry. Finally we can
+check if the vertices are within the 2D mouth cross section
+to detect if the goal pose is collision-free.
+Improved Sampling via Learned Constraints. WhilePro-
+jectionchecks  samples  for  collision  faster  than  a  na
+ ̈
+ıve  3D
+collision  check,  it  still  has  significant  and  high  variance
+lag  (Fig.  2).  We  thus  propose  a  sampling  method,Learned
+Constraints,  that  learns  to  predict  constraint  values  (e.g.,
+collision  prediction)  from  1M  sim  samples,  with  model
+inputs  (d
+m
+,M
+food
+,p
+f
+,p
+G
+).  In  Fig.  2,  the  right  plot  shows
+that  a  learned  collision  predictor  significantly  reduces  sam-
+pling  time.  In  Appendix  I,  we  provide  further  details  and
+show thatLearned Constraintsmaintain sample quality (e.g.,
+predictive  accuracy)  and  end-to-end  trajectory  performance
+(e.g., comfort & efficiency costs).
+Clustering  Goal  Food  Poses.Once  we  have  timed  out  or
+reachedNcollision free samples, we consolidate these goal
+poses into a representative set overD
+g
+for the planning step.
+We  use  a  standard  implementation  of  k-mediods,  although
+any mediod clustering algorithm can be substituted.
+Motion  Planning  with  Heuristic-Guided  BiRRT.Once
+collision-free   goal   food   poses   have   been   generated   and
+clustered,  we  must  find  trajectories  to  reach  these  goals.
+We  adapt  Rapidly-exploring  Random  Trees  (RRT)  for  our
+motion  planning.  Inspired  by  Lavalle  et  al.  [30],  who  used
+bi-directional search ideas to grow two RRTs, we used one
+tree from the start statep
+0
+and the other from the goal state
+p
+k
+G
+.  To  bias  the  two  search  trees  towards  each  other,  we
+take  a  heuristics-based  approach  [31].  See  Appendix  II  for
+details  on  our  heuristic-guided  implementation.  Designing
+the heuristic cost functions will be discussed next.
+IV.  COMFORT& EFFICIENCY INMOTIONPLANNING
+The solution space of feasible transfer trajectories is often
+large:  a  small  strawberry  can  be  eaten  in  a  wide  variety
+of  fork  orientations  due  to  its  size  and  inherent  symmetry.
+Our approach narrows this solution space withcomfortand
+efficiencyheuristics  during  motion  planning.  One  intuitive
+formulation  is  the  path  costgbeing  the  distance  between
+food poses (Eq. (6)), with the heuristichbeing the distance
+to the goal pose (Eq. (7)).
+g(p
+0
+...p
+i
+) =
+i−1
+∑︂
+j=0
+||p
+j+1
+−p
+j
+||(6)
+h(p
+i
+,p
+G
+) =||p
+G
+−p
+i
+||(7)
+While  this  cost  function  guides  hRRT  to  the  goal  pose,
+finding  the  shortest  distance  path  in  food  pose  space  ig-
+nores  both  comfort  and  bite  volume  efficiency.  Consider
+the  vertically  oriented  carrot  in  the  first  row  of  Fig.  3.  If
+we  sample  a  goal  pose  with  the  carrot  oriented  into  the
+mouth  and  just  past  the  teeth,  a  straight  path  to  this  goal
+is  optimal  in  distance  cost,  but  the  person  can  barely  take
+a bite; to add, the end effector would be close to the user’s
+face,  which  could  be  considered  uncomfortable.  From  our
+initial surveys with users with mobility limitations, we indeed
+conclude that comfort and efficiency are essential during bite
+transfer. One participant comments, “The orientation should
+be comfortable for the utensil and the food ... the arm should
+maintain  a  low  profile  to  not  obstruct  sight  ...  it  should
+be  fast...”.  To  this  end,  we  develop  two  competing  cost
+functions  to  shape  the  trajectories  produced  by  hRRT:  (1)
+bite efficiency, capturing the percentage of the food inside the
+mouth at the end of a trajectory, and (2) trajectory comfort,
+capturing the perceived user comfort along a given trajectory.
+A.  Modeling Efficiency
+The  mostefficientgoal  pose  brings  the  most  food  into  a
+person’s  mouth,  which  can  be  measured  in  the  real  world
+by  comparing  the  food  mesh  before  and  after  each  bite.
+In  simulation,  we  approximate  the  new  food  mesh  without
+knowing the biting physics for a user. Instead, we assume a
+bite  slices  the  food  mesh  in  the  face  plane  (see  Figure  7).
+LetV
+i
+be  the  volume  of  the  food  geometry,  andV
+f
+be  the
+remaining volume after the bite. We estimate the efficiency
+cost of goal poses with Eq. (8). The n-root (n= 3in practice)
+of  the  volume  ratio  amplifies  the  cost  difference  between
+goal poses of lower final volumes (high efficiency) to more
+noticeably bias RRT growth towards the most efficient goal
+poses. The resulting costs are in Eq. (9) & (10).
+J
+E
+(p
+G
+) = (V
+f
+/V
+i
+)
+1/n
+(8)
+g(p
+0
+...p
+i
+) =
+i−1
+∑︂
+j=0
+||p
+j+1
+−p
+j
+||(9)
+h(p
+i
+,p
+G
+) =||p
+G
+−p
+i
+||+β
+E
+J
+E
+(p
+G
+)(10)
+Note that this cost only considers the goal pose, rather than
+the entire trajectory. We empirically found that other notions
+of efficiency applied topaths, like trajectory execution time,
+or  the  distance  of  the  path  traveled,  do  not  vary  as  much
+between  outputs  of  h-BiRRT,  and  so  yield  less  impact  on
+the quality of trajectories produced.
+B.  Modeling Comfort and Personal Space
+A   trajectory   that   brings   the   arm   too   close   within   a
+user’spersonal  spacecould  influence  the  user’s  perceived
+safety,  even  if  the  transfer  efficiency  is  high.  We  develop
+a  notion  of  comfort  that  draws  from  proxemics  literature
+in  human-robot  interaction,  a  well-studied  field  [32]  for
+tasks   such   as   in   social   robot   navigation   [33].   Building
+off  the  notion  of  “personal  space”,  we  hypothesize  that
+trajectories  should  stay  within  a  conic  region  stemming
+from  the  mouth,  with  a  wide  cross-sectional  area  further
+from  the  face  that  narrows  towards  the  mouth.  Prior  work
+in  human  factors  for  social  navigation  has  shown  that  a
+person’s  comfortable  personal  space  can  be  different  for
+each  cardinal  direction,  usually  being  larger  within  a  per-
+son’s  visual  field  than  outside  [33].  Building  on  this  intu-
+ition,  we  skew  the  cone  down,  away  from  the  visual  field.
+Fig.  4:  Spatial  comfort  cost  (red  higher,
+green  lower).  The  steeper  cost  gradient
+in  the  upward  direction  than  downward
+ensures  trajectories  near  the  face  (e.g.,
+Fig. 3) have high “comfort” cost.
+We  define  a  spatial  cost
+function    resembling    an
+elliptical Gaussian at each
+crosssectioncentered
+along    the    mouth    axis
+(Fig. 4). We posit that the
+upward  direction  relative
+to  a  person’s  face,  which
+is   closer   to   the   visual
+field,shouldpenalize
+deviation  from  the  mouth
+axis   more   than   in   the
+downward  direction.  For
+a distancez∈R
++
+along the mouth axis and offset from the
+mouth axisx∈R
+2
+in the cross section plane, we define the
+spatial comfort cost in Eq. (11).
+J
+s
+C
+(x,z) = 1−e
+−α
+x
+T
+Σ(x)x
+z
+2
+(11)
+J
+C
+(p) =
+1
+NM
+∑︂
+h
+j
+∈H
+J
+s
+C
+(h
+j
+)(12)
+Here,Σ(x)is a piece-wise covariance matrix in the face
+plane.  In  our  experiments,  we  used  a  diagonal  covariance
+matrix,  with  smaller  variances  above  the  mouth  horizontal
+plane  than  below,  and  equal  variances  left  and  right.  This
+cost  and  the  mouth  axis  can  be  visualized  in  Fig.  4.  Our
+comfort cost is applied on both the food item mesh and the
+entire simulated robot mesh and fork. In essence, we create
+a  low  resolution  depth  image  from  the  perspective  of  the
+mouth  and  apply  our  cost  function  on  the  3D  location  of
+each  pixel.  For  a  given  food  posepand  the  corresponding
+simulated  robot  mesh,  we  cast  rays  in  simulation  along  the
+mouth axis, starting at anN×Mgrid of points relative to
+the mouth center and on the face plane (e.g.z= 0), ending
+at a fixed maximum distance along the mouth axisz
+max
+. The
+set of hit points from this ray cast, denotedH={h
+j
+∈R
+3
+},
+are passed into the cost function in Eq. (11) and normalized
+by the total number of points  (Eq. (12)). This comfort cost
+is  incorporated  as  a  distance-weighted  edge  cost  in  hRRT
+with  weightγ
+C
+,  and  can  be  included  in  the  heuristic  as  an
+additional goal cost using weightingβ
+C
+(Eq. (13) & (14)).
+g(p
+0
+...p
+i
+) =
+i−1
+∑︂
+j=0
+||p
+j+1
+−p
+j
+||·(1 +γ
+C
+J
+C
+(p
+j
+,p
+j+1
+))(13)
+h(p
+i
+,p
+G
+) =||p
+G
+−p
+i
+||+β
+C
+J
+C
+(p
+G
+)(14)
+Here,J
+C
+(p
+j
+,p
+j+1
+)is  shorthand  for  the  comfort  cost  at
+Fig. 3:Left: The fundamental trade off between average comfort and efficiency costs for a grid of chosen relative weightings of comfort and efficiency, with
+costs from our h-BiRRT method averaged over500+ initial food geometries and poses in simulation. Teal represents high ratios of comfort to efficiency,
+and orange the opposite. Our weights are the green dot at the elbow of this trade-off, achieving low efficiency cost and low comfort cost.Right: Sample
+trajectories for Fixed Pose (top) and Comfort+Efficiency (bottom) for theVerticalfood geometry (see Section V). While Fixed pose (baseline) incurs high
+comfort cost (close to user’s face), our method finds a trajectory that is both comfortable and efficient for the user.
+the   midpoint   of   these   two   food   poses.   We   denote   this
+formulation as “comfort only,” since there is no consideration
+of  efficiency  here.  Incorporating  comfort  alone  can  yield
+trajectories  that  keep  the  robot  within  the  cone  comfort
+region,  but  often  this  generates  final  goal  poses  that  would
+not be easy to bite. Next, we will discuss incorporating both
+efficiency and comfort as costs for h-BiRRT.
+C.  Trading off Comfort and Efficiency
+Ideally,  an  assistive  robot  would  be  able  to  feed  bites  of
+food  with  both  comfortandefficiency  in  mind.  In  order  to
+maximize  both  comfort  and  efficiency,  we  can  put  together
+the  comfort  costs  (Eq.  (13)  &  (14))  and  efficiency  costs
+(Eq.  (9)  &  (10)),  yielding  the  cost  functions  for  h-BiRRT
+in  Eq.  (15)  &  (16),  where  the  weightingsβ
+E
+,β
+C
+,  andγ
+C
+emphasize the efficiency at the goal, comfort at the goal, and
+comfort along the trajectory, respectively.
+g(p
+0
+...p
+i
+) =
+i−1
+∑︂
+j=0
+||p
+j+1
+−p
+j
+||·(1 +γ
+C
+J
+C
+(p
+j
+,p
+j+1
+))(15)
+h(p
+i
+,p
+G
+) =||p
+G
+−p
+i
+||+β
+C
+J
+C
+(p
+G
+) +β
+E
+J
+E
+(p
+G
+)(16)
+In Fig. 3, we plot the average comfort and efficiency scores
+for our h-BiRRT pipeline over a grid of weight values forβ
+E
+,
+β
+C
+, andγ
+C
+and over a large number of initial food poses and
+geometries  (e.g.,  carrots,  strawberries,  celery,  cantaloupes)
+in simulation. Refer to Appendix IV for quantitative results
+and example trajectories for each food type. Optimizing for
+efficiency  only  finds  trajectories  with  the  highest  comfort
+costs but lowest efficiency costs, and vice versa for comfort
+only.  This  demonstrates  that  there  is  in  fact  a  trade-off  in
+comfort and efficiency costs when running h-BiRRT with our
+heuristic functions. Our approach will choose the “elbow” of
+this trade-off, balancing both efficiency and comfort.
+V.  USERSTUDY
+A.  Experimental Setup
+We conducted a user study with six non-disabled partici-
+pants  to  evaluate  the  perceived  comfort  and  efficiency  with
+our real world setup
+1
+In Appendix III, we discuss our real
+world system design, and how we ensure user safety during
+our user studies. Key parameter choices are shown in Table
+II in the Appendix. We consider carrots of varying sizes and
+1
+We decided to recruit non-disabled participants due to Covid-19 & safety
+concerns. Please see Appendix V for further discussion.
+fixed acquisition poses, visualized in the first row of Fig. 5:
+Vertical,Horizontal,Roll  &  Pitch,  andYaw.  Users  were
+instructed  to  sit  still  facing  the  robot,  and  to  take  a  bite  of
+each food item after each trajectory if they felt comfortable
+to do so. In addition, an emergency stop button was placed
+next to them for added assurance. See Appendix V for more
+user study details. We evaluated the following methods:
+1)FixedPose(F):  We  fix  the  final  orientation  of  the  food
+item independent of the pose of the food item on the fork
+and the food size. This final orientation is hard-coded for
+a specific type of food and is inspired by the taxonomy
+of food manipulation strategies developed in [6].
+2)EfficiencyOnly(E):  Our  approach  with  h-BiRRT  and
+only efficiency costs, Eq. (9) and (10).
+3)ComfortOnly(C): Our approach with h-BiRRT and only
+comfort costs, Eq. (13) and (14).
+4)Comfort+Efficiency(CE): Our approach with both effi-
+ciency and comfort in mind: the h-BiRRT cost functions
+use both efficiency and reward, Eq. (15) and (16).
+For  each  food  pose  and  method,  we  evaluate  two  trajec-
+tories  end-to-end  with  each  user.  After  two  trajectories  for
+a  given  method,  we  ask  a  series  of  questions  to  gauge  the
+user’s perceived comfort of each trajectory, and the ease with
+which they were able to take a bite. We compare responses to
+these questions, in terms ofComfort(the average user rating
+ofcomfortfor  each  evaluated  trajectory,  from  1  to  5,  with
+5 being the most comfortable),Ease(average rating of their
+easeof taking a bite for each evaluated trajectory, normalized
+from 1 to 5, with 5 being the best),Rank(Average relative
+rank of each method, from 1 to 4), andSafety(Average user
+rating of safety, from 1 to 5).
+B.  Results
+The  ease  rating,  comfort  rating,  and  approach  rank  are
+summarized in Fig. 5. Importantly, our real world evaluation
+pipeline  (Appendix  III)  was  perceived  as  safe  to  the  user
+regardless of food geometry or method, achieving an average
+Safetyrating  of  4/5.  Despite  the  limited  sample  size,  our
+method (CE) significantly outperforms the fixed baseline (F)
+for  all  three  metrics  (example  in  Fig.  3),  and  consistently
+outperforms  comfort-only  (C)  and  efficiency-only  (E),  sig-
+nificantly  so  in  Rank  ratings.  Additionally,  efficiency-only
+(E)  did  not  perform  as  well  as  comfort-only  in  Comfort
+ratings. This supports our hypothesized connection between
+1
+2
+3
+4
+*
+**
+*
+Rank (Low Better)
+1
+2
+3
+4
+5
+*
+**
+Ease Rating
+Average
+VerticalHorizontalRoll + PitchYaw
+1
+2
+3
+4
+5
+*
+*
+*
+Food Pose on Fork
+Comfort Rating
+Comfort+EfficiencyComfort
+EfficiencyFixed
+Fig. 5: User study quantitative results. Each non-highlighted plot shows the average comfort rating, ease rating, and rank between trajectory types across 4
+different food poses, with the range across all 6 users plotted as error bars. The highlighted plots on the left show the average across all food poses, with
+error bars representing 95% confidence. Significant results, as determined by two-way ANOVA with repeated measures, Tukey HSD test, and Bonferroni
+correction (P <0.01), are marked with an asterisk. We do not treat multiple ratings as independent. Despite the limited sample size (N= 6), trajectories
+from the combined comfort and efficiency method perform significantly better than the baseline fixed pose approach across all three metrics. Notably, the
+efficiency-only method often performs worse than comfort-only in comfort ratings. See Appendix V for significance testing details and more analysis.
+user comfort perception and our comfort model (Eq. (11)).
+The  data  is  consistent  with  our  hypothesis  that,  while
+optimizing over individual metrics (C and E) provides some
+improvement  over  the  baseline,  joint  optimization  performs
+even better in creating trajectories robust to real-world varia-
+tion. We suspect that this is due to the large space of possible
+trajectories,  where  maximizing  for  only  comfort  puts  no
+guarantee on efficiency, and vice versa.
+Qualitatively,  our  comfort  model’s  sensitivity  to  objects
+above  mouth  level  fits  with  user  expectations.  When  asked
+about low-ranked trajectories, users stated that they believed
+“the  robot  should  have  approached  from  underneath,”  or
+that  they  “didn’t  like  when  [the  robot]  came  up  close  to
+[their]  face.”  Users  were  more  likely  to  instinctively  move
+backwards when approached from above, near the face, and
+lean in when approached from below. In Fig. 6, we visualize
+a sample real world trajectory produced by each method for
+aVerticalpose.FixedPoseis  neither  maximally  efficient
+(carrot only partially fits in mouth) nor comfortable (robot is
+too close to face). Common quantitative metrics like time and
+path length are not as informative in gauging comfort, so we
+limit our evaluation to these qualitative metrics. Appendix V
+elaborates on quantitative and qualitative metrics and outlines
+how our approach naturally extends to the multi-bite setting
+with sample real world evaluations.
+VI.  DISCUSSION
+Summary.We  present  an  approach  based  on  motion  plan-
+ning  for  bite  transfer  under  a  continuous  space  of  possible
+acquisition  angles.  During  planning,  we  narrow  down  the
+solution space of possible trajectories into the mouth with an
+awareness of both biteefficiencyand usercomfort. Our user
+study  demonstrates  that  considering  comfort  and  efficiency
+jointly  providessignificantlymore  preferable  trajectories
+compared to a fixed pose baseline. Furthermore, our method
+with comfort and efficiency consistently outperforms consid-
+ering only comfort or only efficiency.
+Limitations.One limitation of our method is the assumption
+that the mouth can be represented by a rigid elliptical tube,
+and  that  the  food  item  is  also  rigid.  In  reality,  the  human
+mouth  and  the  food  item  can  both  be  deformable,  which
+expands the set of “collision-free” paths into the mouth.
+Furthermore, our user study only involved six non-disabled
+users  due  to  Covid-19  related  policies.  In  future  work  we
+plan   to   evaluate   with   more   users,   including   users   with
+mobility-impairment  disabilities.  However,  we  are  excited
+that  even  with  the  given  sample  size,  our  method  improves
+on the state-of-the-art with statistical significance.
+ACKNOWLEDGEMENTS
+This  work  is  funded  by  NSF  Award  Numbers  2132847
+and 2006388, and by the Office of Naval Research.
+(a) Fixed Pose(b) Efficiency Only(c) Comfort Only(d) Comfort + Efficiency
+Fig. 6: Example trajectories optimized for each metric. The efficiency metric (b) rotates the carrot sideways so as much can be consumed in one bite as
+possible. The comfort metric (c) penalizes more complicated trajectories where the robot body is likely to encroach on the face. The combined metric (d)
+results in a fairly straight trajectory that still ends with a sideways carrot.
+REFERENCES
+[1]  M. W. Brault, “Americans with disabilities: 2010,”Current population
+reports, vol. 7, pp. 70–131, 2012.
+[2]  D.  P.  Losey,  K.  Srinivasan,  A.  Mandlekar,  A.  Garg,  and  D.  Sadigh,
+“Controlling assistive robots with learned latent actions,” in2020 IEEE
+International Conference on Robotics and Automation (ICRA).   IEEE,
+2020, pp. 378–384.
+[3]  M. Li, D. P. Losey, J. Bohg, and D. Sadigh, “Learning user-preferred
+mappings for intuitive robot control,” inProceedings of the IEEE/RSJ
+International  Conference  on  Intelligent  Robots  and  Systems  (IROS),
+October 2020.
+[4]  R.  Feng,  Y.  Kim,  G.  Lee,  E.  K.  Gordon,  M.  Schmittle,  S.  Kumar,
+T.  Bhattacharjee,  and  S.  S.  Srinivasa,  “Robot-assisted  feeding:  Gen-
+eralizing  skewering  strategies  across  food  items  on  a  realistic  plate,”
+ISSR, June 2019.
+[5]  D. Gallenberger, T. Bhattacharjee, Y. Kim, and S. Srinivasa, “Transfer
+depends on acquisition: Analyzing manipulation strategies for robotic
+feeding,”  ACM/IEEE  International  Conference  on  Human-Robot  In-
+teraction, 2019.
+[6]  T.  Bhattacharjee,  G.  Lee,  H.  Song,  and  S.  S.  Srinivasa,  “Towards
+robotic  feeding:  Role  of  haptics  in  fork-based  food  manipulation,”
+IEEE Robotics and Automation Letters, 2019.
+[7]  https://meetobi.com/,[Online; Retrieved on 25th January, 2018].
+[8]  2018,  https://www.secom.co.jp/english/myspoon/food.html,[Online;
+Retrieved on 25th January, 2018].
+[9]  2018, https://www.made2aid.co.uk/productprofile?productId=8&com
+pany=RBF%20Healthcare&product=Meal-Mate.
+[10]  2018,  https://www.performancehealth.com/meal- buddy- syste
+m,[Online; Retrieved on 25th January, 2018].
+[11]  M.  C.  Gemici  and  A.  Saxena,  “Learning  haptic  representation  for
+manipulating  deformable  food  objects,”  inIEEE/RSJ  International
+Conference on Intelligent Robots and Systems.   IEEE, 2014, pp. 638–
+645.
+[12]  D.  Park,  Y.  K.  Kim,  Z.  M.  Erickson,  and  C.  C.  Kemp,  “Towards
+assistive  feeding  with  a  General-Purpose  mobile  manipulator,”  May
+2016.
+[13]  L.  V.  Herlant,  “Algorithms,  Implementation,  and  Studies  on  Eating
+with a Shared Control Robot Arm,” Ph.D. dissertation, 2016.
+[14]  E. K. Gordon, X. Meng, T. Bhattacharjee, M. Barnes, and S. S. Srini-
+vasa, “Adaptive robot-assisted feeding: An online learning framework
+for acquiring previously unseen food items,”IEEE/RSJ International
+Conference on Intelligent Robots and Systems, 2020.
+[15]  A.  D.  Dragan  and  S.  S.  Srinivasa,  “A  policy-blending  formalism
+for  shared  control,”The  International  Journal  of  Robotics  Research,
+vol. 32, no. 7, pp. 790–805, 2013.
+[16]  R. M. Aronson, T. Santini, T. C. K
+ ̈
+ubler, E. Kasneci, S. Srinivasa, and
+H. Admoni, “Eye-hand behavior in human-robot shared manipulation,”
+inProceedings  of  the  2018  ACM/IEEE  International  Conference  on
+Human-Robot Interaction, 2018, pp. 4–13.
+[17]  D. Gopinath, S. Jain, and B. D. Argall, “Human-in-the-loop optimiza-
+tion  of  shared  autonomy  in  assistive  robotics,”IEEE  Robotics  and
+Automation Letters, vol. 2, no. 1, pp. 247–254, 2016.
+[18]  C.-M.  Huang  and  B.  Mutlu,  “Anticipatory  robot  control  for  efficient
+human-robot  collaboration,”  in2016  11th  ACM/IEEE  international
+conference on human-robot interaction (HRI).IEEE, 2016, pp. 83–
+90.
+[19]  S.  Javdani,  H.  Admoni,  S.  Pellegrinelli,  S.  S.  Srinivasa,  and  J.  A.
+Bagnell,  “Shared  autonomy  via  hindsight  optimization  for  teleopera-
+tion  and  teaming,”The  International  Journal  of  Robotics  Research,
+vol. 37, no. 7, pp. 717–742, 2018.
+[20]  K.  Muelling,  A.  Venkatraman,  J.-S.  Valois,  J.  E.  Downey,  J.  Weiss,
+S.  Javdani,  M.  Hebert,  A.  B.  Schwartz,  J.  L.  Collinger,  and  J.  A.
+Bagnell,  “Autonomy  infused  teleoperation  with  application  to  brain
+computer   interface   controlled   manipulation,”Autonomous   Robots,
+vol. 41, no. 6, pp. 1401–1422, 2017.
+[21]  M.  A.  Lee,  Y.  Zhu,  K.  Srinivasan,  P.  Shah,  S.  Savarese,  L.  Fei-Fei,
+A.  Garg,  and  J.  Bohg,  “Making  sense  of  vision  and  touch:  Self-
+supervised  learning  of  multimodal  representations  for  contact-rich
+tasks,” in2019 International Conference on Robotics and Automation
+(ICRA).    IEEE, 2019, pp. 8943–8950.
+[22]  V. Unhelkar, C. Guan, N. Roy, and J. Shah, “Enabling robot teammates
+to learn latent states of human collaborators.”
+[23]  H. J. Jeon, D. P. Losey, and D. Sadigh, “Shared autonomy with learned
+latent actions,”arXiv preprint arXiv:2005.03210, 2020.
+[24]  A.  Agah  and  K.  Tanie,  “Human  interaction  with  a  service  robot:
+mobile-manipulator handing over an object to a human,” inProceed-
+ings of International Conference on Robotics and Automation, vol. 1,
+April 1997, pp. 575–580 vol.1.
+[25]  A.  Edsinger  and  C.  C.  Kemp,  “Human-robot  interaction  for  coop-
+erative  manipulation:  Handing  objects  to  one  another,”  inRO-MAN
+2007 - The 16th IEEE International Symposium on Robot and Human
+Interactive Communication, Aug 2007, pp. 1167–1172.
+[26]  M. Huber, M. Rickert, A. Knoll, T. Brandt, and S. Glasauer, “Human-
+robot  interaction  in  handing-over  tasks,”  inRO-MAN  2008  -  The
+17th IEEE International Symposium on Robot and Human Interactive
+Communication, Aug 2008, pp. 107–112.
+[27]  M.  Cakmak,  S.  S.  Srinivasa,  M.  K.  Lee,  J.  Forlizzi,  and  S.  Kiesler,
+“Human  preferences  for  robot-human  hand-over  configurations,”  in
+Intelligent Robots and Systems (IROS), 2011 IEEE/RSJ International
+Conference on.    IEEE, 2011, pp. 1986–1993.
+[28]  J.  Aleotti,  V.  Micelli,  and  S.  Caselli,  “Comfortable  robot  to  human
+object  hand-over,”  in2012  IEEE  RO-MAN:  The  21st  IEEE  Interna-
+tional  Symposium  on  Robot  and  Human  Interactive  Communication,
+Sept 2012, pp. 771–776.
+[29]  G.  Canal,  G.  Aleny
+`
+a,  and  C.  Torras,  “Personalization  framework  for
+adaptive robotic feeding assistance,” inSocial Robotics, A. Agah, J.-J.
+Cabibihan,  A.  M.  Howard,  M.  A.  Salichs,  and  H.  He,  Eds.Cham:
+Springer International Publishing, 2016, pp. 22–31.
+[30]  J. J. Kuffner and S. M. LaValle, “Rrt-connect: An efficient approach to
+single-query  path  planning,”  inProceedings  2000  ICRA.  Millennium
+Conference. IEEE International Conference on Robotics and Automa-
+tion.  Symposia  Proceedings  (Cat.  No.  00CH37065),  vol.  2.IEEE,
+2000, pp. 995–1001.
+[31]  C. Urmson and R. Simmons, “Approaches for heuristically biasing rrt
+growth,” inProceedings 2003 IEEE/RSJ International Conference on
+Intelligent  Robots  and  Systems  (IROS  2003)(Cat.  No.  03CH37453),
+vol. 2.    IEEE, 2003, pp. 1178–1183.
+[32]  L. Takayama and C. Pantofaru, “Influences on proxemic behaviors in
+human-robot interaction,” in2009 IEEE/RSJ International Conference
+on Intelligent Robots and Systems.    IEEE, 2009, pp. 5495–5502.
+[33]  R. Kirby, R. Simmons, and J. Forlizzi, “Social robot navigation,” Ph.D.
+dissertation, 2010.
+Additional  details  for  our  approach  are  described  in  the
+following  sections.  Appendix  I  covers  theProjectionand
+Learned  Constraintssampling  approaches  in  greater  detail,
+including  quantitative  comparisons.  Appendix  II  provides
+details for the h-BiRRT algorithm used for motion planning,
+for  example  how  the  cost  heuristics  in  Section  IV  are
+incorporated  into  RRT  growth  with  key  parameter  choices.
+Appendix III explains our real world robotic pipeline for au-
+tonomous feeding, involving gravity compensation, food ge-
+ometry  perception,  trajectory  following,  force-reactive  con-
+trol,  and  facial  keypoint  tracking.  Appendix  IV  outlines
+simulation experiments, with quantitative and qualitative in-
+formation to supplement our real world analysis. Finally, user
+study  details  including  demographics  and  survey  questions
+are covered in Appendix V along with a discussion of how
+our algorithm naturally extends to the multi-bite setting using
+examples from our user study.
+APPENDIXI
+SAMPLINGALGORITHMS
+Our  projection  sampling  algorithm  (Algorithm  1)  begins
+by  generating  batches  of  food  goal  pose  samples  fromD
+g
+(Line 4), and performing collision checks on each food pose
+with  the  mouth  (Lines  6,  7,  8),  and  repeating  this  process
+until reachingNvalid samples or timing out. We observed
+that performing 3D collision checks was the time bottleneck
+for   each   sampling   iteration.   After   reachingNsamples,
+finding  the  representative  goal  set  can  be  accomplished  by
+any  clustering  algorithm  that  returns  cluster  centers  from
+within the original set of food poses, since it may be the case
+that cluster centers outside of this set do not satisfy the same
+collision checks. The clustering method is referenced in the
+final  line  of  Algorithm  1.D
+g
+is  defined  by  fixed  positional
+offsets from the mouth center and a spherical cut of feasible
+orientations for the fork. As an aside, while fixed positional
+offsets were sufficient for most food geometries, we noticed
+that using these fixed 3D offsets with very large geometries
+or small mouths occasionally leads to a sparse set collision-
+free poses, since these geometries may need more “wiggle”
+room  near  the  mouth  to  generate  even  a  few  collision  free
+samples. One could compensate for this by adjusting this 3D
+offset as a function of the food geometry bounding box.
+We further improve upon the efficiency of sampling with
+a  learned  constraint  model,  replacing  lines  6  &  7  with  a
+forward  pass  of  the  constraint  model  and  filtering  by  the
+outputs.  As  outlined  in  Fig.  2  in  the  text,  sampling  with
+a  learned  model  greatly  improves  the  speed  of  the  full
+algorithm.  We  use  a  3-layer  NN  to  predict  collisions  from
+food pose on forkp
+f
+, food meshM
+food
+, mouth dimensions
+d
+m
+,  and  a  desired  goal  food  posep
+G
+.  We  trained  on  1
+million  samples  of  just  the  final  pose  of  the  robot  and  the
+corresponding simulated constraint label. Our data collection
+in  simulation  involved  variations  in  not  just  food  type  and
+initial pose on the fork, but also in food scaling in all 3 axes
+and  in  mouth  elliptical  cross  section  dimensions.  We  chose
+the bounds for each of these factors to be a super set of those
+likely to be encountered in the real world. Note that each of
+these variables is passed in as input to the constraint model
+Algorithm  1Projection Goal Pose Sampling
+1:Given meshM
+food
+, ConstraintsC, Goal sampling distribution
+D
+g
+, Mouthd
+m
+andp
+m
+, Clustering method k-mediods
+2:P={}
+3:whilePhas less thanNposesdo
+4:SampleBgoal poses{p
+(1)
+G
+. . . p
+(B)
+G
+}∼D
+g
+5:V←vertices forM
+food
+at each pose in sample batch
+6:V
+sl
+←SliceIfInside(V,p
+m
+,d
+m
+)
+7:V
+pr
+←Projection(V
+sl
+,p
+m
+)
+8:Addp
+(i)
+G
+toPif verticesV
+(i)
+pr
+are inside mouth (d
+m
+)
+9:returncluster centers←k-mediods(P)
+Fig.  7:  An  example  of  what  “slicing”  a  food  geometry,  in  this  case  a
+carrot, with the mouth plane, the gray cross sectional plane, looks like in
+simulation when calculating the efficiency score with simplified mouth and
+carrot  geometries.  The  efficiency  costJ
+E
+(p
+G
+),  defined  in  Eq.  (8),  uses
+the ratio of final volumeV
+f
+and initial volumeV
+i
+, shown here on the right
+and left sides, respectively.
+Learned ConstraintsProjection
+Sampling (s)0.015±0.0325.6±3.5
+Constraint Acc. (%)74±1382±11
+RRT Comfort Cost0.63±0.260.61±0.26
+RRT Efficiency Cost
+0.56±0.210.54±0.24
+TABLE I:Learned Constraintsvs.Projectionsampling over 100 evaluated
+trajectories.(μ±σ)for sampling time, constraint prediction accuracy, RRT
+comfort cost (normalized), RRT efficiency cost (normalized).
+and  are  accessible  in  the  real  world.  Thus,  this  model  can
+be  readily  used  in  real  world  settings  that  allow  access  to
+these state variables. The main sim-to-real gap here involves
+the elliptical mouth assumption, which we hope to tackle in
+future work.
+During training, we accounted for label shift by weighting
+constraint  satisfying  and  non-constraint  satisfying  samples
+proportionally to their occurrence in the simulation dataset.
+Figure 8 shows the holdout prediction accuracies and cross
+entropy  loss  during  the  training  process.  Table  I  shows
+that  the  constraint  predictor  is  accurate  at  a  slightly  lower
+rate  than  the  projection  sampling  method  (i.e.  highsample
+quality); however, the faster sampling time for the constraint
+model  allows  for  more  iterations  of  sampling  in  order  to
+offset the lower prediction accuracy (although this fact is not
+leveraged for Table I). Due to the imperfect predictions, the
+Learned Constraintsmodel on its own may result in collision
+generating goal poses after clustering. To prevent these poses
+from being evaluated, we run an additional constraint check
+on the cluster centers to filter out any prediction errors with
+no loss in final goal pose quality.
+Additionally,  we  show  that  the  final  h-BiRRT  generated
+trajectories   achieve   similar   comfort   and   efficiency   costs
+in  simulation  compared  to  the  projection-based  sampling
+method (i.e. hightrajectory quality). In summary, the learned
+Fig.  8:  Holdout  training  plots  for  the  learned  collision  prediction  model.  From  left  to  right:  Holdout  collision  prediction  accuracy  during  training  for
+colliding samples (0 to 1); Holdout collision prediction accuracy during training for non-colliding samples (0 to 1); BCE holdout loss.
+constraint   sampling   achieves   similar   quality   trajectories
+while greatly reducing the algorithm execution time.
+APPENDIXII
+MOTIONPLANNINGALGORITHMS
+Algorithm   2Heuristic-Guided   Bi-directional   RRT   (h-
+BiRRT)
+1:GivenKgoal poses{p
+k
+G
+}, cost-to-comeh, cost-so-farg, initial
+food posep
+0
+, sampling distributionD
+T
+, hRRTconnect
+2:Start tree:S=Tree(p
+0
+)
+3:Goal trees:G={G
+k
+=Tree(p
+k
+G
+)}
+4:whileSnot connected to eachG
+k
+do
+5:Sample unconnected goal treeG
+i
+∼Gby goal cost
+6:T
+A
+, T
+B
+←sortByLength(S,G
+i
+)
+7:connect(T
+A
+, T
+B
+, g, h)
+8:returnSmoothed paths fromp
+0
+to each goalp
+k
+G
+For our h-BiRRT implementation, outlined in Algorithm 2,
+we sample goal poses as described previously, and produce
+a  goal  tree  associated  with  each  of  the  sampled  goal  poses
+(Line  5).  To  bias  the  start  to  each  goal  tree,  we  leverage  a
+heuristics-based  approach  [31]  with  a  parameterm
+q
+that  is
+used to weight the Voronoi region associated with each node,
+such that
+m
+q
+= 1−
+c
+i
+−c
+∗
+c
+max
+−c
+∗
+,(17)
+wherec
+i
+is  the  total  cost  associated  with  nodei,c
+∗
+is  the
+total  cost  of  the  optimal  path  from  start  to  goal,  andc
+max
+is the highest total cost of any node. We calculate total cost
+cas the sum of cost-to-comegand the heuristic cost-to-go
+h.  Specifically  for  the  goal  tree,  we  use  a  simple  distance
+heuristic from goal to start, and for the start tree, we use the
+novel  comfort  and  efficiency  heuristics.  For  each  tree,  we
+use  k-Nearest  Neighbors  to  select  nearest  nodes  in  the  tree
+to expand. At every iteration, we run the bi-directional RRT
+planner  for  the  same  start  tree,  but  different  sampled  goal
+trees,  where  the  probability  of  sampling  a  goal  tree  at  any
+iteration  is  proportional  to  its  goal  cost  (Lines  5,  7).  This
+ensures  that  we  eventually  reach  every  goal  tree  from  the
+start  while  prioritizing  reaching  the  least  costly  goal  pose
+first.
+Picking a trajectory.Once hRRT has completed, the result-
+ing  tree  has  a  smoothed  and  low  cost  path  to  each  of  the
+Kgoal  poses  that  were  generated  from  sampling.  Each  of
+these trajectories has an associated cost defined by evaluating
+gon  the  entire  trajectory,  and  adding  any  costs  associated
+with that trajectory’s goal pose. The final trajectory that will
+be evaluated on the real robot arm is the trajectory with the
+lowest overall cost.
+Key Parameter Choices.Our key cost parameters are shown
+below.Nis the number of collision free samples to generate
+before clustering;Kis the number of clusters generated after
+sampling;nis power to which the bite efficiency ratio (final
+over  initial)  is  raised  in  the  efficiency  cost;α,r
+up
+,r
+down
+,
+r
+side
+parameterize the comfort cost;β
+E
+is the goal efficiency
+contribution;β
+C
+is the goal comfort contribution; andγ
+C
+is
+the edge comfort contribution.
+N   K  n   α   r
+up
+r
+down
+,r
+side
+β
+E
+β
+C
+γ
+C
+1501531.01.51.1.10.10.
+TABLE II: Key parameters for our method.
+APPENDIXIII
+ROBOTICSYSTEM  FORAUTONOMOUSFEEDING
+In  order  for  an  assistive  feeding  platform  to  be  adopted,
+users  need  to  feel  safe  while  our  algorithm  is  operating
+in  the  real  world.  In  the  context  of  assistive  feeding,  the
+autonomous robot must execute a complex end-effector tra-
+jectory produced by our method and simultaneously react to
+the  highly  sensitive  human  mouth  without  causing  discom-
+fort.  We  designed  a  robotic  system  to  evaluate  expressive
+trajectories  with  an  awareness  of  users  and  the  forces  they
+exert on the utensil.
+The  trajectory  execution  operates  as  follows.  At  initial-
+ization,  the  force/torque  readings  from  the  end-effector  are
+decoupled from gravity forces/torques of the unknown food
+object by estimating the food mass from a sequence of end
+effector  poses.  Using  an  RGB-D  camera,  we  estimate  the
+3D mesh of the food item on the fork. Once our algorithm
+produces  a  sequence  of  waypoints  for  the  food  item,  we
+smooth the trajectory and interpolate through the waypoints
+using  bounded  end  effector  velocities.  Along  the  trajectory,
+force and torque readings along with robot state are utilized
+by  a  force-reactive  admittance  controller  to  safely  navigate
+the  forces  applied  by  users’  mouths  in  end-effector  space.
+We  delve  into  each  of  these  components  in  the  following
+Fig. 9: Our real world evaluation setup consists of a Franka Emika Panda
+robotic arm, a fork attached to an ATI Mini45 6-axis F/T Sensor via a custom
+3D printed mount, and an external Intel Realsense RGB-D camera. The F/T
+sensor  enables  the  robot  arm  to  interact  with  the  user’s  mouth  through
+a  force-reactive  controller.  The  external  camera  enables  food  geometry
+perception  at  the  start  of  each  bite  transfer  and  visual  servoing  based  on
+facial keypoints during trajectory execution.
+sections, and our real world setup is shown in Fig. 9.
+Food  Mass  Gravity  Compensation.We  use  an  ATI  F/T
+6-axis  Mini45  sensor  (see  Fig.  9)  to  receive  force  and
+torque readings from a custom fork mounted on the robot’s
+end-effector.  Before  compensation,  these  readings  have  an
+unknown  bias  and  do  not  take  gravity  into  account.  At  the
+beginning  of  every  episode,  we  cycle  through  end-effector
+poses to estimate the inherent bias of the force torque sensor
+readings  along  with  the  food  mass  currently  on  the  fork.
+Note  that  this  procedure  is  not  specific  to  feeding  and  can
+be extended to robotic systems with unknown sensor biases
+and initial gravity forces.
+Upon acquiring a new bite of food, the end-effector cycles
+through  several  pose  quaternionsq
+i
+∈R
+4
+fori∈1...N
+and  records  the  raw  force  and  torque  readingsf
+i
+∈R
+3
+and
+t
+i
+∈R
+3
+at each pose. LetT
+ee→s
+∈R
+3x3
+be the fixed known
+rotational  transform  from  the  robot  end-effector  coordinate
+frame to the sensor coordinate frame, and letT
+w→ee
+i
+∈R
+3x3
+be  the  known  rotational  transform  from  the  world  frame  to
+the robot’s current end-effector orientationq
+i
+. Additionally,
+let  the  force  sensor  bias  bef
+b
+and  the  torque  bias  bet
+b
+.
+Assuming an unknown massmand a known torque radiusr
+(the distance to the tip of the fork) in the end-effector frame
++y direction, and a fixed & known gravity in the world frame
+-z directiong, we know that,
+f
+i
++f
+b
+=T
+ee→s
+T
+w→ee
+i
+m
+⎡
+⎣
+0
+0
+−g
+⎤
+⎦
+(18)
+t
+i
++t
+b
+=T
+ee→s
+⎛
+⎝
+⎡
+⎣
+0
+r
+0
+⎤
+⎦
+×T
+w→ee
+i
+m
+⎡
+⎣
+0
+0
+−g
+⎤
+⎦
+⎞
+⎠
+(19)
+Here,m,f
+b
+,  andt
+b
+yield  7  unknown  scalars.  Note  that
+Eq.  (18)  and  (19)  are  linear  in  these  unknowns,  and  can
+thus  be  rearranged  into  the  formAx=bwithx∈R
+7
+.
+We  then  set  up  a  system  of  linear  equations  for  each  robot
+poseq
+i
+,  and  the  corresponding  force  measurements.  With
+multiple poses, we can solve the least squares approximation
+Fig. 10: Left: HSV + Depth filtering example for a carrot. Right: Point cloud
+reconstruction example, with estimated oriented bounding box in green.
+to  estimate  the  unknowns  in  the  presence  of  sensor  noise.
+With the F/T readings properly adjusted, we can proceed to
+estimating the 3D geometry of the food item.
+Food   Perception.Food  shape  can  vary  greatly  between
+different  food  items,  even  of  the  same  food  type.  In  the
+multiple  bite  formulation,  this  food  geometry  can  change
+over  time,  and  so  3D  geometry  must  be  re-evaluated  after
+each  bite  in  order  to  obtain  the  most  accurate  simulation
+environment  for  searching  for  trajectories  into  the  mouth.
+Our  food  perception  pipeline  is  as  follows:  we  use  a  fixed
+externally  mounted  RGB-D  camera  to  take  several  images
+of  the  food  item  for  multiple  fork  orientations.  We  assume
+we  can  extract  the  pixel  region  of  the  food  item.  For  the
+purposes of our study, where food items have a single color,
+we  extract  the  food  region  using  HSV  and  depth  filtering,
+but any segmentation model can be used to extract the food
+item  from  each  image.  Then  we  use  the  RGB-D  image  to
+reconstruct a point cloud for each image, and we stitch these
+pointclouds  together  with  knowledge  of  the  camera  frame
+pose relative to the robot frame of reference (see Fig. 10).
+For the purposes of demonstrating our approach, our food
+geometry  estimation  procedure  assumes  that  the  food  item
+can be sufficiently represented by a bounding box or cylinder,
+seen in Fig. 10, although in the future we hope to make this
+pipeline more robust as well as capable of representing more
+complex  3D  mesh  geometries.  Importantly,  overestimating
+the bounding region of a food item, e.g. with a convex hull,
+does  not  hinder  our  ability  to  produce  valid  collision  free
+trajectories.  The  expressiveness  of  trajectories  produced  by
+our method scales with the accuracy of the mesh geometries
+we get from the real world.
+Trajectory  Following.Once  we  have  recovered  the  food
+geometry and pose on the fork, our algorithm samples a set of
+valid goal poses of the food item, and then finds trajectories
+to  each  goal  pose  as  discussed  in  Sections  III  and  IV,  in
+the form of discrete waypoints to the goal pose. In order to
+ensure user comfort and consistency, we fix the velocity norm
+in  end  effector  space  along  the  trajectory.  We  smooth  the
+output of the h-BiRRT, and generate an interpolated waypoint
+for  each  time  step  of  trajectory  evaluation  bounded  by  the
+max velocity norm. We proceed to the next waypoint when
+the  end  effector  comes  within  a  “follow”  radius.  We  found
+that using a proportional (P) controller to generate velocities
+along the interpolated trajectory was sufficient to stay within
+the follow radius.
+β
+C
+-, γ
+C
+-, β
+E
+-β
+C
+↑, γ
+C
+↑, β
+E
+↓β
+C
+↓, γ
+C
+↓, β
+E
+↑Dist-Only
+RRT Comfort Cost0.65±0.250.62±0.150.97±0.220.79±0.21
+RRT Efficiency Cost
+0.56±0.200.98±0.130.43±0.180.91±0.15
+TABLE  III:  Final  performance  (lower  is  better)  over  500+  evaluated  sim  trajectories  for  three  cost  regimes  over  cost  weightsβ
+C
+,β
+E
+,  andγ
+C
+,  relative
+to our chosen values.(μ±σ)for h-BiRRT produced comfort cost (normalized) and efficiency cost (normalized). From left to right: our algorithm, at the
+elbow of the trade-off of comfort and efficiency; high comfort weighting regime, with low comfort cost but high efficiency cost; high efficiency weighting
+regime, with low efficiency cost but high comfort cost; distance only regime, with no comfort or efficiency heuristics.
+Despite  moving  at  relatively  slow  speeds,  the  human
+mouth  is  very  sensitive  to  any  forces  being  applied  on
+it,  especially  once  the  fork  has  entered  the  mouth.  We
+implemented  a  simple  force-reactive  controller  that  filters
+velocities from the trajectory following controller, discussed
+in the next section.
+Force-Reactive Controller.The biased and gravity compen-
+sated  F/T  readings  are  brought  into  the  robot’s  frame  of
+reference.  We  use  a  force  admittance  controller  to  convert
+forces  and  torques  experienced  by  the  fork  to  linear  and
+angular  velocity  commands  for  the  robot.  In  practice,  we
+used only linear velocity commands from the force readings,
+yielding the following control equations for the end effector
+velocities:
+v(t) =K
+p
+e(t) +K
+i
+∫︂
+t
+0
+e(τ)dτ+K
+d
+de(t)
+dt
+(20)
+e(t) = min(F(t) +F
+th
+,max(F(t)−F
+th
+,0))(21)
+This PID controller aims to keep the forces applied by the
+fork within a band{−F
+th
+,F
+th
+}to prevent causing discomfort
+to  the  user.  This  threshold  is  determined  by  the  sensitivity
+of  the  human  mouth.  In  practice  we  set  this  to  be  around
+0.25N. If the forces are outside of this band, the algorithm
+ignores the velocity command from the trajectory following
+algorithm,  and  instead  returns  the  force-reactive  controller
+command.
+Facial Keypoint Visual Servoing.Another important aspect
+of ensuring user comfort is knowing the position of human
+mouth  in  3D  space  relative  to  the  robot  arm.  One  common
+approach  is  to  mount  a  camera  on  the  end  effector  of  the
+robot,  and  track  keypoints  on  a  person’s  face  using  facial
+detection algorithms. However, our method leverages a high
+degree  of  mobility  at  the  end  effector,  meaning  the  human
+mouth  or  face  may  not  always  be  fully  in  view  or  at  an
+upright orientation. To ensure consistent facial tracking, we
+mount  an  RGB-D  camera  at  an  external  position,  which
+measures  the  3D  position  of  the  person’s  head  and  mouth.
+Our trajectory waypoints are adjusted relative to this known
+3D mouth position, but velocities are computed in the global
+frame  to  ensure  the  motion  is  smooth  and  of  bounded
+velocity.
+APPENDIXIV
+SIMULATIONEXPERIMENTS
+Different  Food  Geometries.To  illustrate  our  flexibility  in
+regards to food geometries, we model four geometry types of
+random size in simulation that each have a unique 3D shape:
+a carrot (cylinder); a piece of cantaloupe (trapezoidal prism);
+a  stalk  of  celery  (half  of  a  cylindrical  tube);  and  a  straw-
+berry (“teardrop” shape). These geometries are visualized in
+Fig.  11.  The  initial  and  final  poses  for  a  sample  trajectory
+under our method for each food type are also shown in this
+figure.  Notably,  our  algorithm  is  able  to  bring  each  food
+item  at  least  partially  into  the  mouth,  picking  a  final  goal
+pose and planning a trajectory that is both comfortable and
+efficient.  The  trade-off  plots  from  Fig.  3  in  the  text  were
+generated using these food geometries of various scales, and
+thus represent a super-set of the generated trajectories in the
+user study experiments in Section V, which considers carrots
+alone.
+Comfort and Efficiency.For a wide range of values ofβ
+E
+,
+β
+C
+,  andγ
+C
+,  we  ran500+  trajectories  in  simulation  for  a
+range of initial food poses, types (see above), and geometry
+sizes,  recording  the  average  comfort  cost,  efficiency  cost,
+and  distance  costs.  Fig.  3,  discussed  previously,  illustrates
+the  results  of  this  parameter  sweep,  and  Table  III  provides
+the  cost  values  for  this  sweep  under  our  weights  (elbow  of
+trade-off), high relative comfort weighting, and high relative
+efficiency weighting. As our intuition suggests, we find that
+there exists a trade-off between comfort and efficiency under
+our formulation. Since respecting a user’s personal space can
+yield  end  effector  orientations  that  bring  the  food  into  the
+mouth with low efficiency, we note that trajectories that are
+morecomfortableon average have lowerefficiency, and vice
+versa. Additionally, distance-only heuristics produce notably
+higher  comfort  and  efficiency  costs,  suggesting  that  only
+using  the  distance  heuristic  produces  trajectories  far  from
+the Pareto front of comfort and efficiency.
+APPENDIXV
+USERSTUDY
+Design.Our  user  study  involved  six  non-disabled  partici-
+pants,  (ages  19,  22,  23,  23,  53,  &  55,  three  women  and
+three  men).  Three  had  experience  interacting  with  robots,
+and three did not. All had experience feeding other people.
+Due  to  COVID-19  &  safety  concerns,  we  were  unable  to
+recruit  people  with  motor  impairment  into  our  user  study.
+We  have  been  limited  even  in  the  number  and  population
+of  non-disabled  users  over  the  past  year.  Additionally,  we
+believe the problem of assistive feeding is important beyond
+its impact on users with disabilities. Specifically, real-world
+evaluation with non-disabled users still captures the complex
+interactions between the mouth and the robot, and provides
+insights  about  formalizing  comfort  for  the  general  public.
+Similar  comfort  formalisms  might  even  extend  to  other
+real-world  human-robot  applications,  as  well  as  to  assistive
+feeding beyond the disabled population.
+Peruser,werantwoiterationsforeach
+method(FixedPose,ComfortOnly,EfficiencyOnly,
+Comfort+Efficiency), all for each of the carrot food poses:
+Fig. 11: Starting and ending poses for our method (CE) evaluated in simulation with models for many different basic geometries: a carrot (top left), slice
+of cantaloupe (top right), celery (bottom left), and strawberry (bottom right). Given the specific food item’s meshM
+food
+, our method is able to find paths
+that bring a large portion of each food item into the mouth while simultaneously respecting the user’s personal space.
+1)Vertical:   the   carrot   begins   along   the   up-down   axis,
+perpendicular to the fork.
+2)Horizontal:  the  carrot  begins  along  the  left-right  axis,
+perpendicular to the fork.
+3)Roll  &  Pitch:  and  the  orientation  includes  a  roll  angle
+left and pitch angle up.
+4)Yaw:  the  orientation  is  rotated  about  the  vertical  axis
+with respect toHorizontal.
+The  size  of  each  carrot  we  used  varied  between  each
+experiment, and we biased theYawcategory towards bigger
+carrots  for  added  diversity.  For  sanitation,  the  forks  were
+cleaned  after  every  two  iterations,  and  food  items  were
+replaced  if  not  eaten.  The  following  scale  questions  were
+used   to   evaluate   the   user’s   perception   of   comfort   after
+every two iterations (i.e. for one method and food geometry
+combination):
+1)Ease: I was able to easily take a bite (1 to 5).
+2)Comfort: I was able to comfortably take a bite (1 to 5).
+3)Safety: I felt safe while being fed (1 to 5).
+After each method for a given food geometry (eight total
+iterations), the user was asked to rank the methods in order
+of preference. Additionally, they were asked to comment on
+how  they  would  change  the  robot  trajectories  if  they  were
+feeding someone who cannot feed themselves. Finally, they
+were  given  the  opportunity  to  provide  additional  comments
+about the methods & robot system.
+Objective Metrics. We considered several objective metrics
+before choosing to use subjective metrics for our evaluation.
+We  will  now  discuss  the  shortcomings  of  various  objective
+metric  options:  elapsed  time,  path  length,  trajectory  jerk,
+applied   force,   &   vital   data.   We   find   that   elapsed   time
+depends  more  on  the  distance  of  travel  for  the  robot  than
+the  difficulty  of  taking  a  bite.  The  path  length,  in  turn,
+depends  only  on  the  change  in  joint  state  from  the  initial
+to goal robot configurations, and therefore both elapsed time
+and path length vary in predictable and uninformative ways.
+Specifically, path traversal time varied from 9 seconds to 17
+seconds for each transfer, while bite time remained roughly
+constant  at  1-1.5  seconds.  For  trajectory  jerk,  our  planned
+trajectories are all quite smooth by design, so this metric is
+equally uninformative. Applied force is also not informative
+since  each  bite  taken  induces  a  significant  impulse  on  the
+fork, often noticeably larger than the minor interaction forces
+that might make transfer uncomfortable. Vital data would be
+quite  interesting  to  analyze,  but  we  believe  that  subjective
+questionnaires are the most informative avenue for gauging
+perceived  comfort,  as  prior  work  has  also  noted.  Further
+complicating  many  of  these  metrics,  users  might  decide  to
+not take a bite of the food during the study, for example if
+the  presented  orientation  is  too  difficult.  Thus,  these  objec-
+tive  metrics  would  fail  to  capture  the  user’s  real  opinions
+about  these  trajectories,  whereas  subjective  metrics  can  be
+informative in all cases.
+Safety Considerations. In order to ensure the user’s safety,
+we took several precautions during the experiment, in addi-
+tion to those described in Appendix III. The user sits facing
+the robot. The proctor sits on the left side of the table from
+the user’s perspective. The emergency-stop button is placed
+either  in  the  hands  of  the  user,  or  next  to  them  on  a  side
+table, depending on the user’s preference. A fork (a cut-out
+of a standard metal table fork) is mounted via a custom 3D
+mount on the force/torque sensor, which is in turn attached to
+a shaft that the Franka Panda gripper can hold. Importantly,
+the fork mechanism is not rigidly attached to the Panda arm,
+and  thus  allows  the  fork  to  interact  with  the  mouth  much
+more  forgivingly.  In  addition  to  the  force  reactive  control
+which  runs  throughout  the  experiment,  this  mechanism  is
+designed to break from the gripper when too much force is
+applied (although this scenario was never encountered). This
+experiment was conducted under IRB-52441.
+Results.  Due  to  the  measurement  of  3  different  variables
+(Rank,  Ease,  and  Comfort),  we  apply  a  Bonferroni  cor-
+rection   to   our   significance   threshold   for   all   hypotheses
+(P <0.01).  First,  given  two  independent  variables  (Food
+Fig.  12:  An  example  of  a  food  geometry  that  is  too  big  to  comfortably  fit  in  the  mouth  in  a  single  iteration.  Our  method  (CE)  was  evaluated  on  this
+larger carrot over multiple iterations. Our food perception re-evaluates the 3D geometry at each feeding iteration (the first and third images from the left),
+allowing our algorithm to find new trajectories at each feeding iteration that balance making progress at each bite (efficiency) and respecting user personal
+space (comfort). Two iterations were required using our method, and the final pose of each trajectory is shown in the second and fourth images from the
+left.
+Pose  and  Method),  we  analyzed  our  data  with  a  Two-
+Way ANOVA with repeated measures. This determined that
+Method alone had a significant effect on Rank, Comfort, and
+Ease (P <0.001). We therefore averaged out the Food Pose
+and analyzed Method vs (Rank, Comfort, Ease) with a One-
+Way ANOVA with correlated samples. Significant results (as
+determined by a Tukey HSD Test,P <0.01) are marked in
+Figure 5 with an asterisk. For the reader’s convenience, the
+significant pairings are listed in Table IV.
+RankCE vs CCE vs ECE vs FC vs FE vs F
+EaseCE vs CCE vs FE vs F
+ComfortCE vs FC vs F
+TABLE IV: Pairwise significance test results for each method, under each
+user rating metric. Methods areComfort+Efficiency(CE),EfficiencyOnly
+(E),ComfortOnly(C),  &FixedPose(F).  A  vs  B  indicates  method  A>
+method B.
+We did not treat multiple user ratings as independent data.
+We note that, while these results are significant despite our
+limited sample size (N= 6), this does not necessarily mean
+that  they  generalize  to  the  target  population  of  individuals
+with limited upper-body mobility.
+Our results support the hypothesis that combining comfort
+and  efficiency  heuristics  facilitated  more  comfortable  bite
+transfer  for  non-disabled  participants  than  either  heuristic
+on  their  own.  One  interesting  finding  is  that  the  Comfort-
+only  model  does  not  perform  significantly  better  than  the
+Efficiency-only  model  in  Comfort  ratings.  We  note  that
+a  user’sperceivedcomfort  is  multi-faceted,  and  includes
+factors  beyond  just  the  trajectory  taken  for  bite  transfer.
+For example, forces applied on the mouth due to inefficient
+food orientations, jitter of the robot arm due to the reactive
+controller, and minor positioning errors in the real world can
+often  play  a  role  in  user  comfort.  In  this  work,  we  attempt
+to formalize the trajectory-based component of comfort; we
+demonstrate that when combined with Efficiency heuristics,
+these Comfort heuristics perform better than either heuristic
+does on its own, often with statistical significance
+Multi-Bite.Often,  a  single  bite  of  food  might  be  too  large
+or not oriented on the fork in the most optimal way. In these
+cases, it is necessary for intelligent bite transfer algorithms to
+recognizethat the food item cannot be consumed in a single
+bite  and  thenplanin  a  closed  loop  over  each  bite  transfer
+iteration,  continually  re-planning  based  on  how  the  food
+geometry  changed  after  the  last  bite.  Since  our  algorithm
+takes  as  input  the  full  3D  mesh,  our  method  is  capable  of
+dealing  with  the  large  changes  in  food  geometry  that  can
+occur  after  each  bite.  A  sample  multi-bite  transfer  in  the
+real  world  that  uses  our  algorithm  with  both  comfort  and
+efficiency  is  shown  in  Fig.  12.  When  feeding  themselves  a
+carrot  of  this  size,  a  person  might  take  agreedyapproach
+to  taking  multiple  bites,  making  as  much  progress  as  one
+can at every iteration without ever sacrificing one’s comfort
+until  the  food  item  has  been  fully  consumed  —  while  it
+might be possible to bring this entire carrot into the mouth
+in one bite (i.e. high efficiency), one can imagine this might
+not  be  comfortable  for  the  user.  Our  algorithm  plans  over
+multiple  bites  in  a  similarly  greedy  fashion:  we  consider
+only  the  current  food  geometry,  and  then  make  a  decision
+over what goal and subsequent trajectory to take to minimize
+our overall cost for the bite iteration. After the user takes a
+bite,  we  repeat  this  process.  By  incorporating  both  comfort
+and efficiency into our cost function, our approach naturally
+extends to this multi-bite planning process as shown with the
+sample trajectory in Fig. 12. As a result, our method required
+only two bites to feed the entire carrot on the fork and was
+able to keep the user comfortable throughout.

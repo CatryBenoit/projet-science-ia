@@ -1,0 +1,232 @@
+Received:September 6, 2025.Revised:September 25, 2025.Accepted:October 5, 2025
+© The Author(s) 2025. Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (https://creativecommons.org/
+licenses/by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For
+commercial re-use, please contact reprints@oup.com for reprints and translation rights for reprints. All other permissions can be obtained through our
+RightsLink service via the Permissions link on the article page on our site—for further information please contact journals.permissions@oup.com.
+Oxford Medical Case Reports, 2025,11, 923–925
+https://doi.org/10.1093/omcr/omaf239
+Case Report
+Vertebral osteomyelitis and a forgotten dog bite in an
+immunocompetent patient
+Bindumalini Giridhar
+1
+andNuwan Jasenthu Kankanamage
+1,2,
+*
+1
+Gold Coast University Hospital, 1 Hospital Blvd, Southport, QLD 4215, Australia
+2
+School of Medicine and Dentistry, Griffith University, Gold Coast Campus, 1 Parklands Drive, Southport, QLD 4215, Australia
+*Corresponding author. Gold Coast University Hospital, Queensland, Australia. E-mail:nuwan.kankanamage@health.qld.gov.au
+Abstract
+A woman in her 60s presented with a three-week history of progressive subacute back pain without neurological deficits. MRI of the
+lumbar spine demonstrated necrosis at the L3–L4 disc and adjacent vertebral bodies, raising suspicion for malignancy or infection. Two
+image-guided bone biopsies were nondiagnostic. A peripheral infectious disease workup was similarly unremarkable. Owing to the
+persistent concern for infection, 16S ribosomal RNA sequencing was performed on biopsy samples, which identifiedCapnocytophaga
+canimorsus. Only after receiving this result did the patient recall a minor dog bite sustained six weeks prior to symptom onset. She was
+managed with an extended course of oral antibiotics with complete clinical recovery. This case illustrates the capacity ofC. canimorsus
+to cause insidious vertebral osteomyelitis in immunocompetent individuals, underscores the diagnostic utility of 16S rRNA sequencing
+in culture-negative infections, and highlights the critical importance of a detailed exposure history in atypical clinical presentations.
+Keywords:vertebral osteomyelitis;Capnocytophaga canimorsus; immunocompetent
+Introduction
+C. canimorsusis a slow-growing Gram-negative anaerobic bac-
+terium commonly found in the oral mucosa of cats and dogs.
+It is a zoonotic pathogen transmitted to humans through
+bites or scratches, leading to infections at various body sites,
+including vertebral osteomyelitis [
+1–3]. Although such infections
+are most frequently observed in immunocompromised patients,
+they may also occur in immunocompetent hosts [
+4]. Due to
+its fastidious growth in microbiological media, polymerase
+chain reaction (PCR) is considered the gold standard diagnostic
+tool for detectingC. canimorsusinfections [5].Capnocytophaga
+species are typically sensitive to penicillins, third-generation
+cephalosporins, carbapenems, clindamycin, chloramphenicol,
+and doxycycline. Post-exposure prophylaxis is recommended in
+immunocompromised patients [
+5].
+Case report
+A woman in her early 60s was referred by her general practitioner
+with a three-week history of progressive back pain, without focal
+neurological symptoms. She denied fever, infective symptoms, or
+trauma, and reported no weight loss, anorexia, or B symptoms.
+She later recalled a minor dog bite sustained six weeks prior, while
+intervening in a dog attack, which healed quickly and was initially
+disregarded.Her past history was unremarkable except for remote
+melanoma excision, and there was no other history of immuno-
+suppressive conditions. Clinical examination revealed focal lower
+lumbar spine tenderness without neurological deficits.
+On admission, her white cell count was 12.1×10
+∧
+9/L with
+neutrophils 9.17×10
+∧
+9/L, but subsequently normalized. Her
+CRP was 51 mg/L (<5 mg/L), ESR 45 mm/hr (<20 mm/hr),
+and procalcitonin 0.26
+μg/L (0.5–2.0). Other haematological,
+biochemical,  oncological,  and  rheumatological  evaluations
+were normal. An initial community MRI (
+Fig. 1A) demonstrated
+abnormal marrow signal intensity involving the L4 vertebral
+body and pedicle, the L3/L4 intervertebral disc, and the inferior
+endplate of L3, without aggressive bone destruction. Repeat MRI
+performed two weeks later (
+Fig. 1B) showed enhancement and
+bone marrow signal loss within L3 and L4 vertebral bodies show-
+ing definite progression consistent with discitis-osteomyelitis
+without abscess formation. A PET scan, undertaken due to
+melanoma history, revealed progressive bone erosion and a new
+right paraspinal intensely avid soft tissue lesion suggestive of a
+phlegmon (Fig. 2).
+A CT guided percutaneous needle biopsy, performed two
+days after the repeat MRI, demonstrated only cartilage tissue,
+consistent with sampling error. A repeat CT guided biopsy two
+weeks later showed suppurative inflammatory exudate; however,
+microscopy and cultures, including for acid-fast bacilli, were
+negative. Given the high suspicion of infection, stored second
+biopsy specimen was subjected to 16S ribosomal RNA testing
+at the Royal Brisbane and Women’s hospital laboratory, which
+identifiedC. canimorsus.
+924
+|
+Bindumalini Giridhar and Nuwan Jasenthu Kankanamage
+Figure 1. MRI Lumbo-sacral spine—T2 sequences. (A). Initial MRI. (B) Progression of lesion 2 weeks post initial MRI. (C) At the end of 3 months of
+antibiotic therapy. (D) 3 months post completion of antibiotic therapy.
+Figure 2. PET scan.
+At presentation, she received a single dose of intravenous
+flucloxacillin 2 g, but further therapy was withheld on infectious
+diseases advice until biopsy. She was briefly commenced on oral
+Augmentin Duo Forte following the initial biopsy, which was dis-
+continued due to lack of evidence for infection. AfterC. canimorsus
+was identified, she was commenced on oral ciprofloxacin 750 mg
+twice daily for 12 weeks. However, within one week she developed
+severe elbow and knee tendonitis necessitating cessation. She
+was then switched to oral Augmentin Duo Forte 875 mg/125 mg
+twice daily for a total duration of 12 weeks, which she completed
+successfully.
+At completion of therapy, she reported significant improve-
+ment in back pain, with only mild residual positional discom-
+fort. Follow-up MRI (
+Fig. 1C) showed residual changes at L3–L4
+with endplate irregularity and marrow oedema. Three months
+later, MRI at her local hospital (
+Fig. 1D) demonstrated persistent
+but improving changes consistent with osteomyelitis/discitis with
+partial healing. Given her clinical recovery, ongoing observation
+was recommended without further imaging.
+Discussion
+Capnocytophagaspecies  are  recognized  to  cause  local  and
+systemic  infections  predominantly  in  immunocompromised
+patients, though cases in immunocompetent individuals have
+also been reported. There are previous reports of vertebral
+osteomyelitis caused byCapnocytophagain immunocompetent
+patients with oral infection [
+6], as well as sepsis with vertebral
+osteomyelitis in immunosuppressed patients [
+4,7]. Our patient
+was immunocompetent, maintained good oral hygiene, remained
+afebrile without infective symptoms, and experienced symptom
+onset more than six weeks after a minor dog bite, underscoring
+the indolent nature of the pathogen even in healthy hosts.
+Capnocytophagais a slow-growing organism that is difficult to
+cultivate and may evade conventional blood cultures [
+8]. Given
+this fastidious nature, PCR—particularly 16S rRNA sequencing—
+is a superior diagnostic tool [
+9]. In this case, both tissue cultures
+were negative,and only 16S rRNA testing confirmed the pathogen.
+Management ofCapnocytophagainfections depends on the
+site, severity, and patient comorbidities. Effective antimicrobial
+options includeβ-lactams/β-lactamase inhibitor combinations,
+tetracyclines, clindamycin, fluoroquinolones, penicillins, line-
+zolid, and rifampicin [
+5,10]. Although treatment duration is not
+clearly defined, antimicrobial therapy of at least 6–8 weeks is
+generally recommended for bone and joint infections [
+5]. Our
+patient was initially treated with ciprofloxacin but switched to
+Augmentin Duo Forte due to adverse effects, ultimately achieving
+recovery after a 12-week course.
+This case highlights thatCapnocytophagacan cause indolent
+yet clinically significant infections in immunocompetent patients,
+underscoring the importance of obtaining a thorough exposure
+history in relevant clinical contexts. Moreover, when infection is
+strongly suspected and conventional testing is negative, 16S rRNA
+testing should be considered to establish the diagnosis and guide
+targeted antimicrobial therapy.
+Acknowledgements
+Authors would like to thank the infectious disease department
+and radiology department of the Gold Coast University hospital
+for their assistance in diagnosing and treating this patient.
+Conf lict of interest
+Authors report no conflict of interest of any sort.
+Vertebral osteomyelitis and a forgotten dog bite in an immunocompetent patient
+|
+925
+Funding
+None declared.
+Ethical approval
+Not applicable.
+Consent
+Written informed consent obtained from the patient.
+Guarantor
+Nuwan Jasenthu Kankanamage.
+References
+1.Nakayama R, Miyamoto S, Tawara T.et al.Capnocytophaga
+canimorsus infection led to progressively fatal septic shock in an
+immunocompetent patient.Acute Med Surg2022;9:e738.
+https://
+doi.org/10.1002/ams2.738
+2.Peterson CJ,Abel WF,Reddy V.et al.Furry,fomite,and facultative
+anaerobe: a unique case of Capnocytophaga canimorsus.Cureus.
+2023;15:e47747.https://doi.org/10.7759/cureus.47747
+3.Levy-Blitchtein  S,  Salmeron  P,  Rodriguez-Pardo  D.et  al.
+Septic  arthritis  and  multifocal  osteomyelitis  caused  by
+Capnocytophaga Canimorsus: a case report.Medicine (Baltimore)
+2023;3:136–9.https://doi.org/10.1097/ID9.0000000000000087
+4.Nelson MJ, Westfal RE. Case report: vertebral osteomyeli-
+tis/discitis as a complication of Capnocytophaga canimorsus
+bacteremia.J Emerg Med2008;35:269–71.
+https://doi.org/10.1016/
+j.jemermed.2007.02.040
+5.Zajkowska J, Król M, Falkowski D.et al.Capnocytophaga cani-
+morsus – an underestimated danger after dog or cat bite – review
+of literature.Przegl Epidemiol2016;70:289–95.
+6.Duong  M,  Besancenot  JF,  Neuwirth  C.et  al.Vertebral
+osteomyelitis   due   to   Capnocytophaga   species   in
+immunocompetent patients: report of two cases and review.Clin
+Infect Dis1996;22:1099–101.
+https://doi.org/10.1093/clinids/22.6.
+1099
+7.Liu BM, Carlisle CP, Fisher MA, Shakir SM, 2021. The Brief Case:
+Capnocytophaga sputigena Bacteremia in a 94-Year-Old Male
+with Type 2 Diabetes Mellitus, Pancytopenia, and Bronchop-
+neumonia.J Clin Microbiol59:10.1128/jcm.02472-20.https://doi.
+org/10.1128/jcm.02472-20
+8.Martins-Baltar A, Meyer S, Barraud O.et al.Routine use of
+16S rRNA PCR and subsequent sequencing from blood sam-
+ples in septic shock: about two case reports of Capnocy-
+tophaga canimorsus infection in immunocompetent patients.
+BMC Infect Dis2022;22:355.
+https://doi.org/10.1186/s12879-022-
+07328-z
+9.Lai CH, Lin YS, Wang CM.et al.A novel 16S rRNA PCR-
+restriction fragment length polymorphism assay to accu-
+rately distinguish zoonotic Capnocytophaga canimorsus and
+C. cynodegmi.Microbiol Spectr2023;11:e0291622.
+https://doi.
+org/10.1128/spectrum.02916-22
+10.Jolivet-Gougeon  A,  Sixou  JL,  Tamanai-Shacoori  Z.et  al.
+Antimicrobial treatment of Capnocytophaga infections.Int
+J Antimicrob Agents2007;29:367–73.
+https://doi.org/10.1016/j.
+ijantimicag.2006.10.005
+© The Author(s) 2025. Published by Oxford University Press. This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial License (https://creativecommons.org/licenses/by-nc/4.0/), which permits
+non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited. For commercial re-use, please contact reprints@oup.com for reprints and translation rights for reprints. All other permissions can be obtained
+through our RightsLink service via the Permissions link on the article page on our site—for further information please contact journals.permissions@oup.com.
+Oxford Medical Case Reports, 2025,11, 923–925
+https://doi.org/10.1093/omcr/omaf239
+Case Report

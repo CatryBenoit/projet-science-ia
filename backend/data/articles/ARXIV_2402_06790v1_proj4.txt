@@ -1,0 +1,1967 @@
+Towards Robotic Companions: Understanding Handler-Guide
+Dog Interactions for Informed Guide Dog Robot Design
+Hochul Hwang
+hochulhwang@cs.umass.edu
+University of Massachusetts Amherst
+Amherst, Massachusetts, USA
+Hee-Tae Jung
+heetjung@iu.edu
+Indiana University Indianapolis
+Indianapolis, Indiana, USA
+Nicholas A Giudice
+nicholas.giudice@maine.edu
+University of Maine
+Orono, Maine, USA
+Joydeep Biswas
+joydeepb@cs.utexas.edu
+University of Texas at Austin
+Austin, Texas, USA
+Sunghoon Ivan Lee
+∗
+silee@cs.umass.edu
+University of Massachusetts Amherst
+Amherst, Massachusetts, USA
+Donghyun Kim
+∗
+donghyunkim@umass.edu
+University of Massachusetts Amherst
+Amherst, Massachusetts, USA
+ABSTRACT
+Dog guides are favored by blind and low-vision (BLV) individu-
+als for their ability to enhance independence and confidence by
+reducing safety concerns and increasing navigation efficiency com-
+pared to traditional mobility aids. However, only a relatively small
+proportion of BLV individuals work with dog guides due to their
+limited availability and associated maintenance responsibilities.
+There is considerable recent interest in addressing this challenge
+by developing legged guide dog robots. This study was designed
+to determine critical aspects of the handler-guide dog interaction
+and better understand handler needs to inform guide dog robot
+development. We conducted semi-structured interviews and obser-
+vation sessions with 23 dog guide handlers and 5 trainers. Thematic
+analysis revealed critical limitations in guide dog work, desired
+personalization in handler-guide dog interaction, and important
+perspectives on future guide dog robots. Grounded on these find-
+ings, we discuss pivotal design insights for guide dog robots aimed
+for adoption within the BLV community.
+CCS CONCEPTS
+•Human-centered computing→Accessibility technologies.
+KEYWORDS
+Accessibility, Individuals with Disabilities & Assistive Technologies,
+Robot, Interview
+ACM Reference Format:
+Hochul Hwang, Hee-Tae Jung, Nicholas A Giudice, Joydeep Biswas, Sunghoon
+Ivan Lee, and Donghyun Kim. 2024. Towards Robotic Companions: Under-
+standing Handler-Guide Dog Interactions for Informed Guide Dog Robot
+∗
+Co-corresponding authors.
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than the
+author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior specific permission
+and/or a fee. Request permissions from permissions@acm.org.
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+©2024 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+ACM ISBN 978-x-xxxx-xxxx-x/YY/MM
+https://doi.org/10.1145/nnnnnnn.nnnnnnn
+Design. InProceedings of Proceedings of the CHI Conference on Human Fac-
+tors in Computing Systems (CHI ’24).ACM, New York, NY, USA, 20 pages.
+https://doi.org/10.1145/nnnnnnn.nnnnnnn
+1  INTRODUCTION
+Around the world, there are over 250 million blind and low-vision
+(BLV) people. This number is expected to rise to more than 700 mil-
+lion by 2050, largely due to the increasing and aging population [1].
+Notably, within the United States, this demographic is expected to
+double, mirroring the worldwide trend [114]. Among the various
+assistive tools supporting safe and efficient navigation, a critical
+aspect of daily life, dog guides stand out as remarkably effective
+companions, enhancing mobility, confidence, and independence for
+these individuals [82,118,120]. For example, formally-trained dog
+guides are known to enable handlers to be more mobile [76,93],
+walk faster [23], navigate more efficiently by taking direct routes
+instead of following edges or shorelines [47], and exhibit superior
+travel performance, with indicators including orientation, mobility,
+and difficulty with travel [75], compared to people who use a long-
+cane. However, only a small fraction of BLV people benefit from
+dog guides [36,37]. The main factors underlying this are the limited
+availability of dogs and the substantial cost and time investment
+required by guide dog schools to train and deploy a dog guide (ap-
+proximately $40,000 USD and a 2-year training period [35,38,111]).
+Moreover, not all trained dogs ultimately serve as dog guides [81],
+further underscoring the scarcity of these invaluable resources.
+Even in cases where a dog guide is potentially available for
+placement with a BLV handler, the decision to work with a dog
+guide is a complex and multifaceted process. Some BLV people may
+not meet health requirements for obtaining a dog guide (e.g., the
+ability to walk several miles a day or suffer from dog allergies) [40,
+84], while others might lack the financial means to support the
+essential care and maintenance costs (approximately $1,000 USD
+each year [111]). And those who choose to work with a dog guide
+also take on the responsibilities of ownership, including exercise,
+feeding, and grooming, which can be burdensome for the handler.
+Furthermore, individuals might have to confront the challenge of
+managing emotional consequences from the retirement of a dog
+guide [97].
+In contrast to their animal counterparts, robots offer unparal-
+leled mass productivity, cost-effectiveness (commercially available
+quadruped robot starting from less than $2,000 USD [95]), low
+arXiv:2402.06790v1  [cs.RO]  9 Feb 2024
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+maintenance, and longevity, paving the way for innovative mobil-
+ity aids. The utilization of robotic systems to enhance mobility for
+BLV individuals traces back to as early as 1976 (i.e., the MELDOG
+project) [106,107]. Since then, researchers have proposed vari-
+ous forms of robotic guides, including smart canes [102,116,128],
+suitcase- or cart-shaped [49,69,128], and drones [4,6,109]. More re-
+cently, owing to recent advancements in quadruped robots [59,65],
+four-legged robotic systems have gained attention as a potential
+solution to enhance the mobility of BLV people [20,21,29,52,58,
+66,73,123]. Quadruped robots offer natural and efficient travel
+mechanisms that enable navigation through uneven terrains and
+complex structures in real-world environments, such as stairs and
+curbs, that BLV people encounter in their daily lives. However, our
+research highlights a critical gap in guide dog robot studies: insuf-
+ficient attention to user needs and requirements. This oversight
+can be largely attributed to the absence of user-centered research
+within robotics that examines the interactions between dog guides
+and their handlers in real-life scenarios. Such research is essential
+to discern which qualities of dog guides should be preserved in
+robotic counterparts and to identify specific challenges that need
+to be addressed to overcome the limitations inherent in dog guides.
+To identify such qualities and bridge the knowledge gap, we
+conducted semi-structured interviews with 23 dog guide handlers
+and 5 professional dog guide trainers. Our aim was to gain a com-
+prehensive user-driven understanding of the interaction dynamics
+between handlers and their dog guides to identify the key qualities
+that should be translated to guide dog robots. Based on these data,
+we extracted valuable insights to inform the development of a guide
+dog robot. A subset of seven dog guide handlers were also engaged
+in observation sessions, during which we observed handler-dog
+guide units navigating familiar surroundings. The qualitative data
+resulting from these interactions was subjected to rigorous the-
+matic analysis, yielding meaningful codes and patterns that were
+further consolidated into overarching themes.
+Through our multi-pronged qualitative studies, we discovered
+a compelling need motivating the development of a new mobility
+aid in the form of a quadruped robot (or theguide dog robot) [55].
+This revelation stems from anecdotal evidence extracted from the
+rich data obtained from interviews that underscore the inherent
+limitations within current handler-guide dog interactions, which
+include unidirectional communication between the handler and
+the dog guide, the dog guide’s limited ability to understand situ-
+ationally important contextual information, and the dog guide’s
+lack of flexibility in adapting to new environments and confusing
+situations. Subsequently, we delve into the continuous interactions
+between handlers and their dog guides which is necessary for per-
+sonalizing the dog guide’s behaviors to fit the handler’s needs. We
+recognize the value of these evolving interactions, as they stand
+as a foundational aspect for the design of effective robotic mo-
+bility aids but have not yet been systematically investigated and
+documented in the existing literature. Lastly, we explore the expec-
+tations and concerns among dog guide handlers in the context of
+guide dog robots based on their lived experiences. Drawing from
+these findings, we present new design implications for future guide
+dog robots. This paper sheds light on the discrepancies between
+real-world handler-guide dog interactions and previous guide dog
+robot development efforts, emphasizing the importance of incor-
+porating human-centered design principles for BLV people. By
+highlighting recent advancements achieved in robotics, we aim to
+draw more awareness and attention to designing and developing a
+new and highly effective user-validated robotic mobility aid as an
+additional option for BLV individuals, aligning with the growing
+interest within the HCI community [15, 79].
+In summary, this paper contributes to HCI and robotics research
+on guide dog robot development for BLV people as follows:
+•
+We compile knowledge established by dog guide schools
+and professional trainers to characterize the mismatch be-
+tween handler-guide dog interactions and emerging guide
+dog robot development.
+•Based on semi-structured interviews and observation ses-
+sions conducted with dog guide handlers and trainers, we
+emphasize the demand and utility for a new mobility aid by
+revealing the limitations in the handler-guide dog interac-
+tion.
+•We present the continuous interaction between the handler
+and dog guide and highlight the key components that are
+personalized to the handler’s needs that may be pivotal for
+the real-world deployment of the robot.
+•
+We propose, to the best of our knowledge, the first set of
+user-driven guide dog robot design guidelines in terms of
+hardware, software, and interface to foster guide dog robot
+development.
+Given the prevailing norm in language usage, namelyguide
+dog, we will use this terminology instead of the formaldog guide
+throughout the rest of the paper.
+2  BACKGROUND
+This section provides background information on standardized ap-
+proaches used by handlers and guide dogs to interact and cooperate
+in facilitating nonvisual navigation. The information presented in
+this section, developed over the past century in the field of guide
+dog training [33], forms the foundational knowledge upon which
+our findings are built. We will begin by dissecting the fundamental
+components of nonvisual navigation: orientation and mobility. We
+will then detail the formation of the handler-guide dog partnership,
+drawing upon seminal literature and official documents from guide
+dog schools.
+2.1  Shared Responsibility in Orientation and
+Mobility Among Handlers and Guide Dogs
+Orientationandmobilityare the foundational concepts that de-
+fine the collaborative effort between handlers and guide dogs in
+facilitating safe and effective navigation [119]. Orientation entails
+knowledge of one’s position and facing direction in relation to
+landmarks and keeping track of these spatial relationships, while
+mobility is the act of safely and efficiently moving through space.
+The combination of these two skills facilitates purposeful and di-
+rected movement within the surrounding environment, resulting
+in effective navigation. In a typical navigation scenario from point
+A to point B, the environment may feature guiding landmarks
+(e.g., curbs, poles, shops) and hindrances (e.g., construction cones,
+pedestrians, holes). Orientation enables individuals to monitor their
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+(a) (b) (c) 
+Figure 1: Connection through the harness. (a) Various types of harness handles exist to match different guide dog handlers. For
+example, the offset harness on the right can be used for handlers who tend to step on their guide dog’s foot due to their gait.
+(b) The handler is transitioning from grabbing an extended leash to grabbing both the leash and the harness handle before
+walking. (c) The handler is trained to be positioned on the right side of the guide dog while walking, specifically next to the
+hindquarters, often grabbing the leash and the harness handle with the left hand.
+spatial orientation relative to these landmarks, while mobility facil-
+itates secure, unobstructed progress between these landmarks and
+ultimately toward the destination [47, 119].
+In the partnership between guide dogs and their handlers, a
+shared responsibility model emerges, with each playing distinct
+but interdependent roles [112]. Handlers take on a pivotal role
+inorientationwhile guide dogs assume a vital role inmobility. In
+other words, handlers are responsible for the general orientation
+to the surroundings and making navigational decisions to reach
+the destination by giving “cues” (i.e., commands) to their guide
+dogs. Guide dogs, on the other hand, bear the responsibility of
+ensuring safe mobility by responding to the cues provided by their
+handlers. While supporting mobility, they are trained to maintain
+a straight line and avoid obstacles and potential hazards in the
+path of travel [112,119]. Guide dogs also possess the capacity to
+“intelligently disobey” when they perceive that following the cue
+would pose a significant risk to the handler. For instance, they may
+refuse to proceed if there is a fast-approaching moving object that
+could endanger the handler. This shared strategy ensures effective
+navigation while leveraging the respective strengths of both the
+handler, primarily responsible for orientation and the guide dog,
+concerned with safe mobility.
+2.2  Formation of the Handler-Guide Dog Unit
+2.2.1    Matching.The process of pairing guide dogs with handlers
+constitutes a pivotal step in establishing a proficient handler-guide
+dog partnership. This matching process involves a comprehensive
+assessment of both the handler and the guide dog. “Class-ready”
+guide dogs, having successfully completed the required evaluation
+outlined in Appendix A, are paired with potential guide dog han-
+dlers based on various factors. The criteria for matching, while
+varying among different guide dog schools, encompassed factors,
+such as the potential handler’s age, height, weight, cause of blind-
+ness, location (city and state), daily routine, walking speed, and
+pulling force [10].
+2.2.2    Connection and positioning.The handler-guide dog unit is
+connected mainly through a rigid harness [112], although various
+handle designs exist to accommodate variations in the physical
+attributes of both the handler and the guide dog, including height
+differences and handler preferences, as depicted in Figure 1a. While
+handlers often hold a leash and the harness handle simultaneously,
+the leash serves specific purposes, such as boarding buses, nav-
+igating stairs or escalators, walking alongside a human sighted
+guide, corrections, or relieving the guide dog, as illustrated in Figure
+1b. However, the rigid harness primarily serves as the connection
+during walking, offering precise control and enhanced safety. Im-
+portantly, its rigid design is critical for enabling immediate stops
+when necessary due to its direct connection. The handle’s angle is
+also crucial, with a recommended 30-degree inclination to allow
+effective tracking of the guide dog’s movements [112].
+In general, the handler is positioned on the right side with respect
+to the guide dog, using the left hand to hold onto the harness. This
+enables the handler to search or carry objects with their right hand.
+Specifically, the correct position of the handler is beside the guide
+dog’s hindquarters during walking. This proximity enables the
+handler to take an extra step and stand next to the guide dog’s
+shoulders when the guide dog halts [112], as depicted in Figure 1c.
+This positioning ensures safety by preventing the guide dog from
+cutting in front of the handler and facilitates various interactions,
+including efficient turns and maneuvering behavior.
+2.2.3    Handler-Guide Dog Interaction and Prior Studies.Effective
+communication between the handler and guide dog is essential for
+clearly delineating their roles and responsibilities (e.g., orientation
+and mobility) to ensure safe and efficient navigation. The handler
+gives verbal cues, hand signals, and combinations of them to the
+guide dog to convey intentions while navigating. Particularly, han-
+dlers employ verbal cues for basic obedience, controlling speed
+and direction, as well as directional indicators. In response, the
+formally trained guide dog complies or intelligently disobeys based
+on the situation. The handler then perceives the guide dog’s mo-
+tions that are transmitted to the handler’s hand through the rigid
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+handle [119]. Maintaining consistent pulling strength or tightness
+of the harness is crucial for both handler satisfaction [25] and to
+ensure clear communication of direction to the guide dog [10, 58].
+The existing body of qualitative research offers a range of in-
+sights into the handler-guide dog interaction, yet it lacks extensive
+and systematic surveys essential for the development of effective
+mobility aids. Wong [122] highlighted the predominantly positive
+experience reported by guide dog handlers, noting exceptions, such
+as unwanted attention towards the dog and mobility constraints
+without their dog. Similarly, a study by Miner [82] interviewed
+eight guide dog handlers and reported their affirmative experiences
+and insights on mobility while working with a guide dog. Rickly et
+al. [94], on the other hand, reported some challenges encountered
+by guide dog handlers, particularly related to transportation acces-
+sibility, encompassing issues like service refusal and access. Gaunet
+and Besse [44] assessed the behavior of 23 guide dogs and blind-
+folded trainers in four different wayfinding navigation tasks. Our
+study extends this body of research by identifying key attributes of
+handler-guide dog interaction that should be retained in designing
+a guide dog robot.
+2.2.4Needs for a User-Driven Guide Dog Robot Guideline.Existing
+research has provided valuable guidelines for user-driven robotic
+guides, focusing largely on non-legged systems, addressing the
+required technologies and challenges involved in developing such
+robotic aids [55,56]. Others have adopted a participatory design ap-
+proach to develop robotic guides focusing on indoor settings [8,34].
+Additionally, Zeng et al.’s study on handle interfaces, which in-
+volved testing a haptic handle interface in guiding robots with
+blindfolded individuals, has contributed to the understanding of
+user interfaces in robotic guides [126]. However, these studies of-
+ten do not adequately capture the detailed, real-life interactions
+between handlers and guide dogs, an aspect that may be critical for
+the development of legged guide dog robots.
+Building upon recent legged locomotion advancements, researchers
+have embarked on developing guide dog robots to assist BLV peo-
+ple, leveraging the natural efficiency of legged robots in navigating
+complex terrains, such as stairs and curbs, that BLV people fre-
+quently encounter. This initiative, supported by studies by Hamed
+et al.[52], Xiao et al.[123], and others [20,21,27,29,58,67], repre-
+sents a collaborative effort in the field. Xiao et al. [123] propose a
+local path planner by formulating an optimization problem con-
+sidering the two modes (taut or slack) of the human-leash-robot
+relationship. Wang et al. [20] conducted an indoor and outdoor
+walking experiment with BLV people to compare a quadruped and
+a wheeled robot. They showed that BLV participants preferred the
+wheeled robot over its quadruped counterpart (Cyberdog by Xi-
+aomi [124]) due to the quadruped’s rough motion and noise while
+walking. Hauser et al. [54] evaluated pedestrian experiences (or
+humans’ perceptions of robots) during human-robot encounters
+under different configurations (e.g., no user-robot connection, leash
+connection, and harness connection) using a Spot robot (Boston
+Dynamics[30]).
+Although there are growing efforts to adapt quadruped robots
+for BLV people, current user-centered research has not compre-
+hensively captured key aspects necessary for the development of
+guide dog robots. Moreover, most quadruped robots designed for
+BLV individuals have failed to sufficiently meet user needs and
+requirements. For instance, some studies used a soft leash [123] or
+an elastic rope [21], as the primary connection method, which is in-
+appropriate due to safety issues. Moreover, certain studies position
+the handler far behind the robot, which is not ideal for high-speed
+walking and safety due to the increased range of motion while turn-
+ing and the delay in response time, confirmed by guide dog trainers.
+Therefore, we aim to identify essential qualities of guide dogs that
+should be mirrored in robots and to pinpoint specific challenges to
+address the limitations of animal guide dogs, contributing to the
+field by steering towards a more user-centric approach in guide dog
+robot development, ensuring their design and functionality align
+closely with the needs and experiences of BLV individuals.
+3  METHOD
+Our study seeks to improve our comprehension of the practical in-
+teractions between handlers and guide dogs. Specifically, we aimed
+to investigate (1) biological guide dogs’ capabilities and fundamen-
+tal limitations, (2) how handlers interact with their guide dogs in
+real-world settings, including whether they adapt or modify the
+recommended interaction methods to suit their individual needs,
+and (3) the expectations and concerns of guide dog handlers regard-
+ing guide dog robots based on their experiences. We hypothesized
+that the obtained information would offer invaluable insights to
+inform the development of guide dog robots. To accomplish this,
+we conducted semi-structured interviews and observation sessions
+involving guide dog handlers and trainers. In this section, we detail
+our study design and data analysis methods, with approval obtained
+from the University of Massachusetts Amherst IRB.
+3.1  Participants
+We recruited handlers and trainers through snowball sampling
+from December 2021 through August 2023. We initially contacted
+organizations of BLV individuals and guide dog handlers [45,85],
+three visually impaired service centers [39], and 13 guide dog train-
+ing schools via emails and phone calls. The emails contained an
+IRB-approved flyer and a video that was later audio-described for
+enhanced accessibility. While the majority of participants were
+recruited primarily in the United States, one participant from the
+Republic of Korea was recruited through the snowball sampling pro-
+cess. The recruitment of the seven participants for the observation
+session was based on several considerations. These included the
+availability of the participants who met our inclusion and exclusion
+criteria, the distance the researchers needed to travel to their local
+community, the complexity of their environment, and the handlers’
+capability to navigate within their local community with a guide
+dog without the need for human assistance.
+The inclusion criteria for the guide dog handlers required them
+to (1) be 18 years or older, (2) have visual acuity equivalent to or less
+than legal blindness defined in the Social Security Act §1614 [98],
+and (3) have at least six months of experience working with a guide
+dog. For guide dog trainers, the inclusion criteria were to (1) be
+18 years or older and (2) have five or longer years of experience
+in guide dog training. Participants were compensated$50for the
+interview and an additional$50for observation sessions, except for
+one participant who refused compensation. Demographics of the
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+Table 1: Guide Dog Handler Demographics and Collected Data
+Participant  Age  Gender  Vision Level
+Experience
+(years / # of GDs
+†
+)
+Interview  Observation
+H01–FTotally blind36 / 4✓✓
+H0269MTotally blind30 / -✓✓
+H0363MTotally blind11 / 2✓✓
+H0441MTotally blind20 / 4✓–
+H0569FTotally blind36 / 5✓–
+H0657FTotally blind34 / 4✓–
+H0777MTotally blind9 / 1✓–
+H0866FTotally blind0.5 / 1✓–
+H0969MTotally blind53 / 8✓✓
+H1067FTotally blind43 / 6✓–
+H1136FTotally blind16 / 3✓–
+H1269FLegally blind30 / 4✓✓
+H1359MTotally blind21 / 3✓✓
+H1470MTotally blind17 / 3✓–
+H1581MTotally blind14 / 4✓–
+H1670FTotally blind7 / 1✓–
+H1775FTotally blind51 / 6✓–
+H1877FTotally blind34 / 7✓–
+H1978FTotally blind31
+∗
+/ 3✓–
+H2070MTotally blind33 / 6✓–
+H2164FTotally blind6 / 1✓✓
+H2260FTotally blind16 / 4✓–
+H2325FTotally blind7 / 1✓–
+All subjects are legally blind having various conditions - H05, H06, H14: some light perception, H08: 20/2800 in one eye, H12: 20/200 in right, 20/400 in left (no peripheral vision),
+H13: 20/2400, can see shapes, but no color distinction, H21: can see shapes, 20/2200 in one eye;
+†
+Indicates the number of guide dogs the participant worked with;
+∗
+The subject did
+not work with a guide dog at the time of the interview.
+Table 2: Guide Dog Trainer Demographics and Collected Data
+Participant  Age  Gender
+Experience
+(years)
+Interview  Observation
+T0165M45✓–
+T0252M19✓✓
+T0358M35✓✓
+T0441M22✓–
+T0534F9✓–
+The affiliations of the guide dog trainers with three guide dog schools were omitted from the table
+due to their potential for participant identification and perceived lack of significance.
+guide dog handlers and trainers are detailed in Table 1 and Table 2,
+respectively.
+All participants signed (or verbally agreed to) an approved con-
+sent form. As a result, 23 handlers and 5 trainers were recruited.
+The handlers’ age median is 69 years and the lower (Q1) and upper
+quartiles (Q3) of the data are 60.75 years and 70 years respectively,
+having three outliers. The median of their duration working with
+guide dogs is 21 years and the lower and upper quartiles of the
+data are 11 years and 34 years respectively. Most of the handlers
+introduced themselves as totally blind although some participants
+provided more detail of their visual acuity (see Table 1).
+3.2  Procedure
+We conducted observation sessions and semi-structured interviews
+with guide dog handlers and professional guide dog trainers from
+three different guide dog training organizations, which are all ac-
+credited by the International Guide Dog Federation. The interview
+questions were developed and refined with the help of a guide dog
+handler and a trainer. The questions focused on guide dog function-
+alities and handler-guide dog unit interactions. The interview was
+conducted either via Zoom or in person with masks, in line with
+COVID precautions until early 2022.
+In order to achieve an in-depth understanding of the interactions
+between the handler-guide dog unit in their natural environment
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+and to gain hands-on experience with the guidance of profession-
+als, we incorporated observation sessions during the interviews.
+These sessions involved observing guide dog handlers as they navi-
+gated familiar environments with their guide dogs, offering real-life
+demonstrations of their interactions. Additionally, observation ses-
+sions with guide dog trainers offered insights into the training
+processes of the handler-guide dog unit.
+3.3  Data Collection
+We gathered comprehensive data, encompassing demographic infor-
+mation, over1,940minutes of audio-recorded interviews, and240
+minutes of video-recorded observation sessions (excluding redun-
+dant viewpoints). Subsequently, all recorded data were transcribed
+into text. One interview conducted in Korean was transcribed from
+daglo [26], then translated from Korean to English using Naver
+Papago [87], and further modified for grammatical soundness. Ad-
+ditionally, non-verbal interactions between guide dogs and handlers
+observed during observation sessions were transcribed into text for
+analysis.
+3.4  Data Analysis
+The data were analyzed using thematic analysis [13]. The first,
+second, and corresponding authors individually analyzed a subset
+of the transcriptions using an open coding scheme. Specifically,
+Microsoft Word and Google Docs comments were utilized for open
+coding to create codes. Then, all authors contributed to generating
+affinity maps (i.e., axial coding) using the Miro software by con-
+necting codes. Iterative processes of open coding and discussion
+continued until all authors reached the saturation of codes and
+agreed on the coding scheme. Initially, the first, second, and corre-
+sponding authors individually coded approximately five interviews
+each to create an intermediate coding scheme. Subsequently, the
+first author coded the rest of the interview and observation data
+according to the coding scheme. Then, all the authors reviewed the
+codes and developed the themes in an iterative manner until all
+authors came to an agreement on the themes. We clearly state that
+generative AI technologies using large language models, notably
+ChatGPT, were not used for data analysis.
+4  FINDINGS
+Our study reveals three pivotal findings: 1) crucial limitations within
+the handler-guide dog interactions, which may open opportunities
+for an additional robotic mobility aid, 2) the continuous interactions
+personalized over time and tailored to align with the handler’s
+specific needs, and 3) the perspectives, sentiments, and challenges
+encountered by guide dog handlers in the context of guide dog
+robots.
+4.1  Critical Limitations of Interactions with
+Guide Dogs
+The limitations discovered within the handler-guide dog interac-
+tion, such as the guide dogs lacking human-level environmental
+awareness, unidirectional communication between handler and
+guide dog, and inflexibility in adapting to unfamiliar environments
+and change, provide insights into the potential design implications
+and open opportunities for guide dog robots.
+4.1.1    Challenges in Achieving Human-Level Environmental Aware-
+ness.From our interviews, we uncovered a crucial theme: the strug-
+gle of guide dogs to comprehend the context of their surroundings
+as humans. Although guide dogs must grasp the nuances of the
+encountered situations and their surroundings, it is challenging for
+these animals to fully understand as their ability to have human-
+level environmental awareness of their surroundings is limited by
+their inherent intelligence.
+The inability to understand the environmental context often
+confounded guide dogs to find important navigational objects or
+landmarks. For example, in the bustling cityscape, finding an empty
+seat on public transportation can be a triumph or a blunder for
+the handler-guide dog unit. Several BLV handlers highlighted the
+significance of this seemingly mundane task of finding an empty
+seat, whether in public transportation or in a doctor’s office. Indeed,
+among the 17 guide dog handlers we discussed about finding empty
+seats, only seven were confident in their ability to locate these
+vacant seats with their guide dog. The majority found themselves
+inadvertently settling into an already occupied seat. Teaching guide
+dogs to identify an empty seat might seem straightforward, but
+due to the lack of understanding of the surrounding context, guide
+dogs often fail to identify a seat as H22 mentioned, “But they don’t
+always know that the end table is not a seat. They just know it’s
+a place that’s low enough and you can sit on.” We found that this
+was not just about seats. H07’s guide dog struggled to locate a
+door attached to glass walls and the handler’s car, despite regular
+interactions with both.
+Another crucial aspect that guide dogs lack is a comprehen-
+sive understanding of spatial constraints for obstacle avoidance.
+All guide dog schools that participated in the GDUI survey [45]
+train their guide dogs to detect, indicate, or avoid overhead obsta-
+cles, such as hazardous tree branches and signs, underscoring their
+recognition of the potential threat posed by such obstacles. Out
+of 17 BLV individuals, two expressed confidence in their ability to
+avoid overhead obstacles. The majority recounted unfortunate inci-
+dents involving collisions with tree limbs, branches, construction
+signs, tapes, scaffoldings, and even the side mirrors of trucks. This
+difficulty is consistent with findings from previous studies [60,121],
+which have frequently highlighted it as a limitation.
+Teaching guide dogs to recognize overhead obstacles pose chal-
+lenges, as these animal companions are naturally inclined to focus
+on monitoring ground-level rather than chest-level (or above) spa-
+tial extent. Moreover, we found that the nature of the overhead
+obstacle adds complexity to the problem. T05 shared that the objects’
+weight and density come into play, with lighter objects like tree
+branches proving harder to detect compared to the more conspicu-
+ous obstacles like poles. These challenges are further compounded
+by the way branches naturally grow and how they bend due to
+weather conditions like rain or snow. Although some handlers
+expressed a reluctance to walk with their guide dogs in the rain,
+they occasionally need to commute during a drizzle or encounter
+unexpected showers, as H05 confirmed:
+“My first dog, I remember [...] It was always raining or
+snowing or sleeting or something when I got him, and
+there were these branches and he was going so fast it
+knocked the hood off my head.”-H05
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+H10’s story added a twist, recounting the struggles of navigating
+rope barriers in the queue at a bank, where the guide dog couldn’t
+grasp the need to navigate around them, as going under was a
+straightforward option for the dog.
+4.1.2    Unidirectional Communication.One critical limitation that
+handlers perceive when working with biological guide dogs is the
+inability to receive essential information related to unpredictable or
+accidental situations encountered during navigation. While the han-
+dler can convey navigational instructions to the guide dog through
+gestures or verbal cues, the communication from the guide dog to
+the handler is restricted to haptic feedback via the rigid harness,
+as outlined in Section 2. This constrained one-way communication
+often falls short of conveying vital details about the surrounding
+environment, potential hazards, or the risk of collisions, sometimes
+resulting in tragic accidents. Throughout our interviews, a recur-
+ring theme emerged: the difficulties stemming from the absence of
+verbal feedback from guide dogs.
+When guide dogs stop for potential dangers to ensure safety, the
+responsibility to identify the risk and the reason for the stop falls
+on the handler to discern, as H14 mentioned, “they stop and let you
+try [to] figure out what is in front of you, why they’re stopping.
+They make you figure it out. They can’t communicate why, but they
+just stop”. In such situations, guide dog handlers resort to tactile
+exploration, using their foot or hand to identify potential sources
+of danger (H03 and H11). When handlers cannot find a clear reason,
+they may decide to move forward, which can lead to accidents,
+ranging from relatively moderate incidents like tripping off a curb
+or falling into a pool, as H01 and H03 mentioned, to more severe
+adversities, including the loss of life. T01 highlighted the case of a
+guide dog handler who had the ability to travel often but made a
+wrong decision due to a misperception of the environment which
+could have been prevented by giving appropriate feedback to the
+handler.
+“One client I’m talking about, she died falling in the
+subway. She didn’t have a dog from me anymore and
+it wasn’t the dog’s fault, because she let go of the dog
+as she fell in the subway. She told the dog to get on a
+train that wasn’t there. Multi platform subway station.
+She heard the train went over, but she swore it was her
+train.”-T01
+In fact, we found that handlers often desire to receive more expla-
+nation from their guide dog about the environment and situation.
+The majority of the interviewed handlers expressed the wish to
+receive information about the surrounding environment from the
+guide dog, such as details about upcoming corners and streets or
+the name of the store they are passing by in a shopping center.
+H11 who resides in an urban area wished to know if there were
+any upcoming construction, as she mentioned, “In terms of like
+practical things, I guess if they could tell me about oh, we’re coming
+up to some construction or things like that, that might be nice too”.
+H12, who mainly used a bus before retirement, highlighted that it
+would be helpful to know if it is the right bus to be getting on. H06
+expressed a desire to obtain information about traffic light colors,
+especially in noisy intersections where it is difficult to interpret
+the traffic flow by listening. H14 emphasized the value of any com-
+municable information: “Anything that can be communicated will
+be useful. Anything. Change in the sidewalk, change in the road.
+Some cars are doing that now. They’ll tell you the difference in
+the pavement or a difference in the... whatever. Anything to accli-
+mate you to your situation.” Regarding indoor settings, H03 and
+H22 noted that having information about the people in a meeting
+room, dimensions, and furnishings, such as available seats, would
+be immensely beneficial.
+4.1.3    Low Adaptability to Unfamiliar Environments and Changes.
+Guide dogs achieve their full potential through extensive train-
+ing and experience. However, rapid adaptation to unfamiliar envi-
+ronments or situations is not their strong suit. Nevertheless, han-
+dlers inevitably need to visit new locations, and our living spaces
+and travel environments are continuously evolving. This includes
+changes in traffic rules, object placement, environment layouts, and
+technology, all of which collectively present ongoing challenges.
+Our research shows that handlers and trainers find it difficult to
+provide additional training programs, aids, or assistive devices to
+compensate for a guide dog’s limited adaptability in the face of
+unfamiliar or evolving environments.
+When guide dog handlers visit unfamiliar places, they often rely
+on sighted guides or GPS-based devices and apps for navigation
+assistance. However, sighted guides may not always be accessible,
+and independent GPS devices may fall short of fulfilling handlers’
+requirements. H06 and H09, for instance, pointed out that they
+need to simultaneously use multiple apps depending on the situ-
+ation, which is inconvenient and quickly drains both battery and
+data. Others used visual interpreting service apps, such as Aira [3],
+which connects to a sighted guide located remotely to provide nav-
+igational assistance using the smartphone’s camera. However, as
+H06 described, obtaining reliable and confident support from a
+remote guide can sometimes be challenging. H11 also emphasized
+the inconvenience of using such an app when carrying items in
+their hands. H04, a South Korean urban resident, expressed that
+using GPS-based apps like Google Maps is difficult in a densely pop-
+ulated, high-rise environment due to the GPS sensing inaccuracy, a
+concern echoed by H17, a New York City resident.
+Adapting to evolving environments also presents unforeseen
+complexities in guide dog work, posing a significant challenge.
+Long-term guide dog handlers, with over 40 years of experience,
+highlighted the increased difficulty of travel compared to earlier
+times with only parallel traffic. Factors such as the Right-Turn-on-
+Red principle, crossing islands, blended sidewalks and streets, and
+the proliferation of electric cars were identified by H10 and H17
+as contributing to the heightened complexity of safe and efficient
+navigation in urban settings. T02 noted that while guide dogs can
+detect nearby low-speed electric cars, those approaching from a
+distance or at high speed still pose a challenge:
+“The biggest challenge now with traffic is all the new
+hybrid car and electric car because they’re don’t make
+any noise, they very silence and clients have a hard
+time judge traffic or know if there is a car coming or
+not. If it’s really very close to or turning or something,
+then the dog will, like intelligent disobedience, the
+dog will stop. But if it’s coming from far away or it’s
+coming fast or something, the dogs will not really
+judge this correctly.” -T02
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+4.2  Continuous Interactions are Required to
+Adjust the Behaviors of Animal Guide Dogs
+to Meet the Handlers’ Needs
+Comprehensive information regarding the interaction methods be-
+tween guide dogs and their handlers, the range of services provided
+by guide dogs, and the training mechanisms is crucial when devel-
+oping a guide dog robot. This information is readily available in
+the published literature, as we have summarized in Section 2 and
+Appendix B - Table 4. However, we also discovered that the interac-
+tion between the handler and the guide dog does not always strictly
+adhere to the established methods. In some cases, handlers may
+deviate from the prescribed method taught by the training schools
+to align with their specific needs. For example, we discovered that
+interactions between handlers and guide dogs evolve over time,
+driven by day-to-day guiding work and additional training provided
+by the handlers. This signifies that class-ready guide dogs when
+initially matched with a handler, may not be performing at their full
+capacity. It is in the period following their pairing and collaborative
+work with the handler as a team that guide dogs truly grasp and
+adapt to each handler’s unique requirements, ultimately refining
+their behavior to become a “well-patterned” (e.g., personalized)
+guide dog. We delve into the evolving nature of these interactions,
+shedding light on what guide dogs autonomously learn and what
+handlers teach their dogs to emphasize the importance of person-
+alization. This emphasis could provide valuable insights into the
+development of an effective guide dog robot.
+4.2.1Learning to Autonomously Navigate Routes.As is detailed in
+Section 2, the handler-guide dog unit’s roles are distinct: handlers
+oversee orientation, while guide dogs take charge of managing
+mobility. However, over time, these roles may become somewhat
+blurred, particularly in environments that the unit regularly visits.
+With increasing guide dog’s familiarity along a route, guide dogs
+often overtake the role of orientation. Consequently, the frequency
+of interactions between the handler and the dog substantially de-
+creases over time. For instance, the handlers may skip directional
+cues such as “turn left” or “turn right” on over-learned routes or
+locations, as H11 mentions, “I just have always found that it’s just
+really by repetition and by ... I don’t really have to have a specific
+command. It’s more by doing it enough and she learns it that way.”
+As this learning process continues to evolve, guide dogs may even
+navigate to frequently visited places autonomously conditioned
+on that the route is relatively simple and short. We observed this
+phenomenon during our observation session with H01, who stated,
+“I’m not giving him a direction. I’m just hanging on to the [harness]."
+as the participant walked toward the office door where she works.
+H16 also shared a similar experience of reaching a destination
+without any cues:
+“I can take a walk of my brother’s house is about four
+miles away in Winchester. And once, we cross the
+street about a block from my house, he knows where
+we’re going and I really don’t have to say anything
+the rest of the way. I do. But I don’t really have to. He
+just takes me right to their back door.” -H16
+However, it is important to emphasize that even with extended
+familiarity, handlers maintain ultimate responsibility for orientation
+and retain control over the overall navigation task. A guide dog
+trainer emphasized this point, stating that
+“The dogs, even though the dogs aren’t responsible
+for orientation, they start to pattern pretty well on
+regular routes. [However] The person is responsible
+for knowing where they are [...]” -T04
+The autonomous orientation learned from experience by guide
+dogs can occasionally lead to inconvenience. This can manifest
+when a dog assumes a route to a frequently visited location when
+the actual destination lies beyond that familiar spot. For instance,
+H10 and H12 shared experiences where their guide dogs directed
+them to a regularly visited grocery store while they were on route
+to a different place. In both cases, they had to intervene and redi-
+rect their guide dogs by firmly saying “No” when the dogs made
+incorrect autonomous decisions. However, it is noteworthy that
+handlers often refrain from correcting this behavior to maintain
+consistency in their guide dogs’ navigation habits. This reluctance
+stems from the desire to preserve the convenience of the developed
+autonomy for frequent visits to familiar places, as T03 pointed out:
+“But you don’t really correct the dog because some
+days you want the dog to go there.” -T03
+Our findings collectively suggest that simply transferring the
+orientation role from a handler to an autonomous navigation al-
+gorithm in robots may not be an appropriate approach for guide
+dog robot development. Identifying formal criteria to assess the ap-
+propriate level of autonomy transfer is an open question. However,
+our findings clearly reveal that subtle variations in navigation roles
+exist within the unit, and handlers rely on or correct the autonomy
+of their guide dogs depending on the situations and goals at hand.
+4.2.2    Additional Training to Teach New Behaviors.One specific
+training that handlers prioritize is teaching new verbal commands,
+landmarks, vocabulary, and behaviors, all of which are tailored to
+the handlers’ individual needs and their unique living environments.
+Indeed, underscoring its significance, “home training” involves
+trainers personally conducting handler-guide dog unit training in
+the vicinity of the handler’s home. To accomplish these customized
+objectives, handlers often utilize a standardized training technique
+called back-chaining (also referred to as tagging, targeting, and
+patterning). H18 articulated by stating,
+“The basic commands are for all the guide dogs. And
+then I hone in my guide dog’s training to the specifics
+that I need. [...] and now it’s up to me to reinforce the
+things that he [guide dog trainer] has taught us, dog
+and me. And then I will be increasing her training to
+specifics that I need in my life."-H18
+For instance, T03 and T05 mentioned that many handlers teach
+their guide dogs to find crosswalk buttons, trash cans/dumpsters,
+mailboxes, poles, and even ATMs through additional training, which
+serve as important navigational landmarks. This was also evidenced
+by H03 during the observation session, who used his guide dog
+to locate specific poles and drain grates while walking in his local
+community. Additionally, some handlers introduced new vocabu-
+lary to address their unique living environments. H21, for instance,
+taught her guide dog to find exit stairs due to frequent fire alarms
+in her apartment building. Sometimes, handlers like H23 shared
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+(a)(b)(c)
+Figure 2: Observation of personalized stops. (a) The guide dog is trained to stop at tactile pavings from the guide dog school. (b)
+H21 trained her guide dog to stop at cracks in the sidewalk. (c) H21 also trained her guide dog to stop at larger cracks existing
+in H21’s local community.
+their experiences of teaching new vocabulary to refer to specific
+destinations: “When I used to go to my psychology building, [...] I
+could simply say, ‘To psychology’, and my guide dog knew that we
+were headed to that specific building.” Some handlers also taught
+new commands to demonstrate a specific behavior to fit their needs.
+For instance, H23 explained that she taught her guide dog a cus-
+tom cue, “follow”, to enable the dog to trail a particular person at
+a slower pace, a skill not originally included in her guide dog’s
+training program. This adjustment proved useful for navigating
+crowded areas. Similarly, H06, H07, H09, H11, H15, and H17 trained
+their dogs to find hand railings or banisters near stairs to assist
+their physical weaknesses when ascending or descending stairs.
+Another aspect of personalization that handlers emphasize is
+the guide dog’s stopping criteria during navigation, often refined
+through trial-and-error experiences. While guide dogs receive foun-
+dational training to stop when encountering curbs and potential
+hazards, they may not initially grasp the handlers’ subtle prefer-
+ences. For instance, H20 prefers stopping at every minor obstacle,
+such as cracks and tree roots, but mentioned that his guide dog
+would continue unless it’s a curb due to their relatively short time
+together (i.e., two weeks). Conversely, H14 and H22 preferred to by-
+pass low-rise toe-trip obstacles. Therefore, H22 conducted further
+training to instruct the dog to halt only when obstacles reached a
+height of two inches or higher. Trainers noted that these prefer-
+ences depend on the handler’s physical abilities, such as balance
+and residual vision, as well as the handler’s age.
+Interestingly, some handlers selectively bypass designated stops,
+contrary to guide dog trainers’ instructions, for the sake of effi-
+ciency. For example, H08 relies on her residual vision and occasion-
+ally gives her guide dog a left turn command just before reaching a
+curb, a practice she acknowledges she shouldn’t do but finds more
+efficient.
+“And I do something that I probably shouldn’t do,
+but at a certain point in my neighborhood, instead
+of making her walk me all the way to the end of the
+sidewalk and stop at the curb, I give her a left turn
+command right before we reach the curb. [...] And
+I shouldn’t do that. I should probably always make
+her stop at the curb, but it just seems like it’s more
+efficient to just, ‘We’re going to turn left. Just go up
+there. I’ll go up to the light pole, turn left and off we
+go.’” -H08
+Geographic location and environmental factors also influence
+where handlers choose to stop. Handlers in colder regions of the
+United States, like H11 and H21, often encounter broken sidewalks
+with large cracks. We observed that H21’s guide dog stopped at
+every crack along the sidewalk, as shown in Figure 2, during the
+observation session. On the other hand, H18, who resides in a rural
+area with less distinct curbs, mentioned that her guide dog stops at
+the edges of roads or ramps. H22 also shared an interesting experi-
+ence of using her familiarity with her surroundings to personalize
+the stopping criteria in busy city environments.
+“Now on the New York City subway, a lot of times
+the stairway is very close to the track and you have
+to go around these posts and there are people in the
+way. And so she sees that as unsafe. So there are
+times I have to encourage her to go along, even if
+she thinks it’s unsafe, which is something they teach
+you definitely not to do in school. [...] But I grew up
+in New York, so I know New York. Yeah, I know the
+New York City system. [...] So they’re taught not to
+go over those, but there are times you do have to walk
+on those.” -H22
+Despite the extensive personalized training required for class-
+ready guide dogs, their working lifespan is relatively short, with
+retirement typically occurring at around eight to ten years of age.
+Consequently, handlers find the process of personalization burden-
+some, as they must repeat it each time a dog retires and they start
+working with a new one. H20 stated that
+“It’s a learning experience for both you and the dog.
+And of course, just when you and the dog really get
+good, the dog is getting older and it’s almost time to
+think about retiring the dog.” -H20
+4.3  Handlers’ Expectations and Concerns
+Towards Guide Dog Robots
+This section explores key facets related to the expectations and
+concerns of guide dog handlers in their prospective collaboration
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+with guide dog robots. While we cannot anticipate their perspec-
+tives grounded on direct experience with guide dog robots until
+this technology becomes a reality, interviews with handlers and
+trainers provide valuable insights into the critical considerations
+that should inform the development of this emerging technology.
+In general, our findings indicate a high likelihood of acceptance for
+this innovative technology, driven by their optimistic expectations
+of its potential to address various challenges faced by guide dogs.
+However, the interviewers also highlighted several inherent chal-
+lenges of artificial systems, such as difficulties in establishing trust
+and a sense of agency.
+4.3.1    Expectations.During our interviews, we received unequiv-
+ocally positive feedback about the concept of a guide dog robot.
+This enthusiasm should be tempered with the consideration that
+the respondents, given their generally positive disposition toward
+robotic systems, might be biased in their preferences for technology.
+Furthermore, the interviewers expressed their opinions with the
+underlying assumption that the robot would provide navigation ser-
+vices with the same proficiency as animal guide dogs. Nonetheless,
+a common belief emerged among both handlers and trainers that
+technologies, including guide dog robots, represent a promising av-
+enue for enhancing their mobility and functionality. This optimism
+stems from artificial systems’ capacity to expedite development
+cycles, seamlessly integrate advanced sensing and computing capa-
+bilities, and provide the flexibility to perform additional functions,
+as highlighted by insights from participants H03, H09, and H11.
+“So, I tell people all the time when I speak that tech-
+nology is a hundred times faster than medicine. To
+find a cure for my eyes I’m hopeful, but not banking
+on it. Where I’m banking on [is] technology, just like
+you guys with the robot.” -H03
+During the course of our interviews, we discovered that guide
+dog handlers hold the belief that guide dog robots have the poten-
+tial to alleviate critical inherent challenges that handlers typically
+encounter when working alongside living animals. H05 and H08
+highlighted the advantage of a robot by providing examples of BLV
+individuals who cannot work with guide dogs due to allergies and
+financial constraints. H03 added a positive outlook of a guide dog
+robot based on personal experiences with discrimination while
+traveling to another country having to be quarantined for over a
+month due to different disability laws and acts. H23 added that the
+most common issue is ride-share discrimination, despite the Amer-
+icans with Disabilities Act (ADA) federal law against it, a finding
+that aligns with the lived experience of one of the authors of this
+paper and observations made by Rickly et al. [94]. H18 suggested
+that career professionals may prefer a robot due to apartment re-
+strictions on pets. H09 pointed out that a robot could assist BLV
+individuals with limited mobility and orientation skills who cannot
+have a guide dog. H19, the second oldest subject, mentioned the
+benefit of physically being able to lean on a robot as her walking
+and balance abilities decline with age. H08 concluded that a guide
+dog robot would bridge these gaps:
+“But that’s why I’m excited about your robot because
+it’s going to fill a niche that a dog can’t fill. . . . I think
+what you’re doing is really necessary and I’m really
+all for it. I think that when I’m 90 years old, a dog
+is going to be too much for me, but a robot will be
+perfect.” -H08
+Several handlers viewed a robot as an integrated system that
+is able to contain multiple sensors. Specifically, H11 anticipated
+improved vision through advanced cameras, surpassing the capa-
+bilities of dogs. H09 sought an integrated GPS system, eliminating
+the need for using multiple apps as discussed in Section 4.1.3.
+“So all of that stuff can be put into one box. I’m all for
+it. [...] But again, it’s using all of these different apps.
+I want it all in one box. And a robot will do that.” -
+H09
+In addition, H03 anticipated functionality enhancements to bol-
+ster security:
+“So I’m thinking for security, you probably should
+have something like... Every day in America, a blind
+guy with a cane is hit over the head and they steal
+his wallet. [...] I think you should have some type of
+button with an alarm and with some type of 9-1-1 call,
+so that you could provide a certain amount of security
+feeling, a safe feeling, for the blind person.” -H03
+Opinions about the robot’s appearance vary: some handlers value
+visibility to the public, while others lean towards a more incon-
+spicuous design. Additionally, there is a spectrum of preferences
+concerning dog-like attributes, including the presence of a head,
+ears, and fur.
+4.3.2    Trust.Guide dogs’ navigation assistance holds profound
+importance beyond simply offering convenience for handlers. Han-
+dlers entrust their very lives to their guide dogs. When BLV individ-
+uals begin to work with a guide dog, they commonly do not mainly
+use white canes, but mainly work with guide dogs. Therefore, the
+responsibility for mobility and the inherent risks associated with
+community navigation—such as collisions with cars, falling into
+holes, or tripping over obstacles—shifts to the dog. Given this heavy
+reliance on guide dogs for crucial safety, trust between the han-
+dler and the dog emerges as a paramount factor to be addressed
+in the development of guide dog robots. Indeed, some handlers
+expressed strong concern about the difficulty of establishing trust
+with a robotic system. H17 stated, “I mean, that trust is, I think, a
+very important component of the whole thing. And you’re not go-
+ing to get that from a robot.” She further speculated that guide dog
+handlers might not use robots for such a reason, but people who are
+not working with a guide dog could adopt them. H05 questioned
+about building a bond with a guide dog robot, saying:
+“I think something like this robot would be good as
+far as the right, the left, the down, the guide, but you
+still don’t have that special bond that you do with the
+dog and person. There’s such a relationship.” -H05
+However, our finding indicates that trust is not merely a byprod-
+uct of the inherent nature of animal dogs. H05 highlighted the
+unique bond between handlers and their guide dogs compared to
+regular pets: “A lot of people have pets and they’re real close to
+them, but it’s not the same as when you’re trusting your life to a
+dog.” The trust developed with a guide dog is rooted in a long-term
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+partnership and shared experiences. In fact, several handlers admit-
+ted that they did not trust their guide dogs in the beginning. H18,
+for instance, mentioned this while explaining her experience with
+her seventh guide dog, with whom she had been partnered for only
+nine days at the time of the interview:
+“We are all over the place with this new dog. Well,
+I’ve only been with her for nine days, so it’s still very
+new and very unpredictable. [...] Well, for one thing,
+confidence, the longer I’ve worked with a guide dog,
+I trust my life to that dog and to my new dog, I don’t
+yet trust my life to this new dog. Not yet, but we’re
+working together.” -H18
+H18 mentioned that she would do more verbal communication
+with the new guide dog to establish a bond so that the guide dog can
+get used to her voice, distinguishing it from others. H03, H10, and
+H17 noted that trust is cultivated over time as they and their guide
+dogs navigate challenging situations, ones that handlers could not
+manage on their own, like safely avoiding obstacles. H15 described
+a defining moment that solidified his trust in his guide dog during
+training with his instructor in a bustling area:
+“We turned around and started back, there were lots
+of people and I started thinking we were going to be
+hours. They were still under construction with the no
+end. And I said about all this stuff and all of a sudden
+I came back to reality and said, ‘This dog is getting
+through all these people, all these obstacles.’ They
+always tell you trust your dog. And at that moment I
+believe it completely. It was very enlightening.” -H15
+From our interviews, it became evident that trust is rooted in a dy-
+namic interaction that demands a sustained, long-term partnership,
+personalization, and most importantly, a high level of reliability in
+the services that should be provided.
+4.3.3    Sense of Agency.Sense of agency, denoting a user’s percep-
+tion of control over actions and their outcomes [42,83], is a critical
+aspect that should be considered when creating a system with au-
+tonomy [11]. One noticeable indicator of a high sense of agency
+over a particular system is a user’s willingness to take responsibil-
+ity for undesirable results [51,101]. We found guide dog handlers’
+profound sense of agency while collaborating with their canine com-
+panions. Notably, handlers, including H01, H03, and H05, readily
+took responsibility for their actions and outcomes, even in accident
+scenarios. H05 shared her experience of an accident, “I’ve been
+hit by a drunk driver with my first dog before and it wasn’t my
+dog’s fault, it was my fault, partly.” While guide dogs offer a high
+degree of autonomy, where maintaining a strong sense of agency
+is generally difficult, handlers expressed high self-responsibility
+based on clear expectations regarding the dogs’ abilities. Such in-
+nate comprehension may be absent in robotic systems, potentially
+posing a significant barrier to the adoption of robotic guide dogs.
+Transitioning from guide dogs to robotic counterparts requires
+thoughtful attention to user agency. One potential approach is
+ensuring that handlers retain controllability during navigation,
+enabling them to intervene as necessary. This sentiment was under-
+scored by handlers, including H19, H21, and H22, who stressed the
+need to maintain authority over the robot in diverse real-world con-
+texts. Both H21 and H22 drew attention to situations that necessitate
+on-the-fly adjustments in the robot’s navigation. H21 mentioned, “I
+mean, I think that there are times where it’s appropriate to be able
+to type in something and just go straight there. But I mean, things
+happen.” H19 further accentuated the significance of control:
+“Easily change the program on the spot. And if you
+can’t do that, it might not be as useful as a dog.” -H19
+5  DISCUSSION
+In this study, we aimed to bridge the gap between guide dog robot
+developers and stakeholders (i.e., guide dog handlers and trainers)
+by gaining user-driven insights into handler-guide dog interactions
+based on semi-structured interviews with 23 guide dog handlers
+and 5 professional guide dog trainers. Thematic analysis revealed
+key findings crucial for guide dog robot design, encompassing (1)
+limitations in handler-guide dog interaction, (2) the importance of
+continuous interactions to fulfill handlers’ needs, and (3) handlers’
+perspectives on guide dog robots.
+This paper offers unique insights into guide dog robot develop-
+ment. While numerous studies have delved into the capabilities and
+limitations of guide dogs [25,75,82,97,118,120], and the interac-
+tion between assistive devices and BLV individuals [49,69,102,113,
+128], efforts to understand and analyze users’ requirements with
+respect to mobile robots remain sparse. Many studies, even those
+proposing mobile assistive devices, have either primarily empha-
+sized autonomous navigation in new environments [49,69,108] or
+overlooked users’ perspectives in design [21,27,29,52,123]. Thus,
+the intricate dynamics between guide dogs and handlers in their
+daily lives, particularly where handlers take an orientation role,
+remain under-explored. This paper aims to bridge this knowledge
+gap, drawing on the real-world experiences of stakeholders. In our
+discussion, we consolidate key aspects of robot development, in-
+tegrating our findings with existing research, and suggest design
+considerations that encompass the hardware, perception, and inter-
+face facets of a guide dog robot. Additionally, we acknowledge the
+limitations of our study and outline directions for future research.
+5.1  Design Implications
+5.1.1Form Factor.When designing a guide dog robot, several key
+factors must be considered, including leg length, overall dimen-
+sions, weight, protective features, and appearance. Regarding the
+robot’s size, it should be compact enough to fit beneath seats on
+subways or airplanes, the spaces where guide dogs typically rest, as
+our findings support that handlers frequently use public transporta-
+tion. Simultaneously, it must be large enough to walk over stairs,
+which typically range from15-19cmin height [96]. The robot’s
+weight should strike a balance between ensuring portability for an
+individual and providing enough heft to convey its movements and
+effectively halt the handler when necessary.
+Regarding the guide dog robot’s exterior, it should feature ade-
+quate waterproofing and dustproofing to protect its internal elec-
+tronic components considering that the handler may encounter
+unexpected rain. An Ingress Protection (IP) rating of at least IP65
+would be appropriate, denoting complete dust resistance and pro-
+tection against low-pressure water jets from all directions. Thermal
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+management should also be considered in design to operate in
+extreme weather [112]. In terms of appearance, as reported in Sec-
+tion 4.3.1, we may personalize it according to the users’ needs.
+5.1.2Sensors and Security.We identified important considerations
+for the sensor suite of guide dog robots. One pivotal aspect is mit-
+igating the vision sensors’ blind spots. Current guide dog robots
+predominantly utilize vision sensors, incorporating a combination
+of stereo cameras [58], depth sensors [21,66,67,123], and LiDAR
+sensors [21,27,66,67,123]. However, an exclusive dependence on
+vision can be problematic. There are inherent blind spots made by
+the handler standing adjacent to the robot, and potential inaccura-
+cies due to close proximity sensor measurements, as highlighted by
+Liu et al. [74]. While guide dogs utilize their vision, they also em-
+ploy their acute sense of hearing to detect approaching objects [77].
+Thus, diversifying sensor modalities, perhaps by integrating acous-
+tic sensing, could amplify the perceptual capabilities of guide dog
+robots, ensuring safer navigation.
+Addressing the detection of overhead obstacles, a known limi-
+tation of guide dogs [60,121], is pivotal in developing guide dog
+robots. To mitigate this problem, the integration of overhead mon-
+itoring sensors is essential. Promising solutions include the use
+of stereo cameras, strategically positioned on the robot as demon-
+strated in CaBot [49], and gimbal-mounted cameras, similar to the
+approaches in Xiao et al. [123] and Chen et al. [21]. These techno-
+logical adaptations may enhance a critical area of safety, addressing
+issues identified with animal guide dogs.
+In the context of enhancing security and ensuring that robotic
+operations are limited to authorized users, exploring a variety of
+authentication methods is pivotal. For example, haptic or biometric
+authentications present a viable solution, enabling the identification
+of registered users with the added benefit of customizable privacy
+options [31]. It is essential to consider diverse authentication strate-
+gies for reducing privacy vulnerabilities in robot design.
+5.1.3Battery.Our findings suggest that the robot’s battery should
+sustain operations for more than two hours. This recommendation
+stems from the average walking habits of our participating guide
+dog handlers, most of whom primarily depend on walking or public
+transport. Notably, commercial quadruped robots from Unitree
+Robotics, advertise a battery life of 2 to 4 hours [95]. However,
+designers should consider that this duration could diminish due to
+various factors such as extra sensors (e.g., LiDAR) and the energy
+to pull a user (∼40 N[58]).
+5.1.4    Perceptual Intelligence.Recognizing objects for navigation
+is an indispensable technology for guide dog robots, serving as the
+handlers’ “eyes”. Although computer vision has advanced signifi-
+cantly with the advent of deep learning techniques [70], focused
+research in the context of guide dog robots remains scarce. Unlike
+road environments, which predominantly feature distinct lanes and
+obstacles with limited variations such as vehicles and pedestrians,
+sidewalks introduce a myriad of unique challenges. A guide dog
+robot must adeptly navigate along sidewalks, identifying a safe tra-
+jectory while recognizing diverse obstacles, from electric scooters
+and bicycles to overhead tree branches and sidewalk cracks. No-
+tably, while there are expansive datasets tailored for autonomous
+vehicles [17,24,46,105,125], they may not encapsulate the speci-
+ficities of environments and sensing requirements intrinsic to guide
+dog robots.
+To bridge this gap, Park et al. [89] pioneered the development
+of a dataset from cameras oriented from a pedestrian’s viewpoint.
+More recent work [63,127] entailed large-scale multimodal sensor
+data collected from a university campus environment using mo-
+bile robots. Integrating such data with various learning methods,
+such as learning-from-demonstration [92] and visual navigation
+methods that employ self-supervised learning [64,99] and imitation
+learning [2,103], could enable adept interpretation of contextual
+cues for decision-making in robots. Sorokin et al. [103] proposed a
+learning framework that uses knowledge learned from simulation
+data and performs trajectory following with a quadruped robot
+that avoids obstacles and remains on sidewalks for3.2km. Shah
+et al. [99] similarly showed adaptability to a novel environment,
+although requiring an hour of demonstration. More recently, with
+the advent of Transformers [28,115], there has been research en-
+abling zero-shot transfer for various computer vision tasks, such
+as classification [91] and segmentation [68], opening possibilities
+for perception models to adapt and respond appropriately in an
+unseen environment. Notable progress includes enabling zero-shot
+object goal navigation in simulated environments [129] and achiev-
+ing long-horizon navigation without any fine-tuning in the target
+environments [100].
+However, these developments are primarily confined to simu-
+lations or constrained systems, highlighting that extending these
+capabilities to more generalized, real-world navigation scenarios
+continues to be an active and challenging area of research. There-
+fore, while progress in this field is encouraging [104], the capability
+for autonomous navigation in diverse and unpredictable environ-
+ments remains an active area of research and development. Also,
+although there have been significant advancements in perception
+models [19,61,117], safety-guaranteed real-world deployment has
+not been accomplished yet. Common failures of object detection
+such as missing objects (false negative) or detection of non-existent
+objects (false positive), could potentially lead to hazardous situa-
+tions (e.g., stopping in the middle of a street or failing to stop at
+curbs). Prior research has explored using additional information
+through sensor fusion and considering object properties and con-
+text to reduce misclassifications [80]. In addition to the effort for
+enhancing algorithm accuracy, leveraging multimodal data (e.g.,
+visual and auditory) or human-in-the-loop systems would alleviate
+the issues in perception to guarantee safe and reliable decision-
+making.
+As our findings in Section 4.1.2 suggest, using natural language
+for scene descriptions can enhance the safe navigation of BLV peo-
+ple. Recent advancements in large multimodal models [18,72,130]
+that combine vision encoders with large language models (LLMs)
+such as GPT-4, as well as open-source LLMs [22,110], have enabled
+natural language scene descriptions at a level comparable to human-
+level artificial general intelligence [16]. Specifically, these large
+multimodal models process natural language prompts and visual
+information to generate appropriate natural language responses.
+This capability allows them to address queries such as “Is it safe
+to cross the street?” or “Is this seat empty?” These technologies
+are already being applied in vision-assistive mobile applications,
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+including OKO [7] and Be My Eyes [32]. Future research could pro-
+ductively focus on tailoring perceptual models to deliver valuable
+information to users [57] and integrating these systems into guide
+dog robot applications.
+5.1.5Communication Method.To address the limitations of unidi-
+rectional communication from a handler to a guide dog, guide dog
+robots need to relay pertinent information to users when necessary.
+Audio feedback has been widely used for this purpose [48,49,73,74].
+Yet, from our interviews, we learned the importance of moderating
+the amount of audio feedback. H09 illustrated this concern, sharing
+his experience with an electronic travel aid in an urban environ-
+ment. He noted that excessive information can distract individuals
+who are relying on their remaining senses, which also agrees with
+the prior study on cognitive load [86].
+In terms of communication from handlers to robots, there exists
+merit in retaining traditional methods such as verbal cues and hand
+gestures due to their proven efficacy over time. Audio interfaces for
+command input, as explored in previous research [62,66,73,74],
+present a natural and effective way to convey the handler’s inten-
+tions.  However, their efficiency may wane in loud environments
+where ambient sounds can obscure commands, when the handler
+experiences vocal issues like a cold, or when conveying sensitive
+commands, such as “find a restroom”, is not desirable. Given the
+adaptability of robotic systems, considering alternative modes of
+communication, such as haptic devices or button interfaces [58],
+could offer more diverse ways to interact.
+5.2  Towards Real-World Deployment Beyond
+Development
+To fill in the gap between the successful integration of the aforemen-
+tioned guide dog design implications and real-world deployment,
+we need to focus on establishing a strong bond between handlers
+and guide dog robots, emphasizing two pivotal factors— trust and
+personalization—tailored to handers’ preference that account for
+their physical attributes and living environments.
+We contend that trust building is a multifaceted process involv-
+ing the reliability of the system and long-term partnership. For
+instance, we found that trust in the handler-guide dog partnership
+grows over time and experience through trial and error. We addi-
+tionally argue that instilling a sense of agency [42,43,83] in users
+towards the robot is crucial to cultivate trust, a concern frequently
+raised regarding guide dog robots among the handlers. To estab-
+lish trust, fully autonomous operation of guide dog robots, when
+paired with users, may not be ideal [128], especially during the
+initial interaction stages where trust bias may arise [41] and un-
+expected robot behavior can diminish trust [78]. Similar to novice
+guide dog handlers who initially lack trust in their guide dogs but
+gradually develop strong bonds over time, we envision a parallel
+trajectory for guide dog robots. As trust between handlers and their
+guide dogs continues to develop and solidify, handlers become more
+comfortable granting their guide dogs greater autonomy, even in
+the presence of limited communication and interactions between
+them, and of the occasional accidents that may occur during the
+trust-building process. By mirroring this pattern in the human-
+robot relationship, we open the door to opportunities for guide
+dog robots to assume increasing autonomous navigation responsi-
+bilities as the bond between the user and the robot matures. This
+approach recognizes that trust is not an instantaneous outcome but
+a dynamic process that grows over time with shared experiences
+and a deepening sense of reliability. Therefore, as guide dog robots
+become more familiar and integrated into the user’s life, they can
+gradually assume greater autonomy in navigation tasks.
+Personalization is essential to accommodate the diverse prefer-
+ences of users with varying physical attributes and living environ-
+ments [14,90]. Addressing these varying needs will pose a challenge
+for a one-size-fits-all decision-making algorithm. For instance, the
+preset stop criteria for toe-trip obstacles may incur safety issues
+or inconvenience for users with limited balance who prefer the
+robot to halt at every toe-trip obstacle or others who have more
+agility and prefer to pass minor toe-trip obstacles, respectively. Al-
+gorithms following the established practice (e.g., advancing to the
+curb’s end before turning) may prove less efficient for individuals
+with remaining visual function, as they possess a general sense of
+when and where to make the turn before reaching the curb. Con-
+versely, having the algorithm turn before reaching the curb may
+pose safety concerns and impede orientation for individuals who
+are totally blind. One potential solution to fulfill such a wide range
+of personalization needs would be to utilize lifelong (or continual)
+learning techniques [88]. This adaptive approach ensures that the
+guide dog robot evolves to align with each user’s distinct require-
+ments, ultimately enhancing the overall user experience and the
+effectiveness of the robot as a mobility aid.
+5.3  Limitations and Future Work
+Our research efforts, while promising, come with inherent limi-
+tations that deserve acknowledgment. It is important to note the
+potential influence of participant bias in our findings, given the
+diversity within our participant pool concerning vision levels, liv-
+ing areas, age, and familiarity with technology. The majority of
+participants were recruited from the United States except for one
+participant from the Republic of Korea. However, we did not ob-
+serve significant variances in the handler-guide dog interactions
+between the two countries. Further research may be beneficial for a
+comprehensive understanding of the nuances of handler-guide dog
+interactions across different countries. Furthermore, the discussions
+were drawn from interviews exclusively with guide dog handlers
+and trainers who lack experience with guide dog robots. Engaging
+guide dog robot developers and engineers in future research could
+yield more comprehensive insights into the technological feasibility
+and progression towards the envisioned goals of guide dog robots.
+In light of these limitations, our research paves the way for sev-
+eral directions of future work aimed at addressing the identified
+challenges, validating our findings through user studies, exploring
+personalization, investigating companionship between the handler-
+guide dog unit, and contributing to the evolving field of trust in
+human-robot interaction. First, it is essential to integrate the design
+implications derived from our current research into the develop-
+ment of our guide dog robot system. This will involve refining the
+robot’s capabilities to ensure it can reliably guide the user on a
+sidewalk having multiple obstacles including overhead obstacles
+and co-designing the harness handle interface. This foundational
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+step will set the stage for more advanced interactions between the
+handler and the guide dog robot during indoor and outdoor nav-
+igation tasks in more complex environments. Second, it remains
+crucial to establish objective measures of the robot’s performance
+and its impact on users’ daily lives by conducting both controlled
+and in situ user studies with BLV individuals. These future stud-
+ies will enable us to gather measurements to evaluate our guide
+dog robot and empirical data on trust and usability in real-world
+scenarios. Third, we recognized the importance of personalization
+in accommodating the unique needs and preferences of guide dog
+handlers. To better understand these important factors, it is imper-
+ative to conduct interviews with a diverse range of participants,
+such as individuals having different vision levels, using different
+types of mobility aids, and having additional disabilities, in order
+to explore the nuances of personalization and tailor our system
+accordingly. Fourth, our study primarily delved into interaction
+dynamics related specifically to navigational tasks, leaving a gap
+in our investigation regarding the companionship and emotional
+support aspects lacking in guide dog robots. The benefits of com-
+panionship and emotional support in the handler-animal guide dog
+relationship are well-documented [118,120], a finding also evident
+in our interviews. As future users of guide dog robots may have
+the choice to adopt a dog as a pet or customize the guide dog robot
+to offer companionship and emotional support [5,9,50], future re-
+search in these areas seems pivotal. Finally, an important avenue for
+future research lies in the broader themes related to human-robot
+teaming and trust, as highlighted in previous studies [12,53,71].
+These explorations will collectively contribute to our understand-
+ing of the dynamics of human-robot teams and the development of
+an effective guide dog robot.
+6  CONCLUSION
+In this paper, we propose a design implication for legged guide
+dog robots that are actively being developed. Data from 23 guide
+dog handlers and 5 trainers revealed limitations of the handler-
+guide dog interaction, personalization aspects that are beyond the
+official guide dog training regimen, and multifaceted perspectives
+surrounding guide dog robots. These findings provide important
+new insights and strongly advocate for the importance of our user-
+driven design approach. Moreover, our findings emphasize the
+significance of trust and personalization in achieving real-world
+adoption, which is critical for future guide dog robot development.
+Our study contributes valuable insights to the HCI and robotics
+communities, advancing the prospect of an additional mobility
+option tailored to the needs of BLV individuals.
+ACKNOWLEDGMENTS
+The authors originally created the text and content, while ChatGPT
+was used exclusively for refining the writing and checking the
+grammar.
+REFERENCES
+[1]
+Peter Ackland, Serge Resnikoff, and Rupert Bourne. 2017. World blindness and
+visual impairment: despite many successes, the problem is growing.Community
+eye health30, 100 (2017), 71.
+[2]Bo Ai, Wei Gao, Vinay, and David Hsu. 2022.   Deep Visual Navigation un-
+der  Partial  Observability.  In2022 International Conference on Robotics and
+Automation (ICRA)(Philadelphia, PA, USA). IEEE Press, 9439–9446.    https:
+//doi.org/10.1109/ICRA46639.2022.9811598
+[3]  Aira. 2023.We’re Aira, a Visual Interpreting Service.https://aira.io/
+[4]
+Majed Al Zayer, Sam Tregillus, Jiwan Bhandari, Dave Feil-Seifer, and Eelke
+Folmer. 2016. Exploring the use of a drone to guide blind runners. InProceed-
+ings of the 18th International ACM SIGACCESS Conference on Computers and
+Accessibility. 263–264.
+[5]Rebecca Andreasson, Beatrice Alenljung, Erik Billing, and Robert Lowe. 2018.
+Affective touch in human–robot interaction: conveying emotion to the Nao
+robot.International Journal of Social Robotics10 (2018), 473–491.
+[6]Mauro Avila Soto, Markus Funk, Matthias Hoppe, Robin Boldt, Katrin Wolf, and
+Niels Henze. 2017. Dronenavigator: Using leashed and free-floating quadcopters
+to navigate visually impaired travelers. InProceedings of the 19th international
+acm sigaccess conference on computers and accessibility. 300–304.
+[7]AYES. 2023.Meet oko | The AI-powered navigation app for all pedestrians.https:
+//www.ayes.ai/
+[8]Shiri Azenkot, Catherine Feng, and Maya Cakmak. 2016.  Enabling building
+service robots to guide blind people a participatory design approach. In2016
+11th ACM/IEEE International Conference on Human-Robot Interaction (HRI). IEEE,
+3–10.
+[9]Annalena Nora Baecker, Denise Y Geiskkovitch, Adriana Lorena González, and
+James E Young. 2020.  Emotional support domestic robots for healthy older
+adults: Conversational prototypes to help with loneliness. InCompanion of the
+2020 ACM/IEEE International Conference on Human-Robot Interaction. 122–124.
+[10]Christie Bane. 2020.Forward Together: an inside look at guide dog training.
+Independently published.
+[11]Bruno Berberian, Jean-Christophe Sarrazin, Patrick Le Blaye, and Patrick Hag-
+gard. 2012. Automation technology and sense of control: a window on human
+agency.PloS one7, 3 (2012), e34075.
+[12]
+Deborah R Billings, Kristin E Schaefer, Jessie YC Chen, and Peter A Hancock.
+2012. Human-robot interaction: developing trust in robots. InProceedings of the
+seventh annual ACM/IEEE international conference on Human-Robot Interaction.
+109–110.
+[13]Virginia Braun and Victoria Clarke. 2006. Using thematic analysis in psychology.
+Qualitative research in psychology3, 2 (2006), 77–101.
+[14]Elizabeth Broadbent, Rebecca Stafford, and Bruce MacDonald. 2009. Acceptance
+of healthcare robots for the older population: Review and future directions.
+International journal of social robotics1 (2009), 319–330.
+[15]
+Emeline Brulé, Brianna J Tomlinson, Oussama Metatla, Christophe Jouffrais,
+and Marcos Serrano. 2020.  Review of quantitative empirical evaluations of
+technology for people with visual impairments. InProceedings of the 2020 CHI
+Conference on Human Factors in Computing Systems. 1–14.
+[16]Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric
+Horvitz, Ece Kamar, Peter Lee, Yin Tat Lee, Yuanzhi Li, Scott Lundberg, et al.
+2023.  Sparks of artificial general intelligence: Early experiments with gpt-4.
+arXiv preprint arXiv:2303.12712(2023).
+[17]Holger Caesar, Varun Bankiti, Alex H Lang, Sourabh Vora, Venice Erin Liong,
+Qiang Xu, Anush Krishnan, Yu Pan, Giancarlo Baldan, and Oscar Beijbom. 2020.
+nuscenes: A multimodal dataset for autonomous driving. InProceedings of the
+IEEE/CVF conference on computer vision and pattern recognition. 11621–11631.
+[18]
+Jun Chen, Deyao Zhu1 Xiaoqian Shen1 Xiang Li, Zechun Liu2 Pengchuan
+Zhang, Raghuraman Krishnamoorthi2 Vikas Chandra2 Yunyang Xiong, and
+Mohamed Elhoseiny. 2023.   MINIGPT-V2: LARGE LANGUAGE MODEL AS
+A UNIFIED INTERFACE FOR VISION-LANGUAGE MULTI-TASK LEARNING.
+arXiv preprint arXiv:2310.09478(2023).
+[19]
+Liang-Chieh  Chen,  Yukun  Zhu,  George  Papandreou,  Florian  Schroff,  and
+Hartwig Adam. 2018.   Encoder-decoder with atrous separable convolution
+for semantic image segmentation. InProceedings of the European conference on
+computer vision (ECCV). 801–818.
+[20]Qihe Chen, Luyao Wang, Yan Zhang, ZiangL Li, Tingmin Yan, Fan Wang, Guyue
+Zhou, and Jiangtao Gong. 2022. Can Quadruped Navigation Robots be Used as
+Guide Dogs?arXiv preprint arXiv:2210.08727(2022).
+[21]Yanbo Chen, Zhengzhe Xu, Zhuozhu Jian, Gengpan Tang, Liyunong Yang,
+Anxing Xiao, Xueqian Wang, and Bin Liang. 2023. Quadruped guidance robot
+for the visually impaired: A comfort-based approach. In2023 IEEE International
+Conference on Robotics and Automation (ICRA). IEEE, 12078–12084.
+[22]Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang,
+Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion
+Stoica, and Eric P. Xing. 2023.  Vicuna: An Open-Source Chatbot Impressing
+GPT-4 with 90%* ChatGPT Quality.   https://lmsys.org/blog/2023-03-30-vicuna/
+[23]DD Clark-Carter, AD Heyes, and CI Howarth. 1986. The efficiency and walking
+speed of visually impaired people.Ergonomics29, 6 (1986), 779–789.
+[24]
+Marius Cordts, Mohamed Omran, Sebastian Ramos, Timo Rehfeld, Markus
+Enzweiler, Rodrigo Benenson, Uwe Franke, Stefan Roth, and Bernt Schiele. 2016.
+The cityscapes dataset for semantic urban scene understanding. InProceedings
+of the IEEE conference on computer vision and pattern recognition. 3213–3223.
+[25]Peter J Craigon, Pru Hobson-West, Gary CW England, Chantelle Whelan, Emma
+Lethbridge, and Lucy Asher. 2017.  “She’s a dog at the end of the day”: Guide
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+dog owners’ perspectives on the behaviour of their guide dog.PloS one12, 4
+(2017), e0176018.
+[26]  daglo. 2023.daglo - Never Miss a Word.  https://daglo.ai/
+[27]
+David DeFazio, Eisuke Hirota, and Shiqi Zhang. 2023. Seeing-Eye Quadruped
+Navigation with Force Responsive Locomotion Control. In7th Annual Conference
+on Robot Learning.
+[28]
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
+Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer,
+Georg Heigold, Sylvain Gelly, et al.2020.   An image is worth 16x16 words:
+Transformers for image recognition at scale.arXiv preprint arXiv:2010.11929
+(2020).
+[29]Brian L Due. 2023. Guide dog versus robot dog: assembling visually impaired
+people with non-human agents and achieving assisted mobility through dis-
+tributed co-constructed perception.Mobilities18, 1 (2023), 148–166.
+[30]Boston Dynamics. [n. d.].Home - Bostondynamics.  Retrieved July 25, 2023 from
+https://bostondynamics.com
+[31]Stephen Eick and Annie I Antón. 2020.   Enhancing privacy in robotics via
+judicious sensor selection. In2020 IEEE International Conference on Robotics and
+Automation (ICRA). IEEE, 7156–7165.
+[32]Be My Eyes. 2023.Be My Eyes - See the world together.  https://www.bemyeyes.
+com/
+[33]
+International Guide Dog Federation. 2023. History of Guide Dogs - International
+Guide Dog Federation.   https://www.igdf.org.uk/guide-dogs/history-of-guide-
+dogs/
+[34]Catherine Feng, Shiri Azenkot, and Maya Cakmak. 2015.  Designing a robot
+guide for blind people in indoor environments. InProceedings of the Tenth
+Annual ACM/IEEE International Conference on Human-Robot Interaction Extended
+Abstracts. 107–108.
+[35]Clovernook Center for the Blind. 2023. Guide Dogs: Your Questions Answered
+– Clovernook.   https://clovernook.org/2021/09/22/guide-dogs-your-questions-
+answered/
+[36]
+Canadian Guide Dogs for the Blind. 2023.Realities of Guide Dog Mobility –
+Canadian Guide Dogs for the Blind.  https://www.guidedogs.ca/realities-guide-
+dog-mobility
+[37]
+Guiding Eyes for the Blind. 2023.Guide Dogs 101 - Guiding Eyes for the Blind.
+https://www.guidingeyes.org/guide-dogs-101/
+[38]
+Guiding Eyes for the Blind. 2023.  Who We Are - Guiding Eyes for the Blind.
+https://www.guidingeyes.org/who-we-are/
+[39]
+The Carroll Center for the blind. 2023.The Carroll Center for the Blind.  https:
+//carroll.org/
+[40]
+Guide   Dog   Foundation.   2023.Characteristics  for  Success.https:
+//www.guidedog.org/gd/get-a-guide-dog/characteristics-for-success/gd/dog-
+programs/characteristics-for-success.aspx?hkey=504cd63e-30d8-4f1e-a533-
+8c4955f49313
+[41]Amos Freedy, Ewart DeVisser, Gershon Weltman, and Nicole Coeyman. 2007.
+Measurement of trust in human-robot collaboration. In2007 International sym-
+posium on collaborative technologies and systems. Ieee, 106–114.
+[42]Shaun Gallagher. 2000. Philosophical conceptions of the self: implications for
+cognitive science.Trends in cognitive sciences4, 1 (2000), 14–21.
+[43]Shaun Gallagher. 2012. Multiple aspects in the sense of agency.New ideas in
+psychology30, 1 (2012), 15–31.
+[44]Florence Gaunet and Sandie Besse. 2019. Guide dogs’ navigation after a single
+journey: A descriptive study of path reproduction, homing, shortcut and detour.
+PLoS One14, 7 (2019), e0219816.
+[45]Guide Dog Users Inc. (GDUI). 2023.GDUI School Surveys - Guide Dog Users, Inc.
+(GDUI).  https://guidedogusersinc.org/resources/gdui-school-survey/
+[46]Jakob Geyer, Yohannes Kassahun, Mentar Mahmudi, Xavier Ricou, Rupesh
+Durgesh, Andrew S Chung, Lorenz Hauswald, Viet Hoang Pham, Maximilian
+Mühlegg, Sebastian Dorn, et al.2020. A2d2: Audi autonomous driving dataset.
+arXiv preprint arXiv:2004.06320(2020).
+[47]Nicholas A Giudice and Gordon E Legge. 2008. Blind navigation and the role of
+technology.The engineering handbook of smart technology for aging, disability,
+and independence8 (2008), 479–500.
+[48]Cole Gleason, Alexander J Fiannaca, Melanie Kneisel, Edward Cutrell, and
+Meredith Ringel Morris. 2018. FootNotes: Geo-referenced audio annotations for
+nonvisual exploration.Proceedings of the ACM on Interactive, Mobile, Wearable
+and Ubiquitous Technologies2, 3 (2018), 1–24.
+[49]João Guerreiro, Daisuke Sato, Saki Asakawa, Huixu Dong, Kris M Kitani, and
+Chieko Asakawa. 2019. Cabot: Designing and evaluating an autonomous nav-
+igation robot for blind people. InProceedings of the 21st International ACM
+SIGACCESS Conference on Computers and Accessibility. 68–82.
+[50]Shihui Guo, Lishuang Zhan, Yancheng Cao, Chen Zheng, Guyue Zhou, and
+Jiangtao Gong. 2023.  Touch-and-Heal: Data-driven Affective Computing in
+Tactile Interaction with Robotic Dog.Proceedings of the ACM on Interactive,
+Mobile, Wearable and Ubiquitous Technologies7, 2 (2023), 1–33.
+[51]Patrick Haggard and Manos Tsakiris. 2009. The experience of agency: Feelings,
+judgments, and responsibility.Current Directions in Psychological Science18, 4
+(2009), 242–246.
+[52]Kaveh Akbari Hamed, Vinay R Kamidi, Wen-Loong Ma, Alexander Leonessa,
+and Aaron D Ames. 2019. Hierarchical and safe motion control for cooperative
+locomotion of robotic guide dogs and humans: A hybrid systems approach.IEEE
+Robotics and Automation Letters5, 1 (2019), 56–63.
+[53]Peter A Hancock, Deborah R Billings, Kristin E Schaefer, Jessie YC Chen, Ewart J
+De Visser, and Raja Parasuraman. 2011.  A meta-analysis of factors affecting
+trust in human-robot interaction.Human factors53, 5 (2011), 517–527.
+[54]Elliott Hauser, Yao-Cheng Chan, Parth Chonkar, Geethika Hemkumar, Huihai
+Wang, Daksh Dua, Shikhar Gupta, Efren Mendoza Enriquez, Tiffany Kao, Justin
+Hart, et al.2023. "What’s That Robot Doing Here?": Perceptions Of Incidental
+Encounters With Autonomous Quadruped Robots. InProceedings of the First
+International Symposium on Trustworthy Autonomous Systems. 1–15.
+[55]
+Marion A Hersh and Michael A Johnson. 2010. A robotic guide for blind people.
+Part 1. A multi-national survey of the attitudes, requirements and preferences
+of potential end-users.Applied Bionics and Biomechanics7, 4 (2010), 277–288.
+[56]Bin Hong, Zhangxi Lin, Xin Chen, Jing Hou, Shunya Lv, and Zhendong Gao.
+2022. Development and application of key technologies for Guide Dog Robot:
+A systematic literature review.Robotics and Autonomous Systems154 (2022),
+104104.
+[57]Karst MP Hoogsteen, Sarit Szpiro, Gabriel Kreiman, and Eli Peli. 2022. Beyond
+the cane: describing urban scenes to blind people for mobility tasks.ACM
+Transactions on Accessible Computing (TACCESS)15, 3 (2022), 1–29.
+[58]Hochul  Hwang,  Tim  Xia,  Ibrahima  Keita,  Ken  Suzuki,  Joydeep  Biswas,
+Sunghoon I Lee, and Donghyun Kim. 2023.   System configuration and nav-
+igation of a guide dog robot: Toward animal guide dog-level guiding work. In
+2023 IEEE International Conference on Robotics and Automation (ICRA). IEEE,
+9778–9784.
+[59]
+Jemin Hwangbo, Joonho Lee, Alexey Dosovitskiy, Dario Bellicoso, Vassilios
+Tsounis, Vladlen Koltun, and Marco Hutter. 2019. Learning agile and dynamic
+motor skills for legged robots.Science Robotics4, 26 (2019), eaau5872.
+[60]
+Watthanasak Jeamwatthanachai, Mike Wald, and Gary Wills. 2019.   Indoor
+navigation by blind people: Behaviors and challenges in unfamiliar spaces and
+buildings.British Journal of Visual Impairment37, 2 (2019), 140–153.
+[61]Glenn Jocher, Ayush Chaurasia, and Jing Qiu. 2023.YOLO by Ultralytics.  https:
+//github.com/ultralytics/ultralytics
+[62]S Kalpana, S Rajagopalan, R Ranjith, and R Gomathi. 2020. Voice recognition
+based multi robot for blind people using lidar sensor. In2020 International
+Conference on System, Computation, Automation and Networking (ICSCAN). IEEE,
+1–6.
+[63]Haresh Karnan, Anirudh Nair, Xuesu Xiao, Garrett Warnell, Sören Pirk, Alexan-
+der Toshev, Justin Hart, Joydeep Biswas, and Peter Stone. 2022. Socially compli-
+ant navigation dataset (scand): A large-scale dataset of demonstrations for social
+navigation.IEEE Robotics and Automation Letters7, 4 (2022), 11807–11814.
+[64]
+Haresh Karnan, Elvin Yang, Daniel Farkash, Garrett Warnell, Joydeep Biswas,
+and Peter Stone. 2023.   STERLING: Self-Supervised Terrain Representation
+Learning from Unconstrained Robot Experience. In7th Annual Conference on
+Robot Learning.
+[65]Donghyun Kim, Jared Di Carlo, Benjamin Katz, Gerardo Bledt, and Sangbae
+Kim. 2019.  Highly dynamic quadruped locomotion via whole-body impulse
+control and model predictive control.arXiv preprint arXiv:1909.06586(2019).
+[66]
+J Taery Kim, Wenhao Yu, Yash Kothari, Jie Tan, Greg Turk, and Sehoon Ha.
+2023. Transforming a Quadruped into a Guide Robot for the Visually Impaired:
+Formalizing Wayfinding, Interaction Modeling, and Safety Mechanism.arXiv
+preprint arXiv:2306.14055(2023).
+[67]J Taery Kim, Wenhao Yu, Jie Tan, Greg Turk, and Sehoon Ha. 2023. How to Train
+Your Guide Dog: Wayfinding and Safe Navigation with Human-Robot Modeling.
+InCompanion of the 2023 ACM/IEEE International Conference on Human-Robot
+Interaction. 221–225.
+[68]Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura
+Gustafson, Tete Xiao, Spencer Whitehead, Alexander C Berg, Wan-Yen Lo, et al.
+2023. Segment anything.arXiv preprint arXiv:2304.02643(2023).
+[69]Masaki Kuribayashi, Tatsuya Ishihara, Daisuke Sato, Jayakorn Vongkulbhisal,
+Karnik Ram, Seita Kayukawa, Hironobu Takagi, Shigeo Morishima, and Chieko
+Asakawa. 2023. PathFinder: Designing a Map-less Navigation System for Blind
+People in Unfamiliar Buildings. InProceedings of the 2023 CHI Conference on
+Human Factors in Computing Systems. 1–16.
+[70]Yann LeCun, Yoshua Bengio, and Geoffrey Hinton. 2015. Deep learning.nature
+521, 7553 (2015), 436–444.
+[71]
+Michael Lewis, Katia Sycara, and Phillip Walker. 2018.   The role of trust in
+human-robot interaction.Foundations of trusted autonomy(2018), 135–159.
+[72]Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee. 2023.   Visual
+instruction tuning.arXiv preprint arXiv:2304.08485(2023).
+[73]
+Shuijing  Liu,  Aamir  Hasan,  Kaiwen  Hong,  Runxuan  Wang,  Peixin  Chang,
+Zachary  Mizrachi,  Justin  Lin,  D  Livingston  McPherson,  Wendy  A  Rogers,
+and Katherine Driggs-Campbell. 2023.   DRAGON: A Dialogue-Based Robot
+for Assistive Navigation with Visual Language Grounding.arXiv preprint
+arXiv:2307.06924(2023).
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+[74]Shuijing Liu, Aamir Hasan, Kaiwen Hong, Chun-Kai Yao, Justin Lin, Weihang
+Liang, Megan A Bayles, Wendy A Rogers, and Katherine Driggs-Campbell. 2023.
+Designing a Wayfinding Robot for People with Visual Impairments.arXiv
+preprint arXiv:2302.09144(2023).
+[75]Janice KF Lloyd, Steven La Grow, Kevin J Stafford, and R Claire Budge. 2008. The
+guide dog as a mobility aid part 1: Perceived effectiveness on travel performance.
+Vision Rehabilitation International1, 1 (2008), 17–33.
+[76]Janice KF Lloyd, Steven La Grow, Kevin J Stafford, and R Claire Budge. 2008.
+The guide dog as a mobility aid part 2: Perceived changes to travel habits.Vision
+Rehabilitation International1, 1 (2008), 34–45.
+[77]Richard G Long and Nicholas A Giudice. 2010. Establishing and Maintaining
+Orientation for Mobility. (2010).
+[78]
+Joseph B Lyons, Izz aldin Hamdan, and Thy Q Vo. 2023.   Explanations and
+trust: What happens to trust when a robot partner does something unexpected?
+Computers in Human Behavior138 (2023), 107473.
+[79]Kelly Mack, Emma McDonnell, Dhruv Jain, Lucy Lu Wang, Jon E. Froehlich,
+and Leah Findlater. 2021.   What do we mean by “accessibility research”? A
+literature survey of accessibility papers in CHI and ASSETS from 1994 to 2019.
+InProceedings of the 2021 CHI Conference on Human Factors in Computing Systems.
+1–18.
+[80]Yanmao Man, Raymond Muller, Ming Li, Z Berkay Celik, and Ryan Gerdes. 2023.
+That person moves like a car: Misclassification attack detection for autonomous
+systems using spatiotemporal consistency. InUSENIX Security.
+[81]Fanny Menuge, Míriam Marcet-Rius, Muriel Jochem, Orane François, Camille
+Assali, Camille Chabaud, Eva Teruel, Justine Guillemot, and Patrick Pageat. 2021.
+Early evaluation of fearfulness in future guide dogs for blind people.Animals
+11, 2 (2021), 412.
+[82]
+Rachel Joy-Taub Miner. 2001.  The experience of living with and using a dog
+guide.RE: view32, 4 (2001), 183.
+[83]
+James W Moore. 2016.  What is the sense of agency and why does it matter?
+Frontiers in psychology7 (2016), 1272.
+[84]
+Guide Dogs of America. 2023.How to Get a Service Dog - Guide Dogs of America.
+https://www.guidedogsofamerica.org/admissions/
+[85]Bay State Council of the Blind. 2022.Bay State Council of the Blind.   https:
+//acbofma.org/
+[86]Sabrina A Panëels, Adriana Olmos, Jeffrey R Blum, and Jeremy R Cooperstock.
+2013. Listen to it yourself ! evaluating usability of what’s around me? for the
+blind. InProceedings of the SIGCHI Conference on Human Factors in Computing
+Systems. 2107–2116.
+[87]  Naver Papago. 2023.Papago.  https://papago.naver.com/
+[88]
+German I Parisi, Ronald Kemker, Jose L Part, Christopher Kanan, and Stefan
+Wermter. 2019.  Continual lifelong learning with neural networks: A review.
+Neural networks113 (2019), 54–71.
+[89]
+Kibaek Park, Youngtaek Oh, Soomin Ham, Kyungdon Joo, Hyokyoung Kim,
+Hyoyoung Kum, and In So Kweon. 2020.   Sideguide: a large-scale sidewalk
+dataset for guiding impaired people. In2020 IEEE/RSJ International Conference
+on Intelligent Robots and Systems (IROS). IEEE, 10022–10029.
+[90]Joelle Pineau, Michael Montemerlo, Martha Pollack, Nicholas Roy, and Sebastian
+Thrun. 2003.  Towards robotic assistants in nursing homes: Challenges and
+results.Robotics and autonomous systems42, 3-4 (2003), 271–281.
+[91]
+Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sand-
+hini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al.
+2021. Learning transferable visual models from natural language supervision.
+InInternational conference on machine learning. PMLR, 8748–8763.
+[92]Harish Ravichandar, Athanasios S Polydoros, Sonia Chernova, and Aude Billard.
+2020. Recent advances in robot learning from demonstration.Annual review of
+control, robotics, and autonomous systems3 (2020), 297–330.
+[93]K Refson, AJ Jackson, AE Dusoir, and DB Archer. 1999. The health and social
+status of guide dog owners and other visually impaired adults in Scotland.Visual
+Impairment Research1, 2 (1999), 95–109.
+[94]Jillian M Rickly, Nigel Halpern, Marcus Hansen, and John Welsman. 2021. Trav-
+elling with a Guide Dog: Experiences of People with Vision Impairment.Sus-
+tainability13, 5 (2021), 2840.
+[95]Unitree   Robotics.   2023.Unitree  Go2  (Pre-order)  –  UnitreeRobotics.
+https://shop.unitree.com/collections/frontpage/products/unitree-
+go2?variant=45119174377705
+[96]Occupational Safety and Health Administration. 2000.1917.120 - Fixed stairways.
+| Occupational Safety and Health Administration.  https://www.osha.gov/laws-
+regs/regulations/standardnumber/1917/1917.120
+[97]
+Katherine Standish Schneider. 2005.  Practice Report: The Winding Valley of
+Grief: When a Dog Guide Retires or Dies.Journal of Visual Impairment &
+Blindness99, 6 (2005), 368–370.
+[98]
+Social Security. 2010.Social Security Act §1614.  https://www.ssa.gov/OP_Home/
+ssact/title16b/1614.htm
+[99]Dhruv Shah, Benjamin Eysenbach, Gregory Kahn, Nicholas Rhinehart, and
+Sergey Levine. 2021. Ving: Learning open-world navigation with visual goals.
+In2021 IEEE International Conference on Robotics and Automation (ICRA). IEEE,
+13215–13222.
+[100]Dhruv Shah, Błażej Osiński, Sergey Levine, et al.2023. Lm-nav: Robotic naviga-
+tion with large pre-trained models of language, vision, and action. InConference
+on Robot Learning. PMLR, 492–504.
+[101]
+Ben Shneiderman, Catherine Plaisant, Maxine Cohen, Steven Jacobs, Niklas
+Elmqvist, and Nicholas Diakopoulos. 2016.Designing the user interface: strategies
+for effective human-computer interaction. Pearson.
+[102]
+Patrick Slade, Arjun Tambe, and Mykel J Kochenderfer. 2021.   Multimodal
+sensing and intuitive steering assistance improve navigation and mobility for
+people with impaired vision.Science robotics6, 59 (2021), eabg6594.
+[103]Maks Sorokin, Jie Tan, C Karen Liu, and Sehoon Ha. 2022. Learning to navigate
+sidewalks in outdoor environments.IEEE Robotics and Automation Letters7, 2
+(2022), 3906–3913.
+[104]
+Ajay Sridhar, Dhruv Shah, Catherine Glossop, and Sergey Levine. 2023. NoMaD:
+Goal Masked Diffusion Policies for Navigation and Exploration.arXiv preprint
+arXiv:2310.07896(2023).
+[105]Pei Sun, Henrik Kretzschmar, Xerxes Dotiwalla, Aurelien Chouard, Vijaysai
+Patnaik, Paul Tsui, James Guo, Yin Zhou, Yuning Chai, Benjamin Caine, et al.
+2020. Scalability in perception for autonomous driving: Waymo open dataset. In
+Proceedings of the IEEE/CVF conference on computer vision and pattern recognition.
+2446–2454.
+[106]Susumu Tachi, Kiyoshi Komoriya, et al.1984.  Guide dog robot.Autonomous
+mobile robots: Control, planning, and architecture(1984), 360–367.
+[107]Susumu Tachi, Kazuo Tanie, K Komoriya, Yuji Hosoda, and Minoru Abe. 1978.
+Study of guide dog (seeing eye) robot (I).Bulletin of Mechanical Engineering
+Laboratory (Japan)32 (1978).
+[108]  The University of Tokyo Tachi Laboratory. 2023.Tachi_Lab - Guide Dog Robot
+(MELDOG).  https://tachilab.org/en/projects/meldog.html
+[109]
+Haobin Tan, Chang Chen, Xinyu Luo, Jiaming Zhang, Constantin Seibold, Kailun
+Yang, and Rainer Stiefelhagen. 2021. Flying guide dog: Walkable path discovery
+for the visually impaired utilizing drones and transformer-based semantic seg-
+mentation. In2021 IEEE International Conference on Robotics and Biomimetics
+(ROBIO). IEEE, 1123–1128.
+[110]Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne
+Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal
+Azhar, et al.2023. Llama: Open and efficient foundation language models.arXiv
+preprint arXiv:2302.13971(2023).
+[111]
+Puppy In Training. 2017.   How Much Does A Guide Dog Cost?https://
+puppyintraining.com/how-much-does-a-guide-dog-cost/
+[112]
+Michael Tucker. 1984.Eyes That Lead: The Story of Guide Dogs for the Blind(1st.
+ed.). Howell Book House.
+[113]
+Iwan Ulrich and Johann Borenstein. 2001.  The GuideCane-applying mobile
+robot technologies to assist the visually impaired.IEEE Transactions on Systems,
+Man, and Cybernetics-Part A: Systems and Humans31, 2 (2001), 131–136.
+[114]
+Rohit Varma, Thasarat S Vajaranant, Bruce Burkemper, Shuang Wu, Mina Torres,
+Chunyi Hsu, Farzana Choudhury, and Roberta McKean-Cowdin. 2016. Visual
+impairment and blindness in adults in the United States: demographic and
+geographic variations from 2015 to 2050.JAMA ophthalmology134, 7 (2016),
+802–809.
+[115]
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you
+need.Advances in neural information processing systems30 (2017).
+[116]Mohd Helmy Abd Wahab, Amirul A Talib, Herdawatie A Kadir, Ayob Johari,
+Ahmad Noraziah, Roslina M Sidek, and Ariffin A Mutalib. 2011.  Smart cane:
+Assistive cane for visually-impaired people.arXiv preprint arXiv:1110.5156
+(2011).
+[117]
+Wenhui Wang, Hangbo Bao, Li Dong, Johan Bjorck, Zhiliang Peng, Qiang Liu,
+Kriti Aggarwal, Owais Khan Mohammed, Saksham Singhal, Subhojit Som, et al.
+2023.  Image as a Foreign Language: BEiT Pretraining for Vision and Vision-
+Language Tasks. InProceedings of the IEEE/CVF Conference on Computer Vision
+and Pattern Recognition. 19175–19186.
+[118]Lorraine Whitmarsh. 2005. The benefits of guide dog ownership.Visual impair-
+ment research7, 1 (2005), 27–42.
+[119]William R Wiener, Richard L Welsh, and Bruce B Blasch. 2010.Foundations of
+orientation and mobility. Vol. 1. American Foundation for the Blind.
+[120]Cindy Wiggett-Barnard and Henry Steel. 2008.  The experience of owning a
+guide dog.Disability and Rehabilitation30, 14 (2008), 1014–1026.
+[121]Michele A Williams, Amy Hurst, and Shaun K Kane. 2013.  " Pray before you
+step out" describing personal and situational blind navigation behaviors. In
+Proceedings of the 15th International ACM SIGACCESS Conference on Computers
+and Accessibility. 1–8.
+[122]Mei Ling Wong. 2006.Perceptions of guide dog users on their dogs’ impact on
+their lives. Ph. D. Dissertation. Pacific University Stockton, CA, USA.
+[123]
+Anxing Xiao, Wenzhe Tong, Lizhi Yang, Jun Zeng, Zhongyu Li, and Koushil
+Sreenath. 2021.  Robotic guide dog: Leading a human with leash-guided hy-
+brid physical interaction. In2021 IEEE International Conference on Robotics and
+Automation (ICRA). IEEE, 11470–11476.
+[124]Xiaomi. [n. d.].Xiaomi United States.Retrieved July 25, 2023 from https:
+//www.mi.com/us
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+[125]Fisher Yu, Haofeng Chen, Xin Wang, Wenqi Xian, Yingying Chen, Fangchen
+Liu, Vashisht Madhavan, and Trevor Darrell. 2020. Bdd100k: A diverse driving
+dataset for heterogeneous multitask learning. InProceedings of the IEEE/CVF
+conference on computer vision and pattern recognition. 2636–2645.
+[126]Limin Zeng, Björn Einert, Alexander Pitkin, and Gerhard Weber. 2018. Hapti-
+crein: Design and development of an interactive haptic rein for a guidance robot.
+InComputers Helping People with Special Needs: 16th International Conference,
+ICCHP 2018, Linz, Austria, July 11-13, 2018, Proceedings, Part II 16. Springer,
+94–101.
+[127]Arthur Zhang, Chaitanya Eranki, Christina Zhang, Ji-Hwan Park, Raymond
+Hong, Pranav Kalyani, Lochana Kalyanaraman, Arsh Gamare, Arnav Bagad,
+Maria Esteva, and Joydeep Biswas. 2023.  Towards Robust Robot 3D Percep-
+tion in Urban Environments: The UT Campus Object Dataset.arXiv preprint
+arXiv:2309.13549(2023).
+[128]Yan Zhang, Ziang Li, Haole Guo, Luyao Wang, Qihe Chen, Wenjie Jiang, Ming-
+ming Fan, Guyue Zhou, and Jiangtao Gong. 2023. "I am the follower, also the
+boss": Exploring Different Levels of Autonomy and Machine Forms of Guiding
+Robots for the Visually Impaired. InProceedings of the 2023 CHI Conference on
+Human Factors in Computing Systems. 1–22.
+[129]Qianfan Zhao, Lu Zhang, Bin He, Hong Qiao, and Zhiyong Liu. 2023. Zero-shot
+object goal visual navigation. In2023 IEEE International Conference on Robotics
+and Automation (ICRA). IEEE, 2025–2031.
+[130]Deyao Zhu, Jun Chen, Xiaoqian Shen, Xiang Li, and Mohamed Elhoseiny. 2023.
+MiniGPT-4: Enhancing Vision-Language Understanding with Advanced Large
+Language Models.arXiv preprint arXiv:2304.10592(2023).
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+A  GUIDE DOG EVALUATION
+Guide dogs are comprehensively evaluated to become "class-ready"
+guide dogs. We have categorized the evaluation components ac-
+quired from the Guide Dog Users, Inc. (GDUI) School Survey Sum-
+mary and presented them in Table 3.
+B  GUIDE DOG USERS, INC. (GDUI) SCHOOL
+SURVEY SUMMARY
+The Guide Dog Users, Inc. (GDUI) School Survey Summary contains
+information about the expected range of services provided by guide
+dogs that have completed formal training at various guide dog
+schools. We compiled the data which is displayed in Table 4.
+Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot DesignCHI ’24, May 11–16, 2024, Honolulu, HI, USA
+Table 3: Final testing components - Guide dog evaluation metric
+Task title   Evaluation components
+ObedienceRespond to basic obedience commands
+Reliably come when called while off-leash
+Guide workWork in a variety of street crossing settings
+Work in a variety of street crossing settings
+Trained in urban, suburbia (small towns), and rural environments
+Reliably stop at changes in elevation, i.e., steps, curbs, and drop-offs
+Reliably avoid or indicate obstacles
+Reliably avoid or indicate overhead obstacles
+Reliably turn left, right, or move forward on the hand signal from the handler
+Reliably turn left, right, or move forward on the verbal command of the handler
+Enter, exit, and ride quietly in passenger cars or other vehicles
+Enter, exit, and ride quietly on buses
+Enter, exit, and ride quietly on subways, light rail systems, or passenger trains
+and safely navigate elevated platforms
+Exposed to security checkpoints such as those found in airports
+BuildingsRide escalators
+Safely navigate revolving doors with their handler
+Work in environments such as university campuses or shopping malls
+where there are multiple locations that must be accessed via nonlinear pathways
+TrafficWork safely in traffic
+Safely negotiate “traffic checks”
+Disobey the handler’s commands when it would be unsafe to comply (intelligent disobedience)
+CHI ’24, May 11–16, 2024, Honolulu, HI, USAHwang, et al.
+Table 4: Guide dog’s assured ability upon completion of formal training
+Q: Upon completion of formal training, clients can be assured that a dog from your program
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+will be house broken
+✓✓✓✓✓✓✓✓✓✓✓✓
+will have been trained to behave well in public, e.g. no barking or stealing food
+✓✓✓✓✓✓✓✓✓✓✓✓
+will exhibit no aggression toward people or other animals
+✓✓✓✓✓✓✓✓✓✓✓✓
+will respond to basic obedience commands
+✓✓✓✓✓✓✗✓✓✓✓✓
+will disobey the handler’s commands when it would be unsafe to comply (intelligent disobedience)
+✓✓✓✓✓✗✓✓✓✓✓✓
+will be trained to work safely in traffic
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to safely negotiate “traffic checks”
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to work in a variety of street crossing settings
+✓✓✓✓✓✓✓✓✓✓✓✗
+will be trained to reliably stop at changes in elevation, i.e. steps, curbs and drop-offs
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to reliably avoid or indicate obstacles
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to reliably avoid or indicate overhead obstacles
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to reliably turn left, right or to move forward on the hand signal from the handler
+✓✓✓✗✓✓✓✓✓✓✓✓
+will be trained to reliably turn left, right or to move forward on the verbal command of the handler
+✓✗✓✓✓✓✓✓✓✓✓✓
+will be trained to ride escalators
+✓✓✓✓✓✓✗✓✓✓✓✓
+will be trained to follow members of the public when commanded to do so by the handler
+✗✓✓✓✓✓✗✓✓✓✓✓
+will be trained to enter, exit and ride quietly in passenger cars or other vehicles
+✓✓✓✗✓✓✓✓✓✗✓✓
+will be trained to enter, exit and ride quietly on buses
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to enter, exit and ride quietly on light rail systems or passenger trains
+and to safely navigate elevated platforms
+✓✓✓✗✓✓✓✓✓✗✓✓
+will have been exposed to security checkpoints such as those found in airports
+✓✓✓✓✓✗✓✓✓✗✓✓
+will have been trained in urban environments
+✓✓✓✓✓✓✓✓✓✓✓✓
+will have been trained in small towns or suburbia
+✓✓✓✓✓✓✓✓✓✓✓✓
+will have been trained in rural environments
+✓✓✓✓✓✓✓✓✓✓✓✓
+will have been trained to guide safely along roads with no sidewalks or footpaths
+✓✓✓✓✓✓✓✓✓✓✓✓
+will have been trained to work in environments such as university campuses or shopping malls
+where there are multiple locations which must be accessed via nonlinear pathways
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to reliably retrieve dropped items for the handler
+✗✗✓✗✗✗✗✗✓✗✓✗
+will be trained to locate some specific objects/landmarks on command
+✓✓✓✗✓✓✓✓✓✓✓✓
+will be trained to reliably come when called while off leash
+✓✓✓✓✓✓✓✓✓✓✓✓
+will be trained to formally guide on leash
+✗✗✗✗✓✗✗✗✓✗✓✗
+Order of the organizations is random.

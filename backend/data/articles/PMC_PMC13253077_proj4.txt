@@ -1,0 +1,287 @@
+Trauma & Case Reports 64 (2026) 101390
+Available online 21 May 2026
+2352-6440/©  2026  Published  by  Elsevier  Ltd.This  is  an  open  access  article  under  the  CC  BY-NC-ND  license
+(
+http://creativecommons.org/licenses/by-nc-nd/4.0/).
+Case Report
+Isolated scrotal skin laceration following dog bite complicated by 
+post-traumatic chronic scrotal pain: A case report
+Maachi Youssef
+a,*
+, Boustani Amine
+a
+, Amine Salim Lalaoui
+a
+, Slaoui Amine
+a
+, 
+Karmouni Tariq
+a
+, Koutani Abdellatif
+a
+, Elkhader Khalid
+a
+a
+Department of Urology B, CHU Ibn Sina, Faculty of Medicine and Pharmacy, Mohamed V University, Rabat, Morocco
+ARTICLE INFO
+Keywords:
+Dog bite
+Scrotal trauma
+Scrotal laceration
+Chronic scrotal pain
+Post-traumatic orchialgia
+Neuropathic pain
+Case report
+ABSTRACT
+Background: Genital dog bite injuries are  rare but  potentially severe. While most literature- 
+reported cases describe testicular injuries and significant tissue loss, isolated scrotal skin lacer-
+ations represent a less severe clinical entity.
+Case presentation: We report a 32-year-old male with an isolated skin laceration of the scrotum due 
+to a dog bite, without any testicular involvement on clinical and ultrasonographic evaluation. 
+Debridement and primary closure with antimicrobial prophylaxis and tetanus-rabies immuniza-
+tion ensured favorable early outcomes. However, the patient returned at 6 months with signifi-
+cant chronic scrotal pain despite unremarkable repeat clinical and imaging examinations.
+Conclusion: This case highlights that even in the absence of structural injury, dog bite trauma to 
+the scrotum may lead to post-traumatic chronic scrotal content pain (CSCP) through neuropathic 
+sensitization mechanisms. Early recognition and a multimodal pain management approach are 
+essential for optimal long-term outcomes.
+Introduction
+Animal bites account for around 1% of all presentations in the emergency department. Dogs were responsible for 80–90% of the 
+injuries. [1]The common anatomical sites involved are the face, head, neck, and extremities. Genital injuries are infrequent. Injuries to 
+the scrotum from dog bites present a unique clinical challenge because of the bacterial flora of the dog oral cavity, the vascular nature 
+of scrotal tissue, and the potential for serious complications such as infection, loss of tissue, and damage to the testicles.
+Much of the literature reports significant tissue destruction, testicular avulsion, or penetrating testicular trauma due to scrotal dog 
+bites. [2,3]Isolated scrotal skin laceration without deeper structural involvement is rarely reported; however, these represent an 
+important clinical entity with the possibility of successful management with appropriate early intervention.
+The management strategies for genital dog bites have evolved from the traditional approach of delayed wound closure into the 
+contemporary approach of early primary repair, provided adequate debridement and infection prophylaxis are implemented. [4]This 
+change represents an evolution in our understanding of wound healing dynamics and the effectiveness of antimicrobial therapy.
+We report a case of an isolated scrotal skin laceration resulting from a dog bite in a 32-year-old man, with initial favorable surgical 
+outcome but subsequent development of post-traumatic chronic scrotal pain at 6 months, emphasizing the importance of long-term 
+follow-up even in apparently uncomplicated cases.
+*Corresponding author.
+E-mail address: ucef777@gmail.com(M. Youssef). 
+Contents lists available at ScienceDirect
+Trauma & Case Reports
+journal homepage: www.elsevier.com/locate/tcr
+https://doi.org/10.1016/j.tcr.2026.101390
+Accepted 20 May 2026  
+Trauma & Case Reports 64 (2026) 101390
+2
+Case presentation
+Initial presentation and management
+A 32-year-old male with no significant past medical history presented to our emergency department approximately 3 h post injury 
+for a dog bite to the scrotum. The patient reported that he was assaulted by a stray dog in his neighborhood. The bite occurred with 
+sufficient force to break through his clothes, with immediate bleeding from the genital area.
+Preliminary evaluation found that the patient was hemodynamically stable, afebrile, and showed normal vital signs (BP 125/75 
+mmHg, pulse rate 82 bpm, and temperature 36.8 
+◦
+C). Local examination showed a 4 cm laceration on the anterior part of the scrotum 
+with irregular margins, indicative of a bite wound. Active bleeding was controlled with direct pressure. Both testes were present in 
+their normal position, without tenderness, swelling, or abnormal texture. There was no hematoma or discoloration beyond the im-
+mediate laceration site. (Fig. 1).
+A scrotal ultrasound confirmed bilateral normal testicular size, echogenicity, and vascularity. The tunica albuginea was intact 
+bilaterally, with no rupture, hematoma, or hematocele. Doppler study demonstrated normal testicular blood flow. Superficial soft 
+tissue edema was noted in the scrotal wall overlying the laceration. (Fig. 2).
+Laboratory analysis showed a white blood cell count of 9200/
+μL, hemoglobin of 14.2 g/dL, and normal platelet count. The patient 
+had an incomplete tetanus vaccination history, with the last dose administered more than 10 years prior.
+The patient was taken to the operating room 6 h post-presentation. Under local anesthesia with sedation, the wound was irrigated 
+with 2 L of normal saline solution and povidone‑iodine antiseptic solution. Tissue cultures were obtained. Debridement of wound 
+margins was performed, followed by approximation of the dartos muscle using 3–0 absorbable sutures, and skin closure in a sub-
+cuticular fashion using 4–0 absorbable sutures. (Fig. 3) No drain placement was required given the absence of deep tissue injury.
+Antimicrobial prophylaxis consisted of IV ampicillin-sulbactam 3 g preoperatively, followed by oral amoxicillin-clavulanate 875/ 
+125 mg twice daily for 7 days. The tetanus toxoid (0.5 mL) was given intramuscularly. Considering that the biting dog is stray, post- 
+exposure rabies prophylaxis was performed using human rabies immunoglobulin 20 IU/kg, where 50% was given locally while 50% 
+intramuscularly in combination with the rabies vaccine on days 0, 3, 7, and 14. The patient was discharged after 24 h of admission 
+under medications. The culture from the wound was positive for S. aureus and found to be sensitive to the antibiotic therapy. No signs 
+of infection and wound dehiscence were seen during follow-up in one week. Full wound healing with minimal scarring and good 
+appearance were noted during the one-month follow-up.
+Late complication: Post-traumatic chronic scrotal pain
+At six months after surgery, the patient complained of significant scrotal pain that had progressively worsened over the preceding 
+Fig. 1.Laceration of the anterior scrotal skin with irregular margins following dog bite.
+M. Youssef et al.                                                                                                                                                                                                       
+Trauma & Case Reports 64 (2026) 101390
+3
+eight weeks. He complained of dull and aching pain with intermittent burning sensations, localized to the left hemiscrotum with 
+occasional radiation to the ipsilateral groin and lower abdomen. His pain significantly affected his daily activities, physical exercises, 
+and sexual activity. His pain had a VAS score of 7/10 at its worst.
+Between the one-month postoperative review and the six-month presentation, the patient reported no intercurrent illness, trauma, 
+urological symptoms, or new physical stressors. No sexual or occupational exposures to explain a de novo scrotal pathology were 
+identified. The onset of pain at approximately four months post-injury, during a period of active scar maturation, is temporally 
+consistent with the mechanism of perineural cicatricial fibrosis, which characteristically manifests weeks to months after apparent 
+wound healing as collagen remodeling progressively encases adjacent nerve fibers.
+Crucially, the patient denied any dysuria, fever, urethral discharge, or recent urinary tract infection. There was no history of 
+trauma, heavy lifting, or new physical exertion. General and systemic examination was entirely unremarkable. Genital examination 
+revealed a well-healed surgical scar over the anterior scrotum with no signs of local infection, abscess, or hematoma. Both testes were 
+Fig. 2.Scrotal ultrasound demonstrating normal bilateral testes, intact tunica albuginea, and superficial soft tissue edema overlying the laceration.
+Fig. 3.Post-debridement and primary closure of the scrotal laceration using absorbable sutures.
+M. Youssef et al.                                                                                                                                                                                                       
+Trauma & Case Reports 64 (2026) 101390
+4
+palpable in their normal anatomical positions, with no appreciable tenderness on direct palpation, no epididymal thickening, and no 
+palpable cord nodularity. The cremasteric reflex was intact bilaterally.
+Repeat scrotal ultrasound with color-flow Doppler demonstrated bilaterally normal testes in  terms of  size, echotexture, and 
+vascularity. No epididymo-orchitis, varicocele, hydrocele, spermatocele, or testicular mass was identified. The presence of surgical 
+scar tissue in the scrotal wall was evident, but there were no signs of deep scar tissue or complications. The laboratory tests, including 
+complete blood count and inflammatory markers such as C-reactive protein and erythrocyte sedimentation rate, were found to be 
+within normal limits. Urinalysis and urine cultures were negative.
+Based on the lack of an identifiable cause, the diagnosis of post-traumatic chronic scrotal content pain (CSCP) was confirmed, and 
+the neuropathic component of the pain was related to peripheral nerve injury, which occurred during the initial trauma of the dog bite.
+The patient was managed with a multi-modal approach, and the patient was put on low-dose amitriptyline (25 mg at night) and 
+gabapentin (300 mg three times daily) for six weeks for neuropathic pain modulation. [9]NSAIDs were prescribed on an as-needed 
+basis. Pelvic floor physiotherapy was recommended to address any myofascial component. Spermatic cord block with 0.25% bupi-
+vacaine was offered as both a diagnostic and therapeutic intervention.
+At 3-month follow-up after initiating this pain management regimen (9 months post-surgery), the patient reported a significant 
+reduction in pain intensity (VAS 3/10) with marked improvement in quality of life and return to normal daily activities. Long-term 
+follow-up is being maintained to monitor for resolution or recurrence.
+Discussion
+This patient presentation reflects a successful early outcome followed by a clinically significant late complication—post-traumatic 
+chronic scrotal content pain—arising 6 months after what initially appeared to be an uncomplicated isolated scrotal skin laceration 
+from a dog bite. Several key points emerge from this case.
+Epidemiology and clinical presentation
+Dog bite injuries are responsible for a large number of animal bite injuries, with approximations of 740 per 100,000 population per 
+year being reported in the literature. 
+[1]Genital injuries from dog bites are uncommon, mostly reported in children and in those with 
+restricted mobility. Adult injuries are usually severe, including testicular avulsion, penetration injuries, and gross soft tissue defects. 
+[2,3]This particular injury is remarkable in that all deeper structures remained intact despite the bite mechanism.
+The mechanism described in our patient, an unprovoked stray dog bite to the genitalia while clothed, although uncommon, is 
+consistent with documented patterns of stray dog aggression. Several published cases of genital dog bite injuries in adults report 
+similarly spontaneous or unprovoked attacks in outdoor public settings, lending biological plausibility to the reported mechanism.
+Diagnostic evaluation
+A  comprehensive clinical evaluation represents a  major priority but  cannot always reliably rule out  additional injuries. A 
+misleading appearance of surface injuries can be present due to the intense crushing force of a dog's bite—ranging from 310 to 31,790 
+kPa depending on breed—which may reflect severe internal injury without significant disruption of the skin surface. [2]Scrotal ul-
+trasound is therefore an essential diagnostic tool in all cases of scrotal trauma from dog bites, regardless of initial clinical findings. [5]
+Ultrasound reliably identifies testicular rupture, hematoma, hematocele, and vascular compromise, thereby guiding appropriate 
+management decisions.
+Management principles
+The management of canine bite wounds has evolved from traditional delayed closure toward early primary repair. A 2025 sys-
+tematic review and meta-analysis by Cui et al. demonstrated that primary closure is superior to delayed closure in reducing wound 
+infection and improving cosmetic outcomes, particularly when presentation occurs within 10 h and prophylactic antibiotics are 
+administered. [6]In our patient, all favorable criteria for primary closure were met: early presentation (6 h), absence of deep structural 
+injury, limited devitalized tissue, thorough irrigation and debridement, and the inherent vascularity of genital skin which confers 
+natural resistance to infection. Regarding antimicrobial prophylaxis, while the same meta-analysis found no statistically significant 
+benefit of prophylactic antibiotics in dog bite wounds as a general rule, (NEW REF) expert consensus continues to recommend coverage 
+for all genital dog bite injuries given the high local bacterial burden and proximity to perineal flora. Amoxicillin-clavulanate or 
+ampicillin-sulbactam remain the agents of choice against the expected polymicrobial spectrum.
+Infection prevention
+This polymicrobial flora contributes to the large potential for infection. Pasteurella multocida is responsible for approximately half of 
+dog bite infections, which manifest within 48 h [1]. Other pathogens include Staphylococcus aureus, Staphylococcus intermedius, Cap-
+nocytophaga canimorsus, anaerobes, and Eikenella corrodens. Prophylactic antibiotic therapy with either ampicillin-sulbactam or 
+amoxicillin-clavulanate should be given for all genital dog bites to cover the expected polymicrobial spectrum [7]. The isolation of 
+Staphylococcus aureus in the present patient, which was sensitive to the chosen antibiotic, confirmed the suitability of the antibiotic.
+M. Youssef et al.                                                                                                                                                                                                       
+Trauma & Case Reports 64 (2026) 101390
+5
+Immunization requirements
+Tetanus and rabies prophylaxis are critical components of dog bite management. [1,8]Immunization against tetanus should be 
+administered if five or more years have passed since the last booster, and passive immunization should be administered in cases where 
+the immunization history is incomplete. Prophylaxis for rabies should be administered in cases where the animal involved in the dog 
+bite cannot be observed for ten days, such as in stray dog bites. The World Health Organization recommends post-exposure pro-
+phylaxis, which includes infiltration of immunoglobulin at the site of injury, followed by administration of five doses of rabies vaccine. 
+[1]
+Post-traumatic chronic scrotal content pain: Pathophysiology and management
+“Chronic scrotal pain syndrome” is defined as “scrotal discomfort lasting for more than 3 months, causing significant impairment in 
+daily function.” CSP constitutes 2.5–4.8% of outpatient visits to a urologist. [9,10]Post-traumatic CSP from external genital bite injury 
+is rare, and therefore, this case is an important addition to the literature. 
+(1) Post-Traumatic Peripheral Neuropathy. Both the ilioinguinal nerve, which arises from the first lumbar nerve root, and the 
+genitofemoral nerve, which arises from the first and second lumbar nerve roots, pass through the anterior scrotal wall in a 
+superficial plane. Both nerves are therefore at risk for injury from the crush and tearing effects of a dog bite. [11]Axonal injury 
+to the nerve fibers results in the symptoms of burning dysesthesia, spontaneous aching, and allodynia. The unilateral nature of 
+chronic pain following a seemingly bilateral or anterior scrotal laceration is a recognized phenomenon in post-traumatic 
+neuropathic conditions. The ilioinguinal and genitofemoral nerves display significant anatomical asymmetry in their termi-
+nal branching patterns, with variable density and depth of penetration into the scrotal wall between sides. A crushing bite force 
+applied to the anterior scrotum may therefore produce asymmetric axonal injury depending on the precise trajectory of the 
+wound margins relative to nerve course on each side. Furthermore, peripheral sensitization following nerve injury does not 
+require symmetric injury; a lower threshold for central wind-up may be reached unilaterally when one side sustains greater 
+axonal damage, even from a single wound crossing the midline. The left-sided predominance in our patient is consistent with the 
+known anatomical variability of scrotal innervation and does not undermine the post-traumatic etiology.
+(2) Perineural Cicatricial Fibrosis. During scar maturation, contracting collagen progressively encases adjacent nerve fibers in a 
+fibrotic matrix, generating sustained mechanical compression and ischemic nociception independent of the original injury. [11]
+This mechanism accounts for the characteristic delayed onset of pain weeks to months after apparent wound healing, consistent 
+with our patient's timeline.
+(3) Central Sensitization (“Central Wind-Up”). Repetitive C-fiber and A-delta activation upregulates spinal NMDA receptors, 
+establishing pain that is disproportionate to and independent of any ongoing peripheral stimulus. [9,11]This explains the high 
+VAS score (7/10), normal imaging, and referred pain to the groin observed in our patient.
+Diagnosis
+Per the AUA 2025 Guideline, CSCP is a diagnosis of exclusion based on symptoms; imaging and laboratory studies serve only to rule 
+out structural or infectious causes such as epididymo-orchitis, varicocele, or neoplasm. [8]
+First-line therapy (conservative and pharmacological)
+Non-pharmacological measures include scrotal support, warm sitz baths, activity modification, and pelvic floor physiotherapy. 
+Neuropathic pharmacotherapy with amitriptyline (10–75 mg/night) and gabapentinoids (gabapentin 300–900 mg three times daily or 
+pregabalin 75–150 mg twice daily) constitutes the cornerstone of first-line treatment. [10,12]In our patient, this combination reduced 
+VAS from 7/10 to 3/10 over 3 months.
+Second-line therapy (interventional)
+Ultrasound-guided spermatic cord block (SCB) with 0.25–0.5% bupivacaine serves as both a diagnostic and therapeutic tool; a ≥
+50% pain reduction confirms peripheral neuropathic etiology and predicts surgical success. [10]Trigger point injections, low-intensity 
+extracorporeal shockwave therapy, and cognitive behavioral therapy may be added at this stage. [9,11]
+Third-line therapy (surgical)
+Microsurgical Denervation of the Spermatic Cord (MDSC) represents the gold standard for the treatment of refractory chronic 
+scrotal content pain (CSCP), with a success rate ranging from 70 to 95%. This intervention should be considered for those patients 
+showing a positive response to a spermatic cord block (SCB). [10]Targeted neurectomy of the ilioinguinal or genitofemoral nerve may 
+be used to enhance the efficacy of MDSC when perineural fibrosis represents the major aetiologic cause. [11]Epididymectomy and 
+orchiectomy should be considered as a last resort, reserving these interventions for those patients after exhaustive treatment and 
+evaluation. [9]
+The current case represents one of a limited number of reports detailing chronic scrotal content pain as a delayed complication of 
+scrotal trauma. Patients should be  counselled appropriately, with a  low threshold for  instituting neuropathic pain relief when 
+symptoms develop.
+M. Youssef et al.                                                                                                                                                                                                       
+Trauma & Case Reports 64 (2026) 101390
+6
+Clinical implications
+This case emphasizes two distinct clinical messages. First, not all scrotal dog bites result in catastrophic structural injury; when 
+deeper structures are preserved, excellent short-term outcomes can be achieved with appropriate early management. Second, clini-
+cians must remain vigilant for late functional complications, particularly chronic scrotal pain, even following apparently minor in-
+juries with complete wound healing. Long-term follow-up protocols for scrotal dog bite injuries should be extended beyond the 
+conventional wound-healing period to capture and manage delayed pain syndromes before they become refractory.
+Establishing causation in post-traumatic chronic scrotal pain
+Establishing cause and effect between a prior injury and subsequent chronic scrotal pain requires careful exclusion of alternative 
+etiologies and demonstration of temporal, anatomical, and mechanistic plausibility. In our patient, all four criteria were satisfied: (i) 
+temporal plausibility — pain emerged during the window of active scar maturation (4–6 months post-injury), consistent with peri-
+neural fibrosis; (ii) anatomical plausibility — the wound site overlies the terminal branches of the ilioinguinal and genitofemoral 
+nerves; (iii) mechanistic plausibility — the crushing and tearing bite mechanism is sufficient to produce axonal injury; and (iv) 
+exclusionary rigor — repeat clinical examination, scrotal ultrasound with Doppler, inflammatory markers, and urinalysis were all 
+unremarkable, eliminating infectious, vascular, and structural causes. The absence of any intercurrent event between the one-month 
+review and pain onset further strengthens the post-traumatic attribution.
+Conclusion
+Isolated scrotal skin lacerations from dog bites can be managed successfully with conservative surgery in the absence of testicular 
+injury, yielding excellent short-term functional and cosmetic outcomes. However, as illustrated in this case, such injuries may be 
+complicated by post-traumatic chronic scrotal content pain arising months after complete wound healing, in the absence of any 
+identifiable structural, infectious, or vascular pathology. This late complication, likely mediated by neuropathic sensitization of the 
+scrotal innervation, requires early recognition and a multimodal management strategy encompassing neuropathic analgesics, phys-
+iotherapy, and procedural interventions. Clinicians should maintain a high index of suspicion for occult injuries at initial presentation, 
+and should establish long-term follow-up protocols that extend well beyond wound healing to identify and address delayed pain 
+syndromes in this challenging clinical entity.
+CRediT authorship contribution statement
+Maachi Youssef: Writing – review & editing, Writing – original draft, Validation, Supervision, Investigation, Formal analysis, Data 
+curation, Conceptualization. Boustani Amine: Methodology, Investigation. Amine Salim Lalaoui: Software, Resources, Project 
+administration. Slaoui Amine: Visualization, Validation, Supervision. Karmouni Tariq: Visualization, Validation. Koutani Abdel-
+latif: Visualization, Validation. Elkhader Khalid: Visualization, Validation.
+Declaration of competing interest
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to 
+influence the work reported in this paper.
+References
+[1]B. Karatas, E. Kapı, An unusual etiology of a scrotal dog bite injury and review of the literature, Ulus. Travma Acil Cerrahi Derg. 28 (4) (2022) 549–553, https:// 
+doi.org/10.14744/tjtes.2020.66642.
+[2]D. Saleh, D. Shaw, C.S. Biyani, A dog bite to the adult scrotum, Can. Urol. Assoc. J. 3 (5) (2009) E64–E66, https://doi.org/10.5489/cuaj.1166.
+[3]A. Boughaleb, R. Tariqi, H. El Bote, An unusual etiology of testicular avulsion: a case report, Int. J. Surg. Case Rep. 121 (2024) 109942, https://doi.org/ 
+10.1016/j.ijscr.2024.109942.
+[4]M. Javaid, L. Feldberg, M. Gipson, Primary repair of dog bites to the face: 40 cases, J. R. Soc. Med. 91 (8) (1998) 414–416, https://doi.org/10.1177/ 
+014107689809100804.
+[5]J.C. Buckley, J.W. McAninch, Use of ultrasonography for the diagnosis of testicular injuries in blunt scrotal trauma, J. Urol. 175 (1) (2006) 175–178, https://doi. 
+org/10.1016/S0022-5347(05)00048-0.
+[6]M. Cui, Y. Jia, Z. Chen, J. Qu, Z. Zhu, Y. Xu, S. Liu, R. Chen, Y. Shan, Primary closure and prophylactic antibiotics for treatment of traumatic wounds caused by 
+mammals, a systematic review and meta-analysis, World J. Emerg. Surg. 20 (2025) 48, https://doi.org/10.1186/s13017-025-00619-1.
+[7]C.M. Gomes, L. Ribeiro-Filho, A.M. Giron, A.I. Mitre, E.R. Figueira, S. Arap, Genital trauma due to animal bites, J. Urol. 165 (1) (2001) 80–83, https://doi.org/ 
+10.1097/00005392-200101000-00020.
+[8]P.K. Stefanopoulos, A.D. Tarantzopoulou, Facial bite wounds: management update, Int. J. Oral Maxillofac. Surg. 34 (5) (2005) 464–472, https://doi.org/ 
+10.1016/j.ijom.2005.04.001.
+[9]H.H. Lai, M.A. Pontari, C.E. Argoff, et al., Diagnosis and Management of Male Chronic Pelvic Pain (chronic prostatitis/chronic pelvic pain syndrome and chronic 
+scrotal content pain): AUA guideline, J. Urol. (2025), https://doi.org/10.1097/JU.0000000000004566.
+[10]S. Kravchick, S.J. Parekattil, G. Bratslavsky, et al., A simplified treatment algorithm for chronic scrotal content pain syndrome, Curr Urol. 18 (4) (2024) 
+251–256, https://doi.org/10.1097/CU9.0000000000000240.
+[11]O. Ergun, A. Gudeloglu, S.J. Parekattil, Management of chronic orchialgia: review of current clinical practice, AME Med. J. 8 (2023) 22, https://doi.org/ 
+10.21037/amj-22-98.
+[12]S.W. Leslie, H. Sajjad, L.E. Siref, Chronic testicular pain and Orchalgia, in: StatPearls, StatPearls Publishing, Treasure Island, FL, 2023.
+M. Youssef et al.
