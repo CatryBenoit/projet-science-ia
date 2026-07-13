@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: COCHISE Project: An Augmented Service Dog for Disabled People
-DATE: 2013-01-01
-SOURCE: HAL
-URL: https://univ-angers.hal.science/hal-03430633/document
-
-ABSTRACT:
-Aucun résumé disponible.

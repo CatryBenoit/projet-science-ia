@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Transformation of intact yeast cells treated with alkali cations
-DATE: 1983-01-01
-SOURCE: OpenAlex
-DOI: 10.1128/jb.153.1.163-168.1983
-URL: https://jb.asm.org/content/jb/153/1/163.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

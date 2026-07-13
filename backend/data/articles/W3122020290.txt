@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: The Dog That Did Not Bark: A Defense of Return Predictability
-DATE: 2007-09-22
-SOURCE: OpenAlex
-DOI: 10.1093/rfs/hhm046
-URL: https://academic.oup.com/rfs/article-pdf/21/4/1533/24453384/hhm046.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

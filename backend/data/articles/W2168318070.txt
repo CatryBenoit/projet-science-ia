@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Identification of a new copper metabolism gene by positional cloning in a purebred dog population
-DATE: 2002-01-01
-SOURCE: OpenAlex
-DOI: 10.1093/hmg/11.2.165
-URL: https://academic.oup.com/hmg/article-pdf/11/2/165/9813675/110165.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

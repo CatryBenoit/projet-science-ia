@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Dog bites
-DATE: 2007-02-22
-SOURCE: OpenAlex
-DOI: 10.1136/bmj.39105.659919.be
-URL: https://www.bmj.com/content/bmj/334/7590/413.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

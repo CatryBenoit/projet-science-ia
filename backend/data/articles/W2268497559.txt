@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Efficient luminescent solar cells based on tailored mixed-cation perovskites
-DATE: 2016-01-01
-SOURCE: OpenAlex
-DOI: 10.1126/sciadv.1501170
-URL: https://advances.sciencemag.org/content/advances/2/1/e1501170.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

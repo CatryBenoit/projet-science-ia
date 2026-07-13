@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: A KINETIC STUDY OF THE ABSORPTION OF ALKALI CATIONS BY BARLEY ROOTS
-DATE: 1952-07-01
-SOURCE: OpenAlex
-DOI: 10.1104/pp.27.3.457
-URL: https://academic.oup.com/plphys/article-pdf/27/3/457/35710996/plphys_v27_3_457.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

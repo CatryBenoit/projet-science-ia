@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (PUPPETEER) ---
-TITLE: Phylogenetic relationships, evolution, and genetic diversity of the domestic dog
-DATE: 1999-01-01
-SOURCE: OpenAlex
-URL: https://academic.oup.com/jhered/article-pdf/90/1/71/6453132/900071.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: CAT constructions with multiple unique restriction sites for the functional analysis of eukaryotic promoters and regulatory elements
-DATE: 1987-01-01
-SOURCE: OpenAlex
-DOI: 10.1093/nar/15.13.5490
-URL: https://academic.oup.com/nar/article-pdf/15/13/5490/3544591/15-13-5490.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

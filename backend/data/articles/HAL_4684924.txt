@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Impact du changement climatique sur la turbulence en ciel clair pour l'aviation
-DATE: 2024-01-01
-SOURCE: HAL
-DOI: 10.70675/420fd395zca00z453fz8241za3c7c1085b78
-URL: https://theses.hal.science/tel-04684924/document
-
-ABSTRACT:
-Aucun résumé disponible.

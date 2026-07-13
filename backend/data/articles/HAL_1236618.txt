@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Functional analysis of glutathione and autophagy in response to oxidative stress
-DATE: 2012-01-01
-SOURCE: HAL
-DOI: 10.70675/dc9d32aezb0ecz4715z8d81zd3e94b32a6b0
-URL: https://theses.hal.science/tel-01236618/document
-
-ABSTRACT:
-Aucun résumé disponible.

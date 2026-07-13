@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Columnar specificity of intrinsic horizontal and corticocortical connections in cat visual cortex
-DATE: 1989-07-01
-SOURCE: OpenAlex
-DOI: 10.1523/jneurosci.09-07-02432.1989
-URL: https://www.jneurosci.org/content/jneuro/9/7/2432.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

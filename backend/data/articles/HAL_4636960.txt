@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Étude de l'expression du canal chlorure activé par le calcium DOG1/ANO1 dans le cancer colorectal
-DATE: 2024-01-01
-SOURCE: HAL
-URL: https://dumas.ccsd.cnrs.fr/dumas-04636960/document
-
-ABSTRACT:
-Aucun résumé disponible.

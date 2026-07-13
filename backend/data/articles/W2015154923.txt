@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: THE ULTRASTRUCTURE OF THE CAT MYOCARDIUM
-DATE: 1969-07-01
-SOURCE: OpenAlex
-DOI: 10.1083/jcb.42.1.1
-URL: http://jcb.rupress.org/content/jcb/42/1/1.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

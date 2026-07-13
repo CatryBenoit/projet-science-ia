@@ -1,8 +1,0 @@
---- EXTRACTED DATA (ABSTRACT ONLY DUE TO PAYWALL) ---
-TITLE: Dogs that bite.
-DATE: 1991-12-14
-SOURCE: OpenAlex
-URL: https://www.bmj.com/content/bmj/303/6816/1512.full.pdf
-
-ABSTRACT:
-Aucun résumé en accès libre disponible pour cette étude.

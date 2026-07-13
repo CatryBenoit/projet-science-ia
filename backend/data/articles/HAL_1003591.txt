@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Testing a detection dog to locate bumblebee colonies and estimate nest density
-DATE: 2011-01-01
-SOURCE: HAL
-URL: https://hal.science/hal-01003591/document
-
-ABSTRACT:
-Aucun résumé disponible.

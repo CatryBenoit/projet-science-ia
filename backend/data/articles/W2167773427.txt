@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (PUPPETEER) ---
-TITLE: The structure of postsynaptic densities isolated from dog cerebral cortex: I. overall morphology and protein composition
-DATE: 1977-07-01
-SOURCE: OpenAlex
-URL: http://jcb.rupress.org/content/74/1/181.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

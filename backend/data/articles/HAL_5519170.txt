@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Cat Herding Game Played on Infinite Trees
-DATE: 2025-01-01
-SOURCE: HAL
-DOI: 10.4230/LIPIcs.FSTTCS.2025.10
-URL: https://hal.science/hal-05519170/document
-
-ABSTRACT:
-Aucun résumé disponible.

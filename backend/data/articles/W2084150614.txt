@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: ANGIOTENSIN AND RENIN IN RAT AND DOG BRAIN
-DATE: 1971-02-01
-SOURCE: OpenAlex
-DOI: 10.1084/jem.133.2.353
-URL: https://rupress.org/jem/article-pdf/133/2/353/1084060/353.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

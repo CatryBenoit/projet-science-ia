@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: A Quantitative Map of the Circuit of Cat Primary Visual Cortex
-DATE: 2004-09-29
-SOURCE: OpenAlex
-DOI: 10.1523/jneurosci.1400-04.2004
-URL: https://www.jneurosci.org/content/jneuro/24/39/8441.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

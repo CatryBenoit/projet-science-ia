@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Experimental transmission of Bartonella henselae by the cat flea
-DATE: 1996-08-01
-SOURCE: OpenAlex
-DOI: 10.1128/jcm.34.8.1952-1956.1996
-URL: https://jcm.asm.org/content/jcm/34/8/1952.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Population structure and genetic history of Tibetan Terriers
-DATE: 2019-01-01
-SOURCE: HAL
-URL: https://hal.science/hal-02425203/document
-
-ABSTRACT:
-Aucun résumé disponible.

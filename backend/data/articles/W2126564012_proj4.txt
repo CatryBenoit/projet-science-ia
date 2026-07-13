@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Estimating human rabies mortality in the United Republic of Tanzania from dog bite injuries.
-DATE: 2002-01-01
-SOURCE: OpenAlex
-DOI: 10.1590/s0042-96862002000400009
-URL: https://researchonline.lshtm.ac.uk/id/eprint/18337/1/Estimating%20human%20rabies%20mortality%20in%20Tanzania%20from%20dog%20bite%20injuries%20Bulletin%20of%20the%20World%20Health%20Organization.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

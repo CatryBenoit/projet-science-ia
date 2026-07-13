@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Clustered intrinsic connections in cat visual cortex
-DATE: 1983-05-01
-SOURCE: OpenAlex
-DOI: 10.1523/jneurosci.03-05-01116.1983
-URL: https://www.jneurosci.org/content/jneuro/3/5/1116.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

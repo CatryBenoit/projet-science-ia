@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Capnocytophaga canimorsus sp. nov. (formerly CDC group DF-2), a cause of septicemia following dog bite, and C. cynodegmi sp. nov., a cause of localized wound infection following dog bite
-DATE: 1989-02-01
-SOURCE: OpenAlex
-DOI: 10.1128/jcm.27.2.231-235.1989
-URL: https://jcm.asm.org/content/jcm/27/2/231.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

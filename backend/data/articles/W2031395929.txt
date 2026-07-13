@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Rethinking dog domestication by integrating genetics, archeology, and biogeography
-DATE: 2012-05-21
-SOURCE: OpenAlex
-DOI: 10.1073/pnas.1203005109
-URL: https://www.pnas.org/content/pnas/109/23/8878.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

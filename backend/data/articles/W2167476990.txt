@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Dog Ownership and Physical Activity: A Review of the Evidence
-DATE: 2013-07-01
-SOURCE: OpenAlex
-DOI: 10.1123/jpah.10.5.750
-URL: https://journals.humankinetics.com/downloadpdf/journals/jpah/10/5/article-p750.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

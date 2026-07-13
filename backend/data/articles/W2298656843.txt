@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Early and protective microglial activation in Alzheimer’s disease: a prospective study using<sup>18</sup>F-DPA-714 PET imaging
-DATE: 2016-03-15
-SOURCE: OpenAlex
-DOI: 10.1093/brain/aww017
-URL: https://academic.oup.com/brain/article-pdf/139/4/1252/17349144/aww017.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

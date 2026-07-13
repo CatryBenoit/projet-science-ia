@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Mathematical modelling and phylodynamics for the study of dog rabies dynamics and control: A scoping review
-DATE: 2021-01-01
-SOURCE: HAL
-URL: https://hal.sorbonne-universite.fr/hal-03243008/document
-
-ABSTRACT:
-Aucun résumé disponible.

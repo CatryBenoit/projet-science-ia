@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Pet dog bites in children: management and prevention
-DATE: 2020-08-01
-SOURCE: OpenAlex
-DOI: 10.1136/bmjpo-2020-000726
-URL: https://bmjpaedsopen.bmj.com/content/bmjpo/4/1/e000726.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

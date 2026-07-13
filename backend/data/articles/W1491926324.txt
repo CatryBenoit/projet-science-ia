@@ -1,9 +1,0 @@
---- ABSTRACT ONLY [ABSTRACT_ONLY] ---
-TITLE: Relationships between horizontal interactions and functional architecture in cat striate cortex as revealed by cross-correlation analysis
-DATE: 1986-04-01
-SOURCE: OpenAlex
-DOI: 10.1523/jneurosci.06-04-01160.1986
-URL: https://www.jneurosci.org/content/jneuro/6/4/1160.full.pdf
-
-ABSTRACT:
-Aucun résumé disponible.

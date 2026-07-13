@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: First evidence of human‐to‐dog transmission of SARS‐CoV‐2 B.1.160 variant in France
-DATE: 2022-01-01
-SOURCE: HAL
-URL: https://amu.hal.science/hal-03662459/document
-
-ABSTRACT:
-Aucun résumé disponible.

@@ -1,8 +1,0 @@
---- ABSTRACT ONLY (FULL_PDF) ---
-TITLE: Large intestinal nutritional and physicochemical parameters from different dog sizes reshape canine microbiota structure and functions in vitro
-DATE: 2024-01-01
-SOURCE: HAL
-URL: https://hal.inrae.fr/hal-04521783/document
-
-ABSTRACT:
-Aucun résumé disponible.
