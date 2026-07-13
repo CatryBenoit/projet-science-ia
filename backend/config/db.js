@@ -3,10 +3,24 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 
 const dbPath = path.resolve(__dirname, '../users.db');
-const db = new sqlite3.Database(dbPath);
 
-// On active les clés étrangères pour SQLite (important pour les liaisons)
-db.run("PRAGMA foreign_keys = ON");
+const db = new sqlite3.Database(dbPath, (err) => {
+    if (err) {
+        console.error('Erreur ouverture DB:', err.message);
+    } else {
+        console.log('Connecté à la base SQLite.');
+        
+        // OPTIMISATION ANTI-CRASH (SQLITE_BUSY)
+        // Si la base est verrouillée par une autre écriture, attends jusqu'à 5 secondes au lieu de planter
+        db.configure("busyTimeout", 5000); 
+
+        // Optimisation des performances d'écriture de SQLite (Mode WAL)
+        db.run('PRAGMA journal_mode = WAL;');
+        
+        // On active les clés étrangères pour SQLite (important pour les liaisons ON DELETE CASCADE)
+        db.run('PRAGMA foreign_keys = ON;');
+    }
+}); // <-- L'accolade manquante était ici !
 
 db.serialize(() => {
     // 1. Table des Utilisateurs
@@ -43,25 +57,47 @@ db.serialize(() => {
         oa_url TEXT,
         local_file_path TEXT,
         project_id INTEGER,
+        type TEXT DEFAULT 'academic',
         FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
     )`);
 
+    // 5. Table d'Analyse des Articles
     db.run(`CREATE TABLE IF NOT EXISTS article_analysis (
-    article_id TEXT PRIMARY KEY,
-    metadata TEXT,
-    notes TEXT,
-    synthesis TEXT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE
-)`);
-db.run(`CREATE TABLE IF NOT EXISTS project_synthesis (
+        article_id TEXT PRIMARY KEY,
+        metadata TEXT,
+        notes TEXT,
+        synthesis TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE
+    )`);
+
+    // 6. Table de Synthèse des Projets
+    db.run(`CREATE TABLE IF NOT EXISTS project_synthesis (
         project_id INTEGER PRIMARY KEY,
         report TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
     )`);
 
-    // 5. Création de l'admin par défaut
+
+        db.run(`CREATE TABLE IF NOT EXISTS user_settings (
+        id INTEGER PRIMARY KEY CHECK (id = 1),
+        api_key TEXT,
+        ai_model TEXT DEFAULT 'meta-llama/llama-3.1-70b-instruct'
+    )`);
+
+
+        db.run(`CREATE TABLE IF NOT EXISTS project_charts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        project_id INTEGER,
+        title TEXT,
+        chart_type TEXT,
+        chart_data TEXT,
+        FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
+    )`);
+
+
+    // 7. Création de l'admin par défaut
     db.get("SELECT count(*) as count FROM users", async (err, row) => {
         if (err) {
             console.error("Erreur de comptage utilisateurs:", err);
@@ -77,6 +113,9 @@ db.run(`CREATE TABLE IF NOT EXISTS project_synthesis (
             }
         }
     });
+
+
+
 });
 
 module.exports = db;

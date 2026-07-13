@@ -1,58 +1,74 @@
-const OpenAlexProvider = require('./providers/openalex.provider');
+const ArxivService = require('./providers/arxiv.service');
+const HalService = require('./providers/hal.service');
+const PmcService = require('./providers/pmc.service');
 const SemanticScholarProvider = require('./providers/semanticscholar.provider');
-const HalProvider = require('./providers/hal.service');
-const ArxivProvider = require('./providers/arxiv.service');
-const PmcProvider = require('./providers/pmc.service');
+const OpenAlexProvider = require('./providers/openalex.provider');
+const BioRxivService = require('./providers/biorxiv.service');
+const ChemRxivService = require('./providers/chemrxiv.service');
+const ClinicalTrialsService = require('./providers/clinicaltrials.service');
+const PatentsService = require('./providers/patents.service');
+const CoreService = require('./providers/core.service');
+const RedditService = require('./providers/reddit.service');
+const DataciteService = require('./providers/datacite.service');
+const NewsApiService = require('./providers/newsapi.service');
+
+
+
+const Logger = require('./logger.service');
 
 class AggregatorService {
-    
-    static async searchAndMerge(query, amountPerProvider = 50) {
-        console.log(`\n🔄 Démarrage de l'Aggregator pour : "${query}"`);
-
-        // 1. Lancer toutes les recherches EN PARALLÈLE pour gagner du temps
-        const results = await Promise.allSettled([
-            OpenAlexProvider.search(query, amountPerProvider),
-            SemanticScholarProvider.search(query, amountPerProvider),
-            HalProvider.search(query, amountPerProvider),
-            ArxivProvider.search(query, amountPerProvider),
-            PmcProvider.search(query, amountPerProvider)
-        ]);
-
-        // 2. Récupérer tous les articles trouvés dans une seule grande liste brute
-        let allArticlesBruts = [];
-        results.forEach(promise => {
-            if (promise.status === 'fulfilled') {
-                allArticlesBruts = allArticlesBruts.concat(promise.value);
-            }
-        });
-
-        console.log(`📊 Total brut trouvé : ${allArticlesBruts.length} articles.`);
-
-        // 3. FUSION ET DÉDUPLICATION (Le cœur du système)
-        const uniqueArticlesMap = new Map();
-
-        allArticlesBruts.forEach(article => {
-            // Clé de déduplication primaire : le DOI. 
-            // Si pas de DOI, on utilise le titre en minuscules (sans espaces) pour repérer les doublons.
-            const deduplicationKey = article.doi 
-                ? `doi_${article.doi}` 
-                : `title_${article.title.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-
-            // Si l'article n'est pas encore dans notre Map, on l'ajoute
-            if (!uniqueArticlesMap.has(deduplicationKey)) {
-                uniqueArticlesMap.set(deduplicationKey, article);
-            } else {
-                // S'il y est déjà, on peut enrichir la source pour le log
-                const existing = uniqueArticlesMap.get(deduplicationKey);
-                existing.source += ` + ${article.source}`;
-            }
-        });
-
-        // 4. On retransforme la Map en Array classique
-        const finalUniqueArticles = Array.from(uniqueArticlesMap.values());
+    static async searchAndMerge(query, limitPerSource = 3) {
+        Logger.log(`\n🌐 [AGRÉGATEUR] Lancement d'une recherche mondiale sur 10 bases de données pour "${query}"...`);
         
-        console.log(`✨ Total après déduplication : ${finalUniqueArticles.length} articles uniques prêts au téléchargement.\n`);
-        return finalUniqueArticles;
+        try {
+            // On lance TOUTES les recherches en même temps (en parallèle)
+            const results = await Promise.allSettled([
+                ArxivService.search(query, limitPerSource),
+                HalService.search(query, limitPerSource),
+                PmcService.search(query, limitPerSource),
+                SemanticScholarProvider.search(query, limitPerSource),
+                OpenAlexProvider.search(query, limitPerSource),
+                BioRxivService.search(query, limitPerSource),
+                ChemRxivService.search(query, limitPerSource),
+                ClinicalTrialsService.search(query, limitPerSource),
+                PatentsService.search(query, limitPerSource),
+                CoreService.search(query, limitPerSource),
+                RedditService.search(query, limitPerSource),
+                DataciteService.search(query, limitPerSource),
+                NewsApiService.search(query, limitPerSource)
+            ]);
+
+            let allArticles = [];
+
+            results.forEach((promiseResult, index) => {
+                if (promiseResult.status === 'fulfilled') {
+                    allArticles = allArticles.concat(promiseResult.value);
+                } else {
+                    Logger.log(`⚠️ Un des fournisseurs a échoué (Index ${index}): ${promiseResult.reason}`);
+                }
+            });
+
+            // Déduplication (On enlève les doublons si plusieurs bases renvoient le même article)
+            const uniqueArticles = [];
+            const seenTitles = new Set();
+
+            for (const article of allArticles) {
+                if (!article || !article.title) continue;
+                const normalizedTitle = article.title.toLowerCase().trim();
+                
+                if (!seenTitles.has(normalizedTitle)) {
+                    seenTitles.add(normalizedTitle);
+                    uniqueArticles.push(article);
+                }
+            }
+
+            Logger.log(`✅ [AGRÉGATEUR] ${uniqueArticles.length} documents uniques fusionnés et prêts pour l'Aspirateur.`);
+            return uniqueArticles;
+
+        } catch (error) {
+            Logger.log(`❌ Erreur globale de l'Agrégateur : ${error.message}`);
+            return [];
+        }
     }
 }
 

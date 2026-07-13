@@ -1,114 +1,91 @@
-import { useState, useEffect } from 'react';
-import api from '../api';
-import AdminPanel from './AdminPanel';
+import { useState } from 'react';
+import ProjectPanel from './ProjectPanel';
 import ResearchPanel from './ResearchPanel';
 import LibraryPanel from './LibraryPanel';
-import ProjectPanel from './ProjectPanel';
 import SynthesisPanel from './SynthesisPanel';
 import TerminalPanel from './TerminalPanel';
+import ChatbotPanel from './ChatbotPanel';
+import SettingsModal from './SettingsModal';
+import DataVizPanel from './DataVizPanel';
+import ExportPanel from './ExportPanel';
 
-function Dashboard({ user, onLogout }) {
-    const [isOnline, setIsOnline] = useState(false);
-    const [prompt, setPrompt] = useState('');
-    const [aiResponse, setAiResponse] = useState('');
-    const [isThinking, setIsThinking] = useState(false);
-    const [wolMessage, setWolMessage] = useState('');
-    const [activeProjectId, setActiveProjectId] = useState(null); 
-    // Vérification du statut du PC toutes les 5 secondes
-    useEffect(() => {
-        const checkStatus = async () => {
-            try {
-                const res = await api.get('/wol/status');
-                setIsOnline(res.data.isOnline);
-            } catch (err) {
-                console.error("Erreur Ping:", err);
-            }
-        };
-        checkStatus();
-        const interval = setInterval(checkStatus, 5000);
-        return () => clearInterval(interval);
-    }, []);
-
-    const handleWake = async () => {
-        try {
-            const res = await api.post('/wol/wake');
-            setWolMessage(`✅ ${res.data.message}`);
-        } catch (err) {
-            setWolMessage(`❌ ${err.response?.data?.error || "Erreur WOL"}`);
-        }
-    };
-
-    const handleAskAi = async () => {
-        if (!prompt) return;
-        setIsThinking(true);
-        setAiResponse('');
-        try {
-            // Ici on appelle la route NVIDIA que nous avons créée
-            const res = await api.post('/ai/ask-nvidia', { prompt });
-            setAiResponse(res.data.reply);
-        } catch (err) {
-            setAiResponse(`❌ ${err.response?.data?.error || "Erreur IA"}`);
-        } finally {
-            setIsThinking(false);
-        }
-    };
-
+function Dashboard({ onLogout }) {
+    const [activeProjectId, setActiveProjectId] = useState(null);
+    const [showSettings, setShowSettings] = useState(false);
+    
     return (
-        <div className="dashboard">
-            <header className="dash-header">
-                <h2>Bienvenue, {user.username}</h2>
-                <button onClick={onLogout} className="btn-danger">Déconnexion</button>
-            </header>
-
-            <ProjectPanel 
-                activeProjectId={activeProjectId} 
-                setActiveProjectId={setActiveProjectId} 
-            />
-
-            {/* Carte Wake on LAN */}
-            <div className="card">
-                <div className={`status-badge ${isOnline ? 'online' : 'offline'}`}>
-                    <span className="dot"></span>
-                    {isOnline ? "PC IA ALLUMÉ" : "PC IA ÉTEINT"}
+        <div className="app-layout">
+            {/* BARRE LATÉRALE */}
+            <aside className="sidebar">
+                <div className="sidebar-header">
+                    <h2>🧬 Science IA</h2>
+                </div>
+                <div className="sidebar-content">
+                    <ProjectPanel onProjectSelect={setActiveProjectId} />
                 </div>
                 
-                <button onClick={handleWake} disabled={isOnline} className="btn-large">
-                    {isOnline ? "Le PC est allumé" : "🖥️ ALLUMER LE PC"}
-                </button>
-                {wolMessage && <p className="wol-msg">{wolMessage}</p>}
-            </div>
+                {/* J'ai rentré le bouton dans le footer pour que ce soit plus joli visuellement */}
+                <div className="sidebar-footer">
+                    <button onClick={() => setShowSettings(true)} className="btn-secondary" style={{ width: '100%', marginBottom: '10px' }}>
+                            ⚙️ Paramètres
+                    </button>
+                    <button onClick={onLogout} className="btn-secondary" style={{ width: '100%' }}>
+                        🚪 Déconnexion
+                    </button>
+                </div>
+            </aside>
 
-            {/* NOUVEAU : Le panneau de recherche scientifique */}
-            <ResearchPanel activeProjectId={activeProjectId}/>
+            {/* CONTENU PRINCIPAL */}
+            <main className="main-content">
+                <header className="main-header">
+                    <h1>Tableau de bord de recherche</h1>
+                    <p className="subtitle">
+                        {activeProjectId 
+                            ? `Espace de travail actif : Projet #${activeProjectId}` 
+                            : 'Veuillez sélectionner ou créer un projet dans le menu latéral pour commencer.'}
+                    </p>
+                </header>
 
+                {activeProjectId && (
+                    <div className="dashboard-grid">
 
-            <TerminalPanel/>
-           <LibraryPanel activeProjectId={activeProjectId} />
-            <SynthesisPanel activeProjectId={activeProjectId} />
+                        {/* LIGNE 0 : Export Professionnel */}
+                        <div className="col-span-12">
+                            <ExportPanel activeProjectId={activeProjectId} />
+                        </div>
+                        
+                        {/* LIGNE 1 : Le moteur de recherche (Pleine largeur) */}
+                        <div className="col-span-12">
+                            <ResearchPanel activeProjectId={activeProjectId} />
+                        </div>
 
+                        {/* LIGNE 2 : Terminal à gauche (1/3), Bibliothèque à droite (2/3) */}
+                        <div className="col-span-4">
+                            <TerminalPanel />
+                        </div>
+                        <div className="col-span-8">
+                            <LibraryPanel activeProjectId={activeProjectId} />
+                        </div>
 
-            {/* Carte de discussion avec l'IA (NVIDIA/Ollama) */}
-            <div className="card ai-card">
-                <h3>🧠 Interroger l'IA</h3>
-                <textarea 
-                    rows="4" 
-                    placeholder="Pose ta question ici..." 
-                    value={prompt}
-                    onChange={(e) => setPrompt(e.target.value)}
-                />
-                <button onClick={handleAskAi} disabled={isThinking} className="btn-ai">
-                    {isThinking ? "L'IA réfléchit..." : "Envoyer à l'IA"}
-                </button>
+                        {/* LIGNE 3 : La Méga-Synthèse et le Chatbot */}
+                        <div className="col-span-8">
+                            <SynthesisPanel activeProjectId={activeProjectId} />
+                        </div>
+                        <div className="col-span-4">
+                            <ChatbotPanel activeProjectId={activeProjectId} />
+                        </div>
 
-                {aiResponse && (
-                    <div className="ai-response">
-                        {aiResponse}
+                        {/* LIGNE 4 : La DataViz (Pleine largeur) */}
+                        <div className="col-span-12">
+                            <DataVizPanel activeProjectId={activeProjectId} />
+                        </div>
                     </div>
                 )}
-            </div>
+            </main>
 
-            {/* Affiche le panel admin uniquement si l'utilisateur a le rôle admin */}
-            {user.role === 'admin' && <AdminPanel />}
+            {/* 🛑 AJOUT ICI : La modale des paramètres s'affiche uniquement si showSettings est true */}
+            {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
+            
         </div>
     );
 }

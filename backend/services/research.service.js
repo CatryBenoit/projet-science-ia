@@ -9,7 +9,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const db = require('../config/db');
 const AggregatorService = require('./aggregator.service');
-const SciHubService = require('./providers/scihub.service'); 
+const SciHubService = require('./providers/scihub.service');
 
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -240,7 +240,9 @@ class ResearchServiceMassive {
                 try {
                     const { buffer, method } = await this.downloadArticle(article);
                     let textToSave = '';
+                    let isValidForSave = false; // 🛑 NOUVEAU : Notre verrou de sécurité
 
+                    // CAS 1 : On a le PDF complet
                     if (buffer && isPDF(buffer)) {
                         const pdfFilePath = path.join(storageDir, `${safeId}.pdf`);
                         await fs.writeFile(pdfFilePath, buffer);
@@ -249,8 +251,10 @@ class ResearchServiceMassive {
                         const parsed = await pdfParse(buffer);
                         textToSave = parsed.text.replace(/\n\s*\n/g, '\n').trim();
                         stats.full++;
-                    } else {
-                        const abstract = article.abstract || "Aucun résumé disponible.";
+                        isValidForSave = true; // On autorise la sauvegarde
+                    }
+                    // CAS 2 : Pas de PDF, mais on a un VRAI résumé (au moins 20 caractères)
+                    else if (article.abstract && article.abstract.trim().length > 20) {
                         textToSave = [
                             `--- ABSTRACT ONLY [${method.toUpperCase()}] ---`,
                             `TITLE: ${article.title}`,
@@ -260,27 +264,39 @@ class ResearchServiceMassive {
                             `URL: ${article.oa_url}`,
                             ``,
                             `ABSTRACT:`,
-                            abstract,
+                            article.abstract.trim(),
                         ].join('\n');
                         stats.abstract++;
+                        isValidForSave = true; // On autorise la sauvegarde
+                    }
+                    // CAS 3 : Ni PDF, ni Résumé exploitable
+                    else {
+                        Logger.log(`  🗑️ Article ignoré : PDF inaccessible et aucun résumé disponible.`);
+                        stats.failed++;
                     }
 
-                    if (textToSave.length > 50) {
+                    // ─── SAUVEGARDE ET IA (Uniquement si l'article a été validé) ───
+                    if (isValidForSave && textToSave.length > 50) {
                         // 1. Écriture du fichier texte brut
                         await fs.writeFile(filePath, textToSave, 'utf8');
 
-                        // CORRECTION 2 : Verrouillage de la base de données et INSERT OR REPLACE
+                        // 2. Verrouillage de la base de données et INSERT OR REPLACE
                         await new Promise((resolve) => {
                             db.run(
-                                `INSERT OR REPLACE INTO articles (id, title, published_date, oa_url, local_file_path, project_id) VALUES (?, ?, ?, ?, ?, ?)`,
-                                [safeId, article.title, article.published_date, article.oa_url, filePath, projectId],
-                                function(dbErr) {
+                                `INSERT OR REPLACE INTO articles (id, title, published_date, oa_url, local_file_path, project_id, type) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+                                [safeId, article.title, article.published_date, article.oa_url, filePath, projectId, article.type || 'academic'],
+                                function (dbErr) {
                                     if (dbErr) {
                                         Logger.log(`  ❌ [BDD] Impossible d'enregistrer l'article : ${dbErr.message}`);
                                     } else {
-                                        Logger.log(`  💾 [BDD] Article enregistré et validé (ID: ${safeId}).`);
+                                        let typeLabel = '📄 Étude';
+                                        if (article.type === 'testimony') typeLabel = '🗣️ Témoignage';
+                                        if (article.type === 'dataset') typeLabel = '📊 Données Brutes';
+                                        if (article.type === 'news') typeLabel = '📰 Actualité';
+                                        
+                                        Logger.log(`  💾 [BDD] ${typeLabel} enregistré et validé (ID: ${safeId}).`);
                                     }
-                                    resolve(); // Débloque la suite du code
+                                    resolve();
                                 }
                             );
                         });
@@ -289,8 +305,7 @@ class ResearchServiceMassive {
                         try {
                             Logger.log(`  🧠 Lancement de l'analyse IA (Texte + Vision)...`);
                             const analysis = await AiReaderService.analyzeArticle(filePath);
-                            
-                            // Pareil ici, on verrouille la sauvegarde de l'analyse
+
                             await new Promise((resolve) => {
                                 db.run(
                                     `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
@@ -312,7 +327,7 @@ class ResearchServiceMassive {
                     Logger.log(`  🔴 Échec critique : ${err.message}`);
                 }
             }));
-            
+
 
             if (i + BATCH_SIZE < articles.length) {
                 const delay = jitter(2000, 2000);
@@ -337,18 +352,18 @@ class ResearchServiceMassive {
             WHERE a.project_id = ?
         `;
 
-       db.all(query, [projectId], async (err, rows) => {
+        db.all(query, [projectId], async (err, rows) => {
             if (err || !rows || rows.length === 0) return Logger.log("⚠️ Impossible de faire la synthèse.");
-            
+
             let aggregatedData = rows.map((r, i) => {
                 let scoreText = "⭐⭐⭐ (Non noté)";
                 let studyType = "Inconnu";
                 try {
-                    const meta = JSON.parse(r.metadata); 
+                    const meta = JSON.parse(r.metadata);
                     if (meta.quality_score) scoreText = '⭐'.repeat(meta.quality_score);
                     if (meta.study_type) studyType = meta.study_type;
-                } catch(e) {}
-                
+                } catch (e) { }
+
                 return `### ÉTUDE ${i + 1} : ${r.title} \n[Type: ${studyType} | Fiabilité: ${scoreText}]\n${r.synthesis}\n`;
             }).join('\n');
 
@@ -364,7 +379,7 @@ Format attendu:
 3. 🤝 Consensus Scientifique (Basé principalement sur les études haute fiabilité)
 4. ⚔️ Contradictions
 5. 🔍 Lacunes de la littérature.`;
-                
+
                 const finalReport = await AiReaderService.askAI(aggregatedData, systemPrompt, "meta/llama-3.1-70b-instruct");
 
                 db.run(`INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, [projectId, finalReport]);

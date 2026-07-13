@@ -1,88 +1,75 @@
 import { useState, useEffect } from 'react';
 import api from '../api';
 
-function ProjectPanel({ activeProjectId, setActiveProjectId }) {
+function ProjectPanel({ onProjectSelect }) {
     const [projects, setProjects] = useState([]);
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [isCreating, setIsCreating] = useState(false);
-
-    const fetchProjects = async () => {
-        try {
-            const res = await api.get('/projects');
-            setProjects(res.data);
-            // Si aucun projet n'est actif mais qu'on en a dans la liste, on active le premier
-            if (!activeProjectId && res.data.length > 0) {
-                setActiveProjectId(res.data[0].id);
-            }
-        } catch (err) {
-            console.error("Erreur chargement projets :", err);
-        }
-    };
+    const [newProjectName, setNewProjectName] = useState('');
+    const [newProjectDesc, setNewProjectDesc] = useState('');
 
     useEffect(() => {
         fetchProjects();
     }, []);
 
+    const fetchProjects = async () => {
+        try {
+            const res = await api.get('/projects');
+            setProjects(res.data);
+            if (res.data.length > 0) {
+                onProjectSelect(res.data[0].id);
+            }
+        } catch (err) {
+            console.error("Erreur chargement projets", err);
+        }
+    };
+
     const handleCreateProject = async (e) => {
         e.preventDefault();
         try {
-            const res = await api.post('/projects', { name, description });
-            setName('');
-            setDescription('');
-            setIsCreating(false);
-            await fetchProjects();
-            setActiveProjectId(res.data.id); // On active automatiquement le nouveau projet
+            await api.post('/projects', { name: newProjectName, description: newProjectDesc });
+            setNewProjectName('');
+            setNewProjectDesc('');
+            fetchProjects();
         } catch (err) {
             alert("Erreur lors de la création du projet");
         }
     };
 
     return (
-        <div className="card project-card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <h3>📁 Espace de Travail</h3>
-                <button onClick={() => setIsCreating(!isCreating)} className="btn-small">
-                    {isCreating ? "❌ Annuler" : "➕ Nouveau Projet"}
-                </button>
-            </div>
+        <div className="project-sidebar-widget">
+            <h3 style={{ fontSize: '0.85rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '15px', letterSpacing: '0.05em' }}>
+                Vos Projets
+            </h3>
+            
+            <select 
+                onChange={(e) => onProjectSelect(e.target.value)} 
+                style={{ marginBottom: '30px', fontWeight: '500' }}
+            >
+                {projects.map(p => (
+                    <option key={p.id} value={p.id}>{p.name}</option>
+                ))}
+            </select>
 
-            {isCreating && (
-                <form onSubmit={handleCreateProject} className="project-form">
-                    <input 
-                        type="text" 
-                        placeholder="Nom du projet (ex: CRISPR Cancer)" 
-                        value={name} 
-                        onChange={(e) => setName(e.target.value)} 
-                        required 
-                    />
-                    <input 
-                        type="text" 
-                        placeholder="Description (Optionnelle)" 
-                        value={description} 
-                        onChange={(e) => setDescription(e.target.value)} 
-                    />
-                    <button type="submit" className="btn-small">Créer</button>
-                </form>
-            )}
-
-            {!isCreating && projects.length > 0 && (
-                <div className="project-selector">
-                    <label>Projet actif : </label>
-                    <select 
-                        value={activeProjectId || ''} 
-                        onChange={(e) => setActiveProjectId(e.target.value)}
-                    >
-                        {projects.map(p => (
-                            <option key={p.id} value={p.id}>{p.name}</option>
-                        ))}
-                    </select>
-                </div>
-            )}
-
-            {!isCreating && projects.length === 0 && (
-                <p style={{ color: '#e74c3c', fontSize: '14px' }}>⚠️ Vous n'avez aucun projet. Créez-en un pour commencer vos recherches.</p>
-            )}
+            <h3 style={{ fontSize: '0.85rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '15px', letterSpacing: '0.05em' }}>
+                Nouveau Projet
+            </h3>
+            <form onSubmit={handleCreateProject}>
+                <input 
+                    type="text" 
+                    placeholder="Nom du projet" 
+                    value={newProjectName} 
+                    onChange={e => setNewProjectName(e.target.value)} 
+                    required 
+                    style={{ padding: '10px', fontSize: '0.9rem' }}
+                />
+                <textarea 
+                    placeholder="Description (Optionnelle)" 
+                    value={newProjectDesc} 
+                    onChange={e => setNewProjectDesc(e.target.value)}
+                    rows="3"
+                    style={{ padding: '10px', fontSize: '0.9rem', resize: 'none' }}
+                ></textarea>
+                <button type="submit" style={{ width: '100%' }}>➕ Créer</button>
+            </form>
         </div>
     );
 }

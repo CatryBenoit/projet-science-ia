@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 const Logger = require('./logger.service');
+const db = require('../config/db');
 
 class AiReaderService {
 
@@ -13,8 +14,13 @@ class AiReaderService {
     }
 
     static async askAI(prompt, systemRole, preferredModel) {
-        const API_URL = process.env.AI_API_URL;
-        const API_KEY = process.env.AI_API_KEY;
+        const settings = await this.getSettings();
+        const activeModel = settings.ai_model || defaultModel;
+        const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY;
+
+        if (!apiKey) {
+            throw new Error("Clé API manquante. Ajoutez-la dans les paramètres de l'interface.");
+        }
 
         if (!API_KEY || !API_URL) throw new Error("⚠️ Clé API absente.");
 
@@ -216,6 +222,15 @@ Tu dois répondre EXCLUSIVEMENT avec un tableau JSON valide. Exemple : ["Biomark
         } catch (error) {
             return [];
         }
+    }
+
+    static async getSettings() {
+        return new Promise((resolve) => {
+            db.get("SELECT api_key, ai_model FROM user_settings WHERE id = 1", (err, row) => {
+                if (err || !row) resolve({ api_key: null, ai_model: null });
+                else resolve(row);
+            });
+        });
     }
 }
 

@@ -3,10 +3,12 @@ import api from '../api';
 
 function LibraryPanel({ activeProjectId }) {
     const [articles, setArticles] = useState([]);
-    const [selectedArticleContent, setSelectedArticleContent] = useState('');
-    const [selectedArticleTitle, setSelectedArticleTitle] = useState('');
-    const [showModal, setShowModal] = useState(false);
-    const [loadingContent, setLoadingContent] = useState(false);
+    const [selectedArticle, setSelectedArticle] = useState(null);
+    const [analysis, setAnalysis] = useState(null);
+
+    useEffect(() => {
+        fetchArticles();
+    }, [activeProjectId]);
 
     const fetchArticles = async () => {
         if (!activeProjectId) {
@@ -14,106 +16,100 @@ function LibraryPanel({ activeProjectId }) {
             return;
         }
         try {
-            const res = await api.get('/library/articles');
-            const projectArticles = res.data.filter(a => a.project_id === parseInt(activeProjectId));
-            setArticles(projectArticles);
+            const res = await api.get(`/library/projects/${activeProjectId}/articles`);
+            setArticles(res.data);
         } catch (err) {
             console.error("Erreur bibliothèque:", err);
         }
     };
 
-    useEffect(() => {
-        fetchArticles();
-    }, [activeProjectId]);
-
-    // Fonction pour lire le Texte Brut
-    const handleViewContent = async (id, title) => {
-        setLoadingContent(true);
-        setSelectedArticleTitle(title + " (Texte Original)");
-        setShowModal(true);
+    const viewAnalysis = async (articleId) => {
         try {
-            const res = await api.get(`/library/articles/${id}/content`);
-            setSelectedArticleContent(res.data.content);
+            const res = await api.get(`/library/articles/${articleId}/analysis`);
+            setAnalysis(res.data);
+            setSelectedArticle(articleId);
         } catch (err) {
-            setSelectedArticleContent("❌ Impossible de charger le texte original.");
-        } finally {
-            setLoadingContent(false);
+            alert("Analyse non disponible pour le moment.");
         }
     };
 
-    // NOUVELLE FONCTION : Lire l'Analyse IA existante
-    const handleViewAnalysis = async (id, title) => {
-        setLoadingContent(true);
-        setSelectedArticleTitle(title + " (Analyse IA)");
-        setShowModal(true);
-        try {
-            const res = await api.get(`/library/articles/${id}/analysis`);
-            const data = res.data;
-            // On formate le rendu pour que ce soit beau à lire
-            setSelectedArticleContent(`✅ MÉTADONNÉES :\n${data.metadata}\n\n🧠 SYNTHÈSE DE L'ÉTUDE :\n${data.synthesis}\n\n📝 NOTES DÉTAILLÉES :\n${data.notes}`);
-        } catch (err) {
-            setSelectedArticleContent("⏳ Cet article n'a pas encore été traité ou l'analyse est en cours d'écriture par l'IA...");
-        } finally {
-            setLoadingContent(false);
-        }
-    };
+    // 🛑 TRI DES DONNÉES PAR CATÉGORIE
+    const academicArticles = articles.filter(a => a.type === 'academic' || !a.type);
+    const datasets = articles.filter(a => a.type === 'dataset');
+    const news = articles.filter(a => a.type === 'news');
+    const testimonies = articles.filter(a => a.type === 'testimony');
 
-    if (!activeProjectId) return null;
-
-    return (
-        <div className="card library-card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <h3>📚 Bibliothèque Numérique ({articles.length} articles)</h3>
-                <button onClick={fetchArticles} className="btn-small">🔄 Actualiser la liste</button>
-            </div>
-
-            <div className="table-container">
-                {articles.length === 0 ? (
-                    <p style={{ color: '#888', textAlign: 'center', padding: '20px' }}>Aucun article stocké pour le moment.</p>
-                ) : (
-                    <table className="library-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Titre de l'étude</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {articles.map((article) => (
-                                <tr key={article.id}>
-                                    <td style={{ fontSize: '13px', color: '#888' }}>{article.published_date || 'N/A'}</td>
-                                    <td className="table-title" title={article.title}>{article.title}</td>
+    // 🛠️ FONCTION DE RENDU DYNAMIQUE POUR LES TABLEAUX
+    const renderTable = (title, emoji, colorHex, data, linkText) => (
+        <>
+            <h4 style={{ color: colorHex, marginTop: '25px', marginBottom: '10px' }}>
+                {emoji} {title} ({data.length})
+            </h4>
+            <div className="table-container" style={{ marginBottom: '20px' }}>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Date</th>
+                            <th>Source</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.length === 0 ? (
+                            <tr><td colSpan="4">Aucun document dans cette catégorie.</td></tr>
+                        ) : (
+                            data.map(item => (
+                                <tr key={item.id}>
+                                    <td className="table-title" title={item.title}>{item.title}</td>
+                                    <td>{item.published_date}</td>
+                                    <td><a href={item.oa_url} target="_blank" rel="noreferrer">{linkText}</a></td>
                                     <td>
-                                        <div style={{ display: 'flex', gap: '5px' }}>
-                                            <button onClick={() => handleViewContent(article.id, article.title)} className="btn-small">📖 Texte</button>
-                                            {/* NOUVEAU BOUTON : Affiche l'analyse de l'IA */}
-                                            <button onClick={() => handleViewAnalysis(article.id, article.title)} className="btn-small" style={{ background: '#9b59b6' }}>🧠 Voir Analyse</button>
-                                            <a href={article.oa_url} target="_blank" rel="noreferrer" className="btn-link">PDF 🔗</a>
-                                        </div>
+                                        <button className="btn-small" style={{ backgroundColor: colorHex, border: 'none' }} onClick={() => viewAnalysis(item.id)}>
+                                            🔍 Analyse IA
+                                        </button>
                                     </td>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
+                            ))
+                        )}
+                    </tbody>
+                </table>
             </div>
+        </>
+    );
 
-            {showModal && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <header className="modal-header">
-                            <h4>{selectedArticleTitle}</h4>
-                            <button onClick={() => { setShowModal(false); setSelectedArticleContent(''); }} className="btn-danger">❌ Fermer</button>
-                        </header>
+    return (
+        <div className="card">
+            <h3>📚 Base de Connaissances (Projet #{activeProjectId})</h3>
+
+            {/* AFFICHAGE DES 4 TABLEAUX THÉMATIQUES */}
+            {renderTable("Littérature Scientifique", "📄", "var(--primary)", academicArticles, "Lien PDF")}
+            {renderTable("Jeux de Données Brutes", "📊", "#f59e0b", datasets, "Télécharger Data")}
+            {renderTable("Actualités & Vulgarisation", "📰", "#0ea5e9", news, "Lire l'article")}
+            {renderTable("Témoignages & Vie Réelle", "🗣️", "var(--success)", testimonies, "Voir le post")}
+
+            {/* MODALE D'AFFICHAGE DE L'IA */}
+            {selectedArticle && analysis && (
+                <div className="modal-overlay" onClick={() => setSelectedArticle(null)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h4>Rapport d'Analyse IA</h4>
+                            <button className="btn-secondary btn-small" onClick={() => setSelectedArticle(null)}>Fermer</button>
+                        </div>
                         <div className="modal-body">
-                            {loadingContent ? (
-                                <div className="loading-txt">⏳ Chargement...</div>
-                            ) : (
-                                <pre className="raw-text-viewer" style={{ whiteSpace: 'pre-wrap', fontSize: '14px' }}>
-                                    {selectedArticleContent}
-                                </pre>
-                            )}
+                            <h5>Métadonnées extraites :</h5>
+                            <pre style={{ background: 'var(--bg-base)', padding: '15px', borderRadius: '8px', overflowX: 'auto', fontSize: '0.85rem' }}>
+                                {analysis.metadata}
+                            </pre>
+                            <h5>Synthèse de l'article :</h5>
+                            <div style={{ whiteSpace: 'pre-wrap' }}>{analysis.synthesis}</div>
+                            <h5>Notes de lecture brutes :</h5>
+                            <details>
+                                <summary style={{ cursor: 'pointer', color: 'var(--primary)' }}>Voir les notes détaillées</summary>
+                                <div style={{ whiteSpace: 'pre-wrap', marginTop: '10px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                                    {analysis.notes}
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>

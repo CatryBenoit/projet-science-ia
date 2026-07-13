@@ -60,7 +60,18 @@ router.post('/articles/:id/analyze', requireAuth, async (req, res) => {
             res.status(500).json({ error: "Échec de l'analyse IA." });
         }
     });
+ 
+});
 
+
+
+router.get('/projects/:projectId/articles', requireAuth, (req, res) => {
+    const projectId = req.params.projectId;
+    db.all("SELECT * FROM articles WHERE project_id = ? ORDER BY published_date DESC", [projectId], (err, rows) => {
+        if (err) return res.status(500).json({ error: "Erreur BDD" });
+        res.json(rows);
+    });
+});
     router.get('/articles/:id/analysis', requireAuth, (req, res) => {
     const articleId = req.params.id;
     db.get("SELECT metadata, notes, synthesis FROM article_analysis WHERE article_id = ?", [articleId], (err, row) => {
@@ -68,7 +79,6 @@ router.post('/articles/:id/analyze', requireAuth, async (req, res) => {
         if (!row) return res.status(404).json({ error: "L'IA n'a pas encore analysé cet article." });
         res.json(row);
     });
-});
 
 });
 

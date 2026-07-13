@@ -108,4 +108,26 @@ router.get('/:id/synthesis', requireAuth, (req, res) => {
     });
 });
 
+router.post('/:id/charts', requireAuth, (req, res) => {
+    const { title, chart_type, chart_data } = req.body;
+    const query = `INSERT INTO project_charts (project_id, title, chart_type, chart_data) VALUES (?, ?, ?, ?)`;
+    
+    db.run(query, [req.params.id, title, chart_type, JSON.stringify(chart_data)], function(err) {
+        if (err) return res.status(500).json({ error: "Erreur lors de la sauvegarde du graphique." });
+        res.json({ success: true, chart_id: this.lastID });
+    });
+});
+
+// Récupérer les graphiques d'un projet
+router.get('/:id/charts', requireAuth, (req, res) => {
+    db.all("SELECT * FROM project_charts WHERE project_id = ?", [req.params.id], (err, rows) => {
+        if (err) return res.status(500).json({ error: "Erreur BDD" });
+        // On re-transforme le texte brut en objet JSON pour le frontend
+        const charts = rows.map(row => ({
+            ...row,
+            chart_data: JSON.parse(row.chart_data)
+        }));
+        res.json(charts);
+    });});
+
 module.exports = router;
