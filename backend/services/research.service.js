@@ -413,6 +413,57 @@ Format attendu:
             }
         });
     }
+
+
+    async function filterAndQueueSubtopics(project, parentDocId, rawProposedSubtopics, currentDepth) {
+  const rootTopic = project.title; // Ou une colonne spécifique 'root_topic' de ton projet
+  
+  const nextIterationQueue = [];
+  const prunedBranches = [];
+
+  // 1. Évaluation asynchrone et parallèle de toutes les pistes générées
+  const evaluationPromises = rawProposedSubtopics.map(subtopic => 
+    evaluateRelevance(rootTopic, subtopic, currentDepth)
+  );
+  
+  const evaluations = await Promise.all(evaluationPromises);
+
+  // 2. Tri des branches selon la décision du Guardrail
+  for (let i = 0; i < evaluations.length; i++) {
+    const evalResult = evaluations[i];
+    const subtopic = rawProposedSubtopics[i];
+    
+    // Objet de base pour ta base de données
+    const nodeData = {
+      project_id: project.id,
+      parent_doc_id: parentDocId,
+      topic: subtopic,
+      relevance_score: evalResult.relevance_score,
+      reasoning: evalResult.chain_of_thought,
+      depth: currentDepth + 1,
+      created_at: new Date().toISOString()
+    };
+
+    // 3. Double sécurité : On vérifie la décision ET le score minimum de 7/10
+    if (evalResult.decision === "KEEP" && evalResult.relevance_score >= 7) {
+      nodeData.status = 'PENDING'; // Prêt à être exploré à l'itération suivante
+      nextIterationQueue.push(nodeData);
+    } else {
+      nodeData.status = 'PRUNED'; // Branche coupée par l'IA
+      prunedBranches.push(nodeData);
+    }
+
+    // 4. Enregistrement en base de données (pour alimenter ton futur graphe visuel)
+    await db.saveResearchNode(nodeData); 
+  }
+
+  // Log dans le terminal ou ton système de logs (logger.service.js)
+  console.log(`[Anti-Dérive] Itération ${currentDepth} : ${nextIterationQueue.length} pistes validées, ${prunedBranches.length} branches élaguées.`);
+
+  return {
+    validTopics: nextIterationQueue,
+    prunedTopics: prunedBranches
+  };
 }
 
 module.exports = ResearchServiceMassive;

@@ -15,14 +15,14 @@ class AiReaderService {
         return chunks;
     }
 
-static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null) {
+    static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null) {
         try {
             // 1. On récupère les réglages personnalisés de l'utilisateur depuis SQLite
             const settings = await this.getSettings();
-            
+
             // 2. On choisit le modèle dans l'ordre : paramètre > réglage BDD > defaultModel global
             const activeModel = modelOverride || settings.ai_model || defaultModel;
-            
+
             // 3. On choisit la clé API : réglage BDD > fichier .env
             const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY || process.env.NVIDIA_API_KEY;
 
@@ -85,7 +85,7 @@ static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", model
                 temperature: 0.1
             }, {
                 headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
-                timeout: 120000 
+                timeout: 120000
             });
             return response.data.choices[0].message.content;
         } catch (error) {
@@ -99,7 +99,7 @@ static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", model
      */
     static async analyzeArticle(filePath) {
         Logger.log(`🤖 Initialisation de l'Agent Lecteur pour : ${filePath}`);
-        
+
         // 1. LECTURE DU TEXTE BRUT
         const fullText = await fs.readFile(filePath, 'utf8');
         const chunks = this.chunkText(fullText);
@@ -124,9 +124,9 @@ Texte à analyser :\n\n${chunks[0].substring(0, 4000)}`;
         // ─── PASSE 2 : LECTURE DU TEXTE ET PRISES DE NOTES ───
         let allNotes = [];
         Logger.log(`  📝 [Lecture] Analyse textuelle approfondie (${chunks.length} segments)...`);
-        
+
         // On limite à 2 chunks max pour gagner du temps et de l'argent sur le texte brut
-        const maxChunks = Math.min(chunks.length, 2); 
+        const maxChunks = Math.min(chunks.length, 2);
         for (let index = 0; index < maxChunks; index++) {
             const chunkPrompt = `Prends des notes détaillées sur ce passage. Extrais impérativement les résultats chiffrés majeurs, les conclusions et les limites mentionnées.\n\nTexte du segment :\n\n${chunks[index]}`;
             const segmentNotes = await this.askAI(chunkPrompt, "Tu es un chercheur scientifique rigoureux.", defaultModel);
@@ -137,19 +137,19 @@ Texte à analyser :\n\n${chunks[0].substring(0, 4000)}`;
         // Au lieu de lire tout le PDF, on ne regarde que les pages 2, 3, 4 et 5 (C'est là que sont les tableaux de résultats à 90%)
         // ─── PASSE 2.5 : L'ANALYSE MULTIMODALE (VISION DES GRAPHIQUES) ───
         Logger.log(`  👁️ [Vision IA] Vérification du PDF pour l'analyse multimodale...`);
-        
+
         try {
-            const pdfFilePath = filePath.replace('.txt', '.pdf'); 
-            
+            const pdfFilePath = filePath.replace('.txt', '.pdf');
+
             // 1. SÉCURITÉ : On vérifie que le PDF existe bien (Évite l'erreur ENOENT)
             if (!fsSync.existsSync(pdfFilePath)) {
                 Logger.log(`  ⏭️ [Vision IA] Ignoré : Aucun fichier PDF complet pour cet article (Abstract uniquement).`);
             } else {
                 Logger.log(`  👁️ [Vision IA] PDF détecté. Extraction des pages statistiques (2 à 5)...`);
-                
+
                 const imageDir = path.dirname(pdfFilePath);
                 const baseName = path.basename(pdfFilePath, '.pdf');
-                
+
                 // 2. APPEL À LINUX : On utilise 'pdftoppm' pour extraire les pages 2 à 5 en format JPEG
                 try {
                     // -f 2 (first page), -l 5 (last page)
@@ -164,7 +164,7 @@ Texte à analyser :\n\n${chunks[0].substring(0, 4000)}`;
                 for (const file of generatedFiles) {
                     const imgPath = path.join(imageDir, file);
                     Logger.log(`     -> Scan visuel du fichier ${file}...`);
-                    
+
                     const imgBuffer = await fs.readFile(imgPath);
                     const base64Img = imgBuffer.toString('base64');
 
@@ -176,8 +176,8 @@ Si NON : Réponds exactement "Aucun graphique pertinent".`;
                     const visionResult = await this.askVisionAI(visionPrompt, base64Img);
 
                     if (visionResult && !visionResult.includes("Aucun graphique pertinent") && visionResult.length > 50) {
-                         Logger.log(`       📊 Données visuelles extraites !`);
-                         allNotes.push(`--- Données visuelles extraites des tableaux --- \n${visionResult}`);
+                        Logger.log(`       📊 Données visuelles extraites !`);
+                        allNotes.push(`--- Données visuelles extraites des tableaux --- \n${visionResult}`);
                     }
 
                     // 4. NETTOYAGE : On supprime l'image JPEG pour ne pas saturer le disque dur
@@ -228,6 +228,55 @@ Tu dois répondre EXCLUSIVEMENT avec un tableau JSON valide. Exemple : ["Biomark
             });
         });
     }
+
+
+
+static async evaluateRelevance(rootTopic, proposedSubtopic, currentDepth) {
+    const systemPrompt = `Tu es un auditeur scientifique strict. Ta seule tâche est d'évaluer si une nouvelle piste de recherche reste parfaitement ancrée dans le thème racine d'un projet ou si elle commence à dériver (hors-sujet, trop généraliste, ou lien trop indirect).`;
+
+    const userPrompt = `
+THÈME RACINE DU PROJET (IMMUABLE) : "${rootTopic}"
+PISTE PROPOSÉE À ÉVALUER : "${proposedSubtopic}"
+NIVEAU D'ITÉRATION ACTUEL : ${currentDepth}
+
+Évalue la pertinence et réponds UNIQUEMENT sous forme d'objet JSON valide avec ce format exact :
+{
+  "chain_of_thought": "Explication en une phrase justifiant la note.",
+  "relevance_score": <entier entre 0 et 10>,
+  "decision": "KEEP" | "PRUNE"
+}
+
+Grille de notation stricte :
+- 0 à 3 : Hors-sujet complet ou dérive évidente -> "PRUNE"
+- 4 à 6 : Sujet connexe mais trop généraliste ou trop éloigné de la question centrale -> "PRUNE"
+- 7 à 10 : Piste pertinente qui approfondit directement un aspect technique du thème racine -> "KEEP"`;
+
+    try {
+        // Remplacer par l'appel à ta fonction d'appel LLM existante (ex: OpenAI, Ollama, etc.)
+        const response = await callLLM({
+            messages: [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: userPrompt }
+            ],
+            temperature: 0.1, // Rigueur maximale
+            response_format: { type: "json_object" } // Force le format JSON (supporté par OpenAI, Mistral, Ollama...)
+        });
+
+        // Parsing du résultat JSON
+        const result = JSON.parse(response.content);
+        return result;
+    } catch (error) {
+        console.error("Erreur lors de l'évaluation du guardrail anti-dérive :", error);
+        // Sécurité : en cas d'erreur API ou de parsing, on coupe la branche par défaut pour éviter d'explorer du bruit
+        return {
+            relevance_score: 0,
+            decision: "PRUNE",
+            chain_of_thought: "Échec de l'évaluation par le guardrail automatique."
+        };
+    }
+
+}
+
 }
 
 module.exports = AiReaderService;
