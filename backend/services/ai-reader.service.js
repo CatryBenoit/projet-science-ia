@@ -2,6 +2,8 @@ const axios = require('axios');
 const fs = require('fs').promises;
 const Logger = require('./logger.service');
 const db = require('../config/db');
+const defaultModel = "meta-llama/llama-3.1-70b-instruct";
+
 
 class AiReaderService {
 
@@ -13,53 +15,47 @@ class AiReaderService {
         return chunks;
     }
 
-    static async askAI(prompt, systemRole, preferredModel) {
-        const settings = await this.getSettings();
-        const activeModel = settings.ai_model || defaultModel;
-        const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY;
+static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null) {
+        try {
+            // 1. On récupère les réglages personnalisés de l'utilisateur depuis SQLite
+            const settings = await this.getSettings();
+            
+            // 2. On choisit le modèle dans l'ordre : paramètre > réglage BDD > defaultModel global
+            const activeModel = modelOverride || settings.ai_model || defaultModel;
+            
+            // 3. On choisit la clé API : réglage BDD > fichier .env
+            const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY || process.env.NVIDIA_API_KEY;
 
-        if (!apiKey) {
-            throw new Error("Clé API manquante. Ajoutez-la dans les paramètres de l'interface.");
-        }
+            if (!apiKey) {
+                throw new Error("Clé API manquante dans le .env ou dans les paramètres du tableau de bord.");
+            }
 
-        if (!API_KEY || !API_URL) throw new Error("⚠️ Clé API absente.");
-
-        const fallbackChain = [
-            preferredModel,
-            "meta/llama-3.1-8b-instruct",
-            "mistralai/mistral-large-2407",
-            "mistralai/mixtral-8x22b-instruct-v0.1"
-        ];
-        const modelsToTry = [...new Set(fallbackChain)];
-
-        for (const model of modelsToTry) {
-            try {
-                const response = await axios.post(API_URL, {
-                    model: model,
+            // 4. Appel à l'API (Compatible OpenRouter et NVIDIA NIM)
+            const response = await axios.post(
+                "https://integrate.api.nvidia.com/v1/chat/completions", // Si tu utilises l'URL directe de NVIDIA, remplace-la ici
+                {
+                    model: activeModel,
                     messages: [
-                        { role: "system", content: systemRole },
+                        { role: "system", content: systemPrompt },
                         { role: "user", content: prompt }
                     ],
-                    temperature: 0.1,
-                    max_tokens: 4000
-                }, {
-                    headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
-                    timeout: 120000
-                });
-                return response.data.choices[0].message.content;
-            } catch (error) {
-                const status = error.response?.status;
-                const errorMsg = error.response?.data?.error?.message || error.message;
-                Logger.log(`  ⚠️ [Auto-Pilote] Le modèle ${model} a échoué (Erreur ${status}). Raison: ${errorMsg}`);
-                if (status === 429 || status >= 500) {
-                    Logger.log(`  🔄 Basculement automatique vers le modèle de secours...`);
-                    continue;
-                } else {
-                    throw new Error(`Erreur fatale de configuration IA : ${errorMsg}`);
+                    temperature: 0.3
+                },
+                {
+                    headers: {
+                        "Authorization": `Bearer ${apiKey}`,
+                        "Content-Type": "application/json"
+                    },
+                    timeout: 60000 // 60 secondes max pour laisser l'IA lire le texte
                 }
-            }
+            );
+
+            return response.data.choices[0].message.content;
+
+        } catch (error) {
+            console.error(`❌ Erreur API IA (${error.config?.data ? JSON.parse(error.config.data).model : 'modèle inconnu'}) :`, error.response?.data?.error?.message || error.message);
+            throw error;
         }
-        throw new Error("❌ Tous les modèles de secours sont surchargés ou inaccessibles.");
     }
 
     /**
