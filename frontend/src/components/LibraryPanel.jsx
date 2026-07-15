@@ -50,6 +50,7 @@ function LibraryPanel({ activeProjectId }) {
                     <thead>
                         <tr>
                             <th>Titre</th>
+                            <th>Catégorie IA</th>
                             <th>Date</th>
                             <th>Source</th>
                             <th>Action</th>
@@ -57,11 +58,29 @@ function LibraryPanel({ activeProjectId }) {
                     </thead>
                     <tbody>
                         {data.length === 0 ? (
-                            <tr><td colSpan="4">Aucun document dans cette catégorie.</td></tr>
+                            <tr><td colSpan="5">Aucun document dans cette catégorie.</td></tr>
                         ) : (
                             data.map(item => (
                                 <tr key={item.id}>
                                     <td className="table-title" title={item.title}>{item.title}</td>
+                                    
+                                    {/* 🛑 NOUVELLE COLONNE : Badge du Thème IA */}
+                                    <td>
+                                        <span style={{ 
+                                            padding: '3px 8px', 
+                                            borderRadius: '12px', 
+                                            fontSize: '0.75rem', 
+                                            backgroundColor: 'var(--bg-hover)', 
+                                            color: 'var(--primary)',
+                                            fontWeight: 'bold',
+                                            border: '1px solid var(--border)',
+                                            display: 'inline-block',
+                                            whiteSpace: 'nowrap'
+                                        }}>
+                                            🏷️ {item.macro_theme || 'En cours...'}
+                                        </span>
+                                    </td>
+
                                     <td>{item.published_date}</td>
                                     <td><a href={item.oa_url} target="_blank" rel="noreferrer">{linkText}</a></td>
                                     <td>

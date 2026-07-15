@@ -32,11 +32,13 @@ db.serialize(() => {
     )`);
 
     // 2. Table des Projets
-    db.run(`CREATE TABLE IF NOT EXISTS projects (
+db.run(`CREATE TABLE IF NOT EXISTS projects (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
+        name TEXT,
         description TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        ignored_topics TEXT DEFAULT '[]'
+        core_theme TEXT DEFAULT '', -- 🛑 NOUVEAU : La boussole anti-dérive
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )`);
 
     // 3. Table de liaison Projets <-> Utilisateurs
@@ -62,12 +64,13 @@ db.serialize(() => {
     )`);
 
     // 5. Table d'Analyse des Articles
-    db.run(`CREATE TABLE IF NOT EXISTS article_analysis (
+db.run(`CREATE TABLE IF NOT EXISTS article_analysis (
         article_id TEXT PRIMARY KEY,
         metadata TEXT,
+        macro_theme TEXT DEFAULT 'Général', -- 🛑 NOUVEAU : La grande catégorie (ex: Effets secondaires)
+        micro_themes TEXT DEFAULT '[]',     -- 🛑 NOUVEAU : Tableau JSON des sous-thèmes abordés
         notes TEXT,
         synthesis TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE
     )`);
 
@@ -80,10 +83,12 @@ db.serialize(() => {
     )`);
 
 
-        db.run(`CREATE TABLE IF NOT EXISTS user_settings (
+db.run(`CREATE TABLE IF NOT EXISTS user_settings (
         id INTEGER PRIMARY KEY CHECK (id = 1),
         api_key TEXT,
-        ai_model TEXT DEFAULT 'meta-llama/llama-3.1-70b-instruct'
+        ai_model TEXT DEFAULT 'meta-llama/llama-3.1-70b-instruct',
+        api_base_url TEXT DEFAULT 'https://integrate.api.nvidia.com/v1',
+        max_iterations INTEGER DEFAULT 2
     )`);
 
 

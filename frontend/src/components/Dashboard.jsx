@@ -8,6 +8,7 @@ import ChatbotPanel from './ChatbotPanel';
 import SettingsModal from './SettingsModal';
 import DataVizPanel from './DataVizPanel';
 import ExportPanel from './ExportPanel';
+import GraphPanel from './GraphPanel';
 
 function Dashboard({ onLogout }) {
     const [activeProjectId, setActiveProjectId] = useState(null);
@@ -65,6 +66,10 @@ function Dashboard({ onLogout }) {
                         </div>
                         <div className="col-span-8">
                             <LibraryPanel activeProjectId={activeProjectId} />
+                        </div>
+                        {/* LIGNE GRAPHE : Carte mentale IA */}
+                        <div className="col-span-12">
+                            <GraphPanel activeProjectId={activeProjectId} />
                         </div>
 
                         {/* LIGNE 3 : La Méga-Synthèse et le Chatbot */}

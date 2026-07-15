@@ -39,62 +39,61 @@ router.get('/', requireAuth, (req, res) => {
 });
 
 // 3. GÉNÉRER MANUELLEMENT LA SYNTHÈSE (Forcer la génération)
-router.post('/:id/synthesis', requireAuth, async (req, res) => {
+router.post('/:id/synthesis', requireAuth, (req, res) => {
     const projectId = req.params.id;
-    // CORRECTION : On utilise le modèle Llama 3.1 70B qui fonctionne à 100% sur ton API
-    const targetModel = "meta/llama-3.1-70b-instruct"; 
 
-    Logger.log(`\n👑 [Mode Manuel] Lancement de la Synthèse Transversale pour le projet #${projectId}...`);
-
+    // On récupère le projet et toutes ses analyses classées
     const query = `
-        SELECT a.title, aa.metadata, aa.synthesis, aa.notes 
-        FROM articles a
+        SELECT p.name, p.core_theme, a.title, aa.macro_theme, aa.micro_themes, aa.synthesis
+        FROM projects p
+        JOIN articles a ON p.id = a.project_id
         JOIN article_analysis aa ON a.id = aa.article_id
-        WHERE a.project_id = ?
+        WHERE p.id = ?
+        ORDER BY aa.macro_theme ASC
     `;
 
     db.all(query, [projectId], async (err, rows) => {
-        if (err) return res.status(500).json({ error: "Erreur BDD" });
-        if (!rows || rows.length === 0) {
-            return res.status(400).json({ error: "Aucun article analysé trouvé. Lancez d'abord l'analyse sur vos articles." });
+        if (err || !rows || rows.length === 0) {
+            return res.status(400).json({ error: "Aucun article analysé pour ce projet." });
         }
 
-        Logger.log(`📚 Fusion des données de ${rows.length} articles analysés...`);
+        const projectName = rows[0].name;
+        const coreTheme = rows[0].core_theme || projectName;
 
-        let aggregatedData = rows.map((row, index) => {
-            return `### ÉTUDE ${index + 1} : ${row.title}\n${row.synthesis}\n`;
-        }).join('\n');
+        // 🛑 REGROUPEMENT PAR MACRO-THÈME (Clustering Sémantique)
+        const groupedByTheme = {};
+        rows.forEach(r => {
+            const theme = r.macro_theme || "Autres aspects";
+            if (!groupedByTheme[theme]) groupedByTheme[theme] = [];
+            groupedByTheme[theme].push(`- **${r.title}** (Sous-thèmes: ${JSON.parse(r.micro_themes || '[]').join(', ')})\n  Résumé : ${r.synthesis}`);
+        });
 
-        if (aggregatedData.length > 60000) {
-            aggregatedData = aggregatedData.substring(0, 60000) + "\n\n[... Données tronquées ...]";
+        // Construction d'un contexte propre, trié par chapitres
+        let structuredContext = "";
+        for (const [theme, articles] of Object.entries(groupedByTheme)) {
+            structuredContext += `\n### CATÉGORIE : ${theme.toUpperCase()}\n${articles.join('\n\n')}\n`;
         }
+
+        const systemPrompt = `Tu es un directeur de recherche scientifique. Ton rôle est de rédiger une synthèse globale exhaustive sur le sujet : "${coreTheme}".
+RÈGLES DE RÉDACTION :
+1. Structure obligatoirement ton rapport en reprenant les GRANDES CATÉGORIES fournies dans le contexte.
+2. Ne dérive jamais du sujet principal "${coreTheme}".
+3. Fais des synthèses croisées entre les articles d'une même catégorie.
+4. Utilise un format professionnel en Markdown (titres #, ##, puces, gras).`;
+
+        const prompt = `Voici les analyses des articles classées par catégories thématiques :
+${structuredContext}
+
+Rédige le rapport complet maintenant.`;
 
         try {
-            const systemPrompt = `Tu es le Directeur de Recherche Scientifique Principal. Ton rôle est de concevoir une méta-analyse et une synthèse transversale de niveau universitaire à partir de résumés d'études.
-Tu dois adopter un ton académique, ultra-critique et analytique. Ton rapport final doit obligatoirement être structuré en Markdown avec les sections suivantes :
-1. 🔬 INTRODUCTION & CONTEXTE GLOBAL
-2. 🤝 CONSENSUS SCIENTIFIQUE
-3. ⚔️ DIVERGENCES, CONTRADICTIONS & LIMITES
-4. 🔍 LACUNES DE LA LITTÉRATURE & OPPORTUNITÉS
-5. 🚀 HYPOTHÈSES DE RECHERCHE FUTURES`;
-
-            const userPrompt = `Voici les analyses condensées de ${rows.length} publications scientifiques sur notre thème d'étude.\n\n${aggregatedData}\n\nRédige la synthèse transversale stratégique dès maintenant.`;
-
-            const finalReport = await AiReaderService.askAI(userPrompt, systemPrompt, targetModel);
-
-            db.run(
-                `INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, 
-                [projectId, finalReport],
-                (insertErr) => {
-                    if (insertErr) console.error("Erreur sauvegarde synthèse projet:", insertErr);
-                    Logger.log(`🎉 [Mode Manuel] Synthèse générée et sauvegardée avec succès !`);
-                    res.json({ message: "Rapport généré avec succès !", article_count: rows.length, report: finalReport });
-                }
-            );
-
-        } catch (aiError) {
-            console.error("Erreur critique d'analyse transversale :", aiError);
-            res.status(500).json({ error: "L'IA a rencontré une erreur lors de la génération du rapport." });
+            const report = await AiReaderService.askAI(prompt, systemPrompt);
+            
+            // Sauvegarde de la synthèse dans la BDD
+            db.run(`UPDATE projects SET synthesis_report = ? WHERE id = ?`, [report, projectId]);
+            res.json({ success: true, report });
+        } catch (aiErr) {
+            res.status(500).json({ error: "Échec de la génération de la synthèse structurée." });
         }
     });
 });
@@ -102,9 +101,39 @@ Tu dois adopter un ton académique, ultra-critique et analytique. Ton rapport fi
 // 4. RÉCUPÉRER LA SYNTHÈSE POUR L'AFFICHAGE FRONTEND
 router.get('/:id/synthesis', requireAuth, (req, res) => {
     const projectId = req.params.id;
-    db.get("SELECT report FROM project_synthesis WHERE project_id = ?", [projectId], (err, row) => {
-        if (err) return res.status(500).json({ error: "Erreur lors de la récupération du rapport." });
-        res.json({ report: row ? row.report : null });
+
+    // On récupère le rapport ET le contexte actuel du projet (thèmes ignorés, thème ancre)
+    // Cela permet au Frontend de savoir si la synthèse est "à jour" ou obsolète
+    const query = `
+        SELECT 
+            p.core_theme, 
+            p.ignored_topics, 
+            ps.report, 
+            ps.created_at as generated_at
+        FROM projects p
+        LEFT JOIN project_synthesis ps ON p.id = ps.project_id
+        WHERE p.id = ?
+    `;
+
+    db.get(query, [projectId], (err, row) => {
+        if (err) {
+            console.error("Erreur récupération synthèse:", err);
+            return res.status(500).json({ error: "Erreur lors de la récupération du rapport." });
+        }
+
+        if (!row) {
+            return res.status(404).json({ error: "Projet introuvable." });
+        }
+
+        // On renvoie un objet complet pour que le Frontend puisse l'exploiter
+        res.json({
+            report: row.report || null,
+            context: {
+                core_theme: row.core_theme || "Non défini",
+                ignored_topics: JSON.parse(row.ignored_topics || '[]'),
+                generated_at: row.generated_at
+            }
+        });
     });
 });
 
@@ -129,5 +158,127 @@ router.get('/:id/charts', requireAuth, (req, res) => {
         }));
         res.json(charts);
     });});
+
+// --- GRAPHE SÉMANTIQUE & ÉLAGAGE ---
+
+// Récupérer les nœuds et liens du graphe pour un projet
+router.get('/:id/graph', requireAuth, (req, res) => {
+    const projectId = req.params.id;
+
+    // 1. Récupérer le projet
+    db.get("SELECT name, core_theme, ignored_topics FROM projects WHERE id = ?", [projectId], (err, project) => {
+        if (err || !project) return res.status(404).json({ error: "Projet introuvable" });
+
+        const ignored = JSON.parse(project.ignored_topics || '[]');
+
+        // 2. Récupérer les articles analysés
+        const query = `
+            SELECT a.id, a.title, aa.macro_theme, aa.micro_themes 
+            FROM articles a 
+            JOIN article_analysis aa ON a.id = aa.article_id 
+            WHERE a.project_id = ?
+        `;
+
+        db.all(query, [projectId], (err, rows) => {
+            if (err) return res.status(500).json({ error: "Erreur BDD" });
+
+            const nodes = [];
+            const edges = [];
+
+            // NŒUD RACINE : Le Projet / Thème Ancre
+            nodes.push({
+                id: 'root',
+                type: 'input',
+                data: { label: `🎯 ${project.core_theme || project.name}` },
+                position: { x: 50, y: 250 },
+                style: { background: 'var(--primary)', color: '#fff', fontWeight: 'bold', border: '2px solid #fff', borderRadius: '8px', padding: '10px' }
+            });
+
+            // Regroupement par Macro-Thèmes pour créer les branches
+            const themesMap = {};
+            rows.forEach(row => {
+                const theme = row.macro_theme || "Général";
+                // On ignore les thèmes bannis par l'utilisateur !
+                if (!ignored.includes(theme.toLowerCase())) {
+                    if (!themesMap[theme]) themesMap[theme] = [];
+                    themesMap[theme].push(row);
+                }
+            });
+
+            let themeIndex = 0;
+            let articleGlobalIndex = 0;
+
+            for (const [theme, articles] of Object.entries(themesMap)) {
+                const themeNodeId = `theme_${themeIndex}`;
+                
+                // NŒUD NIVEAU 1 : Le Macro-Thème
+                nodes.push({
+                    id: themeNodeId,
+                    data: { label: `🏷️ ${theme}`, themeName: theme, type: 'theme' },
+                    position: { x: 350, y: themeIndex * 160 + 50 },
+                    style: { background: 'var(--bg-panel)', color: 'var(--text-main)', border: '2px solid var(--success)', borderRadius: '8px', fontWeight: 'bold' }
+                });
+
+                // LIEN : Racine -> Thème
+                edges.push({
+                    id: `edge_root_${themeNodeId}`,
+                    source: 'root',
+                    target: themeNodeId,
+                    animated: true,
+                    style: { stroke: 'var(--success)', strokeWidth: 2 }
+                });
+
+                // NŒUDS NIVEAU 2 : Les Articles liés à ce thème
+                articles.forEach((art, aIndex) => {
+                    const artNodeId = `art_${art.id}`;
+                    nodes.push({
+                        id: artNodeId,
+                        data: { label: `📄 ${art.title.substring(0, 25)}...`, fullTitle: art.title, type: 'article' },
+                        position: { x: 680, y: articleGlobalIndex * 80 + 20 },
+                        style: { background: 'var(--bg-base)', color: 'var(--text-muted)', border: '1px solid var(--border)', fontSize: '11px', width: 180 }
+                    });
+
+                    // LIEN : Thème -> Article
+                    edges.push({
+                        id: `edge_${themeNodeId}_${artNodeId}`,
+                        source: themeNodeId,
+                        target: artNodeId,
+                        style: { stroke: 'var(--border)' }
+                    });
+
+                    articleGlobalIndex++;
+                });
+
+                themeIndex++;
+            }
+
+            res.json({ nodes, edges, ignored_topics: ignored });
+        });
+    });
+});
+
+// Bannir (élaguer) ou réhabiliter un thème
+router.post('/:id/prune', requireAuth, (req, res) => {
+    const { topic } = req.body;
+    const projectId = req.params.id;
+
+    db.get("SELECT ignored_topics FROM projects WHERE id = ?", [projectId], (err, row) => {
+        if (err || !row) return res.status(500).json({ error: "Erreur BDD" });
+        
+        let ignored = JSON.parse(row.ignored_topics || '[]');
+        const cleanTopic = topic.toLowerCase().trim();
+
+        if (!ignored.includes(cleanTopic)) {
+            ignored.push(cleanTopic); // On ajoute aux bannis
+        }
+
+        db.run("UPDATE projects SET ignored_topics = ? WHERE id = ?", [JSON.stringify(ignored), projectId], (err2) => {
+            if (err2) return res.status(500).json({ error: "Erreur lors de l'élagage" });
+            res.json({ success: true, ignored_topics: ignored });
+        });
+    });
+});
+
+
 
 module.exports = router;

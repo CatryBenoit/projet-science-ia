@@ -415,7 +415,7 @@ Format attendu:
     }
 
 
-    async function filterAndQueueSubtopics(project, parentDocId, rawProposedSubtopics, currentDepth) {
+ static async filterAndQueueSubtopics(project, parentDocId, rawProposedSubtopics, currentDepth) {
   const rootTopic = project.title; // Ou une colonne spécifique 'root_topic' de ton projet
   
   const nextIterationQueue = [];
@@ -466,4 +466,8 @@ Format attendu:
   };
 }
 
+
+
+
+}
 module.exports = ResearchServiceMassive;

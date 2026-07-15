@@ -7,6 +7,16 @@ const defaultModel = "meta-llama/llama-3.1-70b-instruct";
 
 class AiReaderService {
 
+
+    static async getSettings() {
+        return new Promise((resolve) => {
+            db.get("SELECT api_key, ai_model, api_base_url, max_iterations FROM user_settings WHERE id = 1", (err, row) => {
+                if (err || !row) resolve({ api_key: null, ai_model: defaultModel, api_base_url: defaultBaseUrl, max_iterations: 2 });
+                else resolve(row);
+            });
+        });
+    }
+
     static chunkText(text, chunkSize = 8000) {
         const chunks = [];
         for (let i = 0; i < text.length; i += chunkSize) {
@@ -17,22 +27,23 @@ class AiReaderService {
 
     static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null) {
         try {
-            // 1. On récupère les réglages personnalisés de l'utilisateur depuis SQLite
             const settings = await this.getSettings();
-
-            // 2. On choisit le modèle dans l'ordre : paramètre > réglage BDD > defaultModel global
             const activeModel = modelOverride || settings.ai_model || defaultModel;
+            
+            // Gestion intelligente de l'URL de base (nettoyage des slashs finaux)
+            let baseUrl = (settings.api_base_url || defaultBaseUrl).replace(/\/+$/, '');
+            const endpoint = `${baseUrl}/chat/completions`;
 
-            // 3. On choisit la clé API : réglage BDD > fichier .env
-            const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY || process.env.NVIDIA_API_KEY;
+            // Si c'est un LLM local (Ollama / LM Studio), une clé bidon suffit si le champ est vide
+            const isLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
+            const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY || (isLocal ? "local-no-key-needed" : null);
 
-            if (!apiKey) {
-                throw new Error("Clé API manquante dans le .env ou dans les paramètres du tableau de bord.");
+            if (!apiKey && !isLocal) {
+                throw new Error("Clé API manquante pour ce fournisseur distant.");
             }
 
-            // 4. Appel à l'API (Compatible OpenRouter et NVIDIA NIM)
             const response = await axios.post(
-                "https://integrate.api.nvidia.com/v1/chat/completions", // Si tu utilises l'URL directe de NVIDIA, remplace-la ici
+                endpoint,
                 {
                     model: activeModel,
                     messages: [
@@ -46,14 +57,14 @@ class AiReaderService {
                         "Authorization": `Bearer ${apiKey}`,
                         "Content-Type": "application/json"
                     },
-                    timeout: 60000 // 60 secondes max pour laisser l'IA lire le texte
+                    timeout: 120000 // 120 secondes pour laisser le temps aux LLM locaux sur CPU/GPU moyens
                 }
             );
 
             return response.data.choices[0].message.content;
 
         } catch (error) {
-            console.error(`❌ Erreur API IA (${error.config?.data ? JSON.parse(error.config.data).model : 'modèle inconnu'}) :`, error.response?.data?.error?.message || error.message);
+            console.error(`❌ Erreur API IA (${error.config?.url}) :`, error.response?.data?.error?.message || error.message);
             throw error;
         }
     }
@@ -276,6 +287,46 @@ Grille de notation stricte :
     }
 
 }
+static async analyzeArticleWithTheme(articleText, articleTitle, coreTheme = "") {
+        const anchorInstruction = coreTheme 
+            ? `RÈGLE ABSOLUE ANTI-DÉRIVE : Ton analyse DOIT ÊTRE STRICTEMENT ANCRÉE dans le thème principal suivant : "${coreTheme}". Ignore toute information scientifique qui n'a pas de lien direct ou indirect avec ce sujet précis.`
+            : "";
+
+        const systemPrompt = `Tu es un chercheur expert spécialisé dans l'analyse scientifique et la taxonomie de données.
+${anchorInstruction}
+
+Tu dois analyser le texte fourni et retourner STRICTEMENT un objet JSON valide (sans aucun texte autour, sans balises markdown \`\`\`json).
+
+Structure exacte attendue pour l'objet JSON :
+{
+  "metadata": "Auteurs, Institution, Année et méthodologie utilisée",
+  "macro_theme": "Une étiquette globale courte (2-3 mots max) qui classe cet article (ex: Précision des capteurs, Effets cliniques, Méthodologie, Étude de cas...)",
+  "micro_themes": ["mot-clé 1", "mot-clé 2", "mot-clé 3"],
+  "notes": "Notes de lecture brutes, chiffres clés, limites de l'étude",
+  "synthesis": "Synthèse analytique claire de l'article centrée sur le thème"
+}`;
+
+        const prompt = `Voici l'article à analyser :
+Titre : ${articleTitle}
+Contenu :
+${articleText.substring(0, 30000)}`; // Sécurité tokens
+
+        try {
+            const rawResponse = await this.askAI(prompt, systemPrompt);
+            const cleanJson = rawResponse.replace(/```json/gi, '').replace(/```/g, '').trim();
+            return JSON.parse(cleanJson);
+        } catch (error) {
+            console.error("❌ Erreur de parsing JSON dans l'analyse catégorisée, repli standard.", error.message);
+            // Fallback en cas d'erreur de formatage de l'IA
+            return {
+                metadata: "Extraction automatique",
+                macro_theme: "Non classé",
+                micro_themes: [],
+                notes: "Erreur de formatage IA",
+                synthesis: "Article lu mais non catégorisé. Veuillez relancer."
+            };
+        }
+    }
 
 }
 
