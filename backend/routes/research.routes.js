@@ -20,4 +20,23 @@ router.post('/start', requireAuth, async (req, res) => {
     }
 });
 
+router.post('/autonomous-loop', requireAuth, async (req, res) => {
+    const { projectId } = req.body;
+    if (!projectId) return res.status(400).json({ error: "ID du projet requis." });
+
+    try {
+        // On exécute la boucle en tâche de fond sans utiliser 'await'
+        // Cela permet de répondre immédiatement au navigateur et d'éviter un timeout HTTP de 60s
+        ResearchServiceMassive.launchAutonomousLoop(projectId);
+        
+        res.json({ 
+            success: true, 
+            message: "🤖 Agent Deep Research lancé en tâche de fond ! Suivez sa progression dans le Terminal Live." 
+        });
+    } catch (err) {
+        console.error("Erreur lancement boucle autonome:", err);
+        res.status(500).json({ error: "Échec du lancement de la boucle autonome." });
+    }
+});
+
 module.exports = router;

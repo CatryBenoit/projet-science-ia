@@ -18,7 +18,7 @@ puppeteer.use(StealthPlugin());
 const AiReaderService = require('./ai-reader.service');
 const Logger = require('./logger.service'); // LE MÉGAPHONE DU TERMINAL
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, 5000));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
 
 // ─── Config ───────────────────────────────────────────────────────────────────
@@ -466,6 +466,87 @@ Format attendu:
   };
 }
 
+/**
+     * NOUVEAU : BOUCLE DE RECHERCHE AUTONOME (AGENT DEEP RESEARCH)
+     */
+    static async launchAutonomousLoop(projectId) {
+        const Logger = require('./logger.service');
+        const AiReaderService = require('./ai-reader.service');
+        const db = require('../config/db');
+
+        // 1. Récupérer le nombre maximum d'itérations configuré par l'utilisateur
+        const settings = await new Promise((resolve) => {
+            db.get("SELECT max_iterations FROM user_settings WHERE id = 1", (err, row) => {
+                resolve(row || { max_iterations: 2 });
+            });
+        });
+        const maxIterations = settings.max_iterations || 2;
+
+        Logger.log(`\n🤖 [AGENT AUTONOME] Démarrage du cycle Deep Research (${maxIterations} itérations max)...`);
+
+        for (let i = 1; i <= maxIterations; i++) {
+            Logger.log(`\n🔄 ═══ ITÉRATION AUTONOME ${i}/${maxIterations} ═══`);
+            
+            // 2. Récupérer le contexte du projet et sa dernière synthèse
+            const projectData = await new Promise((resolve) => {
+                db.get(`
+                    SELECT p.name, p.core_theme, p.ignored_topics, ps.report 
+                    FROM projects p 
+                    LEFT JOIN project_synthesis ps ON p.id = ps.project_id 
+                    WHERE p.id = ?`, [projectId], (err, row) => resolve(row));
+            });
+
+            if (!projectData) {
+                Logger.log(`❌ [AGENT AUTONOME] Projet #${projectId} introuvable.`);
+                break;
+            }
+
+            const currentSynthesis = projectData.report || `Projet : ${projectData.name}. Thème central : ${projectData.core_theme || 'Général'}`;
+            const ignoredTopics = JSON.parse(projectData.ignored_topics || '[]');
+
+            // 3. Demander à l'IA d'identifier les lacunes et de générer de nouvelles requêtes
+            Logger.log(`🧠 [AGENT AUTONOME] Analyse des zones d'ombre de la synthèse pour formuler de nouvelles hypothèses...`);
+            let queries = await AiReaderService.generateInspirationQueries(currentSynthesis);
+            
+            if (!queries || queries.length === 0) {
+                Logger.log(`⏹️ [AGENT AUTONOME] L'IA estime que le sujet est entièrement couvert. Arrêt prématuré de la boucle.`);
+                break;
+            }
+
+            // 4. GUARDRAIL : Filtrer les requêtes proposées contre les branches élaguées (Graphe)
+            const validQueries = queries.filter(q => {
+                const isIgnored = ignoredTopics.some(ignored => q.toLowerCase().includes(ignored.toLowerCase()));
+                if (isIgnored) {
+                    Logger.log(`  ✂️ [GUARDRAIL] Piste "${q}" rejetée : elle correspond à une branche élaguée par l'utilisateur.`);
+                }
+                return !isIgnored;
+            });
+
+            if (validQueries.length === 0) {
+                Logger.log(`⏹️ [AGENT AUTONOME] Toutes les nouvelles pistes proposées font partie des sujets bannis. Arrêt du cycle.`);
+                break;
+            }
+
+            Logger.log(`🎯 [AGENT AUTONOME] ${validQueries.length} nouvelle(s) piste(s) validée(s) : [ ${validQueries.join(', ')} ]`);
+
+            // 5. Lancer l'aspiration et l'analyse pour chaque nouvelle piste
+            for (const query of validQueries) {
+                Logger.log(`🌐 [AGENT AUTONOME] Exploration de la sous-requête : "${query}"...`);
+                // Appel au pipeline d'aspiration classique
+                await this.launchSearch(query, projectId, {}); 
+            }
+
+            // 6. Pause de sécurité entre les cycles pour laisser les bases SQLite respirer et éviter les Rate Limits
+            if (i < maxIterations) {
+                Logger.log(`⏳ [AGENT AUTONOME] Fin de l'itération ${i}. Pause de 6 secondes avant le prochain cycle de réflexion...`);
+                await new Promise(resolve => setTimeout(resolve, 6000));
+            }
+        }
+
+        Logger.log(`\n🏁 [AGENT AUTONOME] Cycle Deep Research terminé avec succès ! Le projet a été enrichi en autonomie.`);
+    }
+
+    
 
 
 

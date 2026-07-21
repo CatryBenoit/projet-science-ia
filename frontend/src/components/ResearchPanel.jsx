@@ -8,6 +8,21 @@ function ResearchPanel({ activeProjectId }) {
     const [statusMsg, setStatusMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
+    const startAutonomousLoop = async () => {
+        if (!activeProjectId) return;
+        const confirmLoop = window.confirm(
+            "🤖 Voulez-vous lancer l'Agent Deep Research ?\n\nL'IA va lire votre projet, identifier les manques et relancer des recherches en boucle en respectant vos branches élaguées.\n\nSuivez le processus en direct dans le Terminal !"
+        );
+        if (!confirmLoop) return;
+
+        try {
+            const res = await api.post('/research/autonomous-loop', { projectId: activeProjectId });
+            alert(res.data.message);
+        } catch (err) {
+            alert("Erreur lors du lancement de l'Agent Autonome.");
+        }
+    };
+
     const handleStartResearch = async (e) => {
         e.preventDefault();
         
@@ -65,6 +80,26 @@ function ResearchPanel({ activeProjectId }) {
                         style={{ marginBottom: '0' }}
                     />
                 </div>
+                <div style={{ marginTop: '15px', paddingTop: '15px', borderTop: '1px dashed var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <div>
+        <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--primary)' }}>🤖 Mode Agent Autonome (Deep Research) :</span>
+        <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-muted)' }}>Laisse l'IA combler les lacunes du projet en relançant des recherches en boucle.</p>
+    </div>
+    <button 
+        type="button" 
+        onClick={startAutonomousLoop}
+        style={{ 
+            backgroundColor: '#4f46e5', 
+            color: '#fff', 
+            border: '1px solid #6366f1', 
+            whiteSpace: 'nowrap',
+            fontWeight: 'bold',
+            boxShadow: '0 0 10px rgba(79, 70, 229, 0.4)'
+        }}
+    >
+        🚀 Lancer l'exploration autonome
+    </button>
+</div>
 
                 <button type="submit" disabled={isLoading} className="btn-research">
                     {isLoading ? "Envoi de la commande..." : "🚀 Lancer l'aspiration des données"}

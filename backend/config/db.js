@@ -36,7 +36,7 @@ db.run(`CREATE TABLE IF NOT EXISTS projects (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT,
         description TEXT,
-        ignored_topics TEXT DEFAULT '[]'
+        ignored_topics TEXT DEFAULT '[]',
         core_theme TEXT DEFAULT '', -- 🛑 NOUVEAU : La boussole anti-dérive
         created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )`);

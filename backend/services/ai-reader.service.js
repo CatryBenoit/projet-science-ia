@@ -1,18 +1,30 @@
 const axios = require('axios');
-const fs = require('fs').promises;
+const fs = require('fs'); // Import standard pour les méthodes synchrones (existsSync, readdirSync)
+const fsPromises = require('fs').promises; // Import pour les méthodes asynchrones (readFile, unlink)
+const path = require('path');
+const { execSync } = require('child_process');
 const Logger = require('./logger.service');
 const db = require('../config/db');
-const defaultModel = "meta-llama/llama-3.1-70b-instruct";
 
+const defaultModel = "meta/llama-3.1-70b-instruct";
+
+const defaultBaseUrl = "https://integrate.api.nvidia.com/v1"; // URL de sécurité par défaut si tout le reste est vide
 
 class AiReaderService {
-
 
     static async getSettings() {
         return new Promise((resolve) => {
             db.get("SELECT api_key, ai_model, api_base_url, max_iterations FROM user_settings WHERE id = 1", (err, row) => {
-                if (err || !row) resolve({ api_key: null, ai_model: defaultModel, api_base_url: defaultBaseUrl, max_iterations: 2 });
-                else resolve(row);
+                if (err || !row) {
+                    resolve({ 
+                        api_key: null, 
+                        ai_model: defaultModel, 
+                        api_base_url: process.env.AI_API_URL || process.env.NVIDIA_API_URL || defaultBaseUrl, 
+                        max_iterations: 2 
+                    });
+                } else {
+                    resolve(row);
+                }
             });
         });
     }
@@ -25,60 +37,69 @@ class AiReaderService {
         return chunks;
     }
 
-    static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null) {
-        try {
-            const settings = await this.getSettings();
-            const activeModel = modelOverride || settings.ai_model || defaultModel;
-            
-            // Gestion intelligente de l'URL de base (nettoyage des slashs finaux)
-            let baseUrl = (settings.api_base_url || defaultBaseUrl).replace(/\/+$/, '');
-            const endpoint = `${baseUrl}/chat/completions`;
+    static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null, retries = 3) {
+        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-            // Si c'est un LLM local (Ollama / LM Studio), une clé bidon suffit si le champ est vide
-            const isLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-            const apiKey = settings.api_key || process.env.OPENROUTER_API_KEY || (isLocal ? "local-no-key-needed" : null);
+        for (let i = 0; i < retries; i++) {
+            try {
+                const settings = await this.getSettings();
+                const activeModel = modelOverride || settings.ai_model || defaultModel;
+                
+                // 🛑 CORRECTION ICI : Si tout est vide, on prend defaultBaseUrl pour ne jamais crasher sur .replace()
+                const rawUrl = settings.api_base_url || process.env.NVIDIA_API_URL || process.env.AI_API_URL || defaultBaseUrl;
+                let baseUrl = rawUrl.replace(/\/+$/, '');
+                const endpoint = `${baseUrl}/chat/completions`;
 
-            if (!apiKey && !isLocal) {
-                throw new Error("Clé API manquante pour ce fournisseur distant.");
-            }
+                const isLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
+                const apiKey = settings.api_key || process.env.AI_API_KEY || process.env.NVIDIA_API_KEY || (isLocal ? "local-no-key-needed" : null);
 
-            const response = await axios.post(
-                endpoint,
-                {
-                    model: activeModel,
-                    messages: [
-                        { role: "system", content: systemPrompt },
-                        { role: "user", content: prompt }
-                    ],
-                    temperature: 0.3
-                },
-                {
-                    headers: {
-                        "Authorization": `Bearer ${apiKey}`,
-                        "Content-Type": "application/json"
-                    },
-                    timeout: 120000 // 120 secondes pour laisser le temps aux LLM locaux sur CPU/GPU moyens
+                if (!apiKey && !isLocal) {
+                    throw new Error("Clé API manquante pour ce fournisseur distant.");
                 }
-            );
 
-            return response.data.choices[0].message.content;
+                const response = await axios.post(
+                    endpoint,
+                    {
+                        model: activeModel,
+                        messages: [
+                            { role: "system", content: systemPrompt },
+                            { role: "user", content: prompt }
+                        ],
+                        temperature: 0.3
+                    },
+                    {
+                        headers: {
+                            "Authorization": `Bearer ${apiKey}`,
+                            "Content-Type": "application/json"
+                        },
+                        timeout: 120000 // 120 secondes max
+                    }
+                );
 
-        } catch (error) {
-            console.error(`❌ Erreur API IA (${error.config?.url}) :`, error.response?.data?.error?.message || error.message);
-            throw error;
+                return response.data.choices[0].message.content;
+
+            } catch (error) {
+                const status = error.response?.status;
+                const errorMessage = error.response?.data?.error?.message || error.message;
+
+                if ((status === 429 || errorMessage.includes('timeout')) && i < retries - 1) {
+                    console.log(`⚠️ Surcharge API (${status || 'Timeout'}). Pause de 10s avant réessai... (${i + 1}/${retries})`);
+                    await wait(10000);
+                    continue; 
+                }
+
+                console.error(`❌ Erreur API IA (${error.config?.url || 'endpoint inconnu'}) :`, errorMessage);
+                throw error;
+            }
         }
     }
 
-    /**
-     * NOUVEAU : APPEL À L'IA DE VISION (Pour lire les Graphiques, Courbes et Tableaux)
-     */
     static async askVisionAI(prompt, base64Image) {
-        const API_URL = process.env.AI_API_URL;
-        const API_KEY = process.env.AI_API_KEY;
-        const visionModel = "meta/llama-3.2-90b-vision-instruct"; // Le modèle Vision de NVIDIA
-
+        const API_URL = process.env.AI_API_URL || process.env.NVIDIA_API_URL || defaultBaseUrl;
+        const API_KEY = process.env.AI_API_KEY || process.env.NVIDIA_API_KEY;
+const visionModel = "meta/llama-3.2-90b-vision-instruct";
         try {
-            const response = await axios.post(API_URL, {
+            const response = await axios.post(`${API_URL.replace(/\/+$/, '')}/chat/completions`, {
                 model: visionModel,
                 messages: [
                     {
@@ -105,18 +126,13 @@ class AiReaderService {
         }
     }
 
-    /**
-     * PIPELINE D'ANALYSE (Texte + Vision)
-     */
     static async analyzeArticle(filePath) {
         Logger.log(`🤖 Initialisation de l'Agent Lecteur pour : ${filePath}`);
 
-        // 1. LECTURE DU TEXTE BRUT
-        const fullText = await fs.readFile(filePath, 'utf8');
+        const fullText = await fsPromises.readFile(filePath, 'utf8');
         const chunks = this.chunkText(fullText);
-        const defaultModel = "meta/llama-3.1-70b-instruct";
+        const modelToUse = "meta/llama-3.1-70b-instruct";
 
-        // ─── PASSE 1 : EXTRACTION MÉTADONNÉES ───
         Logger.log(`  🔑 [Extraction] Identification des entités et concepts fondamentaux...`);
         const metadataPrompt = `Analyse rigoureusement ce début d'article scientifique. Extrais les métadonnées au format JSON avec la structure exacte suivante :
 {
@@ -130,30 +146,24 @@ class AiReaderService {
 }
 Texte à analyser :\n\n${chunks[0].substring(0, 4000)}`;
 
-        const extractedMeta = await this.askAI(metadataPrompt, "Tu es expert en extraction JSON.", defaultModel);
+        const extractedMeta = await this.askAI(metadataPrompt, "Tu es expert en extraction JSON.", modelToUse);
 
-        // ─── PASSE 2 : LECTURE DU TEXTE ET PRISES DE NOTES ───
         let allNotes = [];
         Logger.log(`  📝 [Lecture] Analyse textuelle approfondie (${chunks.length} segments)...`);
 
-        // On limite à 2 chunks max pour gagner du temps et de l'argent sur le texte brut
         const maxChunks = Math.min(chunks.length, 2);
         for (let index = 0; index < maxChunks; index++) {
             const chunkPrompt = `Prends des notes détaillées sur ce passage. Extrais impérativement les résultats chiffrés majeurs, les conclusions et les limites mentionnées.\n\nTexte du segment :\n\n${chunks[index]}`;
-            const segmentNotes = await this.askAI(chunkPrompt, "Tu es un chercheur scientifique rigoureux.", defaultModel);
+            const segmentNotes = await this.askAI(chunkPrompt, "Tu es un chercheur scientifique rigoureux.", modelToUse);
             allNotes.push(`--- Notes Texte (Segment ${index + 1}) ---\n${segmentNotes}`);
         }
 
-        // ─── PASSE 2.5 : L'ANALYSE MULTIMODALE (VISION DES GRAPHIQUES) ───
-        // Au lieu de lire tout le PDF, on ne regarde que les pages 2, 3, 4 et 5 (C'est là que sont les tableaux de résultats à 90%)
-        // ─── PASSE 2.5 : L'ANALYSE MULTIMODALE (VISION DES GRAPHIQUES) ───
         Logger.log(`  👁️ [Vision IA] Vérification du PDF pour l'analyse multimodale...`);
 
         try {
             const pdfFilePath = filePath.replace('.txt', '.pdf');
 
-            // 1. SÉCURITÉ : On vérifie que le PDF existe bien (Évite l'erreur ENOENT)
-            if (!fsSync.existsSync(pdfFilePath)) {
+            if (!fs.existsSync(pdfFilePath)) {
                 Logger.log(`  ⏭️ [Vision IA] Ignoré : Aucun fichier PDF complet pour cet article (Abstract uniquement).`);
             } else {
                 Logger.log(`  👁️ [Vision IA] PDF détecté. Extraction des pages statistiques (2 à 5)...`);
@@ -161,22 +171,19 @@ Texte à analyser :\n\n${chunks[0].substring(0, 4000)}`;
                 const imageDir = path.dirname(pdfFilePath);
                 const baseName = path.basename(pdfFilePath, '.pdf');
 
-                // 2. APPEL À LINUX : On utilise 'pdftoppm' pour extraire les pages 2 à 5 en format JPEG
                 try {
-                    // -f 2 (first page), -l 5 (last page)
                     execSync(`pdftoppm -f 2 -l 5 -jpeg "${pdfFilePath}" "${path.join(imageDir, baseName)}"`);
                 } catch (e) {
                     Logger.log(`  ⚠️ [Vision IA] Le PDF est probablement trop court, extraction partielle.`);
                 }
 
-                // 3. LECTURE DES IMAGES : On trouve toutes les images générées par Linux
-                const generatedFiles = fsSync.readdirSync(imageDir).filter(f => f.startsWith(baseName + '-') && f.endsWith('.jpg'));
+                const generatedFiles = fs.readdirSync(imageDir).filter(f => f.startsWith(baseName + '-') && f.endsWith('.jpg'));
 
                 for (const file of generatedFiles) {
                     const imgPath = path.join(imageDir, file);
                     Logger.log(`     -> Scan visuel du fichier ${file}...`);
-
-                    const imgBuffer = await fs.readFile(imgPath);
+                    
+                    const imgBuffer = await fsPromises.readFile(imgPath);
                     const base64Img = imgBuffer.toString('base64');
 
                     const visionPrompt = `Examine attentivement cette page d'article scientifique.
@@ -191,21 +198,19 @@ Si NON : Réponds exactement "Aucun graphique pertinent".`;
                         allNotes.push(`--- Données visuelles extraites des tableaux --- \n${visionResult}`);
                     }
 
-                    // 4. NETTOYAGE : On supprime l'image JPEG pour ne pas saturer le disque dur
-                    await fs.unlink(imgPath);
+                    await fsPromises.unlink(imgPath);
                 }
             }
         } catch (visionErr) {
             Logger.log(`  ⚠️ [Vision IA] Échec de l'analyse visuelle : ${visionErr.message}`);
         }
 
-        // ─── PASSE 3 : SYNTHÈSE GLOBALE DE L'ARTICLE ───
         Logger.log(`  🧠 [Synthèse] Génération de la synthèse structurée finale...`);
         const synthesisPrompt = `En te basant exclusivement sur tes notes de lecture suivantes, rédige une synthèse structurée de l'article incluant : les objectifs, les données clés, les conclusions et les limites de l'étude.
 
 Notes accumulées (Texte + Vision) :\n\n${allNotes.join('\n')}`;
 
-        const articleSynthesis = await this.askAI(synthesisPrompt, "Tu es un analyste de données scientifiques.", defaultModel);
+        const articleSynthesis = await this.askAI(synthesisPrompt, "Tu es un analyste de données scientifiques.", modelToUse);
 
         return {
             meta: extractedMeta,
@@ -222,8 +227,7 @@ Génère 1 à 3 requêtes de recherche très courtes et pertinentes (mots-clés 
 Tu dois répondre EXCLUSIVEMENT avec un tableau JSON valide. Exemple : ["Biomarkers", "ViT versus CNN"]`;
 
         try {
-            const response = await this.askAI(prompt, "Tu es un extracteur JSON strict.", "meta/llama-3.1-70b-instruct");
-            const match = response.match(/\[[\s\S]*\]/);
+            const response = await this.askAI(prompt, "Tu es un extracteur JSON strict.", "meta/llama-3.1-70b-instruct");            const match = response.match(/\[[\s\S]*\]/);
             if (match) return JSON.parse(match[0]).slice(0, 3);
             return [];
         } catch (error) {
@@ -231,21 +235,10 @@ Tu dois répondre EXCLUSIVEMENT avec un tableau JSON valide. Exemple : ["Biomark
         }
     }
 
-    static async getSettings() {
-        return new Promise((resolve) => {
-            db.get("SELECT api_key, ai_model FROM user_settings WHERE id = 1", (err, row) => {
-                if (err || !row) resolve({ api_key: null, ai_model: null });
-                else resolve(row);
-            });
-        });
-    }
+    static async evaluateRelevance(rootTopic, proposedSubtopic, currentDepth) {
+        const systemPrompt = `Tu es un auditeur scientifique strict. Ta seule tâche est d'évaluer si une nouvelle piste de recherche reste parfaitement ancrée dans le thème racine d'un projet ou si elle commence à dériver (hors-sujet, trop généraliste, ou lien trop indirect).`;
 
-
-
-static async evaluateRelevance(rootTopic, proposedSubtopic, currentDepth) {
-    const systemPrompt = `Tu es un auditeur scientifique strict. Ta seule tâche est d'évaluer si une nouvelle piste de recherche reste parfaitement ancrée dans le thème racine d'un projet ou si elle commence à dériver (hors-sujet, trop généraliste, ou lien trop indirect).`;
-
-    const userPrompt = `
+        const userPrompt = `
 THÈME RACINE DU PROJET (IMMUABLE) : "${rootTopic}"
 PISTE PROPOSÉE À ÉVALUER : "${proposedSubtopic}"
 NIVEAU D'ITÉRATION ACTUEL : ${currentDepth}
@@ -262,32 +255,22 @@ Grille de notation stricte :
 - 4 à 6 : Sujet connexe mais trop généraliste ou trop éloigné de la question centrale -> "PRUNE"
 - 7 à 10 : Piste pertinente qui approfondit directement un aspect technique du thème racine -> "KEEP"`;
 
-    try {
-        // Remplacer par l'appel à ta fonction d'appel LLM existante (ex: OpenAI, Ollama, etc.)
-        const response = await callLLM({
-            messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: userPrompt }
-            ],
-            temperature: 0.1, // Rigueur maximale
-            response_format: { type: "json_object" } // Force le format JSON (supporté par OpenAI, Mistral, Ollama...)
-        });
-
-        // Parsing du résultat JSON
-        const result = JSON.parse(response.content);
-        return result;
-    } catch (error) {
-        console.error("Erreur lors de l'évaluation du guardrail anti-dérive :", error);
-        // Sécurité : en cas d'erreur API ou de parsing, on coupe la branche par défaut pour éviter d'explorer du bruit
-        return {
-            relevance_score: 0,
-            decision: "PRUNE",
-            chain_of_thought: "Échec de l'évaluation par le guardrail automatique."
-        };
+        try {
+            // 🛑 CORRECTION ICI : On remplace le 'callLLM' fantôme par this.askAI
+            const response = await this.askAI(userPrompt, systemPrompt, defaultModel);
+            const cleanJson = response.replace(/```json/gi, '').replace(/```/g, '').trim();
+            return JSON.parse(cleanJson);
+        } catch (error) {
+            console.error("Erreur lors de l'évaluation du guardrail anti-dérive :", error.message);
+            return {
+                relevance_score: 0,
+                decision: "PRUNE",
+                chain_of_thought: "Échec de l'évaluation par le guardrail automatique."
+            };
+        }
     }
 
-}
-static async analyzeArticleWithTheme(articleText, articleTitle, coreTheme = "") {
+    static async analyzeArticleWithTheme(articleText, articleTitle, coreTheme = "") {
         const anchorInstruction = coreTheme 
             ? `RÈGLE ABSOLUE ANTI-DÉRIVE : Ton analyse DOIT ÊTRE STRICTEMENT ANCRÉE dans le thème principal suivant : "${coreTheme}". Ignore toute information scientifique qui n'a pas de lien direct ou indirect avec ce sujet précis.`
             : "";
@@ -309,7 +292,7 @@ Structure exacte attendue pour l'objet JSON :
         const prompt = `Voici l'article à analyser :
 Titre : ${articleTitle}
 Contenu :
-${articleText.substring(0, 30000)}`; // Sécurité tokens
+${articleText.substring(0, 30000)}`;
 
         try {
             const rawResponse = await this.askAI(prompt, systemPrompt);
@@ -317,7 +300,6 @@ ${articleText.substring(0, 30000)}`; // Sécurité tokens
             return JSON.parse(cleanJson);
         } catch (error) {
             console.error("❌ Erreur de parsing JSON dans l'analyse catégorisée, repli standard.", error.message);
-            // Fallback en cas d'erreur de formatage de l'IA
             return {
                 metadata: "Extraction automatique",
                 macro_theme: "Non classé",
@@ -327,7 +309,6 @@ ${articleText.substring(0, 30000)}`; // Sécurité tokens
             };
         }
     }
-
 }
 
 module.exports = AiReaderService;
