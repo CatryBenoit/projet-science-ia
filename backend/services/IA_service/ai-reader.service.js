@@ -4,7 +4,7 @@ const fsPromises = require('fs').promises; // Import pour les méthodes asynchro
 const path = require('path');
 const { execSync } = require('child_process');
 const Logger = require('./logger.service');
-const db = require('../config/db');
+const db = require('../../config/db');
 
 const defaultModel = "meta/llama-3.1-70b-instruct";
 

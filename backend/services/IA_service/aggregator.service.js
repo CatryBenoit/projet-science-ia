@@ -1,16 +1,16 @@
-const ArxivService = require('./providers/arxiv.service');
-const HalService = require('./providers/hal.service');
-const PmcService = require('./providers/pmc.service');
-const SemanticScholarProvider = require('./providers/semanticscholar.provider');
-const OpenAlexProvider = require('./providers/openalex.provider');
-const BioRxivService = require('./providers/biorxiv.service');
-const ChemRxivService = require('./providers/chemrxiv.service');
-const ClinicalTrialsService = require('./providers/clinicaltrials.service');
-const PatentsService = require('./providers/patents.service');
-const CoreService = require('./providers/core.service');
-const RedditService = require('./providers/reddit.service');
-const DataciteService = require('./providers/datacite.service');
-const NewsApiService = require('./providers/newsapi.service');
+const ArxivService = require('../providers/arxiv.service');
+const HalService = require('../providers/hal.service');
+const PmcService = require('../providers/pmc.service');
+const SemanticScholarProvider = require('../providers/semanticscholar.provider');
+const OpenAlexProvider = require('../providers/openalex.provider');
+const BioRxivService = require('../providers/biorxiv.service');
+const ChemRxivService = require('../providers/chemrxiv.service');
+const ClinicalTrialsService = require('../providers/clinicaltrials.service');
+const PatentsService = require('../providers/patents.service');
+const CoreService = require('../providers/core.service');
+const RedditService = require('../providers/reddit.service');
+const DataciteService = require('../providers/datacite.service');
+const NewsApiService = require('../providers/newsapi.service');
 
 
 

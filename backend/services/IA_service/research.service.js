@@ -7,9 +7,9 @@ const pdfParse = typeof _pdfParseRaw === 'function'
 if (!pdfParse) throw new Error('pdf-parse introuvable — vérifie ton npm install');
 const fs = require('fs').promises;
 const path = require('path');
-const db = require('../config/db');
+const db = require('../../config/db');
 const AggregatorService = require('./aggregator.service');
-const SciHubService = require('./providers/scihub.service');
+const SciHubService = require('../providers/scihub.service');
 
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -472,7 +472,7 @@ Format attendu:
     static async launchAutonomousLoop(projectId) {
         const Logger = require('./logger.service');
         const AiReaderService = require('./ai-reader.service');
-        const db = require('../config/db');
+        const db = require('../../config/db');
 
         // 1. Récupérer le nombre maximum d'itérations configuré par l'utilisateur
         const settings = await new Promise((resolve) => {

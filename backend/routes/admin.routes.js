@@ -3,7 +3,9 @@ const bcrypt = require('bcrypt');
 const db = require('../config/db');
 const { requireAuth, requireAdmin } = require('../middlewares/auth.middleware');
 const router = express.Router();
+const adminController = require('../controllers/admin.controller')
 
+// route permetant de crée un utilisateur par l'admin 
 router.post('/create-user', requireAuth, requireAdmin, async (req, res) => {
     const { username, tempPassword } = req.body;
     try {
@@ -17,18 +19,8 @@ router.post('/create-user', requireAuth, requireAdmin, async (req, res) => {
     }
 });
 
-router.post('/reset-password', requireAuth, requireAdmin, async (req, res) => {
-    const { username, newTempPassword } = req.body;
-    try {
-        const hashedPwd = await bcrypt.hash(newTempPassword, 10);
-        db.run("UPDATE users SET password = ? WHERE username = ?", [hashedPwd, username], function(err) {
-            if (err) return res.status(500).json({ error: "Erreur serveur" });
-            if (this.changes === 0) return res.status(404).json({ error: "Utilisateur introuvable." });
-            res.json({ message: `Mot de passe de ${username} réinitialisé.` });
-        });
-    } catch (e) { 
-        res.status(500).json({ error: "Erreur serveur" }); 
-    }
-});
+
+// route pour reinisaliser le mot de passe d'un utlisateur 
+router.post("/reset-password", requireAuth, requireAdmin, adminController.resetPassword);
 
 module.exports = router;
