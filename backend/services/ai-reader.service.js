@@ -126,95 +126,105 @@ const visionModel = "meta/llama-3.2-90b-vision-instruct";
         }
     }
 
-    static async analyzeArticle(filePath) {
-        Logger.log(`🤖 Initialisation de l'Agent Lecteur pour : ${filePath}`);
+   static async analyzeArticle(filePath) {
+        Logger.log(`🤖 Initialisation du pool d'Agents pour : ${filePath}`);
 
+        // 1. LECTURE DU TEXTE COMPLET (Fini le découpage !)
         const fullText = await fsPromises.readFile(filePath, 'utf8');
-        const chunks = this.chunkText(fullText);
-        const modelToUse = "meta/llama-3.1-70b-instruct";
+        // On garde une limite de sécurité très large (environ 150 000 caractères = ~35 000 tokens)
+        const safeText = fullText.substring(0, 150000); 
 
-        Logger.log(`  🔑 [Extraction] Identification des entités et concepts fondamentaux...`);
-        const metadataPrompt = `Analyse rigoureusement ce début d'article scientifique. Extrais les métadonnées au format JSON avec la structure exacte suivante :
+        const modelToUse = "meta-llama/llama-3.1-70b-instruct";
+
+        // ─── AGENT 1 : L'ARCHIVISTE (Extraction des Métadonnées) ───
+        Logger.log(`  📂 [Agent Archiviste] Extraction des concepts fondamentaux...`);
+        const metadataPrompt = `Analyse rigoureusement cet article scientifique. Extrais les métadonnées au format JSON avec la structure exacte suivante :
 {
   "title": "Titre exact de l'étude",
   "authors": ["Auteur 1", "Auteur 2"],
-  "year": "Année de publication",
+  "year": "Année",
   "keywords": ["Concept 1", "Maladie", "Traitement", "Variable clé"],
   "methodology": "Description de la méthode",
-  "study_type": "Type d'étude (ex: Méta-analyse, Essai Clinique Randomisé, etc.)",
+  "study_type": "Type d'étude",
   "quality_score": "Un entier de 1 à 5."
 }
-Texte à analyser :\n\n${chunks[0].substring(0, 4000)}`;
+Texte intégral :\n\n${safeText}`;
 
-        const extractedMeta = await this.askAI(metadataPrompt, "Tu es expert en extraction JSON.", modelToUse);
+        const extractedMeta = await this.askAI(metadataPrompt, "Tu es un bibliothécaire scientifique expert en JSON strict.", modelToUse);
 
-        let allNotes = [];
-        Logger.log(`  📝 [Lecture] Analyse textuelle approfondie (${chunks.length} segments)...`);
+        // ─── AGENT 2 : LE CHERCHEUR (Premier Brouillon) ───
+        Logger.log(`  📝 [Agent Chercheur] Lecture du document complet et rédaction du brouillon...`);
+        const draftPrompt = `Lis attentivement cet article scientifique dans son intégralité. 
+Rédige un premier rapport de lecture détaillé. Extraits impérativement les résultats chiffrés majeurs, la conclusion principale, et les limites méthodologiques mentionnées par les auteurs.
 
-        const maxChunks = Math.min(chunks.length, 2);
-        for (let index = 0; index < maxChunks; index++) {
-            const chunkPrompt = `Prends des notes détaillées sur ce passage. Extrais impérativement les résultats chiffrés majeurs, les conclusions et les limites mentionnées.\n\nTexte du segment :\n\n${chunks[index]}`;
-            const segmentNotes = await this.askAI(chunkPrompt, "Tu es un chercheur scientifique rigoureux.", modelToUse);
-            allNotes.push(`--- Notes Texte (Segment ${index + 1}) ---\n${segmentNotes}`);
-        }
+Texte intégral :\n\n${safeText}`;
+        const draftNotes = await this.askAI(draftPrompt, "Tu es un chercheur scientifique rigoureux.", modelToUse);
+        
+        let allNotes = `--- Brouillon Initial (Agent Chercheur) ---\n${draftNotes}`;
 
-        Logger.log(`  👁️ [Vision IA] Vérification du PDF pour l'analyse multimodale...`);
-
+        // ─── AGENT 3 : L'ANALYSTE VISION (Optionnel - Graphiques) ───
+        Logger.log(`  👁️ [Agent Vision] Vérification du PDF pour l'analyse multimodale...`);
         try {
             const pdfFilePath = filePath.replace('.txt', '.pdf');
-
-            if (!fs.existsSync(pdfFilePath)) {
-                Logger.log(`  ⏭️ [Vision IA] Ignoré : Aucun fichier PDF complet pour cet article (Abstract uniquement).`);
-            } else {
-                Logger.log(`  👁️ [Vision IA] PDF détecté. Extraction des pages statistiques (2 à 5)...`);
-
+            if (fs.existsSync(pdfFilePath)) {
+                Logger.log(`  👁️ [Agent Vision] PDF détecté. Scan des graphiques en cours...`);
                 const imageDir = path.dirname(pdfFilePath);
                 const baseName = path.basename(pdfFilePath, '.pdf');
 
                 try {
                     execSync(`pdftoppm -f 2 -l 5 -jpeg "${pdfFilePath}" "${path.join(imageDir, baseName)}"`);
-                } catch (e) {
-                    Logger.log(`  ⚠️ [Vision IA] Le PDF est probablement trop court, extraction partielle.`);
-                }
+                } catch (e) {}
 
                 const generatedFiles = fs.readdirSync(imageDir).filter(f => f.startsWith(baseName + '-') && f.endsWith('.jpg'));
 
                 for (const file of generatedFiles) {
                     const imgPath = path.join(imageDir, file);
-                    Logger.log(`     -> Scan visuel du fichier ${file}...`);
-                    
                     const imgBuffer = await fsPromises.readFile(imgPath);
                     const base64Img = imgBuffer.toString('base64');
 
-                    const visionPrompt = `Examine attentivement cette page d'article scientifique.
-Y a-t-il des tableaux de données, des graphiques ou des courbes statistiques ?
-Si OUI : Extrais les statistiques majeures, les valeurs exactes, et décris la tendance visible.
-Si NON : Réponds exactement "Aucun graphique pertinent".`;
-
+                    const visionPrompt = `Examine cette page. Si tu vois des tableaux ou des graphiques, extrais les statistiques majeures. Sinon, réponds "Aucun graphique pertinent".`;
                     const visionResult = await this.askVisionAI(visionPrompt, base64Img);
 
                     if (visionResult && !visionResult.includes("Aucun graphique pertinent") && visionResult.length > 50) {
                         Logger.log(`       📊 Données visuelles extraites !`);
-                        allNotes.push(`--- Données visuelles extraites des tableaux --- \n${visionResult}`);
+                        allNotes += `\n\n--- Données visuelles extraites ---\n${visionResult}`;
                     }
-
                     await fsPromises.unlink(imgPath);
                 }
             }
         } catch (visionErr) {
-            Logger.log(`  ⚠️ [Vision IA] Échec de l'analyse visuelle : ${visionErr.message}`);
+            Logger.log(`  ⚠️ [Agent Vision] Échec : ${visionErr.message}`);
         }
 
-        Logger.log(`  🧠 [Synthèse] Génération de la synthèse structurée finale...`);
-        const synthesisPrompt = `En te basant exclusivement sur tes notes de lecture suivantes, rédige une synthèse structurée de l'article incluant : les objectifs, les données clés, les conclusions et les limites de l'étude.
+        // ─── AGENT 4 : LE RÉVISEUR INTRANSIGEANT (Peer-Review) ───
+        Logger.log(`  🔬 [Agent Réviseur] Audit critique du brouillon...`);
+        const reviewPrompt = `Voici un brouillon de synthèse d'un article scientifique et les données visuelles extraites.
+Ton rôle est de faire un "Peer-Review" (audit critique) de ce brouillon.
+Cherche les biais, les omissions de chiffres importants, les exagérations ou les manques de clarté.
+Fais une liste stricte des points à corriger ou à préciser.
 
-Notes accumulées (Texte + Vision) :\n\n${allNotes.join('\n')}`;
+Contenu du brouillon :\n${allNotes}`;
+        const critique = await this.askAI(reviewPrompt, "Tu es un relecteur scientifique (Reviewer) extrêmement sévère et pointilleux.", modelToUse);
 
-        const articleSynthesis = await this.askAI(synthesisPrompt, "Tu es un analyste de données scientifiques.", modelToUse);
+        // ─── AGENT 5 : L'ÉDITEUR EN CHEF (Synthèse Finale) ───
+        Logger.log(`  🧠 [Agent Éditeur] Fusion, correction et rédaction de la synthèse finale...`);
+        const finalSynthesisPrompt = `Tu es l'Éditeur en Chef. Tu disposes d'un premier brouillon de lecture, et des critiques sévères du comité de relecture.
+Rédige la synthèse finale et parfaite de cet article en intégrant les remarques du comité.
+La synthèse doit être claire, structurée (Objectifs, Résultats Chiffrés, Limites) et prête à être publiée dans un rapport R&D.
+
+--- BROUILLON INITIAL ---
+${allNotes}
+
+--- CRITIQUES DU COMITÉ ---
+${critique}
+
+Rédige la synthèse finale maintenant :`;
+
+        const articleSynthesis = await this.askAI(finalSynthesisPrompt, "Tu es un Rédacteur en Chef scientifique.", modelToUse);
 
         return {
             meta: extractedMeta,
-            notes: allNotes.join('\n\n'),
+            notes: allNotes + `\n\n--- Critiques du Peer-Review ---\n${critique}`,
             synthesis: articleSynthesis
         };
     }
