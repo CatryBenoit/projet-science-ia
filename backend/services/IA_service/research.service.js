@@ -20,6 +20,7 @@ const Logger = require('./logger.service'); // LE MÉGAPHONE DU TERMINAL
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, 5000));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
+const ArticleModel = require('../models/article.model');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const UNPAYWALL_EMAIL = 'votre@email.com'; // ← Remplace par ton email
@@ -215,14 +216,20 @@ class ResearchServiceMassive {
             Logger.log("Aucun article trouvé.");
         }
     }
+static async processMassiveDownloads(articles, projectId, depth = 0) {
+        const Logger = require('./logger.service');
+        const AiReaderService = require('./ai-reader.service');
+        const fs = require('fs').promises;
+        const path = require('path');
+        const pdfParse = require('pdf-parse'); // Assure-toi que cet import est bien en haut de ton fichier
 
-    static async processMassiveDownloads(articles, projectId, depth = 0) {
         Logger.log(`\n🚀 Démarrage — ${articles.length} articles à traiter (pipeline 5 niveaux)\n`);
 
         const storageDir = path.resolve(__dirname, '../data/articles');
         await fs.mkdir(storageDir, { recursive: true });
 
         const stats = { full: 0, abstract: 0, failed: 0 };
+        const BATCH_SIZE = 3; // Par exemple, si tu as cette constante définie ailleurs
 
         for (let i = 0; i < articles.length; i += BATCH_SIZE) {
             const batch = articles.slice(i, i + BATCH_SIZE);
@@ -231,7 +238,6 @@ class ResearchServiceMassive {
             Logger.log(`\n──────────── Groupe ${groupNum}/${totalGroups} ────────────`);
 
             await Promise.all(batch.map(async (article) => {
-                // CORRECTION 1 : On ajoute l'ID du projet pour rendre cet article unique à ce projet précis
                 const safeId = article.id.replace(/[^a-zA-Z0-9]/g, '_') + '_proj' + projectId;
                 const filePath = path.join(storageDir, `${safeId}.txt`);
                 const shortTitle = article.title?.substring(0, 40) || 'Sans titre';
@@ -240,23 +246,29 @@ class ResearchServiceMassive {
                 try {
                     const { buffer, method } = await this.downloadArticle(article);
                     let textToSave = '';
-                    let isValidForSave = false; // 🛑 NOUVEAU : Notre verrou de sécurité
+                    let isValidForSave = false;
 
                     // CAS 1 : On a le PDF complet
-                    if (buffer && isPDF(buffer)) {
+                    // (Note: assure-toi d'avoir ta fonction isPDF() accessible)
+                    if (buffer && buffer.length > 0 /* && isPDF(buffer) */) { 
                         const pdfFilePath = path.join(storageDir, `${safeId}.pdf`);
                         await fs.writeFile(pdfFilePath, buffer);
                         Logger.log(`  💾 PDF original sauvegardé avec succès sur le disque.`);
 
-                        const parsed = await pdfParse(buffer);
-                        textToSave = parsed.text.replace(/\n\s*\n/g, '\n').trim();
-                        stats.full++;
-                        isValidForSave = true; // On autorise la sauvegarde
-                    }
-                    // CAS 2 : Pas de PDF, mais on a un VRAI résumé (au moins 20 caractères)
-                    else if (article.abstract && article.abstract.trim().length > 20) {
+                        try {
+                            const parsed = await pdfParse(buffer);
+                            textToSave = parsed.text.replace(/\n\s*\n/g, '\n').trim();
+                            stats.full++;
+                            isValidForSave = true;
+                        } catch (parseErr) {
+                            Logger.log(`  ⚠️ Erreur de parsing PDF, repli sur l'abstract.`);
+                        }
+                    } 
+                    
+                    // CAS 2 : Pas de PDF, mais on a un VRAI résumé
+                    if (!isValidForSave && article.abstract && article.abstract.trim().length > 20) {
                         textToSave = [
-                            `--- ABSTRACT ONLY [${method.toUpperCase()}] ---`,
+                            `--- ABSTRACT ONLY [${method ? method.toUpperCase() : 'UNKNOWN'}] ---`,
                             `TITLE: ${article.title}`,
                             `DATE: ${article.published_date}`,
                             `SOURCE: ${article.source}`,
@@ -267,10 +279,11 @@ class ResearchServiceMassive {
                             article.abstract.trim(),
                         ].join('\n');
                         stats.abstract++;
-                        isValidForSave = true; // On autorise la sauvegarde
-                    }
+                        isValidForSave = true;
+                    } 
+                    
                     // CAS 3 : Ni PDF, ni Résumé exploitable
-                    else {
+                    if (!isValidForSave) {
                         Logger.log(`  🗑️ Article ignoré : PDF inaccessible et aucun résumé disponible.`);
                         stats.failed++;
                     }
@@ -280,42 +293,42 @@ class ResearchServiceMassive {
                         // 1. Écriture du fichier texte brut
                         await fs.writeFile(filePath, textToSave, 'utf8');
 
-                        // 2. Verrouillage de la base de données et INSERT OR REPLACE
-                        await new Promise((resolve) => {
-                            db.run(
-                                `INSERT OR REPLACE INTO articles (id, title, published_date, oa_url, local_file_path, project_id, type) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-                                [safeId, article.title, article.published_date, article.oa_url, filePath, projectId, article.type || 'academic'],
-                                function (dbErr) {
-                                    if (dbErr) {
-                                        Logger.log(`  ❌ [BDD] Impossible d'enregistrer l'article : ${dbErr.message}`);
-                                    } else {
-                                        let typeLabel = '📄 Étude';
-                                        if (article.type === 'testimony') typeLabel = '🗣️ Témoignage';
-                                        if (article.type === 'dataset') typeLabel = '📊 Données Brutes';
-                                        if (article.type === 'news') typeLabel = '📰 Actualité';
-                                        
-                                        Logger.log(`  💾 [BDD] ${typeLabel} enregistré et validé (ID: ${safeId}).`);
-                                    }
-                                    resolve();
-                                }
-                            );
-                        });
+                        // 2. Sauvegarde en BDD via le Modèle
+                        try {
+                            await ArticleModel.saveArticle({
+                                id: safeId,
+                                title: article.title,
+                                published_date: article.published_date,
+                                oa_url: article.oa_url,
+                                local_file_path: filePath,
+                                project_id: projectId,
+                                type: article.type || 'academic'
+                            });
 
-                        // 3. Analyse de l'IA (Texte + Vision)
+                            let typeLabel = '📄 Étude';
+                            if (article.type === 'testimony') typeLabel = '🗣️ Témoignage';
+                            if (article.type === 'dataset') typeLabel = '📊 Données Brutes';
+                            if (article.type === 'news') typeLabel = '📰 Actualité';
+                            
+                            Logger.log(`  💾 [BDD] ${typeLabel} enregistré et validé (ID: ${safeId}).`);
+                        } catch (dbErr) {
+                            Logger.log(`  ❌ [BDD] Impossible d'enregistrer l'article : ${dbErr.message}`);
+                            return; // On arrête le traitement pour cet article s'il n'est pas en BDD
+                        }
+
+                        // 3. Analyse de l'IA (Texte + Vision) via le pipeline
                         try {
                             Logger.log(`  🧠 Lancement de l'analyse IA (Texte + Vision)...`);
                             const analysis = await AiReaderService.analyzeArticle(filePath);
 
-                            await new Promise((resolve) => {
-                                db.run(
-                                    `INSERT OR REPLACE INTO article_analysis (article_id, metadata, notes, synthesis) VALUES (?, ?, ?, ?)`,
-                                    [safeId, analysis.meta, analysis.notes, analysis.synthesis],
-                                    (analysisErr) => {
-                                        if (analysisErr) Logger.log(`  ❌ [BDD] Erreur sauvegarde analyse : ${analysisErr.message}`);
-                                        resolve();
-                                    }
-                                );
+                            // Sauvegarde de l'analyse en BDD via le Modèle
+                            await ArticleModel.saveAnalysis({
+                                article_id: safeId,
+                                metadata: analysis.meta,
+                                notes: analysis.notes,
+                                synthesis: analysis.synthesis
                             });
+                            
                             Logger.log(`  ✅ Analyse IA terminée et sauvegardée.`);
                         } catch (aiErr) {
                             Logger.log(`  🔴 Échec de l'analyse IA automatique : ${aiErr.message}`);
@@ -328,33 +341,37 @@ class ResearchServiceMassive {
                 }
             }));
 
-
             if (i + BATCH_SIZE < articles.length) {
-                const delay = jitter(2000, 2000);
+                // Remplacement de jitter() par une méthode standard si non définie
+                const delay = Math.floor(Math.random() * 2000) + 2000; // Entre 2s et 4s
                 Logger.log(`\n😴 Pause ${delay}ms avant le prochain groupe...`);
-                await sleep(delay);
+                await new Promise(resolve => setTimeout(resolve, delay));
             }
         }
 
         Logger.log(`\n${'═'.repeat(50)}`);
         Logger.log(`🏁 Téléchargements et analyses individuelles terminés !`);
-        Logger.log(`   ✅ Textes intégraux : ${stats.full}`);
+        Logger.log(`   ✅ Textes intégraux/Abstracts sauvés : ${stats.full + stats.abstract}`);
+        Logger.log(`   ❌ Échecs : ${stats.failed}`);
         Logger.log(`${'═'.repeat(50)}\n`);
 
         Logger.log(`👑 Lancement automatique de la synthèse globale du projet...`);
-        this.generateAutoSynthesis(projectId, depth);
+        // 🛑 Utilisation stricte de la Classe pour éviter l'erreur "this.generateAutoSynthesis is not a function"
+        ResearchService.generateAutoSynthesis(projectId, depth);
     }
 
-    static generateAutoSynthesis(projectId, depth = 0) {
-        const query = `
-            SELECT a.title, aa.metadata, aa.synthesis 
-            FROM articles a JOIN article_analysis aa ON a.id = aa.article_id 
-            WHERE a.project_id = ?
-        `;
 
-        db.all(query, [projectId], async (err, rows) => {
-            if (err || !rows || rows.length === 0) return Logger.log("⚠️ Impossible de faire la synthèse.");
+static async generateAutoSynthesis(projectId, depth = 0) {
+        try {
+            // 1. Récupération propre des données via le Modèle
+            const rows = await ProjectModel.getAnalyzedArticles(projectId);
 
+            if (!rows || rows.length === 0) {
+                Logger.log("⚠️ Impossible de faire la synthèse : aucun article analysé.");
+                return;
+            }
+
+            // 2. Formatage des données pour l'IA
             let aggregatedData = rows.map((r, i) => {
                 let scoreText = "⭐⭐⭐ (Non noté)";
                 let studyType = "Inconnu";
@@ -367,10 +384,12 @@ class ResearchServiceMassive {
                 return `### ÉTUDE ${i + 1} : ${r.title} \n[Type: ${studyType} | Fiabilité: ${scoreText}]\n${r.synthesis}\n`;
             }).join('\n');
 
-            if (aggregatedData.length > 60000) aggregatedData = aggregatedData.substring(0, 60000) + "\n[... Tronqué ...]";
+            if (aggregatedData.length > 60000) {
+                aggregatedData = aggregatedData.substring(0, 60000) + "\n[... Tronqué ...]";
+            }
 
-            try {
-                const systemPrompt = `Tu es Directeur de Recherche. Fais une méta-analyse et une synthèse transversale (Markdown) de ces études. 
+            // 3. Appel à l'IA pour la Méta-analyse
+            const systemPrompt = `Tu es Directeur de Recherche. Fais une méta-analyse et une synthèse transversale (Markdown) de ces études. 
 Règle Absolue : Tu dois pondérer tes conclusions en fonction de la Fiabilité (les étoiles ⭐) de chaque étude. Les affirmations issues d'études à 4 ou 5 étoiles doivent primer sur celles à 1 ou 2 étoiles en cas de contradiction.
 
 Format attendu: 
@@ -380,38 +399,40 @@ Format attendu:
 4. ⚔️ Contradictions
 5. 🔍 Lacunes de la littérature.`;
 
-                const finalReport = await AiReaderService.askAI(aggregatedData, systemPrompt, "meta/llama-3.1-70b-instruct");
+            const finalReport = await AiReaderService.askAI(aggregatedData, systemPrompt, "meta/llama-3.1-70b-instruct");
 
-                db.run(`INSERT OR REPLACE INTO project_synthesis (project_id, report) VALUES (?, ?)`, [projectId, finalReport]);
-                Logger.log(`🎉 MÉGA-SYNTHÈSE TERMINÉE ! Le rapport du projet #${projectId} a été mis à jour.`);
+            // 4. Sauvegarde propre via le Modèle
+            await ProjectModel.saveSynthesis(projectId, finalReport);
+            Logger.log(`🎉 MÉGA-SYNTHÈSE TERMINÉE ! Le rapport du projet #${projectId} a été mis à jour.`);
 
-                const MAX_DEPTH = 3; // L'IA peut relancer jusqu'à 3 niveaux de recherche.
+            // 5. Boucle d'Auto-Inspiration (Agentique)
+            const MAX_DEPTH = 3; // L'IA peut relancer jusqu'à 3 niveaux de recherche.
 
-                if (depth < MAX_DEPTH) {
-                    Logger.log(`\n💡 L'IA réfléchit aux zones d'ombre de sa propre synthèse...`);
-                    const newQueries = await AiReaderService.generateInspirationQueries(finalReport);
+            if (depth < MAX_DEPTH) {
+                Logger.log(`\n💡 L'IA réfléchit aux zones d'ombre de sa propre synthèse...`);
+                const newQueries = await AiReaderService.generateInspirationQueries(finalReport);
 
-                    if (newQueries.length > 0) {
-                        Logger.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets : ${JSON.stringify(newQueries)}`);
+                if (newQueries.length > 0) {
+                    Logger.log(`  🎯 Eurêka ! L'IA veut approfondir ces sujets : ${JSON.stringify(newQueries)}`);
 
-                        for (const query of newQueries) {
-                            Logger.log(`\n🚀 [Auto-Pilote] L'IA lance une recherche sur : "${query}"`);
-                            const newArticles = await AggregatorService.searchAndMerge(query, 3);
-                            if (newArticles.length > 0) {
-                                await this.processMassiveDownloads(newArticles, projectId, depth + 1);
-                            }
+                    for (const query of newQueries) {
+                        Logger.log(`\n🚀 [Auto-Pilote] L'IA lance une recherche sur : "${query}"`);
+                        const newArticles = await AggregatorService.searchAndMerge(query, 3);
+                        
+                        if (newArticles.length > 0) {
+                            await this.processMassiveDownloads(newArticles, projectId, depth + 1);
                         }
-                    } else {
-                        Logger.log(`  🛑 L'IA estime que le sujet est suffisamment couvert.`);
                     }
                 } else {
-                    Logger.log(`  🛡️ Arrêt de l'Auto-Inspiration (Limite de profondeur atteinte).`);
+                    Logger.log(`  🛑 L'IA estime que le sujet est suffisamment couvert.`);
                 }
-
-            } catch (err) {
-                Logger.log(`🔴 Échec de la synthèse ou de l'auto-inspiration : ${err.message}`);
+            } else {
+                Logger.log(`  🛡️ Arrêt de l'Auto-Inspiration (Profondeur maximale atteinte).`);
             }
-        });
+
+        } catch (err) {
+            Logger.log(`🔴 Échec de la synthèse ou de l'auto-inspiration : ${err.message}`);
+        }
     }
 
 
@@ -469,84 +490,81 @@ Format attendu:
 /**
      * NOUVEAU : BOUCLE DE RECHERCHE AUTONOME (AGENT DEEP RESEARCH)
      */
-    static async launchAutonomousLoop(projectId) {
+   static async launchAutonomousLoop(projectId) {
         const Logger = require('./logger.service');
         const AiReaderService = require('./ai-reader.service');
-        const db = require('../../config/db');
+        
+        // Importation des modèles (finies les requêtes SQL directes !)
+        const ProjectModel = require('../models/project.model');
+        const SettingsModel = require('../models/settings.model');
 
-        // 1. Récupérer le nombre maximum d'itérations configuré par l'utilisateur
-        const settings = await new Promise((resolve) => {
-            db.get("SELECT max_iterations FROM user_settings WHERE id = 1", (err, row) => {
-                resolve(row || { max_iterations: 2 });
-            });
-        });
-        const maxIterations = settings.max_iterations || 2;
+        try {
+            // 1. Récupérer le nombre maximum d'itérations via le Modèle
+            const settings = await SettingsModel.getSettings();
+            const maxIterations = settings.max_iterations || 2;
 
-        Logger.log(`\n🤖 [AGENT AUTONOME] Démarrage du cycle Deep Research (${maxIterations} itérations max)...`);
+            Logger.log(`\n🤖 [AGENT AUTONOME] Démarrage du cycle Deep Research (${maxIterations} itérations max)...`);
 
-        for (let i = 1; i <= maxIterations; i++) {
-            Logger.log(`\n🔄 ═══ ITÉRATION AUTONOME ${i}/${maxIterations} ═══`);
-            
-            // 2. Récupérer le contexte du projet et sa dernière synthèse
-            const projectData = await new Promise((resolve) => {
-                db.get(`
-                    SELECT p.name, p.core_theme, p.ignored_topics, ps.report 
-                    FROM projects p 
-                    LEFT JOIN project_synthesis ps ON p.id = ps.project_id 
-                    WHERE p.id = ?`, [projectId], (err, row) => resolve(row));
-            });
+            for (let i = 1; i <= maxIterations; i++) {
+                Logger.log(`\n🔄 ═══ ITÉRATION AUTONOME ${i}/${maxIterations} ═══`);
+                
+                // 2. Récupérer le contexte du projet via le Modèle
+                const projectData = await ProjectModel.getProjectWithSynthesis(projectId);
 
-            if (!projectData) {
-                Logger.log(`❌ [AGENT AUTONOME] Projet #${projectId} introuvable.`);
-                break;
-            }
-
-            const currentSynthesis = projectData.report || `Projet : ${projectData.name}. Thème central : ${projectData.core_theme || 'Général'}`;
-            const ignoredTopics = JSON.parse(projectData.ignored_topics || '[]');
-
-            // 3. Demander à l'IA d'identifier les lacunes et de générer de nouvelles requêtes
-            Logger.log(`🧠 [AGENT AUTONOME] Analyse des zones d'ombre de la synthèse pour formuler de nouvelles hypothèses...`);
-            let queries = await AiReaderService.generateInspirationQueries(currentSynthesis);
-            
-            if (!queries || queries.length === 0) {
-                Logger.log(`⏹️ [AGENT AUTONOME] L'IA estime que le sujet est entièrement couvert. Arrêt prématuré de la boucle.`);
-                break;
-            }
-
-            // 4. GUARDRAIL : Filtrer les requêtes proposées contre les branches élaguées (Graphe)
-            const validQueries = queries.filter(q => {
-                const isIgnored = ignoredTopics.some(ignored => q.toLowerCase().includes(ignored.toLowerCase()));
-                if (isIgnored) {
-                    Logger.log(`  ✂️ [GUARDRAIL] Piste "${q}" rejetée : elle correspond à une branche élaguée par l'utilisateur.`);
+                if (!projectData) {
+                    Logger.log(`❌ [AGENT AUTONOME] Projet #${projectId} introuvable.`);
+                    break;
                 }
-                return !isIgnored;
-            });
 
-            if (validQueries.length === 0) {
-                Logger.log(`⏹️ [AGENT AUTONOME] Toutes les nouvelles pistes proposées font partie des sujets bannis. Arrêt du cycle.`);
-                break;
+                const currentSynthesis = projectData.report || `Projet : ${projectData.name}. Thème central : ${projectData.core_theme || 'Général'}`;
+                const ignoredTopics = JSON.parse(projectData.ignored_topics || '[]');
+
+                // 3. Demander à l'IA d'identifier les lacunes et de générer de nouvelles requêtes
+                Logger.log(`🧠 [AGENT AUTONOME] Analyse des zones d'ombre de la synthèse pour formuler de nouvelles hypothèses...`);
+                let queries = await AiReaderService.generateInspirationQueries(currentSynthesis);
+                
+                if (!queries || queries.length === 0) {
+                    Logger.log(`⏹️ [AGENT AUTONOME] L'IA estime que le sujet est entièrement couvert. Arrêt prématuré de la boucle.`);
+                    break;
+                }
+
+                // 4. GUARDRAIL : Filtrer les requêtes proposées contre les branches élaguées (Graphe)
+                const validQueries = queries.filter(q => {
+                    const isIgnored = ignoredTopics.some(ignored => q.toLowerCase().includes(ignored.toLowerCase()));
+                    if (isIgnored) {
+                        Logger.log(`  ✂️ [GUARDRAIL] Piste "${q}" rejetée : elle correspond à une branche élaguée par l'utilisateur.`);
+                    }
+                    return !isIgnored;
+                });
+
+                if (validQueries.length === 0) {
+                    Logger.log(`⏹️ [AGENT AUTONOME] Toutes les nouvelles pistes proposées font partie des sujets bannis. Arrêt du cycle.`);
+                    break;
+                }
+
+                Logger.log(`🎯 [AGENT AUTONOME] ${validQueries.length} nouvelle(s) piste(s) validée(s) : [ ${validQueries.join(', ')} ]`);
+
+                // 5. Lancer l'aspiration et l'analyse pour chaque nouvelle piste
+                for (const query of validQueries) {
+                    Logger.log(`🌐 [AGENT AUTONOME] Exploration de la sous-requête : "${query}"...`);
+                    
+                    // 🛑 ATTENTION ICI : On utilise bien le nom de la classe, pas "this." pour éviter les crashs de contexte JavaScript
+                    await ResearchService.launchSearch(query, projectId, {}); 
+                }
+
+                // 6. Pause de sécurité entre les cycles
+                if (i < maxIterations) {
+                    Logger.log(`⏳ [AGENT AUTONOME] Fin de l'itération ${i}. Pause de 6 secondes avant le prochain cycle de réflexion...`);
+                    await new Promise(resolve => setTimeout(resolve, 6000));
+                }
             }
 
-            Logger.log(`🎯 [AGENT AUTONOME] ${validQueries.length} nouvelle(s) piste(s) validée(s) : [ ${validQueries.join(', ')} ]`);
-
-            // 5. Lancer l'aspiration et l'analyse pour chaque nouvelle piste
-            for (const query of validQueries) {
-                Logger.log(`🌐 [AGENT AUTONOME] Exploration de la sous-requête : "${query}"...`);
-                // Appel au pipeline d'aspiration classique
-                await this.launchSearch(query, projectId, {}); 
-            }
-
-            // 6. Pause de sécurité entre les cycles pour laisser les bases SQLite respirer et éviter les Rate Limits
-            if (i < maxIterations) {
-                Logger.log(`⏳ [AGENT AUTONOME] Fin de l'itération ${i}. Pause de 6 secondes avant le prochain cycle de réflexion...`);
-                await new Promise(resolve => setTimeout(resolve, 6000));
-            }
+            Logger.log(`\n🏁 [AGENT AUTONOME] Cycle Deep Research terminé avec succès ! Le projet a été enrichi en autonomie.`);
+            
+        } catch (error) {
+            Logger.log(`❌ [AGENT AUTONOME] Une erreur inattendue est survenue : ${error.message}`);
         }
-
-        Logger.log(`\n🏁 [AGENT AUTONOME] Cycle Deep Research terminé avec succès ! Le projet a été enrichi en autonomie.`);
     }
-
-    
 
 
 

@@ -1,72 +1,87 @@
-const ArxivService = require('../providers/arxiv.service');
-const HalService = require('../providers/hal.service');
-const PmcService = require('../providers/pmc.service');
-const SemanticScholarProvider = require('../providers/semanticscholar.provider');
-const OpenAlexProvider = require('../providers/openalex.provider');
-const BioRxivService = require('../providers/biorxiv.service');
-const ChemRxivService = require('../providers/chemrxiv.service');
-const ClinicalTrialsService = require('../providers/clinicaltrials.service');
-const PatentsService = require('../providers/patents.service');
-const CoreService = require('../providers/core.service');
-const RedditService = require('../providers/reddit.service');
-const DataciteService = require('../providers/datacite.service');
-const NewsApiService = require('../providers/newsapi.service');
+// Permet de recuper dans different basse des donnée comme des article ect 
 
+const fs = require('fs');
+const path = require('path');
+const Logger = require('../app_Service/logger.service');
 
+// Chargement automatique de tous les providers
+const providers = fs
+    .readdirSync(path.join(__dirname, '../providers'))
+    .filter(file => file.endsWith('.js'))
+    .map(file => {
+        const provider = require(path.join(__dirname, '../providers', file));
 
-const Logger = require('./logger.service');
+        provider.providerName = provider.providerName || file.replace('.js', '');
+
+        return provider;
+    });
 
 class AggregatorService {
+
+    /**
+     * Timeout d'une promesse
+     */
+    static withTimeout(promise, ms = 10000) {
+        return Promise.race([
+            promise,
+            new Promise((_, reject) =>
+                setTimeout(() => reject(new Error('Timeout')), ms)
+            )
+        ]);
+    }
+
+    /**
+     * Recherche sur toutes les bases
+     */
     static async searchAndMerge(query, limitPerSource = 3) {
-        Logger.log(`\n🌐 [AGRÉGATEUR] Lancement d'une recherche mondiale sur 10 bases de données pour "${query}"...`);
-        
+
+        Logger.log(`\n🌐 [AGRÉGATEUR] Recherche sur ${providers.length} fournisseurs pour "${query}"...`);
+
         try {
-            // On lance TOUTES les recherches en même temps (en parallèle)
-            const results = await Promise.allSettled([
-                ArxivService.search(query, limitPerSource),
-                HalService.search(query, limitPerSource),
-                PmcService.search(query, limitPerSource),
-                SemanticScholarProvider.search(query, limitPerSource),
-                OpenAlexProvider.search(query, limitPerSource),
-                BioRxivService.search(query, limitPerSource),
-                ChemRxivService.search(query, limitPerSource),
-                ClinicalTrialsService.search(query, limitPerSource),
-                PatentsService.search(query, limitPerSource),
-                CoreService.search(query, limitPerSource),
-                RedditService.search(query, limitPerSource),
-                DataciteService.search(query, limitPerSource),
-                NewsApiService.search(query, limitPerSource)
-            ]);
 
-            let allArticles = [];
+            const results = await Promise.allSettled(
+                providers.map(provider =>
+                    this.withTimeout(
+                        provider.search(query, limitPerSource),
+                        10000
+                    )
+                )
+            );
 
-            results.forEach((promiseResult, index) => {
-                if (promiseResult.status === 'fulfilled') {
-                    allArticles = allArticles.concat(promiseResult.value);
-                } else {
-                    Logger.log(`⚠️ Un des fournisseurs a échoué (Index ${index}): ${promiseResult.reason}`);
+            results.forEach((result, index) => {
+                if (result.status === 'rejected') {
+                    Logger.log(
+                        `⚠️ ${providers[index].providerName} : ${result.reason.message}`
+                    );
                 }
             });
 
-            // Déduplication (On enlève les doublons si plusieurs bases renvoient le même article)
-            const uniqueArticles = [];
-            const seenTitles = new Set();
+            const allArticles = results
+                .filter(r => r.status === 'fulfilled')
+                .flatMap(r => r.value);
 
-            for (const article of allArticles) {
-                if (!article || !article.title) continue;
-                const normalizedTitle = article.title.toLowerCase().trim();
-                
-                if (!seenTitles.has(normalizedTitle)) {
-                    seenTitles.add(normalizedTitle);
-                    uniqueArticles.push(article);
-                }
-            }
+            const uniqueArticles = [
+                ...new Map(
+                    allArticles
+                        .filter(article => article?.title)
+                        .map(article => [
+                            article.title.trim().toLowerCase(),
+                            article
+                        ])
+                ).values()
+            ];
 
-            Logger.log(`✅ [AGRÉGATEUR] ${uniqueArticles.length} documents uniques fusionnés et prêts pour l'Aspirateur.`);
+            Logger.log(
+                `✅ [AGRÉGATEUR] ${uniqueArticles.length} documents uniques récupérés.`
+            );
+
             return uniqueArticles;
 
         } catch (error) {
-            Logger.log(`❌ Erreur globale de l'Agrégateur : ${error.message}`);
+
+            Logger.log(`❌ Erreur de l'agrégateur : ${error.message}`
+            );
+
             return [];
         }
     }

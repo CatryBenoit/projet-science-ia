@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const libraryRoutes = require('./routes/library.routes');
-// Importation des routes
 const authRoutes = require('./routes/auth.routes');
 const wolRoutes = require('./routes/wol.routes');
 const adminRoutes = require('./routes/admin.routes');

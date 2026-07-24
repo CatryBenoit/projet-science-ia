@@ -1,42 +1,28 @@
 const axios = require('axios');
-const fs = require('fs'); // Import standard pour les méthodes synchrones (existsSync, readdirSync)
-const fsPromises = require('fs').promises; // Import pour les méthodes asynchrones (readFile, unlink)
+const fs = require('fs');
+const fsPromises = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
 const Logger = require('./logger.service');
 const db = require('../../config/db');
 
+const settingModel = require('../../Models/setting.model');
+
 const defaultModel = "meta/llama-3.1-70b-instruct";
 
-const defaultBaseUrl = "https://integrate.api.nvidia.com/v1"; // URL de sécurité par défaut si tout le reste est vide
+const defaultBaseUrl = "https://integrate.api.nvidia.com/v1";
 
 class AiReaderService {
 
+    //recuper les paramettre de l'utilisateur 
     static async getSettings() {
         return new Promise((resolve) => {
-            db.get("SELECT api_key, ai_model, api_base_url, max_iterations FROM user_settings WHERE id = 1", (err, row) => {
-                if (err || !row) {
-                    resolve({ 
-                        api_key: null, 
-                        ai_model: defaultModel, 
-                        api_base_url: process.env.AI_API_URL || process.env.NVIDIA_API_URL || defaultBaseUrl, 
-                        max_iterations: 2 
-                    });
-                } else {
-                    resolve(row);
-                }
-            });
+            await settingModel.getUserSetting(1)
         });
     }
 
-    static chunkText(text, chunkSize = 8000) {
-        const chunks = [];
-        for (let i = 0; i < text.length; i += chunkSize) {
-            chunks.push(text.slice(i, i + chunkSize));
-        }
-        return chunks;
-    }
 
+    // Permet de demmander a l'ia queque chose 
     static async askAI(prompt, systemPrompt = "Tu es un expert scientifique.", modelOverride = null, retries = 3) {
         const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -44,8 +30,7 @@ class AiReaderService {
             try {
                 const settings = await this.getSettings();
                 const activeModel = modelOverride || settings.ai_model || defaultModel;
-                
-                // 🛑 CORRECTION ICI : Si tout est vide, on prend defaultBaseUrl pour ne jamais crasher sur .replace()
+
                 const rawUrl = settings.api_base_url || process.env.NVIDIA_API_URL || process.env.AI_API_URL || defaultBaseUrl;
                 let baseUrl = rawUrl.replace(/\/+$/, '');
                 const endpoint = `${baseUrl}/chat/completions`;
@@ -72,7 +57,7 @@ class AiReaderService {
                             "Authorization": `Bearer ${apiKey}`,
                             "Content-Type": "application/json"
                         },
-                        timeout: 120000 // 120 secondes max
+                        timeout: 120000
                     }
                 );
 
@@ -85,7 +70,7 @@ class AiReaderService {
                 if ((status === 429 || errorMessage.includes('timeout')) && i < retries - 1) {
                     console.log(`⚠️ Surcharge API (${status || 'Timeout'}). Pause de 10s avant réessai... (${i + 1}/${retries})`);
                     await wait(10000);
-                    continue; 
+                    continue;
                 }
 
                 console.error(`❌ Erreur API IA (${error.config?.url || 'endpoint inconnu'}) :`, errorMessage);
@@ -94,10 +79,12 @@ class AiReaderService {
         }
     }
 
+
+    // permet a l'ia de visioner un image et de prendre les info de celle ci 
     static async askVisionAI(prompt, base64Image) {
         const API_URL = process.env.AI_API_URL || process.env.NVIDIA_API_URL || defaultBaseUrl;
         const API_KEY = process.env.AI_API_KEY || process.env.NVIDIA_API_KEY;
-const visionModel = "meta/llama-3.2-90b-vision-instruct";
+        const visionModel = "meta/llama-3.2-90b-vision-instruct";
         try {
             const response = await axios.post(`${API_URL.replace(/\/+$/, '')}/chat/completions`, {
                 model: visionModel,
@@ -113,7 +100,7 @@ const visionModel = "meta/llama-3.2-90b-vision-instruct";
                         ]
                     }
                 ],
-                max_tokens: 1500,
+                max_tokens: 15000,
                 temperature: 0.1
             }, {
                 headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
@@ -126,40 +113,23 @@ const visionModel = "meta/llama-3.2-90b-vision-instruct";
         }
     }
 
-   static async analyzeArticle(filePath) {
+
+    static async analyzeArticle(filePath) {
         Logger.log(`🤖 Initialisation du pool d'Agents pour : ${filePath}`);
 
-        // 1. LECTURE DU TEXTE COMPLET (Fini le découpage !)
         const fullText = await fsPromises.readFile(filePath, 'utf8');
-        // On garde une limite de sécurité très large (environ 150 000 caractères = ~35 000 tokens)
-        const safeText = fullText.substring(0, 150000); 
+
+        const safeText = fullText.substring(0, 350000);
 
         const modelToUse = "meta-llama/llama-3.1-70b-instruct";
 
-        // ─── AGENT 1 : L'ARCHIVISTE (Extraction des Métadonnées) ───
-        Logger.log(`  📂 [Agent Archiviste] Extraction des concepts fondamentaux...`);
-        const metadataPrompt = `Analyse rigoureusement cet article scientifique. Extrais les métadonnées au format JSON avec la structure exacte suivante :
-{
-  "title": "Titre exact de l'étude",
-  "authors": ["Auteur 1", "Auteur 2"],
-  "year": "Année",
-  "keywords": ["Concept 1", "Maladie", "Traitement", "Variable clé"],
-  "methodology": "Description de la méthode",
-  "study_type": "Type d'étude",
-  "quality_score": "Un entier de 1 à 5."
-}
-Texte intégral :\n\n${safeText}`;
+        //Premier analyse 
+        const extractedMeta = await initialAnalys(safeText, modelToUse);
 
-        const extractedMeta = await this.askAI(metadataPrompt, "Tu es un bibliothécaire scientifique expert en JSON strict.", modelToUse);
 
         // ─── AGENT 2 : LE CHERCHEUR (Premier Brouillon) ───
-        Logger.log(`  📝 [Agent Chercheur] Lecture du document complet et rédaction du brouillon...`);
-        const draftPrompt = `Lis attentivement cet article scientifique dans son intégralité. 
-Rédige un premier rapport de lecture détaillé. Extraits impérativement les résultats chiffrés majeurs, la conclusion principale, et les limites méthodologiques mentionnées par les auteurs.
+        const draftNotes = firstAnalys(safeText, modelToUse)
 
-Texte intégral :\n\n${safeText}`;
-        const draftNotes = await this.askAI(draftPrompt, "Tu es un chercheur scientifique rigoureux.", modelToUse);
-        
         let allNotes = `--- Brouillon Initial (Agent Chercheur) ---\n${draftNotes}`;
 
         // ─── AGENT 3 : L'ANALYSTE VISION (Optionnel - Graphiques) ───
@@ -173,7 +143,7 @@ Texte intégral :\n\n${safeText}`;
 
                 try {
                     execSync(`pdftoppm -f 2 -l 5 -jpeg "${pdfFilePath}" "${path.join(imageDir, baseName)}"`);
-                } catch (e) {}
+                } catch (e) { }
 
                 const generatedFiles = fs.readdirSync(imageDir).filter(f => f.startsWith(baseName + '-') && f.endsWith('.jpg'));
 
@@ -197,30 +167,12 @@ Texte intégral :\n\n${safeText}`;
         }
 
         // ─── AGENT 4 : LE RÉVISEUR INTRANSIGEANT (Peer-Review) ───
-        Logger.log(`  🔬 [Agent Réviseur] Audit critique du brouillon...`);
-        const reviewPrompt = `Voici un brouillon de synthèse d'un article scientifique et les données visuelles extraites.
-Ton rôle est de faire un "Peer-Review" (audit critique) de ce brouillon.
-Cherche les biais, les omissions de chiffres importants, les exagérations ou les manques de clarté.
-Fais une liste stricte des points à corriger ou à préciser.
 
-Contenu du brouillon :\n${allNotes}`;
-        const critique = await this.askAI(reviewPrompt, "Tu es un relecteur scientifique (Reviewer) extrêmement sévère et pointilleux.", modelToUse);
+        const critique = await this.PeerReview(allNotes, modelToUse);
+
 
         // ─── AGENT 5 : L'ÉDITEUR EN CHEF (Synthèse Finale) ───
-        Logger.log(`  🧠 [Agent Éditeur] Fusion, correction et rédaction de la synthèse finale...`);
-        const finalSynthesisPrompt = `Tu es l'Éditeur en Chef. Tu disposes d'un premier brouillon de lecture, et des critiques sévères du comité de relecture.
-Rédige la synthèse finale et parfaite de cet article en intégrant les remarques du comité.
-La synthèse doit être claire, structurée (Objectifs, Résultats Chiffrés, Limites) et prête à être publiée dans un rapport R&D.
-
---- BROUILLON INITIAL ---
-${allNotes}
-
---- CRITIQUES DU COMITÉ ---
-${critique}
-
-Rédige la synthèse finale maintenant :`;
-
-        const articleSynthesis = await this.askAI(finalSynthesisPrompt, "Tu es un Rédacteur en Chef scientifique.", modelToUse);
+        const articleSynthesis = await finalSynthesis(allNotes, critique, modelToUse)
 
         return {
             meta: extractedMeta,
@@ -237,13 +189,15 @@ Génère 1 à 3 requêtes de recherche très courtes et pertinentes (mots-clés 
 Tu dois répondre EXCLUSIVEMENT avec un tableau JSON valide. Exemple : ["Biomarkers", "ViT versus CNN"]`;
 
         try {
-            const response = await this.askAI(prompt, "Tu es un extracteur JSON strict.", "meta/llama-3.1-70b-instruct");            const match = response.match(/\[[\s\S]*\]/);
+            const response = await this.askAI(prompt, "Tu es un extracteur JSON strict.", "meta/llama-3.1-70b-instruct"); const match = response.match(/\[[\s\S]*\]/);
             if (match) return JSON.parse(match[0]).slice(0, 3);
             return [];
         } catch (error) {
             return [];
         }
     }
+
+
 
     static async evaluateRelevance(rootTopic, proposedSubtopic, currentDepth) {
         const systemPrompt = `Tu es un auditeur scientifique strict. Ta seule tâche est d'évaluer si une nouvelle piste de recherche reste parfaitement ancrée dans le thème racine d'un projet ou si elle commence à dériver (hors-sujet, trop généraliste, ou lien trop indirect).`;
@@ -266,7 +220,6 @@ Grille de notation stricte :
 - 7 à 10 : Piste pertinente qui approfondit directement un aspect technique du thème racine -> "KEEP"`;
 
         try {
-            // 🛑 CORRECTION ICI : On remplace le 'callLLM' fantôme par this.askAI
             const response = await this.askAI(userPrompt, systemPrompt, defaultModel);
             const cleanJson = response.replace(/```json/gi, '').replace(/```/g, '').trim();
             return JSON.parse(cleanJson);
@@ -280,45 +233,125 @@ Grille de notation stricte :
         }
     }
 
-    static async analyzeArticleWithTheme(articleText, articleTitle, coreTheme = "") {
-        const anchorInstruction = coreTheme 
-            ? `RÈGLE ABSOLUE ANTI-DÉRIVE : Ton analyse DOIT ÊTRE STRICTEMENT ANCRÉE dans le thème principal suivant : "${coreTheme}". Ignore toute information scientifique qui n'a pas de lien direct ou indirect avec ce sujet précis.`
-            : "";
 
-        const systemPrompt = `Tu es un chercheur expert spécialisé dans l'analyse scientifique et la taxonomie de données.
-${anchorInstruction}
-
-Tu dois analyser le texte fourni et retourner STRICTEMENT un objet JSON valide (sans aucun texte autour, sans balises markdown \`\`\`json).
-
-Structure exacte attendue pour l'objet JSON :
+static async initialAnalys(Text, model) {
+        Logger.log(`  📂 [Agent Archiviste] Extraction des concepts fondamentaux...`);
+        
+        const systemPrompt = "Tu es un data-scientiste expert en taxonomie. Tu réponds STRICTEMENT et UNIQUEMENT en JSON, sans aucun texte avant ou après.";
+        
+        const metadataPrompt = `Analyse rigoureusement cet article scientifique. Extrais les métadonnées au format JSON avec la structure exacte suivante :
 {
-  "metadata": "Auteurs, Institution, Année et méthodologie utilisée",
-  "macro_theme": "Une étiquette globale courte (2-3 mots max) qui classe cet article (ex: Précision des capteurs, Effets cliniques, Méthodologie, Étude de cas...)",
-  "micro_themes": ["mot-clé 1", "mot-clé 2", "mot-clé 3"],
-  "notes": "Notes de lecture brutes, chiffres clés, limites de l'étude",
-  "synthesis": "Synthèse analytique claire de l'article centrée sur le thème"
-}`;
+  "title": "Titre exact de l'étude",
+  "authors": ["Auteur 1", "Auteur 2"],
+  "year": "Année de publication (ou 'Non spécifiée')",
+  "keywords": ["Mot-clé 1", "Mot-clé 2", "Mot-clé 3"],
+  "methodology": "Brève description de la méthodologie (ex: 'Étude de cohorte', 'Essai in vitro')",
+  "study_type": "Type d'étude",
+  "quality_score": "Entier de 1 à 5."
+}
 
-        const prompt = `Voici l'article à analyser :
-Titre : ${articleTitle}
-Contenu :
-${articleText.substring(0, 30000)}`;
+RÈGLES ABSOLUES :
+1. Si une information est introuvable, utilise la valeur "Non spécifié" (ou un tableau vide []). N'invente rien.
+2. Pour le 'quality_score', utilise cette grille :
+   - 1 : Opinion, éditorial ou source non scientifique.
+   - 2 : Étude de cas unique ou observationnelle faible.
+   - 3 : Étude observationnelle solide ou cohorte.
+   - 4 : Essai clinique randomisé ou étude expérimentale contrôlée.
+   - 5 : Méta-analyse ou revue systématique de haute qualité.
 
-        try {
-            const rawResponse = await this.askAI(prompt, systemPrompt);
-            const cleanJson = rawResponse.replace(/```json/gi, '').replace(/```/g, '').trim();
-            return JSON.parse(cleanJson);
-        } catch (error) {
-            console.error("❌ Erreur de parsing JSON dans l'analyse catégorisée, repli standard.", error.message);
-            return {
-                metadata: "Extraction automatique",
-                macro_theme: "Non classé",
-                micro_themes: [],
-                notes: "Erreur de formatage IA",
-                synthesis: "Article lu mais non catégorisé. Veuillez relancer."
-            };
-        }
+Texte intégral :
+<texte>
+${Text}
+</texte>`;
+
+        return await this.askAI(metadataPrompt, systemPrompt, model);
     }
+
+
+static async firstAnalys(Text, model) {
+        Logger.log(`  📝 [Agent Chercheur] Lecture du document complet et rédaction du brouillon...`);
+        
+        const systemPrompt = "Tu es un chercheur scientifique rigoureux. Ton objectif est d'extraire la substance technique d'un article sans la déformer.";
+        
+        const draftPrompt = `Lis attentivement l'article scientifique ci-dessous et rédige un premier brouillon d'analyse.
+
+Tu DOIS structurer ta réponse exactement avec ces sections Markdown :
+
+### 🎯 Hypothèses et Objectifs
+(Que cherchent-ils à prouver ?)
+
+### 🧪 Méthodologie et Échantillon
+(Comment ont-ils procédé ? Précise impérativement la taille de l'échantillon 'N' si disponible, la durée, et le type de tests).
+
+### 📊 Résultats Chiffrés
+(Quels sont les résultats majeurs ? Tu dois extraire les pourcentages pertinents, les valeurs statistiques comme les p-values, ou les marges d'erreur).
+
+### ⚠️ Limites de l'étude
+(Quels sont les biais ou limites avoués par les auteurs eux-mêmes ?)
+
+Texte de l'article :
+<texte>
+${Text}
+</texte>`;
+
+        return await this.askAI(draftPrompt, systemPrompt, model);
+    }
+
+
+    static async PeerReview(originalText, draftNote, model) {
+        Logger.log(`  🔬 [Agent Réviseur] Audit critique du brouillon...`);
+        
+        const systemPrompt = "Tu es un relecteur scientifique (Peer-Reviewer) extrêmement sévère, pointilleux et factuel.";
+        
+        const reviewPrompt = `Voici le texte original d'un article scientifique, suivi d'un brouillon de synthèse rédigé par un assistant.
+Ton rôle est de faire l'audit critique de ce brouillon.
+
+TA MISSION :
+1. Débusquer les hallucinations (faits présents dans le brouillon mais absents du texte).
+2. Pointer les omissions graves (chiffres clés ou nuances majeures du texte ignorés dans le brouillon).
+3. Vérifier que les limites de l'étude ne sont pas minimisées.
+
+Rédige une liste stricte et concise des corrections à apporter, sous forme de tirets. Ne réécris pas la synthèse, donne juste tes directives de correction.
+
+--- TEXTE ORIGINAL ---
+<texte>
+${originalText}
+</texte>
+
+--- BROUILLON À AUDITER ---
+<brouillon>
+${draftNote}
+</brouillon>`;
+
+        return await this.askAI(reviewPrompt, systemPrompt, model);
+    }
+
+
+
+    static async finalSynthesis(draftNote, critique, model) {
+        Logger.log(`  🧠 [Agent Éditeur] Fusion, correction et rédaction de la synthèse finale...`);
+        
+        const systemPrompt = "Tu es le Rédacteur en Chef d'un grand journal scientifique. Tu as un esprit de synthèse exceptionnel et une plume claire.";
+        
+        const finalSynthesisPrompt = `Tu disposes d'un premier brouillon de lecture, et des critiques sévères du comité de relecture (Peer-Review).
+Ta tâche est de rédiger la synthèse finale et parfaite de cet article en corrigeant les erreurs du brouillon pointées par le comité.
+
+RÈGLES DE RÉDACTION :
+- Utilise un ton professionnel, neutre et objectif.
+- La synthèse finale doit être claire et magnifiquement formatée en Markdown pour être publiée dans un rapport R&D (utilise des titres en gras, des listes à puces pour les résultats).
+- Assure-toi que toutes les critiques du comité ont été prises en compte.
+
+--- BROUILLON INITIAL ---
+${draftNote}
+
+--- CRITIQUES DU COMITÉ À INTÉGRER ---
+${critique}
+
+Rédige le rapport final complet maintenant :`;
+
+        return await this.askAI(finalSynthesisPrompt, systemPrompt, model);
+    }
+
 }
 
 module.exports = AiReaderService;
