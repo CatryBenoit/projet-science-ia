@@ -1,4 +1,4 @@
-const ResearchServiceMassive = require('../services/research.service');
+const ResearchServiceMassive = require('../services/IA_service/research.service');
 
 class ResearchController {
     

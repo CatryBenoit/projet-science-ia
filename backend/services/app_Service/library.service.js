@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const ArticleModel = require('../../models/article.model');
-const AiReaderService = require('./ai-reader.service');
+const AiReaderService = require('../IA_service/ai-reader.service');
 
 class LibraryService {
     

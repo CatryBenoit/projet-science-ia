@@ -1,5 +1,5 @@
 const axios = require('axios');
-const Logger = require('../logger.service');
+const Logger = require('../app_Service/logger.service');
 
 class NewsApiService {
     static async search(query, limit = 5) {

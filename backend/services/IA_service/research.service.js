@@ -16,11 +16,11 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 const AiReaderService = require('./ai-reader.service');
-const Logger = require('./logger.service'); // LE MÉGAPHONE DU TERMINAL
+const Logger = require('../app_Service/logger.service'); // LE MÉGAPHONE DU TERMINAL
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, 5000));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
-const ArticleModel = require('../models/article.model');
+const ArticleModel = require('../../models/article.model');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const UNPAYWALL_EMAIL = 'votre@email.com'; // ← Remplace par ton email

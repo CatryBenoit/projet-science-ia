@@ -15,4 +15,3 @@ exports.resetPassword = async (username, password) => {
 };
 
 
-module.exports = resetPassword;

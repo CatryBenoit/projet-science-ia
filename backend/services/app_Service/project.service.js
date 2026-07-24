@@ -1,5 +1,5 @@
 const ProjectModel = require('../../models/project.model');
-const AiReaderService = require('./ai-reader.service');
+const AiReaderService = require('../IA_service/ai-reader.service');
 
 class ProjectService {
     

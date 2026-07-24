@@ -9,7 +9,7 @@ const adminRoutes = require('./routes/admin.routes');
 const aiRoutes = require('./routes/ai.routes');
 const researchRoutes = require('./routes/research.routes');
 const projectRoutes = require('./routes/project.routes');
-const logsRoutes = require('./routes/logs.routes'); // <-- AJOUTE CECI
+const logsRoutes = require('./routes/logs.routes'); 
 
 const app = express();
 const port = process.env.PORT || 3000;

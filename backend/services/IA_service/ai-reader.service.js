@@ -3,7 +3,7 @@ const fs = require('fs');
 const fsPromises = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
-const Logger = require('./logger.service');
+const Logger = require('../app_Service/logger.service');
 const db = require('../../config/db');
 
 const settingModel = require('../../Models/setting.model');
@@ -17,7 +17,7 @@ class AiReaderService {
     //recuper les paramettre de l'utilisateur 
     static async getSettings() {
         return new Promise((resolve) => {
-            await settingModel.getUserSetting(1)
+            settingModel.getUserSetting(1)
         });
     }
 
