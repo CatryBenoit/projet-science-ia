@@ -212,19 +212,21 @@ class ResearchServiceMassive {
         return { buffer: null, method: 'abstract_only' };
     }
 
-    static async startMassiveResearch(query, amount, projectId, depth = 0) {
+static async startMassiveResearch(query, amount, projectId, depth = 0) {
         const uniqueArticles = await AggregatorService.searchAndMerge(query, amount);
         if (uniqueArticles.length > 0) {
-            await this.processMassiveDownloads(uniqueArticles, projectId, depth);
+           
+            await this.processMassiveDownloads(uniqueArticles, query, projectId, depth);
         } else {
             Logger.log("Aucun article trouvé.");
         }
     }
-static async processMassiveDownloads(articles, projectId, depth = 0) {
+
+static async processMassiveDownloads(articles, query, projectId, depth = 0) {
         const AiReaderService = require('./ai-reader.service');
         const fs = require('fs').promises;
         const path = require('path');
-        const pdfParse = require('pdf-parse'); // Assure-toi que cet import est bien en haut de ton fichier
+        const pdfParse = require('pdf-parse'); 
 
         Logger.log(`\n🚀 Démarrage — ${articles.length} articles à traiter (pipeline 5 niveaux)\n`);
 
@@ -232,7 +234,7 @@ static async processMassiveDownloads(articles, projectId, depth = 0) {
         await fs.mkdir(storageDir, { recursive: true });
 
         const stats = { full: 0, abstract: 0, failed: 0 };
-        const BATCH_SIZE = 3; // Par exemple, si tu as cette constante définie ailleurs
+        const BATCH_SIZE = 3; 
 
         for (let i = 0; i < articles.length; i += BATCH_SIZE) {
             const batch = articles.slice(i, i + BATCH_SIZE);
@@ -240,20 +242,37 @@ static async processMassiveDownloads(articles, projectId, depth = 0) {
             const totalGroups = Math.ceil(articles.length / BATCH_SIZE);
             Logger.log(`\n──────────── Groupe ${groupNum}/${totalGroups} ────────────`);
 
-            await Promise.all(batch.map(async (article) => {
+            // 🛑 FINI LE PROMISE.ALL ! On utilise for...of pour ne plus surcharger l'API :
+            for (const article of batch) {
                 const safeId = article.id.replace(/[^a-zA-Z0-9]/g, '_') + '_proj' + projectId;
                 const filePath = path.join(storageDir, `${safeId}.txt`);
                 const shortTitle = article.title?.substring(0, 40) || 'Sans titre';
                 Logger.log(`\n📄 "${shortTitle}..."`);
 
                 try {
+                    // 🛡️ L'AGENT VIDEUR INTERVIENT ICI (Avant le téléchargement !)
+                    Logger.log(` 🛡️ Inspection sémantique de l'article...`);
+                    const evaluation = await AiReaderService.evaluateArticleRelevance(
+                        query, // Le sujet ("dog bite")
+                        article.title, 
+                        article.abstract || article.description || ""
+                    );
+
+                    if (evaluation.decision === "PRUNE") {
+                        Logger.log(` 🚫 HORS-SUJET REJETÉ (${evaluation.score}/10) : ${evaluation.reasoning}`);
+                        stats.failed++;
+                        continue; // On passe directement à l'article suivant sans le télécharger !
+                    }
+
+                    Logger.log(` ✅ ARTICLE VALIDÉ (${evaluation.score}/10) : ${evaluation.reasoning}`);
+
+                    // --- Suite normale du téléchargement ---
                     const { buffer, method } = await this.downloadArticle(article);
                     let textToSave = '';
                     let isValidForSave = false;
 
                     // CAS 1 : On a le PDF complet
-                    // (Note: assure-toi d'avoir ta fonction isPDF() accessible)
-                    if (buffer && buffer.length > 0 /* && isPDF(buffer) */) { 
+                    if (buffer && buffer.length > 0) { 
                         const pdfFilePath = path.join(storageDir, `${safeId}.pdf`);
                         await fs.writeFile(pdfFilePath, buffer);
                         Logger.log(`  💾 PDF original sauvegardé avec succès sur le disque.`);
@@ -293,10 +312,8 @@ static async processMassiveDownloads(articles, projectId, depth = 0) {
 
                     // ─── SAUVEGARDE ET IA (Uniquement si l'article a été validé) ───
                     if (isValidForSave && textToSave.length > 50) {
-                        // 1. Écriture du fichier texte brut
                         await fs.writeFile(filePath, textToSave, 'utf8');
 
-                        // 2. Sauvegarde en BDD via le Modèle
                         try {
                             await ArticleModel.saveArticle({
                                 id: safeId,
@@ -308,23 +325,17 @@ static async processMassiveDownloads(articles, projectId, depth = 0) {
                                 type: article.type || 'academic'
                             });
 
-                            let typeLabel = '📄 Étude';
-                            if (article.type === 'testimony') typeLabel = '🗣️ Témoignage';
-                            if (article.type === 'dataset') typeLabel = '📊 Données Brutes';
-                            if (article.type === 'news') typeLabel = '📰 Actualité';
-                            
-                            Logger.log(`  💾 [BDD] ${typeLabel} enregistré et validé (ID: ${safeId}).`);
+                            Logger.log(`  💾 [BDD] 📄 Étude enregistré et validé (ID: ${safeId}).`);
                         } catch (dbErr) {
                             Logger.log(`  ❌ [BDD] Impossible d'enregistrer l'article : ${dbErr.message}`);
-                            return; // On arrête le traitement pour cet article s'il n'est pas en BDD
+                            continue;
                         }
 
-                        // 3. Analyse de l'IA (Texte + Vision) via le pipeline
+                        // Analyse de l'IA (Texte + Vision) via le pipeline
                         try {
                             Logger.log(`  🧠 Lancement de l'analyse IA (Texte + Vision)...`);
                             const analysis = await AiReaderService.analyzeArticle(filePath);
 
-                            // Sauvegarde de l'analyse en BDD via le Modèle
                             await ArticleModel.saveAnalysis({
                                 article_id: safeId,
                                 metadata: analysis.meta,
@@ -342,11 +353,11 @@ static async processMassiveDownloads(articles, projectId, depth = 0) {
                     stats.failed++;
                     Logger.log(`  🔴 Échec critique : ${err.message}`);
                 }
-            }));
+            } // <-- Fin du for...of (remplace le Promise.all)
 
+            // Pause entre les groupes
             if (i + BATCH_SIZE < articles.length) {
-                // Remplacement de jitter() par une méthode standard si non définie
-                const delay = Math.floor(Math.random() * 2000) + 2000; // Entre 2s et 4s
+                const delay = Math.floor(Math.random() * 2000) + 2000;
                 Logger.log(`\n😴 Pause ${delay}ms avant le prochain groupe...`);
                 await new Promise(resolve => setTimeout(resolve, delay));
             }
@@ -551,7 +562,7 @@ Format attendu:
                     Logger.log(`🌐 [AGENT AUTONOME] Exploration de la sous-requête : "${query}"...`);
                     
                     // 🛑 ATTENTION ICI : On utilise bien le nom de la classe, pas "this." pour éviter les crashs de contexte JavaScript
-                    await ResearchService.launchSearch(query, projectId, {}); 
+                    await this.startMassiveResearch(query, 3, projectId, 0); 
                 }
 
                 // 6. Pause de sécurité entre les cycles
@@ -568,7 +579,7 @@ Format attendu:
         }
     }
 
-
+launchAutonomousLoop
 
 }
 module.exports = ResearchServiceMassive;

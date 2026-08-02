@@ -7,6 +7,7 @@ const Logger = require('../app_Service/logger.service');
 const db = require('../../config/db');
 
 const settingModel = require('../../Models/setting.model');
+const { log } = require('console');
 
 const defaultModel = "meta/llama-3.1-70b-instruct";
 
@@ -15,11 +16,17 @@ const defaultBaseUrl = "https://integrate.api.nvidia.com/v1";
 class AiReaderService {
 
     //recuper les paramettre de l'utilisateur 
-    static async getSettings() {
-        return new Promise((resolve) => {
-            settingModel.getUserSetting(1)
-        });
+static async getSettings() {
+    try {
+        // On attend simplement la réponse du Modèle
+        // Note : Si ta méthode dans le modèle s'appelle getSettings(), mets bien getSettings() au lieu de getUserSetting(1)
+        const settings = await settingModel.getUserSetting(1); 
+        return settings || {}; 
+    } catch (error) {
+        Logger.log(`⚠️ Impossible de charger les paramètres : ${error.message}`);
+        return {}; // On renvoie un objet vide pour ne pas faire crasher l'IA
     }
+}
 
 
     // Permet de demmander a l'ia queque chose 
@@ -121,14 +128,16 @@ class AiReaderService {
 
         const safeText = fullText.substring(0, 350000);
 
-        const modelToUse = "meta-llama/llama-3.1-70b-instruct";
+        const modelToUse = "meta/llama-3.1-70b-instruct";
 
         //Premier analyse 
-        const extractedMeta = await initialAnalys(safeText, modelToUse);
+        const extractedMeta = await this.initialAnalys(safeText, modelToUse);
+        console.log(extractedMeta);
 
 
         // ─── AGENT 2 : LE CHERCHEUR (Premier Brouillon) ───
-        const draftNotes = firstAnalys(safeText, modelToUse)
+        const draftNotes = await this.firstAnalys(safeText, modelToUse)
+        console.log(draftNotes);
 
         let allNotes = `--- Brouillon Initial (Agent Chercheur) ---\n${draftNotes}`;
 
@@ -169,10 +178,12 @@ class AiReaderService {
         // ─── AGENT 4 : LE RÉVISEUR INTRANSIGEANT (Peer-Review) ───
 
         const critique = await this.PeerReview(allNotes, modelToUse);
+        console.log(critique);
 
 
         // ─── AGENT 5 : L'ÉDITEUR EN CHEF (Synthèse Finale) ───
-        const articleSynthesis = await finalSynthesis(allNotes, critique, modelToUse)
+        const articleSynthesis = await this.finalSynthesis(allNotes, critique, modelToUse)
+        console.log(articleSynthesis);
 
         return {
             meta: extractedMeta,
@@ -352,6 +363,48 @@ Rédige le rapport final complet maintenant :`;
         return await this.askAI(finalSynthesisPrompt, systemPrompt, model);
     }
 
+/**
+     * 🛡️ L'AGENT VIDEUR : Évalue si un article est pertinent avant de le télécharger
+     */
+    static async evaluateArticleRelevance(topic, articleTitle, articleAbstract) {
+        const systemPrompt = `Tu es un filtreur de recherche scientifique impitoyable (un "videur"). Ta seule mission est d'éliminer les articles hors-sujet renvoyés par les moteurs de recherche basés sur de simples mots-clés. Tu dois répondre STRICTEMENT et UNIQUEMENT en JSON.`;
+
+        const userPrompt = `
+SUJET RECHERCHÉ PAR L'UTILISATEUR : "${topic}"
+
+ARTICLE TROUVÉ PAR LE MOTEUR :
+Titre : "${articleTitle}"
+Résumé (Abstract) : "${articleAbstract ? articleAbstract.substring(0, 1500) : 'Non disponible'}"
+
+Analyse sémantiquement si cet article parle BIEN du sujet recherché.
+Par exemple, si on cherche "morsure de chien" et que l'article parle de "chien robot", c'est hors-sujet complet (PRUNE).
+
+Réponds UNIQUEMENT avec cet objet JSON valide :
+{
+  "reasoning": "Explication très courte de ta décision.",
+  "score": <entier entre 0 et 10>,
+  "decision": "KEEP" | "PRUNE"
 }
+
+Grille de décision absolue :
+0 à 6 : Hors-sujet, ambigu, ou lien trop faible -> PRUNE
+7 à 10 : Exactement dans le thème ou très pertinent -> KEEP
+`;
+
+        try {
+            // On utilise le modèle par défaut avec notre méthode robuste (et ses retries)
+            const response = await this.askAI(userPrompt, systemPrompt, "meta/llama-3.1-70b-instruct");
+            const cleanJson = response.replace(/```json/gi, '').replace(/```/g, '').trim();
+            return JSON.parse(cleanJson);
+        } catch (error) {
+            console.error("⚠️ Erreur de l'Agent Videur, on garde l'article par défaut :", error.message);
+            // En cas d'erreur API, on préfère garder l'article pour ne rien rater
+            return { decision: "KEEP", score: 5, reasoning: "Bypass suite à une erreur technique." };
+        }
+    }     
+}
+
+
+
 
 module.exports = AiReaderService;

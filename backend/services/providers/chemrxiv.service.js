@@ -6,8 +6,14 @@ class ChemRxivService {
         try {
             Logger.log(`[ChemRxiv] Recherche de preprints en chimie pour "${query}"...`);
             const url = `https://chemrxiv.org/engage/chemrxiv/public-api/v1/items?search=${encodeURIComponent(query)}&limit=${limit}`;
-            const response = await axios.get(url, { timeout: 15000 });
-            
+
+            const response = await axios.get(url, {
+                headers: {
+                    'User-Agent': 'ScienceResearchBot/1.0 (mailto:ton.email@gmail.com)',
+                    'Accept': 'application/json'
+                },
+                timeout: 15000 // Le timeout se place ici, au même niveau que "headers"
+            });
             const results = response.data?.itemHits || [];
             return results.map(hit => {
                 const item = hit.item;
