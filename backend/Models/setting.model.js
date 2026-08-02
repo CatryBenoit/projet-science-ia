@@ -27,7 +27,7 @@ static getSettings() {
         });
     }
 
-    getUserSetting = (id) => {
+    static getUserSetting(id) {
     return new Promise((resolve, reject) => {
         db.get(
             "SELECT api_key, ai_model, api_base_url, max_iterations FROM user_settings WHERE id = ?",
@@ -40,7 +40,7 @@ static getSettings() {
                 if (!row) {
                     return resolve({
                         api_key: null,
-                        ai_model: defaultModel,
+                        ai_model: "meta/llama-3.1-70b-instruct" , //defaultModel,
                         api_base_url: process.env.AI_API_URL || process.env.NVIDIA_API_URL || defaultBaseUrl,
                         max_iterations: 2
                     });

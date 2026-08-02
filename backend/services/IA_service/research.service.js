@@ -16,11 +16,15 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 const AiReaderService = require('./ai-reader.service');
-const Logger = require('../app_Service/logger.service'); // LE MÉGAPHONE DU TERMINAL
+const Logger = require('../app_Service/logger.service'); 
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, 5000));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
-const ArticleModel = require('../../models/article.model');
+const ArticleModel = require('../../Models/article.model');
+const ProjectModel = require('../../Models/project.model');
+const SettingsModel = require('../../Models/setting.model');
+
+
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const UNPAYWALL_EMAIL = 'votre@email.com'; // ← Remplace par ton email
@@ -217,7 +221,6 @@ class ResearchServiceMassive {
         }
     }
 static async processMassiveDownloads(articles, projectId, depth = 0) {
-        const Logger = require('./logger.service');
         const AiReaderService = require('./ai-reader.service');
         const fs = require('fs').promises;
         const path = require('path');
@@ -491,16 +494,15 @@ Format attendu:
      * NOUVEAU : BOUCLE DE RECHERCHE AUTONOME (AGENT DEEP RESEARCH)
      */
    static async launchAutonomousLoop(projectId) {
-        const Logger = require('./logger.service');
+        
         const AiReaderService = require('./ai-reader.service');
         
         // Importation des modèles (finies les requêtes SQL directes !)
-        const ProjectModel = require('../models/project.model');
-        const SettingsModel = require('../models/settings.model');
+        
 
         try {
             // 1. Récupérer le nombre maximum d'itérations via le Modèle
-            const settings = await SettingsModel.getSettings();
+            const settings = await SettingsModel.getSettings() || {};
             const maxIterations = settings.max_iterations || 2;
 
             Logger.log(`\n🤖 [AGENT AUTONOME] Démarrage du cycle Deep Research (${maxIterations} itérations max)...`);
