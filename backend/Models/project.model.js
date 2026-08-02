@@ -161,6 +161,80 @@ class ProjectModel {
             });
         });
     }
+    
+// Active ou désactive le mode Copilote en direct
+    static async setCopilotMode(projectId, isEnabled) {
+        const mode = isEnabled ? 1 : 0;
+        return new Promise((resolve, reject) => {
+            db.run(
+                `UPDATE projects SET copilot_mode = ? WHERE id = ?`,
+                [mode, projectId],
+                function (err) {
+                    if (err) reject(err);
+                    else resolve(this.changes);
+                }
+            );
+        });
+    }
+
+    // 🚦 Met le projet en pause ou le relance
+    static async updateStatus(projectId, status) {
+        return new Promise((resolve, reject) => {
+            db.run(
+                `UPDATE projects SET status = ? WHERE id = ?`,
+                [status, projectId],
+                function (err) {
+                    if (err) reject(err);
+                    else resolve(this.changes);
+                }
+            );
+        });
+    }
+
+    // 📥 Sauvegarde les idées de l'IA dans la salle d'attente
+    static async savePendingQueries(projectId, queries, depth) {
+        const placeholders = queries.map(() => '(?, ?, ?, ?, ?)').join(',');
+        const values = queries.flatMap(query => [projectId, query, 'AI', 'PENDING', depth]);
+
+        return new Promise((resolve, reject) => {
+            db.run(
+                `INSERT INTO pending_queries (project_id, query, source, status, depth) VALUES ${placeholders}`,
+                values,
+                function (err) {
+                    if (err) reject(err);
+                    else resolve(this.changes);
+                }
+            );
+        });
+    }
+
+    // 📤 Récupère les idées en attente pour les afficher au chercheur sur le Frontend
+    static async getPendingQueries(projectId) {
+        return new Promise((resolve, reject) => {
+            db.all(
+                `SELECT * FROM pending_queries WHERE project_id = ? AND status = 'PENDING'`,
+                [projectId],
+                (err, rows) => {
+                    if (err) reject(err);
+                    else resolve(rows);
+                }
+            );
+        });
+    }
+
+    // ✅ Applique le choix du chercheur (Accepter/Refuser) ou injecte une recherche manuelle
+    static async resolvePendingQuery(queryId, status) {
+        return new Promise((resolve, reject) => {
+            db.run(
+                `UPDATE pending_queries SET status = ? WHERE id = ?`,
+                [status, queryId],
+                function (err) {
+                    if (err) reject(err);
+                    else resolve(this.changes);
+                }
+            );
+        });
+    }
 }
 
 module.exports = ProjectModel;

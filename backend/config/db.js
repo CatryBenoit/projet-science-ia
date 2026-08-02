@@ -33,13 +33,27 @@ db.serialize(() => {
 
     // 2. Table des Projets
 db.run(`CREATE TABLE IF NOT EXISTS projects (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        description TEXT,
-        ignored_topics TEXT DEFAULT '[]',
-        core_theme TEXT DEFAULT '', -- 🛑 NOUVEAU : La boussole anti-dérive
-        created_at TEXT DEFAULT CURRENT_TIMESTAMP
-    )`);
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    description TEXT,   -- 🛑 LA COLONNE MANQUANTE EST LÀ !
+    core_theme TEXT,
+    ignored_topics TEXT,
+    report TEXT,
+    status TEXT DEFAULT 'IN_PROGRESS',
+    copilot_mode INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)`);
+
+db.run(`CREATE TABLE IF NOT EXISTS pending_queries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_id INTEGER,
+    query TEXT,
+    source TEXT DEFAULT 'AI',       -- 'AI' (proposé par la machine) ou 'MANUAL' (ajouté par l'humain)
+    status TEXT DEFAULT 'PENDING',  -- 'PENDING' (en attente), 'APPROVED' (validé), 'REJECTED' (rejeté)
+    depth INTEGER,                  -- Niveau d'itération actuel
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(project_id) REFERENCES projects(id)
+)`);
 
     // 3. Table de liaison Projets <-> Utilisateurs
     db.run(`CREATE TABLE IF NOT EXISTS project_members (

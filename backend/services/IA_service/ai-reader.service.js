@@ -145,30 +145,56 @@ static async getSettings() {
         Logger.log(`  👁️ [Agent Vision] Vérification du PDF pour l'analyse multimodale...`);
         try {
             const pdfFilePath = filePath.replace('.txt', '.pdf');
+            
             if (fs.existsSync(pdfFilePath)) {
-                Logger.log(`  👁️ [Agent Vision] PDF détecté. Scan des graphiques en cours...`);
+                Logger.log(`  👁️ [Agent Vision] PDF détecté. Scan des graphiques avec pdf2pic...`);
                 const imageDir = path.dirname(pdfFilePath);
                 const baseName = path.basename(pdfFilePath, '.pdf');
 
-                try {
-                    execSync(`pdftoppm -f 2 -l 5 -jpeg "${pdfFilePath}" "${path.join(imageDir, baseName)}"`);
-                } catch (e) { }
+                // Import dynamique de la librairie
+                const { fromPath } = require("pdf2pic");
 
-                const generatedFiles = fs.readdirSync(imageDir).filter(f => f.startsWith(baseName + '-') && f.endsWith('.jpg'));
+                // Configuration de la conversion (DPI, format, etc.)
+                const options = {
+                    density: 150,           
+                    saveFilename: baseName, 
+                    savePath: imageDir,     
+                    format: "jpg",
+                    width: 1024,
+                    height: 1448
+                };
 
-                for (const file of generatedFiles) {
-                    const imgPath = path.join(imageDir, file);
-                    const imgBuffer = await fsPromises.readFile(imgPath);
-                    const base64Img = imgBuffer.toString('base64');
+                const storeAsImage = fromPath(pdfFilePath, options);
 
-                    const visionPrompt = `Examine cette page. Si tu vois des tableaux ou des graphiques, extrais les statistiques majeures. Sinon, réponds "Aucun graphique pertinent".`;
-                    const visionResult = await this.askVisionAI(visionPrompt, base64Img);
+                // On scanne les pages 2 à 5 (là où se trouvent généralement les gros tableaux et graphiques)
+                for (let pageNum = 2; pageNum <= 5; pageNum++) {
+                    try {
+                        const data = await storeAsImage(pageNum);
+                        
+                        // Lecture de l'image générée
+                        const imgBuffer = await fsPromises.readFile(data.path);
+                        const base64Img = imgBuffer.toString('base64');
 
-                    if (visionResult && !visionResult.includes("Aucun graphique pertinent") && visionResult.length > 50) {
-                        Logger.log(`       📊 Données visuelles extraites !`);
-                        allNotes += `\n\n--- Données visuelles extraites ---\n${visionResult}`;
+                        const visionPrompt = `Examine cette page. Si tu vois des tableaux ou des graphiques, extrais les statistiques majeures. Sinon, réponds "Aucun graphique pertinent".`;
+                        
+                        Logger.log(`      📸 Analyse de la page ${pageNum} par l'IA...`);
+                        const visionResult = await this.askVisionAI(visionPrompt, base64Img);
+
+                        if (visionResult && !visionResult.includes("Aucun graphique pertinent") && visionResult.length > 50) {
+                            Logger.log(`      📊 Données visuelles extraites de la page ${pageNum} !`);
+                            allNotes += `\n\n--- Données visuelles extraites (Page ${pageNum}) ---\n${visionResult}`;
+                        }
+                        
+                        // Suppression de l'image temporaire pour ne pas surcharger le disque
+                        await fsPromises.unlink(data.path);
+                        
+                        // Petite pause pour ne pas spammer l'API Vision
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+
+                    } catch (pageErr) {
+                        // Si la page n'existe pas (ex: le PDF n'a que 3 pages et on cherche la 4ème), on arrête la boucle Vision
+                        break; 
                     }
-                    await fsPromises.unlink(imgPath);
                 }
             }
         } catch (visionErr) {

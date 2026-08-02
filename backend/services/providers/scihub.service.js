@@ -6,11 +6,29 @@ class SciHubService {
     static name = "Sci-Hub";
 
     // Les miroirs de Sci-Hub changent souvent, on en met plusieurs
-    static MIRRORS = [
+    static FALLBACK_MIRRORS = [
         'https://sci-hub.se',
         'https://sci-hub.st',
         'https://sci-hub.ru'
     ];
+
+    static async getActiveMirrors() {
+        try {
+            // Requête vers un dépôt GitHub communautaire mis à jour très régulièrement
+            const response = await axios.get('https://raw.githubusercontent.com/Dynobo/Sci-Hub-Links/master/sci-hub-links.json', { timeout: 5000 });
+            
+            // Si la requête réussit, on renvoie la liste des liens actifs
+            if (response.data && Array.isArray(response.data) && response.data.length > 0) {
+                console.log(`📡 Sci-Hub : ${response.data.length} miroirs dynamiques récupérés !`);
+                return response.data;
+            }
+        } catch (error) {
+            console.log("⚠️ Impossible de récupérer les miroirs dynamiques. Utilisation du Fallback.");
+        }
+        
+        // En cas de panne de la source, on utilise tes 3 miroirs historiques
+        return this.FALLBACK_MIRRORS;
+    }
 
     /**
      * 🛡️ LA MÉTHODE MANQUANTE
@@ -28,7 +46,7 @@ class SciHubService {
         if (!doi) throw new Error("Aucun DOI fourni pour Sci-Hub.");
 
         let pdfLink = null;
-        let activeMirror = null;
+        const activeMirrors = await this.getActiveMirrors();
 
         // Faux navigateur pour passer les protections Cloudflare / Anti-bots
         const headers = {
@@ -37,7 +55,7 @@ class SciHubService {
         };
 
         // 1. On cherche un miroir qui fonctionne et on récupère la page HTML
-        for (const mirror of this.MIRRORS) {
+        for (const mirror of activeMirrors) {
             try {
                 const url = `${mirror}/${doi}`;
                 const response = await axios.get(url, { timeout: 10000, headers });

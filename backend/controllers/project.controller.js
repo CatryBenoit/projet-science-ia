@@ -1,4 +1,6 @@
 const ProjectService = require('../services/app_Service/project.service');
+const ProjectModel = require('../Models/project.model');
+const Logger = require('../services/app_Service/logger.service');
 
 class ProjectController {
     static async createProject(req, res) {
@@ -11,7 +13,9 @@ class ProjectController {
             const project = await ProjectService.createProject(userId, name, description);
             res.status(201).json({ ...project, message: "Projet créé avec succès !" });
         } catch (error) {
-            res.status(500).json({ error: "Erreur lors de la création du projet." });
+            // 🚨 AJOUT CRUCIAL : Affichage de l'erreur dans le terminal
+            console.error("🚨 CRASH DANS createProject :", error); 
+            res.status(500).json({ error: "Erreur lors de la création du projet", detail: error.message });
         }
     }
 
@@ -21,7 +25,9 @@ class ProjectController {
             const projects = await ProjectService.getUserProjects(userId);
             res.json(projects);
         } catch (error) {
-            res.status(500).json({ error: "Erreur lors de la récupération des projets." });
+            // 🚨 AJOUT CRUCIAL : Affichage de l'erreur dans le terminal
+            console.error("🚨 CRASH DANS getProjects :", error); 
+            res.status(500).json({ error: "Erreur lors de la récupération des projets.", detail: error.message });
         }
     }
 
@@ -30,6 +36,7 @@ class ProjectController {
             const report = await ProjectService.generateManualSynthesis(req.params.id);
             res.json({ success: true, report });
         } catch (error) {
+            console.error("🚨 CRASH DANS generateSynthesis :", error);
             res.status(500).json({ error: error.message || "Échec de la génération." });
         }
     }
@@ -79,6 +86,33 @@ class ProjectController {
             res.status(500).json({ error: "Erreur lors de la génération du graphe." });
         }
     }
+
+    static getProjectById = async (req, res) => {
+        try {
+            const projectId = req.params.id;
+            const project = await ProjectModel.getProjectWithSynthesis(projectId);
+            
+            if (!project) {
+                return res.status(404).json({ error: "Projet introuvable." });
+            }
+
+            res.status(200).json(project);
+        } catch (error) {
+            Logger.log(`❌ Erreur getProjectById: ${error.message}`);
+            res.status(500).json({ error: "Erreur lors de la récupération du projet." });
+        }
+    };
+
+    static getPendingQueries = async (req, res) => {
+        try {
+            const projectId = req.params.id;
+            const pendingQueries = await ProjectModel.getPendingQueries(projectId);
+            res.status(200).json(pendingQueries || []);
+        } catch (error) {
+            Logger.log(`❌ Erreur getPendingQueries: ${error.message}`);
+            res.status(500).json({ error: "Erreur lors de la récupération des requêtes en attente." });
+        }
+    };
 }
 
 module.exports = ProjectController;
