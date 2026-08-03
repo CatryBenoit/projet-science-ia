@@ -134,6 +134,29 @@ db.run(`CREATE TABLE IF NOT EXISTS user_settings (
         }
     });
 
+    // 8. Table des Fournisseurs d'API (Les "clés" et "URL" par utilisateur)
+    db.run(`CREATE TABLE IF NOT EXISTS api_providers (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        name TEXT,       -- ex: 'NVIDIA', 'OpenAI', 'Ollama Local'
+        base_url TEXT,   -- ex: 'https://api.openai.com/v1'
+        api_key TEXT,    -- ex: 'sk-12345...'
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    )`);
+
+    // 9. Table de Routage des Modèles (Quel modèle fait quelle fonction)
+    db.run(`CREATE TABLE IF NOT EXISTS model_routing (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        provider_id INTEGER,
+        role TEXT,       -- ex: 'guardrail', 'detective', 'analysis', 'synthesis', 'inspiration'
+        model_name TEXT, -- ex: 'gpt-4o', 'meta-llama/llama-3.1-8b-instruct'
+        UNIQUE(user_id, role), -- Un utilisateur ne peut avoir qu'un seul modèle actif par rôle
+        FOREIGN KEY (provider_id) REFERENCES api_providers(id) ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    )`);
+
 
 
 });

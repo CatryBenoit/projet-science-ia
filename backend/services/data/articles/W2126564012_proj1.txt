@@ -1,0 +1,763 @@
+Estimating human rabies mortality in the United Republic
+of Tanzania from dog bite injuries
+Sarah Cleaveland,
+1
+Eric M. Fe`vre,
+2
+Magai Kaare,
+3
+& Paul G. Coleman
+4
+ObjectiveTo make quantitative predictions about the magnitude of underreporting of human rabies deaths in the United Republic of
+Tanzania.
+MethodsHuman rabies deaths were estimated by using a series of probability steps to calculate the likelihood of rabies developing
+after the bite of a suspected rabid dog, incorporating  field data on the incidence of animal bite injuries,  the accuracy  of rabies
+recognition, the distribution of bite wounds, and post-exposure treatment.
+FindingsPredicted human rabies mortality was estimated to be (a) 1499 deaths per year (95% confidence interval 891–2238),
+equivalent to an annual incidence of 4.9 (2.9–7.2) deaths/100 000, when active surveillance data on bite incidence were used, and
+(b) 193 deaths per year (32–409), corresponding to an annual incidence of 0.62 (0.1–1.32) deaths/100 000, when national bite
+statistics were used. The annual mean number of rabies deaths officially recorded for the same period was 10.8 (7.7–14.0).
+ConclusionIn the United Republic of Tanzania, cases of rabies in humans have been greatly underreported. Dog bite injuries are an
+accessible  source  of  epidemiological  data  that  may  be  used  to  estimate  the  public  health  burden  of  rabies  and  to  monitor
+epidemiological trends in developing countries.
+KeywordsRabies/mortality/epidemiology;  Dogs;  Bites  and  stings/mortalite ́ ;  Epidemiologic  surveillance;  Probability;  Risk  factors;
+United Republic of the United Republic of Tanzania (
+source: MeSH, NLM).
+Mots cle ́sRage (Maladie)/mortalite ́/e ́ pide ́ miologie; Chien; Morsure et piquˆ re/mortalite ́ ; Surveillance e ́ pide ́ miologique; Probabilite ́;
+Facteur risque; Re ́ publique-Unie de Tanzanie (
+source: MeSH, INSERM).
+Palabras  claveRabia/mortalidad/epidemiologı ́a;  Perros;  Mordeduras  y  picaduras/mortalidad;  Vigilancia  epidemiolo ́gica;
+Probabilidad; Factores de riesgo; Repu ́ blica Unida de Tanzanı ́a (
+fuente: DeCS, BIREME).
+Bulletin of the World Health Organization 2002;80:304-310.
+Voir page 309 le re ́ sume ́  en franc ̧ ais. En la pa ́ gina 309 figura un resumen en espan ̃ ol.
+Introduction
+Globally, rabies is considered to be a relatively insignificant
+human disease, accounting for only 1% of deaths attributable
+to infectious diseases (1). However, there is widespread
+recognition that the number of deaths officially reported in
+much of Africa does not reflect the true incidence of the
+disease. There have been many inconsistencies in the reported
+incidence of human rabies. For example, the 1996 World
+Survey of Rabies (2) recorded a global total of 33 212 cases, of
+which 238 were in Africa and 32 772 in Asia. In Ethiopia,
+464 human cases were reported in Addis Ababa between 1992
+and 1993 (3), whereas in the entire country only 26 and 35 cases
+were officially reported to the World Health Organization in
+1992 (4) and 1993 (5) respectively.
+Several explanations for underreporting have been
+proposed: patients with clinical rabies may stay at home or
+seek treatment from local healers; most cases do not receive
+laboratory confirmation; causes of death may be recorded
+locally but are not transmitted to the central authorities; a small
+proportion of deaths attributable to rabies may not be
+recognized as such by medical staff (1,6–9).
+Many of these problems are clearly not unique to rabies.
+The poor quality of much public health information in sub-
+Saharan Africa has prompted several recent investigations into
+the distribution of major infectious diseases and the mortality
+and morbidity attributable to them. For example, climatolo-
+gical data together with models of acquired immunity have
+been used to estimate malaria mortality in sub-Saharan Africa
+(10). In countries with relatively poor data on tuberculosis, a
+consensus process has been used to provide plausible
+estimates of mortality caused by this disease (11). Other
+extrapolative work has been carried out in order to quantify the
+populations at risk from diseases such as meningitis and
+filariasis. This has involved the use of environmental and
+climatological surrogates from which the distribution and
+burden of disease have been inferred (12,13).
+Attempts to estimate the true scale of human mortality
+caused by rabies have been carried out only in India (2),
+Ethiopia (3) and a few other countries, and they are generally
+1
+Research Fellow, Centre for Tropical Veterinary Medicine, Royal (Dick) School of Veterinary Studies, University of Edinburgh, Easter Bush, Roslin, Midlothian EH25 9RG,
+United Kingdom (email: sarah.cleaveland@ed.ac.uk). Correspondence should be addressed to this author.
+2
+PhD student, Centre for Tropical Veterinary Medicine, Royal (Dick) School of Veterinary Studies, University of Edinburgh.
+3
+District Veterinary Officer, Ministry of Water and Livestock Development, United Republic of Tanzania.
+4
+Research Fellow, International Livestock Research Institute, Nairobi, Kenya, and Centre for Tropical Veterinary Medicine, Royal (Dick) School ofVeterinary Studies,
+University of Edinburgh. Currently at Disease Control and Vector Biology Unit, London School of Hygiene and Tropical Medicine.
+Ref. No.01-1182
+Research
+304
+#
+World Health Organization 2002Bulletin of the World Health Organization 2002, 80 (4)
+considered to have involved making well-informed guesses.
+We describe an approach to estimating human rabies mortality
+in the United Republic of Tanzania, using empirical data on the
+incidence and distribution of dog bite injuries, the accuracy of
+rabies recognition and the levels of post-exposure treatment,
+together with published data on the proportion of bite victims
+that develop clinical disease.
+The fear of developing rabies provides a powerful
+incentive for people to report animal bite injuries to hospitals,
+particularly when human post-exposure treatment is available
+(14,15). Records of bite injuries from rabid animals may thus
+provide an accessible source of epidemiological data on rabies,
+which, in the United Republic of Tanzania, are routinely
+reported from district hospitals to the central authorities.
+Not all bites from rabid dogs result in rabies. Not every
+bite results in infection and not every infection leads to death.
+One of the principal factors influencing the outcome of a bite
+from a rabid dog is the location of the bite on the body. Bites on
+the head, face and neck, for example, carry a much higher risk
+than bites on a foot or leg (8,16–20). We use the distribution of
+injuries to predict the outcomes of bites of rabid dogs.
+Methods
+The calculation of the predicted number of human rabies
+deaths in the United Republic of Tanzania is based on a series
+of probability steps,P1toP10(Fig. 1).
+Step 1: Incidence of animal bite injuries
+Incidence data for animal bite injuries were obtained from
+national statistics held by the Ministry of Agriculture and
+Cooperatives (1990–96) for the whole of the United Republic of
+Tanzania (21,22) and from 24 villages within the Mara Region in
+the north-west of the country where rabies awareness had been
+improved through community-based active surveillance and
+education programmes (15). For the same period, official data
+on human deaths were obtained from the Ministry of Health
+(23). In order to collect active surveillance data, community-
+based programmes were established in 24 villages selected at
+random from the midland zone of the Mara Region, a relatively
+homogeneous area of agropastoral land use, with a human
+population density of 40 inhabitants per square kilometre (15,
+24,25). Over a 14-month period in 1998–99 the number of bite
+injury cases in these villages was determined from records
+maintained at government district hospitals and veterinary
+offices. Whether or not the animals that inflicted bites were
+defined as suspected of being rabid was determined by the
+examining medical officers on the basis of the patients’ history
+and/or reports from veterinary field officers.
+Step 2 (P1): Rabies recognition probability
+Data were collected from villages in the active surveillance
+studies on the proportion of suspect animal rabies cases that
+were subsequently confirmed by laboratory diagnosis. Wher-
+ever possible, brain stem samples of suspect rabid animals were
+obtained by livestock field officers using WHO collection kits
+(26). Rabies diagnosis was conducted at the Agence Franc ̧aise
+de Se ́curite ́ Sanitaire des Aliments, Nancy, France (a WHO
+rabies collaborating centre) and at the Onderstepoort
+Veterinary Institute, South Africa, using immunofluorescence
+diagnostic tests (27). An animal was classified as suspect if
+reported as such on submission of the sample. In the absence
+of this information a case was defined as suspect if the reported
+history included neurological signs and/or unprovoked
+aggression. We deliberately adopted a broad classification so
+that any biases would underestimate rather than overestimate
+the rabies recognition probability.
+Step 3 (P2–P5): Distribution of bite injuries
+Bite injury data collected from three district hospitals in the
+Mara Region from 1993 to 1998 were classified according to
+the distribution of bite injuries on the body, the age of the
+victim, and the sex and status of the dog, whether or not it was
+suspected of being rabid. For patients bitten at multiple sites
+the bite wound was classified according to the site of highest
+risk (see Step 4).
+Step 4 (P6–P9): Probability of developing rabies
+following the bite of a rabid dog
+In order to estimate the likelihood of a person developing
+rabies following the bite of a rabid dog we were guided by data
+from the published literature describing the outcome of
+untreated bite injuries produced by dogs that had been
+confirmed as rabid (8,16). These data indicated that, if left
+untreated, 30–60% of people bitten on the head, face or neck
+would develop rabies, whereas the expected mortality was 15–
+40% following bites on the hand and 0–10% following bites on
+the trunk and leg. Triangular distributions were assigned to
+these probabilities and the mode was taken as the midpoint
+between the minimum and maximum.
+Step 5 (P10): Probability of receiving post-exposure
+treatment
+Vaccine availability was determined from Mara Region hospital
+records for 1993–97. Data from 1998 and 1999 were excluded
+305Bulletin of the World Health Organization 2002, 80 (4)
+Rabies mortality
+because additional human vaccine was provided by research
+projects and was thus not representative of the situation in the
+United Republic of Tanzania as a whole. To be conservative in
+our estimate of human deaths we assumed that any patient
+receiving post-exposure treatment would not develop rabies,
+regardless of the number of vaccine doses received or the
+interval between the bite injury and the start of treatment.
+Population at risk
+Population projections based on 1988 government census data
+were used to estimate the population at risk when calculating
+incidence figures from both national bite statistics and from
+data obtained in villages in the active surveillance study (24).
+Predicting human rabies deaths
+We calculated the probability of dying of rabies following a bite
+from a suspected rabid dog,P
+Death
+, from the probability tree
+(Fig. 1) as:
+P
+Death
+=P16[(P26P6)+(P36P7)+(P46P8)+
+(P56P9)] ( (1–P10).
+If the incidence of suspected rabid dog bites per
+100 000 per year isiand the population at risk is Q, then the
+total number of deaths caused by rabies per year is given by
+(i6Q6P
+Death
+)/100 000.
+The total number of rabies deaths per year was calculated
+using projected 1998 population figures (i.e. Q = 30.9 million).
+We estimated confidence limits for the total number of deaths
+attributable to rabies by attaching probability distributions to
+the input parameters (iandP1–P10, Table 1) and running
+Monte Carlo simulations using Palisade @RISK software
+(Windows version 1.0, Palisade 1997) for 3000 iterations. At
+each iteration the value of each input parameter was chosen at
+random from within the defined probability distribution. The
+mean and range within which 95% of the total rabies mortality
+estimates fell were recorded using the suspected rabid dog bite
+incidence values from both the national statistics and the active
+surveillance study.
+Results
+Incidence of dog bite injuries
+National statistics
+Between 1990 and 1996 a total of 23 709 bite injuries were
+reported from suspect rabid animals in the United Republic of
+Tanzania, giving a mean of 3387 (1779–4994) cases per year.
+The mean annual bite incidence was 12.5 (6.7–18.3) cases per
+100 000.
+Mara Region
+In the Mara Region the vast majority of bites reported to
+district hospitals were inflicted by dogs (96.6%,n= 964).
+Where the status of the dog was recorded, 685/914 dogs
+(74.9%) were classified as suspect rabies cases. The age
+distribution of bite victims differed significantly from that of
+the general population of the Mara Region (w
+2
+= 103.4, degrees
+of freedom = 14,P< 0.001): an elevated proportion of
+children in the age range 5–15 years was bitten by suspect rabid
+dogs (Fig. 2). Within the active surveillance area, which
+covered a total human population of 81 725, an average of
+84.9 (41.0–128.9) suspected rabid dog bites per year were
+recorded, corresponding to an annual incidence of
+103.9 (50.1–157.7) bite injuries/100 000.
+Rabies recognition probability (P1)
+Within the active surveillance areas, 25 samples taken from
+dogs defined as suspect rabies cases were submitted for
+laboratory diagnosis. Of these, 17 (68.0%) were confirmed
+positive by immunofluorescence.
+Distribution of bite injuries (P2–P5)
+Bite injuries were reported more frequently on the head and
+hands, and less frequently on the legs, of people bitten by
+suspect rabid dogs than of people bitten by non-suspect rabid
+dogs (w
+2
+= 32.7, degrees of freedom = 3,P<.001). We
+therefore used the distribution of bite injuries from suspect
+rabid dogs only (Table 1).
+Post-exposure treatment (P10)
+At least one dose of post-exposure rabies vaccine was given to
+274/487 (56.3%) patients reporting bites from suspect rabid
+dogs. The interval between bite injury and presentation for
+treatment ranged from 0 to171 days (median = 3 days).
+Human rabies deaths
+From 1990 to 1996 the mean number of officially reported
+rabies deaths was 10.8 (7.7–14.0) per year, corresponding to an
+average incidence of 0.041 (0.028–0.053) deaths/100 000 per
+year.
+Table 1.Probability distributions of parameters used in Monte
+Carlo simulations
+VariableEstimate
+A. Suspected rabid dog bite incidence
+National incidence of suspected
+rabid dog bites per 100 000
+per year
+Triangular: minimum = 6.7,
+mode = 12.5, maximum = 18.3
+Number of bites injuries per year
+in active surveillance areas, (N)
+Poisson: mean = 84.9
+Average population at risk in active
+surveillance areas, R(R)
+Point estimate: 81 725
+The annual incidence per 100 000 of suspected rabid dog bites in
+the active surveillance area is calculated as 100 000 x N/R
+B. Probability tree parameters (
+P1–P10)
+P1Suspected rabid dog being rabid   Binomial:p= 0.680,n=25
+P2Bite injury to the headPoint estimate: 0.070 (22/315)
+P3Bite injury to the armsPoint estimate: 0.384 (121/315)
+P4Bite injury to the trunkPoint estimate: 0.060 (19/315)
+P5Bite injury to the legsPoint estimate: 0.486 (153/315)
+P6Development of rabies
+following bite injury to the head
+Triangular: minimum = 00.3,
+mode = 0.45, maximum = 0.6
+P7Development of rabies
+following bite injury to the arms
+Triangular: minimum = 0.275,
+mode = 0.15, maximum = 0.4
+P8Development of rabies
+following bite injury to the trunk
+Triangular: minimum = 0.05,
+mode = 0.0, maximum = 0.1
+P9Development of rabies
+following bite injury to the leg
+Triangular: minimum = 0.05,
+mode = 0.0, maximum = 0.1
+P10Probability of receiving
+post-exposure treatment if
+bitten by a suspected rabid dog
+Binomial:
+p= 0.563,n= 487
+306Bulletin of the World Health Organization 2002, 80 (4)
+Research
+Predicted human rabies deaths
+On the basis of extrapolating bite incidence data from active
+surveillance areas to the whole of the United Republic of
+Tanzania, 1499 (891–2238) human rabies deaths were
+predicted per year, equivalent to an annual incidence of
+4.9 (2.88–7.24) deaths/100 000. The value ofP1for which the
+estimated number of deaths was equal to the official number
+recorded was 0.006 (0.003–0.010) (Fig. 3). The distribution of
+predicted deaths by age class is shown in Table 2. Predicted
+rabies deaths were highest in the age range 5–15 years.
+On the basis of the national statistics on bites the annual
+number of deaths caused by rabies was estimated as 193 (32–
+409). This was equivalent to an annual incidence of 0.62 (0.1–
+1.32) deaths/100 000. The value ofP1for which the estimated
+number of deaths was equal to the mean official number
+recorded was 0.119 (0.019–0.26) (Fig. 3).
+Discussion
+Rabies clearly emerges as a significant public health problem in
+the United Republic of Tanzania. The incidence of human
+rabies predicted on the basis of active surveillance data on bite
+incidence (4.9 deaths/100 000) was up to 100 times greater
+than that officially recorded. Furthermore, dog bite records
+provide an accessible and valuable source of epidemiological
+data that have generally been underexploited.
+Although much higher than incidence figures derived
+from government data, our estimate is similar to the annual
+incidence of 2.5 human rabies deaths/100 000 reported during
+active surveillance studies in Kenya’s Machakos District (14).
+The validity of these indirect estimates of human rabies
+mortality depends on two key assumptions. The first, which
+applies to both of our estimates, is that the proportion of
+untreated people dying in the United Republic of Tanzania
+following a bite on the head, hand, trunk and limbs is similar
+to that reported in Europe and Asia in the 20th century (8,
+16). The second, which applies only to estimates based on
+active surveillance studies, is that data from the Mara Region
+are representative of the United Republic of Tanzania as a
+whole.
+Regarding the development of clinical rabies, factors
+such as wound severity, the proportion of rabid dogs excreting
+virus, and viral pathogenicity could influence the outcome of
+exposure (8). As hospital records in this study provided
+insufficient data on the severity of wounds, we assumed that all
+reported bites involved penetration of the skin and were not
+superficial scratches or licks, which would carry a lower risk.
+We considered this a reasonable assumption since the difficulty
+and expense of travelling in rural areas of the United Republic
+of Tanzania made it unlikely that people who had sustained
+only minor scratches would travel to hospital.
+Field data on the excretion of virus in saliva are very
+limited. However, samples of salivary glands collected from
+four rabid dogs in this study were all antigen-positive on
+immunofluorescence. It is not possible to determine if
+differences between strains of virus influence the proportion
+of humans who develop rabies after exposure but there is
+currently no evidence that the Africa-1b canid strain of rabies
+isolated from Tanzanian dogs (28) is less pathogenic than other
+isolates obtained from dogs.
+Wherever the likely direction of bias in parameter
+estimates could be anticipated, e.g. in the administration of
+post-exposure treatment, we have tried to be conservative in
+our calculations. For some of the parameters, such as the rabies
+recognition probability (P1), multiple sources of variation in
+both the clinical signs and the likelihood of killing and sampling
+Table 2.Age distribution of the annual incidence of rabies
+deaths predicted on basis of active surveillance data and
+on the national bite incidence data from official records
+Age classRabies mortalityRabies mortality
+predicted on basispredicted on basis
+of active surveillanceof national bite
+dataincidence data
+Deaths/100 000/yearDeaths/100 000/year
+0–4 years3.23
+(2.01–4.73)
+0.42
+(0.07–0.87)
+5–9 years7.23
+(4.44–10.63)
+0.93
+(0.16–1.97)
+10–14 years7.36
+(4.24–11.34)
+0.95
+(0.16–2.05)
+> 15 years3.92
+(2.30–5.98)
+0.50
+(0.08–1.08)
+ALL4.85
+(2.88–7.24)
+0.62
+(0.10–1.32)
+307Bulletin of the World Health Organization 2002, 80 (4)
+Rabies mortality
+suspected rabid dogs make it difficult to predict whether our
+value overestimates or underestimates the true probability.
+Nonetheless, by assigning probability distributions to each
+parameter in the Monte Carlo simulation we have been able to
+set limits on the uncertainties at each step of the process and
+produce robust confidence intervals for the final estimate of
+mortality. A number of approaches could be adopted in order
+to validate these estimates in the field, including trace-back
+studies to determine the survival of untreated bite victims and
+the collection of verbal autopsy data from household surveys.
+However, both approaches are likely to be more time-
+consuming and costly than that of obtaining data on bite
+wounds. Particular care would be needed when interpreting
+verbal autopsy data, as many cases of human rabies in rural
+Africa are perceived as being caused by sorcery rather than
+disease (29).
+Caution clearly has to be exercised in extrapolating data
+on the incidence of animal bites in the Mara Region to the
+whole of the United Republic of Tanzania. Although rabies is
+reported throughout the country, patterns of infection are
+likely to vary between regions. In north-western United
+Republic of Tanzania, for example, dog rabies is endemic in the
+Mara Region but only sporadic in the adjacent Ngorongoro
+District (30). Cultural and religious factors may influence
+patterns of dog ownership and knowledge of rabies, which may
+in turn affect patterns of disease, recognition of rabies in local
+communities, and the probability of seeking post-exposure
+treatment in hospitals. Nonetheless, patterns of land use and
+human population densities throughout rural United Republic
+of Tanzania are relatively homogeneous as a result of the
+Ujamaaprocess of village development that followed inde-
+pendence, and the characteristics of the Mara Region are
+broadly typical of rural United Republic of Tanzania, where
+more than 81% of the population live (24). Furthermore, the
+annual figures for the incidence of animal bites in the Mara
+Region are comparable to those reported in similar areas of
+rural Kenya (234 bites/100 000) (14). In order to provide a
+preliminary estimate of human rabies mortality for the United
+Republic of Tanzania as a whole, we therefore consider it
+reasonable to extrapolate from the Mara Region data, given the
+caveats outlined above.
+Even without extrapolating across regions, i.e. when
+using national statistics on bite injuries, the predicted incidence
+of human rabies (0.62 deaths/100 000) was 10 times higher
+than that officially reported. The number of official cases
+would only exceed the predicted number of human deaths if
+fewer than 12% of suspect rabid dogs were truly rabid (P1), a
+level well below that recorded here (68%) and in studies in
+Kenya (51–58%) (14,31), Swaziland (50%) (32) and Zim-
+babwe (36%) (33).
+Our prediction that rabies mortality is highest in children
+is consistent with the age distributions of cases reported in the
+Philippines (34), Ethiopia (35,36) and the USA in the mid-20th
+century (37). A high proportion of childhood deaths increases
+the number of disability-adjusted life years lost and therefore
+the public health burden of a disease (38). Although rabies was
+not included in the first global burden of disease survey (39),
+recent global estimates of disability-adjusted life years lost for
+rabies place the disease in eighty-sixth position with respect to
+public health burden (40). This is undoubtedly a low estimate
+as it is based on the incidence of officially reported cases only.
+The public health burden of rabies is not limited to
+mortality or disability-adjusted life years lost to disease. There
+are additional arguments in favour of increasing the resources
+available for rabies control (9). The high cost of human post-
+exposure treatment is a major economic burden on public
+health budgets (1,41,42) and fear of the disease causes
+considerable psychological trauma in communities. Human
+rabies is entirely preventable through appropriate post-
+exposure treatment or vaccination of reservoir hosts. How-
+ever, no successful national rabies control programmes have
+been implemented in Africa over the past two decades. The
+reasons for this are manifold (43). A lack of awareness of the
+magnitude of the rabies problem and a lack of data on
+epidemiological trends serve only to exacerbate the difficulties,
+hampering the development of disease control initiatives.
+This study demonstrates that data on bite injuries
+provide a useful and accessible source of epidemiological
+information that could be used effectively to enhance rabies
+surveillance in human and animal populations, detect trends in
+disease incidence, improve the allocation of medical and
+veterinary resources, and assess the impacts of rabies control
+measures.n
+Acknowledgements
+Sarah Cleaveland was supported by a Wellcome Trust
+Fellowship in Tropical Medicine, Eric Fe`vre by a grant from
+the Medical Research Council, and Paul Coleman by a grant
+from the Department for International Development (United
+Kingdom). We thank the World Health Organization for
+supporting the rabies surveillance project and providing
+human rabies vaccine in the Mara Region. The Global Wildlife
+Trust, Paradise Wildlife Park and the World Society for the
+Protection of Animals provided financial support for field
+studies in the Mara Region. The Agence Franc ̧aise de Se ́curite ́
+Sanitaire des Aliments, Nancy, France, a WHO collaborating
+centre, and the Onderstepoort Veterinary Institute, South
+Africa, carried out rabies diagnostic tests. Assistance with data
+collection in the United Republic of Tanzania was kindly
+provided by Dr S. Luwongo and Mr P. Tiringa of the Ministry
+of Water and Livestock Development (formerly the Ministry
+of Agriculture and Cooperatives). We thank Dr A. King for his
+advice and assistance in connection with the establishment of
+the rabies surveillance project and for comments on the
+manuscript. We are grateful for additional comments from
+Dr S. Mfinanga of the National Institute for Medical Research,
+the United Republic of Tanzania, Dr C. Dye of WHO, and an
+anonymous referee.
+Conflicts of interest:none declared.
+308Bulletin of the World Health Organization 2002, 80 (4)
+Research
+Re ́ sume ́
+Estimation de la mortalite ́  par rage humaine conse ́ cutive a`  une morsure de chien en Re ́ publique-Unie
+de Tanzanie
+ObjectifEtablir des pre ́ visions chiffre ́ es sur l’ampleur de la sous-
+notification des de ́ce` s par rage humaine en Re ́ publique-Unie de
+Tanzanie.
+Me ́ thodesLes de ́ce` s par rage humaine ont e ́te ́ estime ́ s selon une
+se ́ rie d’e ́ tapes de calcul permettant de de ́ terminer la probabilite ́de
+contracter la rage apre` s morsure d’un chien suspect, compte tenu
+des  donne ́ es  de  terrain  sur  l’incidence  des  le ́ sions  par  morsure
+d’animal, de l’exactitude du diagnostic de rage, de la distribution
+des le ́ sions par morsure et du traitement apre` s exposition.
+Re ́ sultatsLa mortalite ́  pre ́ vue par rage humaine a e ́te ́  estime ́e
+a`  1499 de ́ce` s par an (intervalle de confiance a` 95 % : 891-2238),
+soit une incidence annuelle de 4,9 (2,9-7,2) de ́ce` s/100 000 ha-
+bitants lorsqu’on utilisait les donne ́ es de la surveillance active de
+l’incidence des morsures, et a` 193 (32-409) de ́ce` s par an, soit une
+incidence  annuelle  de  0,62  (0,1-1,32)  de ́ce` s/100 000  habitants
+lorsqu’on  utilisait  les  statistiques  nationales  concernant  les
+morsures. La moyenne annuelle officielle pour la meˆme pe ́ riode
+e ́ tait de 10,8 (7,7-14,0) de ́ce` s par rage.
+ConclusionEn  Re ́ publique-Unie  de  Tanzanie,  les  cas  de  rage
+humaine sont tre` s largement sous-notifie ́s.Lesle ́ sions par morsure
+de chien sont une source accessible de donne ́es e ́ pide ́ miologiques
+qui peuvent eˆ tre utilise ́ es pour estimer le poids de la rage en sante ́
+publique et surveiller les tendances e ́ pide ́ miologiques dans les pays
+en de ́ veloppement.
+Resumen
+Estimacio ́ n de la mortalidad por rabia humana causada por mordeduras de perro en la Repu ́ blica Unida de
+Tanzanı ́a
+ObjetivoHacer predicciones cuantitativas sobre la magnitud de
+la  subnotificacio ́ n  de  las  defunciones  por  rabia  humana  en  la
+Repu ́ blica Unida de Tanzanı ́a.
+Me ́ todosSe estimo ́  la mortalidad por rabia humana usando una
+serie de pasos probabilı ́sticos para calcular el riesgo de desarrollar
+rabia tras la mordedura de un perro presuntamente rabioso; a ese
+fin,  se  incorporaron  datos  de  campo  sobre  la  incidencia  de
+mordeduras, la precisio ́ n del diagno ́ stico de la rabia, la distribucio ́n
+de las mordeduras y el tratamiento posterior a la exposicio ́n.
+ResultadosSegu ́ n las predicciones efectuadas, usando los datos
+aportados por la vigilancia activa de las mordeduras la mortalidad
+ascendı ́a a (a) 1499 defunciones al an ̃ o (intervalo de confianza (IC)
+95%:  891–2238),  lo  que  equivale  a  una  incidencia  anual  de
+4,9 (2,9–7,2)  defunciones/100 000;  al  emplear  las  estadı ́sticas
+nacionales  sobre  mordeduras,  en  cambio,  se  obtenı ́an  193 de-
+funciones anuales (32–409), lo que se traduce en una incidencia
+anual de 0,62 (0,1–1,32) defunciones /100 000. La media anual
+oficial para el mismo periodo fue de 10,8 (7,7–14,0) muertes por
+rabia.
+Conclusio ́nEn la Repu ́ blica Unida de Tanzanı ́a, la notificacio ́nde
+los casos de rabia humana ha estado muy por debajo de las cifras
+reales. La informacio ́ n sobre las lesiones por mordedura de perro es
+una  fuente  accesible  de  datos  epidemiolo ́ gicos  que  pueden
+utilizarse para estimar la carga de salud pu ́ blica que supone la rabia
+y  para  vigilar  las  tendencias  epidemiolo ́ gicas  en  los  paı ́ses  en
+desarrollo.
+References
+1.  Meslin FX, Fishbein DB, Matter HC. Rationale and prospects for rabies
+elimination in developing countries. In: Rupprecht CE, Dietzschold B,
+Koprowski H, editors.
+Lyssaviruses. Berlin: Springer Verlag; 1994. p.1-26.
+2.  World Health Organization. World survey of rabies No. 32 for the year 1996.
+Geneva: World Health Organization; 1998. Uunpublished document WHO/
+EMC/ZDI/98.4.
+3.  Fekadu M. Human rabies surveillance and control in Ethiopia. In: Kitala P,
+Perry P, Barrat J, King A, editors.
+Proceedings of the Fourth International
+Conference of the Southern and Eastern African Rabies Group, 4-6 March
+1997.
+Nairobi: Southern and Eastern African Rabies Group; 1997. p.7-8.
+4.  World Health Organization. World survey of rabies No. 28 for the year 1992.
+Geneva: World Health Organization; 1994. Unpublished document WHO/
+EMC/ZOO/94.1.
+5.  World Health Organization. World survey of rabies No. 29 for the year 1993.
+Geneva: World Health Organization; 1996. Unpublished document WHO/
+EMC/ZOO/96.2.
+6.  Fekadu M. Rabies in Ethiopia.
+American Journal of Epidemiology
+1982;115:266-73.
+7.  Warrell DA, Warrell MJ. Human rabies and its prevention: an overview.
+Reviews
+of Infectious Diseases
+1988;10(Suppl 4):S726-31.
+8.  Fishbein DB. Rabies in humans. In: Baer GM, editor.
+The natural history of
+rabies
+, 2nd ed. Boca Raton: CRC Press; 1991. p. 519-49.
+9.  Wandeler AI. Human rabies diagnosis and reporting: can we do better? In:
+Kitala P, Perry P, Barrat J, King A, editors.
+Proceedings of the Fourth
+International Conference of the Southern and Eastern African Rabies Group,
+4-6 March 1997.
+Nairobi: Southern and Eastern African Rabies Group; 1997.
+p. 60-3.
+10.  Snow RW, Craig M, Deichmann U, Marsh K. Estimating mortality, morbidity
+and disability due to malaria among Africa’s non-pregnant population.
+Bulletin
+of the World Health Organization
+1999;77:624-40.
+11.  Dye C, Scheele S, Dolin P, Pathania V, Raviglione MC. Global burden of
+tuberculosis: estimated incidence, prevalence and mortality by country.
+Journal
+of the American Medical Association
+1999;282:677-86.
+12.  Lindsay SW, Thomas CJ. Mapping and estimating the population at risk from
+lymphatic filariasis in Africa.
+Transactions of the Royal Society of Tropical
+Medicine and Hygiene
+2000;94:37-45.
+13.  Besancenot JP, Boko M, Oke PC. Weather conditions and cerebrospinal
+meningitis in Benin (Gulf of Guinea, West Africa).
+European Journal of
+Epidemiology
+1997;13:807-15.
+14.  Kitala PM, McDermott JJ, Kyule MN, Gathuma JM. Community-based active
+surveillance for rabies in Machakos District, Kenya.
+Preventive Veterinary
+Medicine
+2000;44:73-85.
+15.  Cleaveland S, King A, Kaare M, Luwongo S. Rabies surveillance in the Mara
+Region, the United Republic of Tanzania. In: Rutebarika C, Winyi-Kaboyo R,
+Barrat J, King AA, editors.
+Proceedings of the Southern and Eastern African
+Rabies Group/World Health Organization Meeting, 29-31 March 1999.
+Entebbe, Uganda. Lyon: E
+ ́
+ditions Fondation Me ́ rieux; 1999. p. 69-78.
+16.  Babe`s V.
+Traite ́  de la rage. [Treatise on rabies.] Paris: Baillie` re et Fils; 1912.
+Cited in: Baer GM, Bellini WJ, Fishbein DB. Rhabdoviruses. In: Fields BN, Knipe
+DM, editors.
+Virology, 2nd ed. New York: Raven Press; 1990.
+p. 883-930.
+17.  Baltazard M, Ghodssi M. Prevention of human rabies: treatment of persons
+bitten by rabid wolves in Iran.
+Bulletin of the World Health Organization
+1954;10:797-802.
+309Bulletin of the World Health Organization 2002, 80 (4)
+Rabies mortality
+18.  Baltazard M, Bahmanyar M. Essai pratique du se ́ rum antirabique chez les
+mordus par loups enrage ́ s. [Practical test of antirabies serum in persons bitten
+by rabid wolves.]
+Bulletin of the World Health Organization1955;13:747-72.
+19.  Shah U, Jaswal GS. Victims of a rabid wolf in India: effect of severity and
+location of bites on development of rabies.
+Journal of Infectious Diseases
+1976;134:25-9.
+20.  Sitthi-Amorn C, Jiratanavattana V, Keoyoo J, Sonpunya N. The diagnostic
+properties of laboratory tests for rabies.
+International Journal of Epidemiology
+1987;16:602-5.
+21.  Ministry of Agriculture and Cooperatives
+. National Rabies Control Programme.
+Dar es Salaam: Ministry of Agriculture and Cooperatives; 1994.
+22.  Ministry of Agriculture and Cooperatives.
+Report on human rabies and dog bite
+injuries.
+Dar es Salaam: Ministry of Agriculture and Cooperatives; 1997.
+23.  Ministry of Health.
+Rabies in the United Republic of Tanzania.Dar es Salaam:
+Ministry of Health; 1997.
+24.  Bureau of Statistics.
+The United Republic of Tanzania Sensa 1988.Dar es
+Salaam: President’s Office, Planning Commission; 1991.
+25.  FAO/IFAD
+Mara Region Farmers’ Initiative Project. Formulation Report.Rome:
+Food and Agriculture Organization; 1995. p. 4-15.
+26.  Barrat J, Blancou J. Simplified technique for the collection, storage and
+shipment of brain specimens for rabies diagnosis. Geneva: World Health
+Organization; 1988. Unpublished document WHO/Rab.Res/88.27.
+27.  Kaplan MM, Koprowski H.
+La rage — techniques de laboratoire.[Rabies —
+laboratory techniques.] 3rd ed. Geneva: World Health Organization; 1973.
+p. 65-87.
+28.  Bourhy H, Kissi B, Tordo N. Taxonomy and evolutionary studies on lyssaviruses
+with special reference to Africa.
+Onderstepoort Journal of Veterinary
+Research
+1993;60:277-82.
+29.  Godlonton J. Cultural factors affecting human rabies diagnosis and treatment
+in South Africa. In: King AA, Barrat J, editors.
+Proceedings of the Sixth
+International Conference of the Southern and Eastern African Rabies Group/
+WHO, 19-21 June 2001
+. Lilongwe, Malawi: 2001.
+30.  Cleaveland S, Dye C. Maintenance of a microparasite infecting several host
+species: rabies in the Serengeti.
+Parasitology1995;111:S33-47.
+31.  Chong WK. Rabies in Kenya. In:
+Proceedings of the Southern and Eastern
+African Rabies Group International Symposium, 29-30 April 1993
+.
+Pietermaritzburg, South Africa: 1993. p. 57-67.
+32.  Dlamini RX, Mathunjwa LD. Rabies in Swaziland. In: Bingham J, Bishop J,
+King AA., editors.
+Proceedings of the Third International Conference of the
+Southern and Eastern African Rabies Group
+,7-9 March 1995. Harare:
+1995. p. 58-60.
+33.  Foggin CM. Rabies and rabies-related viruses in Zimbabwe: historical,
+virological and ecological aspects [PhD thesis]. Harare: University of Zimbabwe;
+1988.
+34.  Fishbein DB, Miranda NJ, Merrill P, Camba RA, Meltzer M, Carlos ET, et al.
+Rabies control in the Republic of the Philippines: benefits and costs of
+elimination.
+Vaccine1991;9:581-7.
+35.  Ayalew Y. Analysis of 159 human rabies cases in Ethiopia. In: Kuwert E,
+Me ́ rieux C, Koprowski H, Bo ̈ gel K, editors.
+Rabies in the tropics.Berlin:
+Springer-Verlag; 1985. p. 481-4.
+36.  Fekadu M. Rabies in Ethiopia.
+American Journal of Epidemiology
+1982;115:266-73.
+37.  Tierkel E.S. Rabies.
+Advances in Veterinary Science and Comparative Veterinary
+Medicine
+1959;5:183-226.
+38.  Murray CJL. Quantifying the burden of disease: the technical basis for DALYs.
+Bulletin of the World Health Organization1994;72:429-45.
+39.  Murray CJL, Lopez AD.
+The global burden of disease: a comprehensive
+assessment of mortality and disability from diseases, injuries and risk factors in
+1990 and projected to 2020
+. Boston (MA): Harvard University Press; 1996.
+40.  Fe` vre EM, Coleman PG, Cleaveland S. The disability-adjusted life year (DALY)
+and rabies. In: Rutebarika C, Winyi-Kaboyo R, Barrat J, King AA, editors.
+Proceedings of the Southern and Eastern African Rabies Group/World Health
+Organization Meeting,
+29-31 March 1999.Entebbe, Uganda. Lyon: E
+ ́
+ditions
+Fondation Me ́ rieux; 1999. p. 134-8.
+41.  Bo ̈ gel K, Meslin FX. Economics of human and canine rabies elimination:
+guidelines for programme orientation.
+Bulletin of the World Health
+Organization
+1990;68:281-91.
+42.  Meslin FX. The economic burden of rabies in developing countries: costs and
+benefits from dog rabies elimination.
+Kenya Veterinarian1994;18:523-7.
+43.  Cleaveland S. The growing problem of rabies in Africa.
+Transactions of the
+Royal Society of Tropical Medicine and Hygiene
+1998;92:131-4.
+310Bulletin of the World Health Organization 2002, 80 (4)
+Research

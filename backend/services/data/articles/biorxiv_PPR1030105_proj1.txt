@@ -1,0 +1,284 @@
+Mycobacterium fortuitum Necrotizing Cellulitis
+after Dog Bite in a Pediatric Patient: a case report
+Zhao Mei 
+Department of Pharmacy, The First College of Clinical Medical Science, China Three Gorges University
+Ming Xia 
+Affiliated Renhe Hospital of China Three Gorges University, Three Gorges University
+Yueqing Tan 
+Department of Pharmacy, The First College of Clinical Medical Science, China Three Gorges University
+Tieqi Zheng 
+Department of Pharmacy, The First College of Clinical Medical Science, China Three Gorges University
+Guilan Jin 
+Department of Pharmacy, The First College of Clinical Medical Science, China Three Gorges University
+Case Report
+Keywords: Mycobacterium fortuitum, nontuberculous mycobacteria, metagenomic next-generation
+sequencing, SSTIs
+Posted Date: June 2nd, 2025
+DOI: https://doi.org/10.21203/rs.3.rs-6517740/v1
+License:   This work is licensed under a Creative Commons Attribution 4.0 International License.  
+Read Full License
+Additional Declarations: No competing interests reported.
+Version of Record: A version of this preprint was published at BMC Pediatrics on May 25th, 2026. See
+the published version at https://doi.org/10.1186/s12887-026-07053-5.
+Page 1/12
+Abstract
+Background
+Mycobacterium fortuitum (M. fortuitum), a rapidly growing nontuberculous mycobacterium (NTM), is an
+emerging pathogen in trauma-associated skin and soft tissue infections (SSTIs). Pediatric NTM
+infections are rare and often misdiagnosed due to atypical presentations and intrinsic β-lactam
+resistance. We report the first pediatric case of M. fortuitum necrotizing cellulitis following a dog bite in
+an 8-year-old child, highlighting diagnostic and management challenges.
+Case presentation
+: An 8-year-old child presented with necrotizing cellulitis following a dog bite, which was refractory to
+empiric β-lactam therapy. Histopathology revealed nodular granulomatous inflammation with epithelioid
+cells and purulent necrosis, and acid-fast bacilli were identified via Ziehl-Neelsen staining. Metagenomic
+next-generation sequencing (mNGS) rapidly identified M. fortuitum within 48 hours, confirmed by
+automated liquid culture (7-day growth) and targeted PCR. A multidisciplinary approach integrating broth
+microdilution-guided combination therapy (amikacin 0.5 g three times weekly, linezolid 0.3 g twice daily,
+and doxycycline 0.1 g twice daily) with weekly or biweekly surgical debridement achieved complete
+resolution of cutaneous lesions.
+Conclusions
+This case highlights three key points: (1) NTM infections should be considered in animal bite wounds
+unresponsive to β-lactams; (2) mNGS accelerates pathogen detection, enabling timely susceptibility-
+directed therapy; (3) Combined antimicrobial and surgical strategies are essential for successful
+treatment. Early multidisciplinary consultation is crucial to prevent chronic infection or systemic
+dissemination in complex SSTIs.
+Clinical trial number:
+Not applicable.
+Background
+Animal bites are a significant global health issue, accounting for 5% of trauma-related emergency visits,
+with dog bites representing 80–90% of cases [1, 2]. Pediatric populations are particularly affected, with
+337,000 annual U.S. emergency visits and $2 billion in healthcare costs [3]. While only 5–25% of bite
+injuries develop significant infections [4], complications such as rabies prophylaxis and antimicrobial-
+resistant skin and soft tissue infections (SSTIs) place a substantial strain on healthcare systems. The
+Page 2/12
+microbiology of bite wounds involves a mix of canine oral commensals, human cutaneous microbiota,
+and environmental organisms, often leading to polymicrobial infections [5, 6]. Delayed presentations may
+involve opportunistic or fastidious pathogens, including NTM, which are challenging to diagnose and
+treat. M. fortuitum, a rapidly growing NTM with intrinsic resistance to β-lactams and macrolides,
+exemplifies this challenge. Its clinical presentation mimics common pyogenic infections, and cultures
+yield positive results in only 40%-60% of confirmed cases [7]. Effective management requires prolonged,
+susceptibility-guided combination therapy [8]. This study reports the first pediatric case of M. fortuitum-
+induced necrotizing cellulitis following a dog bite, highlighting diagnostic pitfalls and therapeutic
+strategies. It underscores the need for early multidisciplinary consultation in managing complex SSTIs.
+We present this case in accordance with the CARE reporting checklist.
+Case Presentation
+An 8-year-old girl (height 140 cm, weight 34 kg) was admitted on December 12, 2023, with a non-healing
+right thigh wound complicated by sinus tract formation and continuous exudate, persisting for 2 months
+after a domestic dog bite. Initial treatment at an external hospital included tetanus immunoglobulin,
+rabies vaccination, and wound irrigation with suturing, but the wound failed to heal. Imaging
+(MRI/ultrasound) revealed a subcutaneous abscess (3×2 cm) with surrounding soft tissue edema and
+ipsilateral inguinal lymphadenopathy (short-axis diameter 1.0 cm). Wound cultures showed no
+pathogenic bacterial growth.
+On admission, physical examination revealed two residual dog bite wounds with purulent discharge from
+a central sinus tract, erythema (4×3 cm), and tenderness in the right inguinal region. Laboratory tests
+showed white blood cell count (WBC) 7.8×10⁹/L and neutrophil percentage (NEUT%) 65%. On December
+13, she underwent debridement, inguinal lymphadenectomy, and vacuum-sealed drainage (VSD). Post-
+operatively, she developed intermittent fever and was treated with intravenous amoxicillin-clavulanate
+potassium (1 g every 8 hours). The clinical course is shown in Fig. 1. Histopathology examination of the
+surgical specimens revealed epithelioid cell granulomatous inflammation with purulent necrosis (Fig. 2).
+Acid-fast staining was positive (3–9 bacilli per 100 fields), but the tuberculosis antibody test was
+negative. One week later, during the second debridement, the intraoperative specimen tested negative
+for Mycobacterium tuberculosis DNA.
+\
+On December 27, during the third debridement, metagenomic next-generation sequencing (mNGS)
+identified Mycobacterium fortuitum within 48 hours (sequence count 14,155; confidence level 99%)
+(Fig. 3). Following consultation with a clinical pharmacist, a treatment regimen was initiated, including
+oral clarithromycin (0.5 g once daily), linezolid (0.3 g twice daily), and intravenous amikacin (0.5 g three
+times weekly). However, wound healing was not as expected. Two weeks later, tissue from re-
+debridement was cultured for 7 days, and M. fortuitum was confirmed by automated liquid culture and
+PCR, with antimicrobial susceptibility results obtained (Table 1). The clinical pharmacist recommended
+replacing clarithromycin with doxycycline. On January 17, during the fifth debridement, necrotic tissue
+Page 3/12
+decreased but acid-fast staining remained positive. Cefmetazole (1 g twice daily) was added, and
+doxycycline was discontinued after 21 days due to elevated liver enzymes (alanine aminotransferase
+[ALT] 80.0 U/L and aspartate aminotransferase [AST] 55.9 U/L). Two weeks later, during the sixth
+debridement, the wound showed abundant granulation tissue, and liver enzymes had normalized.
+The patient was discharged on February 12 and continued oral linezolid for 3 months. Follow-up showed
+good wound healing with no discomfort.
+This study was approved by the Ethics Review Committee of the First College of Clinical Medical
+Science, China Three Gorges University (Ethics No. 2024-251-01). All procedures performed in this study
+were in accordance with the ethical standards of the institutional and/or national research committee
+and with the Helsinki Declaration (as revised in 2013). Written informed consent was obtained from the
+patient’s parents for publication of this case report and accompanying images. A copy of the written
+consent is available for review by the editorial office of this journal.
+Discussion
+This case provides the first molecular evidence confirming a direct causal link between dog bites and M.
+fortuitum infection, offering critical clinical evidence for the zoonotic transmission mechanism of NTM.
+As environmental commensals, NTM are primarily transmitted through soil or water exposure, with
+previous consensus suggesting no animal-to-human transmission [9]. Although domestic animals can
+harbor NTM and develop self-infections [10, 11], human infections resulting from animal bites are
+exceedingly rare, with only five documented cases of canine-derived infections in the literature[12–16].
+This case, supported by existing evidence, demonstrates that oral NTM colonization in canines
+constitutes a novel transmission risk. The underlying mechanisms involve traumatic inoculation leading
+to biofilm formation, dysbiosis of the salivary microbiome promoting proliferation of opportunistic
+pathogens, and immunodeficiency-related opportunistic infections [5, 6]. Dogs may act as potential
+zoonotic vectors, underscoring the necessity for clinical reevaluation of infection risks associated with
+animal-related trauma.
+The clinical manifestations of NTM skin infections are relatively insidious, posing significant diagnostic
+challenges. With an incubation period of 2–4 weeks, the pathological presentation involves
+granulomatous inflammation combined with suppurative changes, which overlaps histologically with
+tuberculosis infection. Traditional diagnostic methods for NTM—such as acid-fast staining (with low
+sensitivity), prolonged culture cycles (4–6 weeks), and phenotypic differentiation difficulties [8, 17]—
+highlight the limitations of conventional diagnostic systems. In this case, mNGS was employed to
+accurately identify the pathogen within 48 hours. As a hypothesis-free and unbiased approach, mNGS
+leverages high-throughput and rapid sequencing capabilities to detect and quantify all microorganisms
+in a single specimen. Quantitative analysis effectively distinguishes pathogens from colonizing flora, as
+demonstrated here by the detection of 14,155 specific sequences of M. fortuitum, significantly
+surpassing background microbial signals. This technology overcomes the "blind spots" of clinical
+Page 4/12
+presumption, shortens the identification time for rare pathogens, and provides critical evidence for early
+targeted therapeutic decisions [18, 19]. We recommend incorporating mNGS as an alternative diagnostic
+tool for non-healing wounds (> 7 days) following animal bites or cases refractory to conventional
+treatments.
+The treatment of NTM skin infections requires individualized regimens integrating antimicrobial
+susceptibility testing, tissue penetration profiles, and patient-specific factors [10]. M. fortuitum generally
+exhibits resistance to first-line antituberculosis drugs, with amikacin demonstrating the strongest in vitro
+antibacterial activity, while susceptibility varies for ciproflo xacin, linezolid, imipenem, doxycycline, and
+clarithromycin [20–22]. For pediatric patients, priority is given to oral agents with high bioavailability and
+effective cutaneous tissue concentrations, while balancing safety considerations: avoiding
+fluor oquinolones due to skeletal toxicity risks and restricting carbapenems to maintain intestinal
+microbiota equilibrium. In this case, empirical therapy with clarithromycin, linezolid, and amikacin was
+initially administered. The regimen was subsequently optimized based on susceptibility results, replacing
+clarithromycin with doxycycline due to macrolide resistance mediated by erm(39) gene-induced
+methylation of the 23S rRNA macrolide-binding site [23]. A pediatric-specific risk control system was
+implemented, including low-dose intermittent amikacin administration [24, 25] combined with
+otoacoustic emission monitoring to mitigate cumulative dose-related ototoxicity and nephrotoxicity,
+alongside doxycycline therapy limited to ≤ 21 days [26]. The dynamic therapeutic strategy featured an
+intensive intravenous combination phase lasting 6 weeks, followed by an oral step-down consolidation
+phase for 12 weeks [8, 27]. Additionally, this strategy is supported by six surgical debridements: weekly
+during the acute phase and biweekly during the chronic phase. Therapeutic efficacy was determined
+through dual quantitative criteria: three consecutive negative wound cultures and ≥ 80% granulation
+tissue coverage, ultimately achieving complete wound healing through this four-month multimodal
+intervention.
+Conclusions
+This case underscores the risk of NTM infections from dog bites and highlights mNGS's role in rapid
+diagnosis. Effective treatment involves susceptibility-guided antimicrobial therapy and surgery, with
+vigilant monitoring for adverse effects. Given the limitations of current guidelines and this single-case
+report, further multicentric studies are needed to refine tr eatment protocols. Clinicians should be alert to
+zoonotic NTM transmission and consider it in refractory cases.
+Declarations
+Acknowledgments
+The authors thank the patient and their parents for their contribution to this study.
+Author contributions
+Page 5/12
+(I) Conception and design: Z Mei, M Xia; (II) Administrative support: G Jin; (III) Provision of study
+materials or patients: Z Mei, M Xia; (IV) Collection and assembly of data: Y Tan, T Zheng; (V) Data
+analysis and interpretation: Z Mei, M Xia; (VI) Manuscript writing: All authors; (VII) Final approval of
+manuscript: All authors. 
+Funding
+No funding for the research.
+Data availability
+No datasets were generated or analysed during the current study.
+Ethical approval and consent to participate
+This study was approved by the Ethics Review Committee of the First College of Clinical Medical
+Science, China Three Gorges University (Ethics NO. 2024-251-01). All procedures performed in this study
+were in accordance with the ethical standards of the institutional and/or national research committee
+and with the Helsinki Declaration (as revised in 2013). 
+Consent for publication
+Written informed consent was obtained from the patient’s parents for publication of this case report and
+accompanying images. A copy of the written consent is available for review by the editorial office of this
+journal.
+Competing interests
+The authors declare no competing interests.
+References
+1. Hampson K, Coudeville L, Lembo T, et al. Global Alliance for Rabies Control Partners for Rabies
+Prevention. Correction: Estimating the global burden of endemic canine rabies. PLoS Negl Trop Dis.
+2015; 9(5): e0003786.
+2. Septelici D, Carbone G, Cipri A, et al. Management Strategies for Common Animal Bites in Pediatrics:
+A Narrative Review on the Latest Progress. Microorganisms. 2024; 12(5): 924.
+3. Ortiz DD, Lezcano FO. Dog and Cat Bites: Rapid Evidence Review. Am Fam Physician 2023;
+108(5):501-5.
+4. Rothe K, Tsokos M, Handrick W. Animal and human bite wounds. Dtsch Arztebl Int 2015; 112(25):
+433–42.
+5. Abrahamian, F.M.; Goldstein, E.J.C. Microbiology of animal bite wound infections. Clin. Microbiol.
+Rev 2011, 24(2): 231–46.
+Page 6/12
+6. Oehler R, Velez AP, Mizrachi M, Lamarche J, Gompf S. Bite-related and septic syndromes by cats and
+dogs. Lancet Infect Dis 2009; 9(7): 439–47.
+7. Brooks J, Behrens e, Prickett K. Painful and pruritic papules in the gray shading of a tattoo. JAMA
+Dermatol 2016, 152(2): 205–6.
+8. Gonzalez-Santiago TM, Drage LA. Nontuberculous Mycobacteria: Skin and Soft Tissue Infections.
+Dermatol Clin 2015; 33(3): 563-77.
+9. Maekawa K, Ito Y, Hirai T, et al. Environmental risk factors for pulmonary Mycobacterium avium-
+intracellulare complex disease. Chest 2011; 140(3): 723-9.
+10. Malik R, Shaw SE, Griffin C, et al. Infections of the subcutis and skin of dogs caused by rapidly
+growing mycobacteria. J Small Anim Pract 2004; 45(10): 485-94.
+11. Malik R, Wigney DI, Dawson D, et al. Infection of the subcutis and skin of cats with rapidly growing
+mycobacteria: a review of microbiological and clinical findings. J Feline Med Surg 2000; 2(1):35-48.
+12. Mendoza-Del Toro Patricia PG, Robles-Tenorio Arturo A, Tarango-Martínez Victor VM.
+Mycobacterium abscessus sporotrichoid infection after a dog bite. An Bras Dermatol 2024;
+99(1):145-7.
+13. Ariel I, Haas H, Weinberg H, et al. Mycobacterium fortuitum granulomatous synovitis caused by a
+dog bite. J Hand Surg Am 1983; 8(3): 342-3.
+14. Minato S, Sukegawa K, Onuma K, et al. Polymicrobial Extensor Tenosynovitis Including
+Mycobacterium chelonae Caused by a Dog Bite: A Case Report. JBJS Case Connect 2021; 11(1):
+e20.00608.
+15. Southern PM, Jr. Tenosynovitis caused by Mycobacterium kansasii associated with a dog bite. Am J
+Med Sci 2004; 327(5): 258-61.
+16. Song JK, Shin JH, Lee JY. Delayed Nontuberculous Mycobacterium Manifestation 1 Year after a Dog
+Bite on the Hand. J Wound Manag Res 2020; 16(1): 56-8.
+17. Sharma SK, Upadhyay V. Epidemiology, diagnosis & treatment of non-tuberculous mycobacterial
+diseases. Indian J Med Res 2020; 152(3): 185-26.
+18. Gu W, Miller S, Chiu CY. Clinical Metagenomic Next-Generation Sequencing for Pathogen Detection.
+Annu Rev Pathol 2019; 14: 319-38.
+19. Wang S, Xing L. Metagenomic next-generation sequencing assistance in identifying non-tuberculous
+mycobacterial infections. Front Cell Infect Microbiol 2023; 13:1253020.
+20. Zheng HW, Pang Y, He GX, et al. Antimicrobial Susceptibility Testing and Molecular Characterization
+of Mycobacterium fortuitum Isolates in China. Biomed Environ Sci 2017; 30(5): 376-9.
+21. Da Mata-Jardín O, Angulo A, Rodríguez M, et al. Drug susceptibility patterns of rapidly growing
+mycobacteria isolated from skin and soft tissue infections in Venezuela. Eur J Clin Microbiol Infect
+Dis 2020; 39(3): 433-41.
+22. Shen Y, Wang X, Jin J, et al. In Vitro Susceptibility of Mycobacterium abscessus and Mycobacterium
+fortuitum Isolates to 30 Antibiotics. Biomed Res Int 2018; 2018: 4902941.
+Page 7/12
+23. Brown-Elliott BA, Philley JV. Rapidly Growing Mycobacteria. Microbiol Spect 2017; 5(1):10.
+24. Aznar ML, Marras TK, Elshal AS, et al. Safety and effectiveness of low-dose amikacin in
+nontuberculous mycobacterial pulmonary disease treated in Toronto, Canada. BMC Pharmacol
+Toxicol 2019; 20(1):37.
+25. Peloquin CA, Berning SE, Nitta AT, et al. Aminoglycoside toxicity: daily versus thrice-weekly dosing
+for treatment of mycobacterial diseases. Clin Infect Dis 2004; 38(11): 1538-44.
+26. Chapman AS, Bakken JS, Folk SM, et al. Diagnosis and management of tickborne rickettsial
+diseases: Rocky Mountain spotted fever, ehrlichioses, and anaplasmosis--United States: a practical
+guide for physicians and other health-care and public health professionals. MMWR Recomm Rep
+2006; 55(RR-4): 1-27.
+27. Johnson TM, Byrd TF, Drummond WK, et al. Contemporary Pharmacotherapies for Nontuberculosis
+Mycobacterial Infections: A Narrative Review. Infect Dis Ther 2023; 12(2): 343-65.
+Table 1
+Table 1. Antimicrobial susceptibility profile of M. fortuitum isolate according to CLSI M24 guidelines
+Abbreviations: MIC, Minimun inhibitory concentration; S, Susceptible; I, Intermediary; R, Resistant.
+Page 8/12
+Figures
+Antimicrobial DrugMIC, μg/mLInterpretation
+Amikacin4S
+Rifampicin >4R
+Rifambudin4R
+Clarithromycin16R
+Imipenem8I
+Minocycline1S
+Tigacycline0.5S
+Trimethoprim4/76R
+Amoxicillin>64/32R
+Cefoxitin16S
+Ciproflo xacin≤0.125S
+Doxycycline0.5S
+Linezolid5S
+Moxiflo xacin≤0.25S
+Tobramycin>16R
+Meropenem4S
+Page 9/12
+Figure 1
+Timeline of clinical diagnosis and treatment. A. a-h: Wound conditions at different stages. B. Clinical
+pharmacist involvement in adjusting the anti-infective treatment regimen based on antimicrobial
+susceptibility test results.
+Abbreviations: AFB: Acid-fast bacilli; TB: Mycobacteria tuberculous; mNGS: Metagenomic next-generation
+sequencing; AST: Antimicrobial susceptibility test; (+): Positive; (-): Negative
+Page 10/12
+Figure 2
+Histopathological characteristics of necrotic tissue. (Hematoxylin and eosin; x100.) Inflammatory
+pyogenic necrosis surrounded by nodular granulomatous epithelioid cells was observed.
+Page 11/12
+Figure 3
+Genome coverage map of detected sequences of M. fortuitum by mNGS in necrotic tissues. (The
+coverage of M. fortuitum: 7.51%.)
+Page 12/12

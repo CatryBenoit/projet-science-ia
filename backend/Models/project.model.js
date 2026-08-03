@@ -5,13 +5,22 @@ class ProjectModel {
     /**
      * Récupère les articles analysés pour un projet donné
      */
-    static getAnalyzedArticles(projectId) {
+   static getAnalyzedArticles(projectId) {
         return new Promise((resolve, reject) => {
             const query = `
-                SELECT a.title, aa.metadata, aa.synthesis 
+                SELECT 
+                    a.id, 
+                    a.title, 
+                    aa.metadata, 
+                    aa.synthesis, 
+                    aa.notes, 
+                    aa.macro_theme, 
+                    aa.micro_themes,
+                    aa.conflict_of_interest
                 FROM articles a 
                 JOIN article_analysis aa ON a.id = aa.article_id 
                 WHERE a.project_id = ?
+                ORDER BY aa.macro_theme ASC
             `;
             db.all(query, [projectId], (err, rows) => {
                 if (err) reject(err);
@@ -235,7 +244,7 @@ class ProjectModel {
             );
         });
     }
-    
+
     static async saveConflictOfInterest(articleId, conflictData) {
         return new Promise((resolve, reject) => {
             // On transforme l'objet JSON (hasConflict, severity, details) en chaîne de texte pour SQLite

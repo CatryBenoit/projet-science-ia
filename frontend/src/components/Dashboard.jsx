@@ -89,8 +89,7 @@ function Dashboard({ onLogout }) {
             </main>
 
             {/* 🛑 AJOUT ICI : La modale des paramètres s'affiche uniquement si showSettings est true */}
-            {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
-            
+{showSettings && <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} />}            
         </div>
     );
 }

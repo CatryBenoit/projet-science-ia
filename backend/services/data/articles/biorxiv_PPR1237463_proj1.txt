@@ -1,0 +1,914 @@
+1 
+A STUDY TO ANALYSE THE DEMOGRAPHICS AND INJURY   PATTERN OF 
+DOG BITE CASES  IN  EMERGENCY  DEPARTMENT OF A TERTIARY CARE 
+HOSPITAL   IN  CHENNAI 
+DHANALAKSHMI VINOTH*,ASHOK KUMAR.A, EVANGELIN JENIFER.V, RAJ.S, 
+KEERTHANA.C, ARTHI.K 
+1.
+ Assistant Professor, Faculty of Allied Health Sciences, Dr. M.G.R. Educational and 
+Research Institute, Chennai, Tamil Nadu Orchid – Id: 0009-0001-1704-9463 E-mail: 
+dhanalakshmi.pa@drmgrdu.ac.in
+2.
+ Student , Faculty of Allied Health Sciences, Dr. M.G.R. Educational and Research 
+Institute, Chennai, Tamil Nadu Orchid – Id: 0009-0003-5004-612X
+E-mail: charlesashok02@gmail.com 
+3.
+ Student , Faculty of Allied Health Sciences, Dr. M.G.R. Educational and Research 
+Institute, Chennai, Tamil Nadu Orchid – Id: 0009-0004-8889-341X
+E-mail: evangelinejenifer0@gmail.com 
+4. Student , Faculty of Allied Health Sciences, Dr. M.G.R. Educational and Research 
+Institute, Chennai, Tamil Nadu Orchid – Id: 0009-0000-5827-343X
+E-mail: rajxiib@gmail.com 
+5.
+ Student , Faculty of Allied Health Sciences, Dr. M.G.R. Educational and Research 
+Institute, Chennai, Tamil Nadu Orchid – Id: 0009-0000-3793-4809 
+E-mail: keerthichandru4@gmail.com
+6.
+ Student , Faculty of Allied Health Sciences, Dr. M.G.R. Educational and Research 
+Institute, Chennai, Tamil Nadu Orchid – Id: 0009-0001-0054-6834
+E-mail: k.aarthi2910@gmail.com 
+CORRESPONDING AUTHOR  
+DHANALAKSHMI VINOTH 
+DR. MGR EDUCATIONAL AND RESEARCH INSTITUTE 
+VELLAPANCHAVADI, CHENNAI,INDIA 
+PIN CODE:600 092 
+9600450130 
+dhanalakshmi.pa@drmgrdu.ac.in
+ACKNOWLEDGMENT S  
+NONE 
+CONS ENT   FO R  PUBLICATI ON  
+NOT APPLICABLE 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+NOTE: This preprint reports new research that has not been certified by peer review and should not be used to guide clinical practice.
+2 
+ETHICAL AP PR OVAL AND C ONS ENT   TO PA RTIC IPATE    
+THE STUDY  PROTOCOL WA S APPROVED BY  THE  ETHICS  COMMITTEE  OF T HE ACS  MEDICAL  
+COLLEGE AND HO SPITAL ,DR MGR  ED UCATIONAL AND RESEARCH  INSTITUTE ,INFORMED 
+CONSENT WAS  OBTAINED  FROM ALL  THE PARTICIPANTS INCLUDED  IN THIS STUDY.   
+DECLARATIO N OF  CO NFLICTIN G  INT EREST S  
+THE AUTHOR(S)  DE CLARED  NO POTE NTIAL CONFLICTS OF INTEREST  WIT H RESPECT  TO  THE 
+RESEARCH ,AUTHORSHIP,AD /OR PUB LICATION OF THIS ARTICLE    
+FUNDIN G   
+THIS  RE SEARCH   REC EIVED NO EX TE RNAL FUNDING 
+DATA AVAILABILTY STATEMENT  
+THE DAT ASET S GENERAT ED  AND AN ALYZED DURING THE  CURRENT STUD Y ARE AVAILABLE 
+FROM THE CORRESPONDING AUTHOR  AMONG RESONABLE REQUES T. 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+3 
+ABSTRACT   
+Background 
+Do g bite injuries  are a maj or yet lar gely preventable public health concern w orldwide. They 
+contribute    significantly to m orbidity,  healthcare burden, and economic co sts , particularly in 
+emergency  department .The present study aims to analyse the demographics  and injury pattern o f 
+dog bite cases  presenting t o the emerg ency department of a tertiary care ho s pital in Chennai. 
+Methods  
+We conducted a cro ss-sectional study  with dog  bite injured participants attending the  
+Causality   fr om November 2025 to  Apr il 2026 data was collected using a  
+ structured   to ol including details on d emographics (Age, Gender, Education)   injury related  
+ characteristics , history o f pure  bite sit e of  do g bite injury  type, WHO bitten cr iteria and  
+ info rmation to  management etc. We used here non p roba bility statistical analysis and age   
+specific do g bite   cases and i ndependent variables were analysed usin g  SPSS  ( 2.0 version). 
+Resul t  
+A total of  Tw o hundred si xteen dog  bit e cases were analysed in  the study by p eriod o f 6    
+months The majority  of  participants w ere 172 (79.6%) were a bove 18 years   and 44 (20.4)   
+were below  18 year, 130 (60%)  fr om r ural areas and 86 (39.8%)  from  urban   areas, 136  
+(63.0%) of  Victims presented within a  day of the bite, 61( 28.2) ne xt day and  19 (8.8%) in   
+after one  week 66 (30.6) were  bitten b y own  do g and 150(69.4%)were bitten  by nei ghb our /    
+friended dog. 124(57.4) were  bitten by  stray dog  92(42.6) bitten by pet d og. 1 17(54.2) were  
+vaccinated dog and 99(45.8%) were n o t vaccinated .110(50.9) victims were injured by   
+laceration. 26(12.0%) were in jured by  puncture wound.46(21.3) were injured by ab rasion  
+10(4.6) were injured  by avulsion 15(6.9%) were  injured  by crush in jury. 156(72.2%) were   
+had minor w ound.45(20.8%) victims had moderate wound and 15(6.9%)  victims had severe   
+wound. 112(51.9%) victims were taken antibiotics.104(48%) were  not taken  antibiotics.   
+185(85.6%) victims received tetanus toxoid, 31(14.4%)  were n ot received tetanus toxoid.  
+CONCLUS IO N  
+There is a high  burden o f d og  bite injur ies fr om stray d ogs i n India. Despite ea rly hospital  
+presentation in many cases  gaps in  fir s t aid practices and rabies  post  expo sur e prophylaxis   
+were evident and highlighting inadequate awareness. 
+Key words  
+Rabies  imm unoglobulin, Dog bi te,  W HO crit eria,  Anti rabi es  vaccine, st ray Dog, woun  d 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+4 
+1.       I NTRO DUCTI ON  
+Do g bite injuries  are a maj or yet lar gely preventable public health concern w orldwide. They 
+contribute signi ficantly to morbidity, healthcare burden, and economic c osts,  particularly in 
+emergency department settings(Rabies, n.d.). Globally, dog bites account f or  tens o f millions  
+of in juries each year, although precise estimates remain unavailable due to underreporting and  
+lack of su rveillance systems in many regions(Animal  Bites, n.d.-a). In high-income countries  
+such as the United States, approximately 4.5 million dog bites  occur annually, with hundreds 
+of thousands  requirin g medical attention(Di xon  et al., 2012). In contrast, data fr om low - and  
+middle-income countries (LMICs)  are  f ragmented; however, available evidence suggests that 
+dogs are  respon sible f or  76–94% of  all animal bite injuries(Maniscalco et al., 2026) 
+The burden o f d og  bites is  closely linked to rabies, a  fatal zoon otic disease cau sed by a  
+neurotropic virus  of  the genus Lyssavir us(Rabies, n.d.). Rabies remains a  signi ficant global  
+health issue, causing an estimated 59,000 deaths annually, with over 95% o f  f atalities 
+occurring in  Asia and  Af rica, India alone accounts f or a  substantial prop ortion  of these deaths, 
+with approximately 18,000–20,000 fatalities reported each year(Rabies - Indi a, n.d.). Despite 
+the availability of ef fective vaccines and post-exp osure p rophylaxis (PEP),  rabies continues t o  
+have a near 100% fatality rate once clinical symptoms appear(Rabies, n.d.).The higher 
+mortality rates in LMICs are attributed  to factors  such as  delayed treatment, poor  awareness,  
+limited access to healthcare, and the high prevalence of stray d ogs (Chisare,D,  2023) 
+Do g bites also  impose a  considera ble strain on  healthcare systems. In the United States, they 
+account for  appro ximately 337,000 emergency visits annually, with associated healthcare costs  
+reaching up to $2  billion per year(O rtiz & Lezcano, 2023). Children are the mo st vulnerable 
+group, o ften sustaining  bites to the head and neck, while adults typically present with injuries  
+to the extremities and hands(Animal Bi tes - StatPearls - NCBI  Bo okshelf, n.d.). Do g bites can  
+lead to severe consequences, including  serious physical injuries,  frequent hosp italizations , 
+potential infections , recon structive procedures due to the potential for  perm anent 
+disfigurement and psychological and p ost-traumatic stress(Khan et al., 2023) .Appropriate 
+wound management—including prom pt cleaning, irrigation, and removal o f  devitalized tissue 
+is essential to prevent complication(M anna et al., 2026). However, in many ru ral and 
+underserved communities, traditional and unscientific practices such as  the application of  oils, 
+herbs, or  irritants to  wounds  persist, in creasing the risk  of  infection  and ra bies 
+transmission( Beasley et al., 2022). 
+Previous studies have highlighted the epidemiology and clinical patterns of d o g bite injuries  
+across di fferent  regions (Khan et al., 2023). Research from  high-income countr ies has 
+provided relatively reliable data on inc idence, hospitalization rates, and mort ality 
+trends(English et al., 2018). For instance, studies in the United States and New Zealand have 
+documented both fatal and non- fatal dog  bite injuries, demonstrating an  incr easing trend in  
+hospitalizations over time(Duncan-Sutherland et al., 2022). In LMICs, studies have primarily 
+focused o n ra bies bu rden, awareness l evels, and healthcare-seeking behaviour(Acharya et al., 
+2026). Indian studies emphasize the endemic nature of ra bies, the predomina nce of  do g mediated 
+transmission  (up to 97 %), and the sign ificant role o f  sociocultural practices in 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+5 
+influencing treatment outcomes(Rabies - India, n.d.). However, many o f these  studies are 
+community-based or  focus  on  awarene ss rather than detailed clinical and demographic 
+analysis in emergency settings(Gar g et  al., 2013). 
+Despite the substantial burden o f do g b ite injuries, there is a lack o f c omprehensive, hospitalbased 
+studies analysing the demographic pro file, injury patterns, and management practices 
+of d og  bite cases, particularly in urban  tertiary care settings like Chennai(Sing aravel et al., 
+2026). Additionally, limited data exist on how  facto rs  such as age, gender, inj ury site, and 
+timing of  presentation in fluence clinical outcomes. This gap hinders  the development of  
+targeted interventions and effective pr evention strategies(Yattoo et al., 2009) 
+The present study aims to analyse the  demographics and injury patterns  of  d og  bite cases  
+presenting to the emergency department of  a tertiary care hospital in  Chennai. By examining  
+patient characteristics, injury distribution, and management practices, the study seeks to  
+provide a clearer understanding  of  the burden and clinical pro file of  dog  bite i njuries in this  
+setting. This study is expected to gener ate valuable data on the epidemiology and clinical 
+characteristics of d og  bite cases in  an u rban tertiary care setting. The  findings  will help 
+identify high-risk g roups, common  inju ry patterns, and gaps in  management practices. 
+Ultimately, the study will contribute to  improving emergency care p rotocols, e nhancing 
+public awareness, and guiding p olicymakers in designin g ef fective dog  bite pr evention and 
+rabies co ntrol strategies  
+2.  MATE RIALS A ND METH ODS  
+STUDY D ESI GN,  P OP ULATIO N AND  S ETTIN G  
+We conducted a cro ss-sectional study  with Do g bite injured  patients presentin g to A CS    
+medical college and hospital, a tertiary care hospital in Chennai, India. Eligibility criteria  
+included: dog bite victims o f all ages vi siting the dog  bite unit of  a si gnificant  public tertiary  
+care hospital from  November 2025 to  April 2026 
+SAMPLE S IZE CALCULATIO N  
+We used a n on-pr obability, purposive s ampling method to draw the sample. Data were  
+collected and analysed from 216 patients with do g bite injuries.  The sample s ize was   
+calculated using the absolute precision  formula, n = Z(α/2)  ² P(1−P)/d², consi dering a 95%   
+confidence interval and 80% p ower  of   the study. Where Z(α/2) ² = 3.84, P = 0.765 (frequency   
+and characteristics of d og  bite injuries   reported as 76.5%), 1−P = 0.235, and d² = 0.0025  
+(precision  5.0%), the sample size calculated was 276. We added 10% to the calculated  
+sample size to account f or a  non -respo nse rate, giving a  final sample size o f 3 04. However,  
+the sample size achieved was 216. 
+STUDY  PR OCEDU RE A ND DATA  COL LECTION  
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+6 
+The study was conducted f ollowing a  s ystematic and well-organized procedure to ensure the   
+accuracy and consistency o f the data co llected. Prior approval was  obtained  fr om the  
+concerned authorities, and the purpose of  the study was clearly explained to all participants.  
+Eligible participants were selected bas ed on predefined  inclusion criteria, an d info rmed consent   
+was o btained prior  to their inv olvement, ensuring they were aware  of  their rig hts,  
+including confidentiality and voluntary participation. Data collection was carri ed out by trained   
+research assistants who  approached d og  bite patients receiving initial treatment and invited them  
+to participate in the study. Information    was gathered using  a structured pro f orma, which included  
+details on demographic characteristics  (such as age, gender, and education), in jury-related factors   
+including date and time of injury, locati on at the time of  the incident, history o f previous  bites, site   
+and type of in jury, whether the individual was alone or  accompanied, circumstances and activity  
+during the bite, and owner ship status o f the animal), as well as management-r elated aspects (such  
+as fir st aid measures, hospital treatment, and type of vaccination received). E ach participant  
+was interviewed individually in a comf ortable setting, and questions  were e x plained in  
+simple language to ensure clarity and accurate responses. Obse rvations and a vailable records   
+were also used  when necessary to  sup plement the data. 
+After data collection, all completed  pro forma   were tho roughly reviewed fo r c ompleteness  
+and accuracy. The data were then orga nized, coded, and prepared for  analysis, while  
+maintaining strict confidentiality and adherence to ethical standards throughout the study. 
+The exclusion criteria  for  the study included patients presenting with bites f ro m animals  
+other than dogs, such as  cats, monkeys, snakes, rats, or  humans; cases  where i njuries were    
+not directly caused by do g bites  (f or e x ample, scratches or in juries re sultin g fr om falls while   
+being chased but n ot bitten); patients  who received initial treatment elsewhere and presented   
+only fo r  follow-up  without a documented record  of  the dog  bite in the emergency department; cases  
+with incomplete or missin g medical records lackin g es sential study variables; and patients who   
+refused to p rovide con sent f or particip ation. 
+STATISTICAL A NALYSIS  
+Data will be entered into a  secure spre adsheet (Microsoft  Excel) and  then imported into a   
+statistical software package (e.g., SPSS  version 2.0)  for  analysis. Descriptive St atistics: Categorical 
+variables (gender, wound  location, management type)  
+will be presented as  frequencies and  p ercentages. Continuous variables  (age)  will be   
+summarized using means and standard  deviations or  medians and interquartil e ranges,   
+depending on n ormality.Chi-square test (or  Fisher's  exact test) will be  used to  assess ass ociations    
+between categorical variables (e.g., wo und severity classification and bite loca tion (head/neck vs. 
+limbs). 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+7 
+3.  RESULTS 
+( TABLE -1& 2) A total of 216 dog bite cases were analysed in this study by a period of 6 
+months. The majority of participants were aged above 18 years (79.6%, n = 172), while 20.4% (n 
+= 44) were below 18 years. Males constituted 56.5% (n = 122) of cases, and females accounted 
+for 43.5% (n = 94). Regarding educational status, 32% (n = 64) were educated and 76% (n = 
+152) were uneducated. Most participants were from rural areas (60%, n = 130), with 39.8% (n = 
+86) residing in urban settings. In terms of healthcare-seeking behaviour, 63.0% (n = 136) of 
+victims presented within a day of the bite, 28.2% (n = 61) the next day, and 8.8% (n = 19) after 
+one week. At the time of the incident, 46.8% (n = 101) were walking, 32.4% (n = 70) were 
+playing or running roadside, and 20.8% (n = 45) were engaged in other activities. A history of 
+provoking or playing with a dog was reported by 34.7% (n = 75), while 65.3% (n = 141) denied 
+such actions; additionally, 17.6% (n = 38) reported intervening in a dog-related incident prior to 
+the bite. Most bites were attributed to friends’ dogs (69.4%, n = 150), followed by neighbours’ 
+dogs (30.6%, n = 66). The majority of incidents occurred on the street (50.9%, n = 110), 
+followed by home (31.0%, n = 67) and workplace (10.2%, n = 22). Stray dogs were responsible 
+for 57.4% (n = 124) of bites, while pet dogs accounted for 42.6% (n = 92). Attacks without 
+provocation were reported in 43.5% (n = 94) of cases. Most dogs were described as friendly 
+(64.4%, n = 139), while 35.6% (n = 77) were considered aggressive. Regarding vaccination 
+status, 54.2% (n = 117) of dogs were vaccinated, and 45.8% (n = 99) were not; abnormal 
+behaviour in the preceding 10 days was noted in 14.8% (n = 32). A single bite was reported in 
+87.0% (n = 188) of cases, while 13.0% (n = 28) experienced multiple bites; 17.6% (n = 38) of 
+dogs had a previous history of biting. Following the incident, 75.9% (n = 164) of dogs remained 
+alive, 9% (n = 2) died, and the status was unknown in 23.1% (n = 50). The lower extremities 
+were the most commonly affected site (56.5%, n = 122), followed by upper extremities (38.0%, n 
+= 82), with fewer injuries to the head and neck (2.3%, n = 5) and torso (3.2%, n = 7). Lacerations 
+were the most common type of injury (50.9%, n = 110), followed by abrasions (21.3%, n = 46), 
+puncture wounds (12.0%, n = 26), crush injuries (6.9%, n = 15), avulsions (4.6%, n = 10), and 
+cellulitis (4.2%, n = 9). Based on severity, 72.2% (n = 156) of wounds were minor, 20.8% (n = 
+45) were moderate, and 6.9% (n = 15) were severe. In terms of management, 40.3% (n = 87) 
+underwent primary suturing, 13.9% (n = 30) had delayed closure, 19.4% (n = 42) were left to 
+heal by secondary intention, and 26.4% (n = 57) required no such intervention. Antibiotics were 
+prescribed in 51.9% (n = 112) of cases. First aid measures included washing with soap and water 
+(48.6%, n = 105), cleaning with antiseptic (31.0%, n = 67), and application of gel or ointment 
+(20.4%, n = 44). Tetanus toxoid was administered in 85.6% (n = 185) of cases, while rabies post-
+exposure prophylaxis was given to 55.1% (n = 119). Hospital admission was required in 16.7% 
+(n = 36) of cases, while 83.3% (n = 180) were managed on an outpatient basis, and 25.9% (n = 
+56) were referred to specialty clinics. 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+8 
+(TABLE -3) The present study provides important insights into the management practices and 
+treatment-seeking behaviour of animal bite cases in accordance with the World Health 
+Organization (WHO) classification and the national guidelines for rabies prophylaxis. A total of 
+216 cases were analysed, revealing both strengths and gaps in current practices. In this study, 
+51.9% of patients were prescribed antibiotics, while 48.1% did not receive them. Antibiotic use 
+in animal bite cases is generally indicated for high-risk wounds, such as deep injuries, bites on 
+the hands, or wounds with a high risk of infection. The nearly equal distribution suggests a 
+judicious but variable prescribing pattern, possibly influenced by clinical judgment and wound 
+severity. However, without clear stratification by wound characteristics, there remains a 
+possibility of both overuse and underuse, highlighting the need for standardized protocols. 
+First aid practices at home showed that only 48.6% of patients washed their wounds with soap 
+and water, which is the most effective immediate measure to reduce rabies transmission. A 
+considerable proportion of patients relied on antiseptics (31.0%) or application of ointments 
+(20.4%), which are not substitutes for proper wound washing. This indicates a significant gap in 
+public awareness, as early and thorough washing of the wound is known to markedly decrease 
+viral load and infection risk. These findings underscore the importance of community education 
+programs focusing on appropriate first aid following animal bites. 
+Tetanus prophylaxis was administered in 85.6% of cases, reflecting good adherence to standard 
+clinical guidelines. Given the risk of tetanus in open wounds, this high coverage is a positive 
+indicator of appropriate preventive care. However, the remaining 14.4% who did not receive 
+tetanus toxoid represent a missed opportunity for complete prophylaxis. 
+Regarding anti-rabies vaccination (ARV), only 55.1% of patients completed the full course, 
+while 44.9% did not. This is a major concern, as incomplete vaccination leaves individuals at 
+continued risk of developing rabies, a disease that is almost invariably fatal once clinical 
+symptoms appear. Poor compliance may be attributed to factors such as lack of awareness, 
+financial constraints, accessibility issues, or negligence, and it highlights the urgent need for 
+better follow-up systems and patient counselling. 
+The majority of cases (83.3%) were managed on an outpatient basis, with only 16.7% requiring 
+hospital admission, suggesting that most bites were mild or moderate in severity. Additionally, 
+25.9% of patients were referred to specialty clinics, indicating appropriate referral practices for 
+complicated or high-risk cases. This reflects a functional tiered healthcare system, although 
+further evaluation is needed to assess referral appropriateness. 
+According to WHO exposure classification, 72.2% of cases were Category I, followed by 20.8% 
+Category II and 6.9% Category III. The predominance of Category I cases, which technically do 
+not require post-exposure prophylaxis, suggests that a large number of patients sought medical 
+care for low-risk exposures, possibly due to fear and lack of awareness. At the same time, nearly 
+28% of cases (Category II and III) required active prophylaxis, indicating a substantial burden of 
+potentially rabies-exposing injuries. 
+An important observation is the discrepancy between exposure category and vaccination 
+completion. Despite a high proportion of Category I cases, more than half of the total study 
+population completed anti-rabies vaccination, suggesting either overutilization of vaccines or 
+cautious clinical practice. While erring on the side of caution is understandable given the fatal 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+9 
+nature of rabies, strict adherence to guidelines is essential to optimize resource utilization, 
+especially in resource-limited settings. 
+Overall, the findings of this study highlight that while certain aspects of animal bite management 
+such as tetanus prophylaxis and referral practices are satisfactory, there are critical gaps in first 
+aid practices, vaccination compliance, and adherence to exposure-based treatment protocols. 
+Strengthening public health education, improving accessibility to vaccines, and ensuring strict 
+implementation of national guidelines are essential steps toward reducing the burden of rabies 
+and improving patient outcomes. 
+(TABLE -4) The association between selected variables and the anatomical location of dog bite 
+injuries was analysed. Among individuals aged less than 18 years, injuries were most commonly 
+observed in the upper extremities (n = 25), followed by the lower extremities (n = 16), with 
+fewer cases involving the head and neck (n = 2) and trunk (n = 1). Similarly, among those aged 
+above 18 years, the lower extremities were most frequently affected (n = 106), followed by upper 
+extremities (n = 57), trunk (n = 6), and head and neck (n = 3); however, this association was not 
+statistically significant (p = 0.15). 
+With respect to activity at the time of incidence, individuals who were walking predominantly 
+sustained injuries to the lower extremities (n = 68), whereas those playing or running had a 
+relatively higher proportion of upper extremity injuries (n = 36) and lower extremity injuries (n = 
+27). Those engaged in other activities also showed a predominance of lower extremity 
+involvement (n = 27). This association was not statistically significant (p = 0.14). 
+A statistically significant association was observed between provoking or playing with a dog and 
+the anatomical site of injury (p = 0.00). Among those who reported provoking or playing with a 
+dog, injuries were more common in the upper extremities (n = 44), whereas among those who 
+did not, lower extremity injuries predominated (n = 94). 
+Similarly, being bitten by one’s own dog showed a significant association with injury location (p 
+= 0.00). Individuals bitten by their own dog more frequently sustained upper extremity injuries 
+(n = 43), while those bitten by other dogs had a higher proportion of lower extremity injuries (n 
+= 102). 
+The location of the dog bite incident was also significantly associated with the anatomical site of 
+injury (p = 0.00). Bites occurring at home were more commonly associated with upper extremity 
+injuries (n = 41), whereas those occurring on the street predominantly affected the lower 
+extremities (n = 75). Workplace and other locations also showed a higher frequency of lower 
+extremity involvement. 
+Furthermore, the type of dog involved demonstrated a statistically significant association (p = 
+0.01). Bites from pet dogs were more frequently associated with upper extremity injuries (n = 
+49), whereas bites from stray dogs predominantly involved the lower extremities (n = 83). 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+10 
+(TABLE -5) The distribution of World Health Organization (WHO) bite exposure categories 
+was analysed across different variables such as location of bite, type of dog, dog behaviour, 
+number of biting attempts, and survival status of the dog. 
+With regard to the location of dog bite, the majority of Category I bites occurred on the street (74 
+cases) and at home (58 cases), whereas Category II bites were also more common on the street 
+(29 cases). Category III bites were highest in workplace settings (5 cases) and on the street (7 
+cases). This association was found to be statistically significant (p = 0.05), indicating that the 
+location of the bite has a meaningful relationship with the severity of exposure. 
+In terms of type of dog, Category I bites were equally distributed between pet dogs (78 cases) 
+and stray dogs (78 cases). However, Category III bites were notably higher among stray dogs (13 
+cases) compared to pet dogs (2 cases). This association was statistically significant (p = 0.01), 
+suggesting that bites from stray dogs are more likely to result in severe exposure. 
+Regarding dog health and behaviour, most Category I bites were from friendly dogs (110 cases), 
+while Category II and III bites were more frequently associated with aggressive dogs (22 and 9 
+cases, respectively). However, this association was not statistically significant (p = 0.07). 
+When analysing the number of biting attempts, the majority of Category I bites were due to a 
+single bite (146 cases), whereas multiple bites were more commonly associated with higher 
+severity categories, including Category II (11 cases) and Category III (7 cases). This relationship 
+was found to be highly statistically significant (p = 0.00), indicating that multiple bite attempts 
+significantly increase the risk of severe exposure. 
+Finally, considering the dog’s survival status after the bite, most cases involved dogs that were 
+alive (126 Category I, 30 Category II, and 8 Category III cases). A small number of cases 
+involved dogs that were dead or of unknown status. However, the association between dog 
+survival status and exposure category was not statistically significant (p = 0.11). 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+11 
+4.     DISCUSSION 
+The present study provides comprehensive insights into the epidemiology, clinical 
+profile, and management of dog bite cases in accordance with the World Health 
+Organization (WHO) classification and national rabies prophylaxis guidelines. The 
+findings highlight important trends in demographic distribution, exposure patterns, 
+and treatment practices, while also identifying critical gaps when compared with 
+existing literature. 
+In the current study, the majority of victims were adults aged above 18 years 
+(79.6%), with a male predominance (56.5%). This pattern is consistent with 
+previous studies by  which reported higher exposure among adult males due to 
+increased outdoor activity and occupational exposure(Garg et al., 2013) However, 
+some studies, such as (“ Antecedents and Consequences of Pediatric Dog-Bite 
+Injuries and Their Developmental Trends,” n.d.)have demonstrated a higher 
+incidence among children, particularly involving facial injuries, suggesting that 
+age-related risk varies by setting and behaviour. 
+A higher proportion of cases originated from rural areas (60%), which aligns with 
+findings from (Dutta et al., 2022), who reported increased vulnerability in rural 
+populations due to limited awareness, poor access to healthcare, and higher stray 
+dog populations. The early healthcare-seeking behaviour observed in this study, 
+with 63% presenting within 24 hours, is encouraging and comparable to findings in 
+other Indian studies, though delays beyond 24 hours still persist and remain a 
+concern (Dutta et al., 2022). 
+In terms of exposure circumstances, most bites occurred while walking (46.8%) or 
+during roadside activities, and a significant proportion were unprovoked (43.5%). 
+Similar findings have been reported in global and regional studies, indicating that 
+unprovoked bites constitute a major public health concern (Animal Bites, n.d.-b). 
+Additionally, the predominance of street-based incidents (50.9%) and stray dog 
+involvement (57.4%) is consistent with studies conducted in low- and middle-
+income countries, where free-roaming dog populations contribute significantly to 
+rabies transmission (Acharya et al., 2026). 
+The anatomical distribution of injuries in this study showed that lower extremities 
+were most commonly affected (56.5%), followed by upper extremities (38.0%). 
+This is in agreement with studies by Duncan-Sutherland et al. (2022), which 
+reported a similar predominance of lower limb injuries in adults. However, among 
+children, upper extremity involvement was relatively higher, consistent with 
+findings by(“ Antecedents and Consequences of Pediatric Dog-Bite Injuries and 
+Their Developmental Trends,” n.d.), suggesting that behavioural differences 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+12 
+influence injury patterns. The association analysis revealed that provoking or 
+playing with dogs and being bitten by one’s own dog were significantly associated 
+with upper extremity injuries. This aligns with previous literature indicating that 
+closer human–animal interaction increases the likelihood of bites to accessible 
+body parts such as hands and arms (Dixon et al., 2012). Similarly, bites from stray 
+dogs and those occurring on the street were significantly associated with lower 
+extremity injuries, reflecting typical defensive or territorial attacks. 
+Regarding severity, the majority of cases were classified as Category I (72.2%), 
+followed by Category II (20.8%) and Category III (6.9%). This distribution is 
+comparable to other studies in India, where minor exposures predominate, though a 
+substantial proportion still requires post-exposure prophylaxis (Bharadva: 
+Epidemiology of Animal Bite Cases Attending... - Google Scholar, n.d.). The 
+significant association between multiple bite attempts and higher exposure 
+categories observed in this study is consistent with clinical expectations and 
+reinforces findings from other epidemiological studies. 
+Management practices in this study showed mixed adherence to guidelines. 
+Antibiotics were prescribed in 51.9% of cases, similar to patterns reported in 
+clinical reviews such as Stat Pearls, where antibiotic use is often guided by wound 
+severity and infection risk (Animal Bites - StatPearls - NCBI Bookshelf, n.d.). 
+However, variability in prescription practices suggests the need for standardized 
+treatment protocols. 
+First aid practices were suboptimal, with only 48.6% of patients washing wounds 
+with soap and water. This finding is consistent with studies by(Dutta et al., 
+2022)and (Beasley et al., 2022), which highlight poor awareness and reliance on 
+traditional or inappropriate remedies in many communities. Given that immediate 
+wound washing significantly reduces rabies transmission risk, this gap represents a 
+major public health challenge. 
+Tetanus prophylaxis coverage was high (85.6%), reflecting good adherence to 
+clinical guidelines. In contrast, completion of anti-rabies vaccination was observed 
+in only 55.1% of cases, which is concerning. Similar issues of incomplete post-
+exposure prophylaxis have been widely reported in low-resource settings, often 
+due to financial constraints, lack of follow-up, and limited awareness (Acharya et 
+al., 2026). This underscores the need for improved health system strengthening and 
+patient education. 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+13 
+The discrepancy between WHO exposure categories and vaccination practices 
+suggests possible overutilization of vaccines in low-risk cases or cautious clinical 
+decision-making, a phenomenon also noted in other studies. While caution is 
+justified given the fatal nature of rabies, adherence to guidelines is essential to 
+ensure optimal resource utilization. 
+Finally, the significant association between antibiotic prescription and 
+immunization completion (p = 0.02) suggests that patients receiving more intensive 
+clinical management are also more likely to adhere to preventive measures. This 
+may reflect better counselling or increased perceived severity among these 
+patients. 
+5. CONCLUSION 
+Dog bite injuries remain a significant yet preventable public health problem in 
+Chennai. Despite a good proportion of patients presenting within 24 hours, gaps 
+were identified in first-aid practices and rabies post-exposure prophylaxis uptake, 
+with many victims not performing adequate wound washing or receiving complete 
+immunization. Behavioural and environmental factors such as provocation, stray 
+dog exposure, street incidents and multiple bite attempts were important predictors 
+of injury location and severity.Overall, the findings highlight the urgent need for 
+strengthened public health interventions including community awareness on 
+immediate wound care and early medical consultation, improved access to rabies 
+vaccination and post-exposure prophylaxis, responsible pet ownership and 
+effective stray dog population control programmes. 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+14 
+REFERENCES 
+1. Acharya, K. P., Phuyal, S.,  Wilson, R. T ., A charya, N. , Pun, S. B., & Pandey, K. (2026). Why did 
+rabies cont rol fail in low-income and mid dle-income countri es? The La nce t Micro be, 7(1), 
+101259. https://doi. org/10.1016/j.lanmic.2025.101259 
+2.
+ Anim al bites. (n.d.-a). Re tri eved April 16,  2026, from https://www.who.int/news-room/fact-
+sheets/de tail/animal-bit es  
+3.
+ Anim al bites. (n.d.-b). Re trieve d April 21,  2026, from https://www.who.int/news-room/fact-
+sheets/de tail/animal-bit es  
+4.
+ Anim al Bites—St atPe arls—NCB I Bookshe lf. (n.d.). Ret rieved Ap ril 16, 2026, from 
+https://www.ncbi.nlm.nih .gov/books/NBK430852/ 
+5.
+ Beasley, E. A ., Wa llace, R . M., Coe tze r, A . , Nel, L. H. , & Pieracci, E. G. (2022). Roles  of traditi onal 
+medicine and t raditi onal he alers for r abi es prevent ion and po ten tial impacts on p ost-exposu re 
+prophylaxis : A lite rat ure r eview. PLoS Neglec ted Tropi cal Diseases, 16(1), e0010087. 
+https://doi. org/10.1371/journal.pn td.00 10087 
+6.
+ Bhara dva : Epid emiol ogy  of Anim al bite  c ases atte ndi ng ... - G oogl e Schol ar. (n.d.).  Retri eved April 
+22, 2026, from 
+https://scholar .google.c om/scholar_look up?titl e=Epid emiology%20of%20Animal%20bite%20cas
+es%20att ending%20ter tiary%20hea lth% 20care%20centr e%20of%20Bhuj%20City%20of%20India
+%3A%20A%20cross-
+sectional%20study&publica tion_y ear =2015&author =N%20Bhar adva&auth or=S R %20Mehta&au t
+hor=P%20Yerpude&au tho r=K%20Jogdan d&author =KN%20Trivedi  
+7.
+ Chisare,D. (2023, Sept ember 27). Wo rking with dogs in India is the only way to tac kle one of the 
+most fatal diseas es in the world —LSE Gl obal Heal th. LSE Glob al Heal th - The Late st Expert 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+15 
+Anal ysis on Glo bal He alt h Affairs. ht tps:/ /blogs.lse.ac.uk/globalh ealt h/2023/09/28/working-
+with-dogs-in-india-is-the-only-way-to-tackle-one-of-the-most-fatal-dise ases-in-th e-world/ 
+8.
+ Dixon, C. A., M ahabe e-Gi tt ens, E. M. , Har t, K. W. , & Lindsell, C. J. (2012). Dog Bite Prevention : A 
+New Screeni ng Tool. The J ourn al of Pedia trics, 160(2), 337-341.e2. 
+https://doi. org/10.1016/j.jpeds.2011.07. 016 
+9.
+ Duncan-Sutherla nd,  N., Moaveni , Z., Exe t er, D. J. , Colber t, J ., & Kool, B. (2022). Epidemiology of 
+dog-relat ed injuries within  New Zealand . The New Zealan d Medi cal  Jour nal, 135(1 554), 111–128. 
+10.
+ Dutta, A ., Hir emath, R .  N., & Hasure, S . Y.  (2022). A KAP Study on Dog Bite and Its  Managemen t 
+in a Rural Community— Need for Inc reasi ng the Aware ness. J our nal of Me dical Sci ences a nd 
+Healt h, 8(2), 119–126. https ://doi.org/10.46347/jmsh.v8i2.21.39 
+11.
+ English, M., Mwaniki, P., Julius , T., Chepk irui, M.,  Ga thara , D., Ouma, P.  O., Cher ut ich, P., Okiro, 
+E. A., & Snow, R. W . (2018). Hospital Mor tality – a n eglecte d but rich sourc e of information 
+supporting th e tr ansitio n to highe r qualit y health systems in low and middle inco me countries . 
+BMC Medic ine, 16, 32 . https ://doi.org/1 0.1186/s12916-018-1024-8 
+12.
+ Garg, R ., Aggarwal, S ., Singh, H., Kajal, K.  S., Ga rg, R., & Pal, R. (2013). Study of the  relati on of 
+clinical and demographic facto rs with mo rbidity in a te rtia ry care t eaching hospit al  in India. 
+Inter na tion al J ourn al of Critic al Illn ess an d Injury Scie nce, 3(1), 12–17. 
+https://doi. org/10.4103/2229-5151.109411 
+13.
+ Khan, U. R. , Soomar , S. M. , Ghazi , S. M. ,  Nae em, R., Ker ai, S. , & Jamali, S. (2023). Epidemiological 
+patt ern and man agemen t of dog bite inj uries in Karachi, Pakistan : A cross-sectio n al study. Injur y, 
+Explorin g t he Experi enc e an d th e Burd en  of Injury a nd Trau ma Care i n Pakistan, 54, 110473. 
+https://doi. org/10.1016/j.injury.2022.11. 016 
+14.
+ Maniscalco, K., M arie tta , M., & Edens, M . A. (2026). Animal Bit es. In Sta tPearls. S t atPearls 
+Publishing. http://www.ncbi.nlm.nih .gov/books/NBK430852/ 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+16 
+15.
+ Manna, B ., Na hirniak, P., & Mor rison, C.  A. (2026). Wound Debridem ent . In Sta tPearls. 
+StatPe arls Publishing. ht tp://www.ncbi.nlm.nih.gov/books/NBK507882/ 
+16.
+ Ortiz , D. D., & Lezcano, F. O . (2023). Dog and Cat Bit es: Rapid Evidence R eview. A merica n Famil y 
+Physician, 108(5), 501–505. 
+17.
+ (PDF) Anteceden ts and consequ ences of  pediat ric dog-bite injuri es and thei r deve lopmental 
+trends : 101 cases in rural China . (n.d.). R esearch Ga te. 
+https://doi. org/10.1016/j.aap.2013.10 .0 25 
+18.
+ Rabies. (n.d .). Re trieved  April 21, 2026, fr om https://www.who.int/news-room/fact-
+sheets/de tail/rabi es  
+19.
+ Rabies— In dia. (n.d .). Re trieved  April 21,  2026, from https://www.who.int/india/h ealth-
+topics/rabies  
+20.
+ Singaravel, V., Yamini, M ., & Moovendh a n, M. (2026). Rabies contr ol and str ay dog management 
+in Tamil Nadu thro ugh integr ate d public health p olicy and humane governanc e.  Discover Publi c 
+Healt h, 23(1), 555. https://doi.o rg/10.1186/s12982-026-01940-z 
+21.
+ Yattoo , G. H ., Tabish, S . A.,  Afzal, W.  M.,  & Kirmani, A. (2009). Factors Influencing  Outcome of 
+Head Injury Patien ts at  A Terti ary Care T eaching Hospital in  India. In terna tio nal J ourn al of Healt h 
+Sciences, 3(1), 59–62.  
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+17 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+VARIABLES 
+   FREQUENCY 
+(N=216) 
+  PERCENTAGE 
+          % 
+AGE 
+<18 YEARS 
+44                                                                                  
+20.4 
+>18 YEARS 172 79.6 
+GENDER 
+MALE 
+122 
+56.5 
+FEMALE                                                                                            
+94 
+43.5 
+EDUCATED 
+64                                       32                                       
+UNEDUCATED 
+152                                      76                                      
+AREA OF 
+RESIDENCE  
+RURAL 
+130                                      60                                      
+URBAN                                             86                                             
+39.8 
+                                                       TABLE -1 SOCIO-DEMOGRAHIC   
+VARIABLES 
+FREQUENCY 
+(N=216) 
+PERCENTAGE 
+% 
+TIME OF ARRIVAL 
+WITHIN A 
+DAY 
+136 
+63.0 
+NEXT DAY 61 28.2 
+AFTER A 
+WEEK 
+19 
+8.8 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+ACTIVITY AT THE 
+TIME OF INCIDENCE 
+WA L K I N G  
+101 
+46.8 
+PLAYING OR 
+RUNNING IN 
+ROAD SIDE 
+70                                     32.4                                     
+OTHERS                           45                           20.8                           
+PROVOKING OR 
+PLAYING WITH A DOG     
+YES                                   75                                   
+34.7 
+NO                                   141                                   
+65.3 
+INTERVENING A DOG 
+BITE  
+YES                                   38                                   
+17.6 
+NO                                   178                                   82.4                                   
+BITTEN BY OWN DOG 
+66 
+30.6 
+BITTEN BY NEIGHBOUR’S/ FRIENDS 
+150                                    69.4                                    
+PLACE OF DOG BITE  
+HOME                               67                               
+31.0 
+STREET 
+110 
+50.9 
+WORKSPACE 
+22                                     10.2                                     
+                                               PET                                               92                                               42.6                                               
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+BITTEN BY  STRAY 124 
+57.4 
+MEDICAL KIT 
+AVAILABLE AT HOME      
+YES                                  113                                  
+52.3 
+NO                                    103                                    
+47.7 
+PRIOR H/O DOG BIT  
+YES                                   39                                   
+18.1 
+NO                                    177                                    
+81.9 
+ATTACK WITHOUT 
+PROVOCATION                  
+YES                                   94                                   
+43.5 
+NO 
+122 
+56.5 
+DOG HEALTH AND 
+BEHAVIOUR 
+FRIENDLY                      139                      
+64.4 
+AGGRESSIVE 77 
+35.6 
+DOG VACCINATION 
+STATUS  
+VA C C I N AT E D
+ 117 
+54.2 
+NOT 
+VA C C I N AT E D
+99 
+45.8 
+TABLE -2 FREQUENCY AND PERCENTAGE DISTRIBUTION OF STUDY 
+PARTICIPANTS BASED ON THE CIRCUMSTANCES OF DOG BITE 
+EXPOSURE CHARACTERISTICS AND ASSOCIATED FACTORS (N=216) 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+VARIABLES       FREQUENCY 
+         (N=216) 
+          PERCENTAGE 
+                  % 
+WHO DOG 
+BITTENCRITERIA
+CATEGORY I 
+156
+ 72.2 
+CATEGORY II 
+45
+ 20.8 
+CATEGORY III 
+15
+ 6.9 
+ANTIBIOTIC PRESCRIBED YES 112 51.9 
+NO                                        104                                           48.1                                        
+ANY FORM OF FIRST AID 
+GIVEN AT HOME  
+WA S H E D  
+WITH SOAP 
+AND WATER 
+105 
+48.6 
+CLEANED 
+WITH 
+ANTISEPTIC 
+67 
+31.0 
+APPLIED GEL 
+/ OINTMENT 
+44                                            20.4                                            
+TETANUS TOXOID 
+ADMINISTERED 
+YES                                       185                                       85.6                                       
+NO                                         31                                            14.4                                         
+ANTI-RABIS VACCINE 
+(COMPLETED FULL DOSE) 
+YES                                       119                                       55.1                                       
+NO                                          97                                            44.9                                          
+ADMITTED TO HOSPITAL 
+WA R D     
+YES                                        36                                        16.7                                        
+NO                                         180                                           83.3                                         
+REFERRED TO SPECIALITY 
+CLINIC 
+YES                                         56                                             25.9                                         
+NO                                         160                                           74.1                                         
+TAB LE  -  3 DISTRIBUTION OF MANAGEMENT OF DOG BITE 
+INJURIES 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+00
+92
+42.6
+124
+57.4
+BITTEN BY PET OR STRAY DOG
+Stray
+Pet
+Bitten by pet or  stray
+FIGURE A 
+Most dog bites were caused by stray dogs, accounting for 57.4% (124 cases). 
+Bites by pet dogs were less common, representing 42.6% (92 cases). 
+FIGURE B 
+Out of 216 cases, 117 (54.2%) dogs were vaccinated and 99 (45.8%) dogs were not 
+vaccinated. This indicates that slightly more than half of the cases of dog were 
+vaccinated 
+117
+54.2
+99
+45.8
+DOG VACCINATION STATUS
+Vaccinated
+Not vaccinated
+ot 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+FIGURE –C 
+Out of 216 cases, most wounds were classified as Categories 1 (156 cases, 72.2%), 
+followed by Categories 2 (45 cases, 20.8%), and Categories 3(15 cases, 6.9%). 
+This indicates that the majority of injuries were minor, with only a small 
+proportion being severe. 
+FIGURE-D 
+Out of 216 cases, lacerations were the most common type of injury(110 cases, 
+50.9%). This was followed by abrasions (46 cases, 21.3%) and puncture wounds 
+(26 cases, 12.0%). Less common injuries included crush injuries (15 cases, 6.9%)
+0
+156
+45
+15
+0
+WHO Bite Exposure Categories
+110
+26
+46
+10
+15
+9
+50.9
+12
+21.3
+4.6
+6.9
+4.2
+0
+20
+40
+60
+80
+100
+120
+LacerationPuncture WoundsAbrasion AvulsionCrush InjuryCellulitis
+TYPES OF INJURY
+), 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+variables            Anatomical location of dog bite injuries 
+Head & 
+neck 
+Upper 
+extremities 
+Lower 
+extremities 
+Trunk              p-value              
+Age < 18 years 2 25 16 1 
+0.15 
+                       >18                       years                       3                       57                       106                       6                       
+Activity at 
+the time of 
+incidence 
+Walking                       2                       29                       68                       2                       
+0.14 
+Playing or 
+running 
+3                       36                       27                       4                       
+Others                       0                       17                       27                       1                       
+Provoking 
+or playing 
+with a dog 
+Yes                       1                       44                       28                       2                       
+0.00 
+No                       4                       38                       94                       5                       
+Bitten by 
+own dog 
+Yes                       2                       43                       21                       1                       
+0.00 
+No                     3                      39                       102                      6                     
+Location of 
+dog bite 
+home 
+2                       41                       23                       1                       
+0.00 
+Street 
+0                       31                       75                       4                       
+Workspace        0        7        13        2        
+Others               3               3               11               0               
+Bitten by 
+pet/stray 
+dog 
+Pet                       dog                       2                       49                       39                       2                       
+0.01 
+Stray                       dog                       3                       33                       83                       5                       
+TABLE -4  ASSOCIATION BETWEEN ANATOMICAL LOCATION OF DOG BITE 
+INJURIES AND VARIOUS FACTORS 
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint 
+TABLE -5 ASSOCIATED BETWEEN WHO BITE EXPOSURE CATEGORIES AND 
+VARIOUS FACTORS 
+variables  WHO Bite Exposure Categories p-value 
+Categories 1 Categories 2 Categories 3 
+Location of 
+dog bite 
+Home 
+58                         8                             1                         
+0.05 
+Street 
+74                         29                           7                         
+                          Workspace                          13                          4                             5                          
+                          Others                          11                          4                             2                          
+Bitten by 
+pet/stray dog 
+Pet dog 78 12 2 
+0.01 
+                          Stray                          dog                          78                          13                           13                          
+Dog health & 
+behaviour 
+Friendly                 110                 23                 6                 
+0.07 
+Aggressive             46             22             9             
+Number of 
+biting 
+attempts 
+Single                     146                       34                     8                     
+0.00 
+Multiple                 10                 11                 7                 
+Dog survival 
+status after 
+bite 
+Alive                      126                       30                      8                      
+0.11 
+Dead                      1                      0                      1                      
+Unknown               29               15               6               
+remix, or adapt this material for any purpose without crediting the original authors.
+preprint (which was not certified by peer review) in the Public Domain. It is no longer restricted by copyright. Anyone can legally share, reuse, 
+The copyright holder has placed thisthis version posted May 22, 2026. ; https://doi.org/10.64898/2026.05.20.26353645doi: medRxiv preprint

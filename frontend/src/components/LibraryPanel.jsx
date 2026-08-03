@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../api';
+import ConflictBadge from './ConflictBadge';
 
 function LibraryPanel({ activeProjectId }) {
     const [articles, setArticles] = useState([]);
@@ -63,7 +64,7 @@ function LibraryPanel({ activeProjectId }) {
                             data.map(item => (
                                 <tr key={item.id}>
                                     <td className="table-title" title={item.title}>{item.title}</td>
-                                    
+                                    <ConflictBadge conflictString={item.conflict_of_interest} />
                                     {/* 🛑 NOUVELLE COLONNE : Badge du Thème IA */}
                                     <td>
                                         <span style={{ 

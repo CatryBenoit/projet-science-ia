@@ -1,0 +1,468 @@
+Page 1/14
+Dog bite injuries and armed conflict-related
+environmental stressors: a nationwide population-
+based time-series study
+Shon Shabat 
+Rabin Medical Center
+Lia Schoenfeld 
+Rabin Medical Center
+Adi Turjeman 
+Rabin Medical Center
+Sigal Fleishman 
+Rabin Medical Center
+Dean Ad-El 
+Rabin Medical Center
+Asaf Olshinka 
+Rabin Medical Center
+Research Article
+Keywords: Dog bite, Armed conflict, Environmental stressors, Injury prevention, Population-based study
+Posted Date: March 8th, 2026
+DOI: https://doi.org/10.21203/rs.3.rs-8950975/v1
+License:   This work is licensed under a Creative Commons Attribution 4.0 International License.  
+Read Full License
+Additional Declarations: No competing interests reported.
+Version of Record: A version of this preprint was published at Injury Epidemiology on April 24th, 2026.
+See the published version at https://doi.org/10.1186/s40621-026-00681-6.
+Page 2/14
+Abstract
+Background: Dog bite injuries pose a substantial public health burden worldwide. Environmental and
+acoustic stressors may contribute to canine behavioral dysregulation. However, there are as yet no
+population-level studies evaluating whether the incidence of dog bites increases during periods of armed
+conflict. The present study was conducted in Israel where the population is routinely exposed to an
+episodic pattern of high-intensity conflicts (escalation) alternating with periods of calm (de-escalation),
+providing a unique natural experiment to examine the effect of environmental stressors on population-
+level modifiers of injury risk.
+Methods: This nationwide retrospective observational study covered the decade from 2014 to 2025.
+Healthcare-encounter data were used to capture dog bite-related diagnoses in both hospital and
+community settings. Exposure to armed conflict-related environmental stress was operationalized using
+the number of civil defense sirens per month, categorized as none (0), low (<500), or high (≥500) and
+aggregated by geographic region (North, Center, South). Monthly dog bite counts were modeled using
+negative binomial regression adjusted for region, seasonality, age group, sex, and socioeconomic status.
+Secondary outcomes were hospitalization within 7 days and surgical intervention within 30 days,
+reflecting injury severity.
+Results: A total of 63,285 dog bite-related encounters were identified. Compared to months with no
+sirens, adjusted dog bite incidence increased by 15% during low-exposure months (IRR 1.15, 95% CI
+1.13-1.18) and by 33% during high-exposure months (IRR 1.33, 95% CI 1.28-1.37), demonstrating a
+graded exposure-response association.
+High exposure was associated with increased odds of surgical intervention within 30 days (OR 1.09, 95%
+CI 1.02-1.16; P=0.013).
+Conclusions: This study provides the first population-level evidence linking armed conflict-related
+environmental stressors to increased dog bite incidence, using a quantitative graded exposure measure
+rather than a binary conflict-period definition. Dog bite prevention and healthcare preparedness should
+be taken into consideration in civilian injury mitigation strategies during armed conflict.
+Background
+Dog bites are a significant and growing public health concern worldwide, with millions of cases reported
+annually. In the United States, dog bites rank among the leading causes of nonfatal emergency
+department visits, with approximately 344,000 encounters per year and an incidence of up to 225 per
+100,000 population [1]. Dog bite injuries pose a substantial physical, psychological, and economic
+burden, particularly among pediatric populations [2]. The etiology is multifactorial, involving dog-specific
+characteristics such as breed, sex, training, and behavioral traits, in addition to human behavior and
+environmental stressors that may alter canine responses. The stress exposure may be either acute or
+chronic [3, 4].
+Page 3/14
+Among the potential environmental stressors, several studies have identified loud noises as major
+contributing factors to anxiety-related and behavior dysregulation and aggression in dogs [5, 6, 7]. The
+most common noises that elicit fear responses are high-decibel fireworks, thunderstorms, sirens, and
+explosions [7, 8]. Experimental studies examining controlled acoustic environments reported
+physiological stress responses in dogs, including elevated cortisol levels and increased heart rate,
+supporting the biological plausibility of noise-induced behavioral changes [8, 9, 10].
+Besides such external stimuli, dogs are sensitive to their living conditions and the emotional states and
+behavioral patterns of their owners. Heightened stress, fear, and anxiety among caregivers may
+contribute to altered animal handling, reduced tolerance, and more unpredictable interactions, potentially
+lowering the threshold for aggressive canine responses. During the COVID-19 pandemic, multiple studies
+reported an increase in dog bite injuries, particularly among children, which were attributed to disrupted
+routines, increased household stress, reduced supervision, and prolonged close contact between people
+and pets [11, 12]. These observations underscore how sustained environmental and psychosocial
+stressors can influence human-animal interactions and increase the risk of dog bite injuries.
+Beyond identifying individual-level determinants, dog-bite injuries can be studied using an ecological
+injury-risk model, examining changes in exposure patterns and susceptibility as a function of multiple,
+interacting factors across different levels of organization within whole environmental systems. In this
+context, armed conflict represents a unique population-level stressor capable of modifying the risk of
+dog bite injury through different, concurrent, pathways. It may simultaneously alter physical
+environmental conditions (e.g., high-intensity auditory stimuli including civil defense sirens, explosions,
+gunfire, and noise generated by aircraft, drones, and incoming or outgoing projectiles), human behavior
+and routines (e.g., time spent at home and supervision patterns), and psychosocial vulnerability (e.g.,
+heightened anxiety and emotional tension). The stressors may occur as discrete acute events or as
+repeated and prolonged episodes over weeks or months. Accordingly, research conducted in disaster
+areas revealed significant behavioral changes in companion animals including increased anxiety,
+heightened reactivity, and unpredictable conduct [13–15].
+Taken together, these findings suggest that armed conflict-related environmental stressors may increase
+both human and canine stress, thereby modifying human-animal interaction dynamics and increasing the
+likelihood of bite events, potentially with greater injury severity.
+Despite the growing recognition of the behavioral effects of environmental stressors on companion
+animals, empirical data on the relationship between armed conflict-related environmental stress and dog
+bite incidence remain limited. To our knowledge, there are no published systematic, population-level
+studies of armed conflict stressors as modifiers of injury risk. Israel's recurrent exposure to fluctuating
+intensities of armed conflict over the past decade, characterized by intermittent periods of escalation
+interspersed with intervals of relative calm, provides a unique natural experiment to examine this issue.
+Moreover, the nationwide availability of civil defense siren records makes it possible to use air raid alerts
+Page 4/14
+as a precise, objective proxy to quantify acute and cumulative environmental stress exposure, overall and
+across time and geography.
+The primary aim of the present study was to evaluate the association between armed conflict-related
+environmental stress and the incidence of dog bite injuries requiring medical evaluation using civil
+defense siren activity as an objective proxy for periods of escalation. The secondary aim were to
+determine whether the level of stressor is related to the severity of injury, as reflected by the need for
+hospital admission or operative management.
+Methods
+A retrospective, nationwide, observational study was conducted, spanning the decade from 2014 to
+2025, during which the Israeli population was exposed to a cycle of high-intensity military conflicts and
+heightened civil defense siren activity (escalation) interspersed with intervals of calm (de-escalation).
+Healthcare encounter data were extracted at the end of the study from the research data-sharing
+platform (powered by MDClone) of Clalit Health Services (CHS), Israel's largest healthcare organization.
+CHS insures nearly half the national population, with broad geographic coverage. Its electronic health
+records databases include longitudinal, de-identified information from multiple care sources. For the
+present study, dog bite cases were identified by ICD-9 diagnostic codes for dog bite. Case ascertainment
+was not restricted to emergency department encounters; dog bite diagnoses recorded in community-
+based settings, including primary care, urgent care, and outpatient clinic visits, were captured as well. All
+individuals of any age with a documented dog bite diagnosis during the study period were included.
+Given the use of anonymized, population-level administrative data, no exclusion criteria were applied.
+Data on civil defense siren activity were obtained from the Israel Home Front Command. Siren events
+were recorded by date and geographic region (North, Center, South) and aggregated on a monthly basis
+for each region. Siren activity was categorized into three predefined groups: months with no sirens,
+months with < 500 sirens (low exposure), and months with ≥ 500 sirens (high exposure). At the national
+level, the incidence of dog bite diagnoses was compared across these categories to assess whether
+months characterized by exposure to more civil defense sirens were associated with higher rates of dog
+bite injuries. Subsequently, the same analyses were stratified by geographic region (North, Center, South)
+to evaluate whether regional increases in exposure to civil defense sirens were associated with a higher
+regional dog bite incidence during the corresponding months.
+Injury severity was assessed using two clinically meaningful endpoints: hospital admission within 7 days
+of the index dog bite encounter and surgical intervention within 30 days. Relevant surgical interventions
+were defined as procedures requiring management in the operating room, including wound debridement,
+operative wound closure, skin grafting, and local, regional, or free-flap reconstruction. Surgical
+procedures performed within 30 days of the initial dog bite diagnosis were assumed to be related to the
+index injury. The need for operative intervention and/or hospital admission was used as a proxy for more
+severe injuries, reflecting greater tissue damage and clinical complexity.
+Page 5/14
+The primary outcome measure of the study was the monthly incidence of dog bite-related healthcare
+encounters, assessed at both the national and regional levels and evaluated in relation to monthly
+exposure to siren activity. The secondary outcome measure was injury severity in relation to level of
+siren exposure.
+Monthly counts of dog bite-related healthcare encounters were modeled using negative binomial
+regression to account for overdispersion in the count data (variance exceeding the mean), for which
+Poisson assumptions were not met. The dependent variable was the monthly number of dog bite
+incidents. The primary exposure was monthly siren activity, categorized a priori by level of exposure (0, < 
+500, or ≥ 500 sirens). Models included geographic region and were adjusted for seasonality and relevant
+demographic and socioeconomic covariates, including age group, sex, and socioeconomic status.
+Incidence rate ratios (IRRs) with 95% confidence intervals (CIs) were reported. Statistical analyses were
+performed using R (version 4.3.2), and statistical significance was defined as a two-sided α level of 0.05.
+This study was based on the analysis of anonymized, retrospective administrative healthcare data and
+did not involve direct contact with human or animal subjects. The study was approved by the
+Institutional Review Board (Helsinki Committee) of Rabin Medical Center.
+Results
+A total of 63,285 dog bite-related healthcare encounters were identified during the study period, of which
+36,661 occurred during months with no sirens, 18,971 during months with low siren exposure (< 500
+sirens), and 7,653 during months with high siren exposure (≥ 500 sirens). The demographic,
+socioeconomic, geographic, seasonal, and clinical characteristics of the dog bite cases stratified by
+siren exposure status are summarized in Table 1.
+Page 6/14
+Table 1
+Patient, environmental, and dog-bite characteristics by level of siren exposure*.
+VariableOverall
+n = 63,285
+No sirens
+n = 36,661
+Low exposure
+n = 18,971
+High exposure
+n = 7,653
+Age group (years)    
+0–44,825 (7.6%)2,667 (7.3%)1,571 (8.3%)587 (7.7%)
+5–1416,572
+(26%)
+9,523 (26%)5,184 (27%)1,865 (24%)
+15–2410,101
+(16%)
+5,919 (16%)2,989 (16%)1,193 (16%)
+25–4415,871
+(25%)
+9,290 (25%)4,637 (24%)1,944 (25%)
+45–649,805 (15%)5,716 (16%)2,870 (15%)1,219 (16%)
+>656,111 (9.7%)3,546 (9.7%)1,720 (9.1%)845 (11%)
+Sex    
+Female25,164
+(40%)
+14,357
+(39%)
+7,573 (40%)3,234 (42%)
+Male38,121
+(60%)
+22,304
+(61%)
+11,398 (60%)4,419 (58%)
+Socioeconomic status
+†
+Low12,325
+(19%)
+7,236 (20%)3,773 (20%)1,316 (17%)
+Medium34,131
+(54%)
+19,812
+(54%)
+10,082 (53%)4,237 (55%)
+High12,569
+(20%)
+7,510 (20%)3,453 (18%)1,606 (21%)
+No data4,260 (6.7%)2,103 (5.7%)1,663 (8.8%)494 (6.5%)
+Region    
+South9,141 (14%)1,641 (4.5%)6,623 (35%)877 (11%)
+Center33,15020,3758,124 (43%)4,651 (61%)
+Notes: values are presented as n (%).
+* Siren exposure was defined by the number of monthly regional civil defense sirens: none (0), low (< 
+500), and high (≥ 500).
+†
+Socioeconomic status was classified according to the national socioeconomic index.
+Page 7/14
+VariableOverall
+n = 63,285
+No sirens
+n = 36,661
+Low exposure
+n = 18,971
+High exposure
+n = 7,653
+(52%)(56%)
+North20,994
+(33%)
+14,645
+(40%)
+4,224 (22%)2,125 (28%)
+Season of injury    
+Spring17,012
+(27%)
+9,625 (26%)5,362 (28%)2,025 (26%)
+Summer17,048
+(27%)
+9,632 (26%)5,241 (28%)2,175 (28%)
+Autumn15,633
+(25%)
+8,625 (24%)4,245 (22%)2,763 (36%)
+Winter13,592
+(21%)
+8,779 (24%)4,123 (22%)690 (9.0%)
+Hospitalization within 7 days452 (0.7%)262 (0.7%)131 (0.7%)59 (0.8%)
+Surgical intervention within 30
+days
+11,389
+(18%)
+6,591 (18%)3,382 (18%)1,416 (19%)
+Notes: values are presented as n (%).
+* Siren exposure was defined by the number of monthly regional civil defense sirens: none (0), low (< 
+500), and high (≥ 500).
+†
+Socioeconomic status was classified according to the national socioeconomic index.
+Adjusted negative binomial regression models revealed an increase in dog bite incidence both in months
+with low siren exposure (IRR 1.15, 95% CI 1.13–1.18; P < 0.001) and in months with high siren exposure
+(IRR 1.33, 95% CI 1.28–1.37; P < 0.001) compared to months with no sirens (Table 2). The temporal
+patterns and exposure categorization are shown in Fig. 1. The regional stratification by exposure
+category is presented in Fig. 2.
+Page 8/14
+Table 2
+Association between siren exposure level and monthly dog bite
+incidence
+VariableIRRCI 95%P-value
+Siren exposure category   
+No sirenReference--
+Low exposure (< 500 sirens)1.151.13–1.18< 0.001
+High exposure (≥ 500 sirens)1.331.28–1.37< 0.001
+Notes: IRRs estimated using negative binomial regression.
+Figure 1.
+Figure 2.
+Regarding secondary outcomes, 452 (0.7%) encounters were followed by hospitalization within 7 days
+and 11,389 (18.0%) by surgical intervention within 30 days (Table 1). In adjusted models, high siren
+exposure was associated with increased odds of surgical intervention within 30 days (OR 1.09, 95% CI
+1.02-1.16; P=0.013). No statistically significant associations were observed for hospitalization within 7
+days (Table 3). 
+Table 3
+Association between siren exposure level and injury severity among dog bite cases
+OutcomeSiren exposure categoryAdjusted
+OR
+CI 95%P-
+value
+Surgical intervention within 30
+days
+No sirenReference--
+ Low exposure (< 500
+sirens)
+1.040.99–
+1.10
+0.11
+ High exposure (≥ 500
+sirens)
+1.091.02–
+1.16
+0.013
+Hospitalization within 7 daysNo sirenReference--
+ Low exposure (< 500
+sirens)
+1.060.85–
+1.33
+0.60
+ High exposure (≥ 500
+sirens)
+1.090.81–
+1.44
+0.60
+Notes: Odds ratios estimated using multivariable logistic regression models.
+Abbreviations: OR, odds ratio; CI, confidence interval.
+Page 9/14
+Discussion
+In this nationwide retrospective study (2014-2025), we evaluated whether armed conflict-related
+environmental stressors, operationalized using civil defense siren activity, were associated with
+population-level variations in dog bite-related healthcare encounters. We identified a statistically
+significant graded association between the level of siren exposure and monthly dog bite incidence. In
+adjusted negative binomial models, compared to months with no sirens, months with low siren exposure
+(<500 sirens) were associated with a 15% increase in monthly dog bite incidence (IRR 1.15, 95% CI 1.13-
+1.18), and months with high exposure (≥500 sirens), with a 33% increase (IRR 1.33, 95% CI 1.28-1.37).
+Importantly, this study provides, to our knowledge, the first national-level evidence linking armed conflict-
+related environmental stressors to increased dog bite incidence.
+A key strength of this work is the use of siren alert data as a quantitative exposure measure. Civil
+defense sirens provide an objective, time-stamped, region-specific, and publicly documented indicator of
+environmental stress related to conflict escalation. Siren activity captures not only acute acoustic
+exposure but also broader contextual disruption during escalation periods, including shelter
+confinement, altered routines, and heightened mental strain, allowing for the assessment of population-
+level injury risk within a natural experiment framework. Notably, the graded siren exposure categorization
+offers a reproducible approach that extends beyond binary definitions of conflict versus non-conflict
+periods and enables evaluation of dose-response patterns at the population level.
+The observed association is biologically and behaviorally plausible [8-10]. High-intensity auditory stimuli
+have been associated with anxiety-related behavioral dysregulation in dogs, and companion animals are
+also known to be sensitive to changes in household stress and routine [5-7]. However, the present study
+was not designed to isolate a single mechanistic pathway. Rather, it adopts an ecological injury-risk
+perspective in which escalation-related stressors are expected to act simultaneously across multiple
+domains, including environmental context, human behavior and supervision patterns, and canine stress
+reactivity, resulting in a net population-level change in dog bite risk. Importantly, these pathways are not
+mutually exclusive and likely co-occur during periods of heightened threat exposure.
+Additionally, we assessed clinically meaningful severity endpoints reflecting healthcare utilization and
+system burden rather than behavior alone. Hospitalization within 7 days was uncommon and not
+significantly associated with siren exposure category. However, high-exposure months were associated
+with increased odds of surgical intervention within 30 days (OR 1.09, 95% CI 1.02-1.16). Although the
+effect size was small, it may be operationally relevant given the high baseline volume of dog bite
+encounters. Even modest increases in operative management may translate into a measurable surgical
+workload during periods when healthcare systems are simultaneously managing many escalation-
+related demands.
+Regional differences were observed in the adjusted models, with lower dog bite incidence in the North
+and South of the country compared with the Central region. The descriptive patterns shown in Figure 2
+similarly indicate higher monthly counts of dog bite-related encounters in the Central region over the
+Page 10/14
+study period. However, the interpretation of geographic differences in dog bite incidence in Israel
+requires careful consideration of population distribution and displacement dynamics during escalation
+periods. The Central region includes a substantial proportion of the national population and has a higher
+population density, which may influence baseline exposure patterns and healthcare utilization. In
+addition, in Israel, escalation periods have historically involved a disproportionate siren burden in the
+South and, more recently, in the North. They may also involve substantial internal displacement and
+temporary relocation of residents from conflict-adjacent areas to central regions, altering both the
+geographic denominators at risk and the location of healthcare utilization. Thus, dog bite encounters
+may be redistributed toward the Central region irrespective of where exposure occurred. Consequently,
+region-level comparisons of dog bite incidence should be interpreted as reflecting both underlying
+demographic structure and time-varying population movement rather than stable geographic differences
+in risk.
+These findings have actionable public health and injury prevention implications. Preparedness during
+escalation periods, particularly in high-exposure areas, may benefit from incorporating dog bite injury
+mitigation into emergency department and surgical resource planning. Public guidance issued during
+siren events could include practical dog-handling recommendations, emphasizing child supervision,
+minimization of high-risk interactions in confined environments such as shelters, and use of restraints
+when feasible. Dog bite prevention may therefore represent a previously underrecognized component of
+civilian injury prevention during armed conflict.
+Several limitations merit consideration. This study relied on diagnostic coding and captured dog bite
+events resulting in healthcare utilization. Under-ascertainment of mild injuries is likely in routine periods
+and may be more pronounced during escalation periods when individuals may avoid seeking care for
+minor wounds. Such misclassification would be expected to be largely nondifferential and to bias effect
+estimates toward the null, suggesting that the observed associations may be conservative. In addition,
+data on dog breed, ownership status, household structure, and individual-level behavioral factors were
+unavailable, limiting mechanistic inference. Finally, the ecological design does not permit causal
+attribution at the individual level, and residual confounding may persist despite adjustment for
+demographics, seasonality, and region.
+In summary, using a nationwide dataset spanning more than a decade, we demonstrate a graded
+association between escalation-related environmental stress, quantified through civil defense siren
+burden, and population-level dog bite incidence. By leveraging a quantitative exposure measure rather
+than a binary conflict definition, this study strengthens evidence that armed conflict-related
+environmental stressors can modify civilian injury risk. These findings support integrating dog bite
+prevention and healthcare preparedness into civilian injury mitigation strategies during armed conflict.
+Abbreviations
+CHSClalit Health Services
+Page 11/14
+Declarations
+Acknowledgements
+Not applicable. 
+Author contributions
+S.S. conceived and designed the study, led data collection, performed the data analysis, interpreted the
+findings, and drafted the manuscript.
+L.S. contributed to data collection and data analysis.
+A.T. and S.F. provided statistical analysis and methodological support.
+D.A.-E. supervised the study, contributed to the interpretation of the results, and critically reviewed the
+manuscript for important intellectual content.
+A.O. supervised the study, contributed to the study design and interpretation of the results, and took a
+leading and full role in drafting and revising the manuscript.
+All authors reviewed and approved the final manuscript.
+Funding
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-
+for-profit sectors.
+Data availability
+The datasets analyzed during the current study are based on anonymized administrative healthcare data
+and are subject to institutional data access regulations. Therefore, the data are not publicly available but
+may be accessed upon reasonable request and with appropriate institutional approvals.
+Ethics approval and consent to participate
+The study was conducted in adherence of the Declaration of Helsinki and approved by the Institutional
+Review Board of Rabin Medical Center (approval #RMC-0476-25) which waived the need for patient
+consent owing to the retrospective study design.
+Consent for publication
+Not applicable.
+Competing interests
+Page 12/14
+The authors declare no competing interests.
+References
+1. Tuckel PS, Milczarski W. The changing epidemiology of dog bite injuries in the United States, 2005-
+2018. Inj Epidemiol. 2020;7(1):57. doi: 10.1186/s40621-020-00281-y.
+2. Morgan M, Palmer J. Dog bites. BMJ. 2007;334(7590):413-7. doi: 10.1136/bmj.39105.659919.BE.
+3. Beerda B, Schilder MB, Van Hooff JA, De Vries HW. Manifestations of chronic and acute stress in
+dogs. Appl Anim Behav Sci 1997; 52:307-19. doi: 10.1016/S0168-1591(96)01131-8
+4. Reisner IR, Shofer FS, Nance ML. Behavioral assessment of child-directed canine aggression. Inj
+Prev. 2007;13(5):348-51. doi: 10.1136/ip.2007.015396.
+5. Greff EK, Chou J, Parker E, Gatesy-Davis A, Clarkson ST, Hart LA. Stress-related behaviours in
+companion dogs exposed to common household noises, and owners' interpretation of their dogs'
+behavior. Front Vet Sci. 2021; 08. doi:org/10.3389/vets2021.760845
+ . Blackwell EJ, Brandshaw JWS, Casey RA. Fear responses to noises in domestic dogs: prevalence,
+risk factors, and co-occurrence with other fear-related behaviour. Appl Anim Behav Sci 2013; 145:15-
+25. doi:10.1016/j.applanim.2012.12.004
+7. Sherman BL, Mills DS. Canine anxieties and phobias: an update on separation anxiety and noise
+aversions. Vet Clin North Am Small Anim Pract. 2008;38(5):1081-106. doi:
+10.1016/j.cvsm.2008.04.012.
+ . Levine ED, Ramos D, Mills DS. A prospective study of two self-help CD-based desensitization and
+counter-conditioning programmes with the use of Dog Appeasing Pheromone. Appl Anim Behav Sci.
+2007;105(4):311-29. https://doi.org/10.1016/j.applanim.2006.11.006.
+9. Araujo JA, de Rivera C, Landsberg GM, Adams P, Milgram NM. Development and validation of a novel
+laboratory method of sound-induced fear and anxiety in beagle dogs. J Vet Behav 2013;8:204-12.
+doi: 10.1016/jveb.2012.10.008
+10. Chmelfkova E, Bolechova P, Chaloupkova H, Svobodova I, Jovicc M, Sedmikova M. Salivary cortisol
+as a marker of acute stress in dogs: a review. Domest Anim Endocrinol 2020;72,106428. doi:
+10.1016/j.domaniend.2019.106428
+11. Yeng H-Y, Ogata N. The impact of COVID-19 pandemic on pet behavior and human-animal
+interaction. A longitudinal survey-based study in the United States. Front Vet Sci. 2023;10. doi:
+10.3389/fvets.2023.1291703
+12. Jezierski T, Camerlink I, chou J-Y, Pedon R. Changes in the health and behavior of ped dogs during
+the COVID-19 pandemic as reported by the owners. Appl Anim Behav Sci 2021;241. doi:
+10.1016/japplanim.2021.105395
+13. Hunt MG, Bogue K, Rohrbaugh N. Pet Ownership and evacuation prior to hurricane Irene. Animals
+(Basel). 2012;2(4):529-39. doi: 10.3390/ani2040529.
+Page 13/14
+14. Day AM. Companion animals and natural disasters. A systematic review of the literature. Int J
+Disaster Risk Reduction. 2017;24:81-90. doi: 10.1016/j.ijdrr.2017.05.015
+15. Warner GS. Increased incidence of domestic animal bites following a disaster due to natural
+hazards. Prehosp Disaster Med. 2010;25(2):188-190.
+Figures
+Figure 1
+Dog bite-related healthcare encounters by siren exposure category in Israel (2014-2025). (A) Total
+number of dog bite-related healthcare encounters aggregated across the study period, stratified by
+monthly civil defense siren exposure: no sirens, low exposure (<500 sirens per month), and high
+exposure (≥500 sirens per month). (B) Adjusted incidence rate ratios (IRRs) with 95% confidence
+intervals (CIs) for dog bite incidence by siren exposure category, estimated using multivariable negative
+binomial regression models. Months with no sirens served as the reference category (IRR = 1). Models
+were adjusted for geographic region, seasonality, age group, sex, and socioeconomic status.
+Page 14/14
+Figure 2
+Monthly dog bite-related healthcare encounters by geographic region and siren exposure category in
+Israel (2014-2025).
+Bars represent monthly counts of dog bite-related healthcare encounters stratified by geographic region
+(Center, North, South) and level of civil defense siren exposure: no sirens, low exposure (<500 sirens per
+month), and high exposure (≥500 sirens per month). This figure illustrates temporal and regional
+variation in dog bite incidence in relation to escalation-related environmental stress.

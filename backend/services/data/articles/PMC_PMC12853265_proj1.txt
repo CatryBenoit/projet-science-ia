@@ -1,0 +1,601 @@
+1
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+From dog bite to dialysis: complement- mediated 
+haemolytic uraemic syndrome 
+Tobias Evason Fredriksen    , Burhan- Ud- Din Mian, Szilveszter Dolgos 
+Case report
+To cite: Fredriksen TE, 
+Mian B- U- D,  Dolgos S. BMJ 
+Case Rep 2026;19:e270618. 
+doi:10.1136/bcr-2025-
+270618
+Department of Nephrology, 
+Sykehuset Østfold HF, Grålum, 
+Norway
+Correspondence to
+Tobias Evason Fredriksen;  
+ tobfredrik@ gmail. com
+Accepted 9 January 2026
+© BMJ Publishing Group 
+Limited 2026. Re- use 
+permitted under CC BY- NC. No 
+commercial re- use. See rights 
+and permissions. Published by 
+BMJ Group.
+SUMMARY
+A previously healthy woman in her late 40s presented 
+with rapidly progressive sepsis 4 days after a dog bite. 
+She developed disseminated intravascular coagulation, 
+pancytopenia and acute kidney injury, ultimately 
+progressing to complete anuria and dialysis dependence. 
+Blood cultures confirmed Capnocytophaga canimorsus 
+bacteraemia. Despite an initial clinical improvement with 
+antibiotics and supportive care, she developed sudden 
+isolated haemolysis and persistent thrombocytopaenia. 
+Laboratory and renal biopsy findings confirmed the 
+presence of a thrombotic microangiopathy (TMA), and 
+complement- mediated haemolytic uraemic syndrome 
+(CM- HUS) was diagnosed. Following plasma exchange 
+and initiation of eculizumab therapy, haematological 
+remission was achieved, and her kidney function partially 
+recovered.
+This case highlights C. canimorsus infection as a rare 
+trigger of CM- HUS in immunocompetent adults and 
+outlines the patient’s diagnostic workup, the challenges 
+of differential diagnosis and the complexity of both the 
+clinical course and therapeutic approach in case of TMA 
+following sepsis. 
+BACKGROUND
+Capnocytophaga   canimorsus   is   a   slow-   growing,   
+encapsulated,   gram-   negative   rod   found   in   the   
+normal   oropharyngeal   flora   in   dogs   and   cats.   
+Human  infections  are  rare,  and  transmission  can  
+occur via bites, scratches or even close contact. Clin-
+ical presentations are highly variable, ranging from 
+isolated  meningitis  to  fulminant  sepsis,  dissemi-
+nated  intravascular  coagulation  (DIC),  multiorgan  
+failure  and  thrombotic  microangiopathy  (TMA).  
+Despite  broad  antibiotic  susceptibility,  mortality  
+can approach 30%.
+1 2
+C.  canimorsus  is  the  Capnocytophaga  species  
+most frequently linked in invasive zoonotic disease 
+in  humans.
+3
+  Diagnosis  can  be  delayed  due  to  its  
+fastidious  nature  and  slow  growth  in  cultures,  
+prompting  increasing  use  of  molecular  methods,  
+such as real- time nanopore sequencing.
+4 5
+In  our  case,  C.  canimorsus  infection  presented  
+with  septic  shock,  severe  leukopaenia  and  coagu-
+lopathy  consistent  with  DIC.  Although  the  initial  
+clinical  course  was  dominated  by  sepsis-  related  
+multiorgan  involvement,  the  later  development  of  
+microangiopathic   haemolytic   anaemia   (MAHA),   
+thrombocytopenia   and   worsening   acute   kidney   
+injury (AKI) suggested a superimposed TMA, high-
+lighting   how   complement-   mediated   haemolytic   
+uraemic  syndrome  (CM-  HUS)  may  be  obscured  
+during the early sepsis and DIC phase. 
+CASE PRESENTATION
+A  previously  healthy  woman  in  her  late  40s,  with  
+two prior uncomplicated pregnancies, presented to 
+the emergency department with a rapidly worsening 
+clinical condition. Four days prior to admission, she 
+had  been  bitten  by  her  dog  on  the  upper  lip  and  
+received  tetanus  vaccination  as  prophylaxis.  She  
+was prescribed phenoxymethylpenicillin (Apocillin) 
+on  the  day  of  the  incident;  however,  antibiotic  
+treatment  was  not  initiated,  as  she  was  unable  to  
+collect her prescription. She developed a high fever 
+(>40  °C),  malaise,  reduced  oral  intake  and  later  
+sought medical attention when numbness and disc-
+olouration  of  her  feet  appeared.  At  primary-  care  
+emergency, she was found to have hypoglycaemia, 
+refractory  to  oral  glucose  and  glucagon,  with  a  
+nadir of 0.6 mmol/L, prompting urgent transfer to 
+our emergency department.
+On  admission,  she  was  alert  and  responsive  
+but  appeared  septic  with  mottled  and  cool  lower  
+extremities. She had not used any herbal remedies 
+or other substances, and no relatives had been ill or 
+presented with similar symptoms. The initial labo-
+ratory  workup  revealed  marked  systemic  derange-
+ment with severe inflammation, pancytopenia, AKI, 
+liver enzyme elevation and coagulopathy. Key find-
+ings are summarised in table 1.
+Blood  gas  analysis  revealed  metabolic  acidosis  
+with  a  pH  of  7.27  (7.35–7.43)  and  an  elevated  
+lactate  level  of  5.7  (<2.5  mmol/L).  She  remained  
+hypoglycaemic  despite  high  doses  of  intravenous  
+glucose,  thought  to  be  sepsis  related.  On  arrival,  
+the patient maintained adequate diuresis; urinalysis 
+showed protein (2+) and blood (3+).
+Given her constellation of symptoms—including 
+fever,  pancytopenia,  coagulopathy  with  AKI  and  
+lactic  acidosis—her  condition  was  interpreted  as  
+DIC secondary to bacteraemia and early sepsis (quick 
+Sequential   Organ   Failure   Assessment   (qSOFA)   
+score 1/3). A surgical cause of her mottled extrem-
+ities—including necrotising fasciitis—was ruled out 
+after  clinical  and  radiological  evaluation.  Due  to  
+the  severity  of  her  presentation,  broad-  spectrum  
+intravenous  piperacillin/tazobactam  (Tazocin)  was  
+started to cover dog- associated pathogens, including 
+Capnocytophaga  species.  Notably,  C.  canimorsus 
+was suspected from the onset and was 7 days later 
+confirmed  by  both  aerobic  and  anaerobic  blood  
+cultures.  She  was  subsequently  transferred  to  the  
+intensive care unit (ICU) for closer monitoring.
+Given   the   pancytopenia   and   coagulopathy,   
+haematology  was  consulted.  The  differential  diag-
+noses  included  acute  leukaemia  and  haemophago-
+cytic   lymphohistiocytosis.   Haemolytic   uraemic   
+syndrome  (HUS)  was  also  considered  but  seemed  
+2
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+Case report
+unlikely  due  to  leukopaenia,  inflammatory  markers,  normal  
+haptoglobin  and  non-  compensatory  reticulocytes.  Flow  cytom-
+etry was performed, and bone marrow biopsy planned; however, 
+normal results—with no increase in CD34+ blasts or abnormal 
+phenotypes—led  to  cancellation  of  the  biopsy.  Clinically,  the  
+presentation was consistent with sepsis. While awaiting results, 
+supportive   thrombocyte   and   fibrinogen   transfusions   were   
+administered.
+After transfer to the ICU, she became completely anuric with 
+rapidly worsening renal function. Aggressive fluid resuscitation 
+and concurrent administration of loop diuretics were attempted 
+without  success.  She  subsequently  developed  septic  cardiomy-
+opathy  with  fluid  overload,  requiring  the  initiation  of  contin-
+uous renal replacement therapy. Autoimmune tests (antinuclear 
+antibodies  (ANA)  and  antineutrophil  cytoplasmic  antibodies  
+(ANCA)) were negative.
+On day 3 in the ICU, she developed diffuse skin bleeding with 
+ecchymoses and distal cyanotic and ischaemic changes affecting 
+several  toes  and  fingers,  though  pulses  and  sensation  were  still  
+preserved.  These  findings  were  consistent  with  microthrom-
+botic  phenomena  in  the  context  of  DIC.  Despite  multiorgan  
+involvement, she never required vasopressor support beyond the 
+stress- dose corticosteroids administered during the initial septic 
+phase. She also received albumin infusions alongside other blood 
+products.
+After  8  days  of  hospitalisation,  she  was  transferred  to  the  
+nephrology ward for ongoing dialysis- dependent AKI and intra-
+venous antibiotic therapy. On transfer, the patient was clinically 
+stable but anuric, with generalised oedema and multiple haema-
+tomas,  yet  alert  and  oriented.  Antibiotics  were  de-  escalated  to  
+intravenous ampicillin and later to oral Apocillin based on blood 
+culture results.
+On  the  nephrology  ward,  labs  showed  improving  inflam-
+matory  profile,  reactive  leukocytosis,  recovering  platelets  and  
+stable  haemoglobin.  Kidney  function  tests  showed  persistent  
+azotaemia, while coagulation parameters normalised, indicating 
+resolving  coagulopathy.  Table  2  summarises  her  laboratory  
+results at that stage.
+After   initial   improvement,   the   clinical   picture   changed   
+when  she  developed  a  sudden  isolated  drop  in  haemoglobin  
+(111 →  68  g/L  over  6  days)  without  evidence  of  bleeding  or  
+haemodynamic  instability.  Platelets  remained  persistently  low  
+(30–40×10⁹/L),  haptoglobin  became  undetectable  and  LDH  
+levels rose, indicating ongoing haemolysis (figure 1).
+A  direct  antiglobulin  test  (DAT)  (Coombs  test)  was  positive  
+for  IgG,  raising  suspicion  of  autoimmune  haemolytic  anaemia.  
+High-  dose  prednisolone  was  started  alongside  routine  prophy-
+laxis,  and  several  blood  transfusions  were  given  over  2  days.  
+When the haemolytic process failed to respond to corticosteroid 
+therapy  and  platelets  remained  low  (41–46  ×  10⁹/L),  further  
+evaluation  was  warranted.  A  peripheral  blood  smear  revealed  
+15%–20%  schistocytes,  consistent  with  MAHA  suggestive  of  
+TMA (figure 2). The initial DAT was likely a false positive from 
+penicillin or prior transfusions; repeat testing was negative.
+Complement  studies  and  ADAMTS13  activity  were  sent  for  
+analysis.  Locally  available  standard  complement  tests  (C3/C4)  
+were  within  normal  limits,  and  functional  assays  of  the  clas-
+sical,  alternative  and  lectin  pathways  were  likewise  normal.  
+ADAMTS13  activity  was  reported  shortly  after,  at  43.5%,  
+effectively  ruling  out  thrombotic  thrombocytopenic  purpura  
+(TTP), as TTP typically presents with activity below 10%. While 
+awaiting  these  results,  plasma  exchange  (PEX)  was  initiated  as  
+bridging therapy prior to the first dose of eculizumab.
+Once  the  thrombocyte  count  had  increased  to  77×10⁹/L,  a  
+kidney  biopsy  was  performed  showing  severe  acute  tubular  
+necrosis, ischaemic glomeruli with fibrin thrombi and scattered 
+crescent formation, consistent with TMA.
+The  diagnostic  findings  in  this  case  were  best  demonstrated  
+by  the  light  microscopy  features  shown  in  figure  3.  Immuno-
+fluorescence and electron microscopy are not shown, as immu-
+nofluorescence  revealed  no  immune  complex  deposition  and  
+electron  microscopy  demonstrated  no  evidence  of  primary  
+glomerulopathy.
+Table 1 Laboratory profile on hospital admission
+Parameter (SI units)Patient valuesReference range
+CRP (mg/L)306<6
+Leukocytes (× 10⁹/L)0.53.7–9.8
+Thrombocytes (× 10⁹/L)7165–387
+Haemoglobin (g/L)107117–153
+Reticulocytes (× 10⁹/L)2720–100
+Sodium (mmol/L)129137–145
+Potassium (mmol/L)3.23.6–4.6
+eGFR  (mL/min/1.73 m²)1977–128
+Creatine (μmol/L)25245–90
+ALAT (U/L)22810–45
+γ-GT (U/L)
+14110–75
+Total bilirubin (μmol/L)735–25
+LDH (U/L)2353<205
+Haptoglobin (g/L)1.10.4–1.9
+INR2.00.8–1.2
+APTT (s)8330–42
+D-    Dimer (mg/L FEU)>20.0<0.5
+Fibrinogen (g/L)1.52.0–4.0
+Ferritin (μg/L)39 60510–200
+ALAT, Alanine aminotransferase ; APTT, Activated partial thromboplastin time ; CRP, C- 
+reactive protein; eGFR, Estimated glomerular filtration rate ; FEU, Fibrinogen equivalent 
+units ; INR, International normalised ratio ; LDH, Lactate dehydrogenase ; γ-GT, Gamma- 
+glutamyl transferase.
+Table 2 Laboratory profile at admission to the nephrology ward
+Parameter (SI units)Patient valuesReference range
+CRP (mg/L)98<6
+Leukocytes (× 10⁹/L)26.33.7–9.8
+Thrombocytes (× 10⁹/L)39165–387
+Haemoglobin (g/L)111117–153
+Sodium (mmol/L)136137–145
+Potassium (mmol/L)3.73.6–4.6
+eGFR  (mL/min/1.73 m²)<1577–128
+Creatine (μmol/L)37445–90
+Procalcitonin (μg/L)4.07<0.10
+ALAT (U/L)11510–45
+γ-GT (U/L)
+15510–75
+Total bilirubin (μmol/L)225–25
+LDH (U/L)1217<205
+INR1.20.8–1.2
+APTT (s)2830–42
+Fibrinogen (g/L)4.42.0–4.0
+Ferritin (μg/L)60510–200
+ALAT, Alanine aminotransferase ; APTT, Activated partial thromboplastin time ; CRP, 
+C-   reactive protein ; eGFR, Estimated glomerular filtration rate ; INR, International 
+normalised ratio ; LDH, Lactate dehydrogenase ; γ-GT, Gamma- glutamyl  transferase .
+3
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+Case report
+Shiga  toxin-  producing  E.  coli-  associated  HUS  (STEC-  HUS)  
+was ruled out on the basis of a negative stool PCR analysis.
+Following  the  second  and  third  PEX  sessions,  the  patient’s  
+spontaneous  diuresis  returned.  Following  the  first  doses  of  
+meningococcal vaccines—Menveo (serogroups A, C, Y and W) 
+and Bexsero (serogroup B)—eculizumab induction was initiated 
+(900 mg intravenous per week for 4 weeks). The second doses of 
+the vaccines were planned 8 weeks later, on an outpatient basis. 
+Prophylactic  Apocillin  was  given,  as  the  vaccines  had  not  been  
+administered 2 weeks before starting complement blockade.
+Extended   complement   testing   to   rule   out   hereditary   
+complement-  mediated  TMA  was  sent  to  Skåne  Laboratory  
+(Lund  University,  Sweden).  Owing  to  logistics  and  patient  
+Figure 1 Evolution of haemoglobin and thrombocyte counts following onset of isolated haemolysis. Figure annotated using BioRender.com; blue 
+arrows indicate the PEX sessions and black arrows indicate the eculizumab administration. PEX, plasma exchange.
+Figure 2 Peripheral blood smear showing severe schistocytosis, with 
+a schistocyte (helmet cell) indicated by the black arrow. Occasional 
+polychromasia and poikilocytosis are also present.
+Figure 3 Kidney histopathology demonstrating TMA. (A) Arteriole 
+with intraluminal thrombus (black arrow), consistent with acute TMA. 
+HES stain, 20× HPF. (B) Small artery showing fibrinoid necrosis of the 
+vessel wall (black arrow), reflecting severe endothelial injury. HES stain, 
+20× HPF. (C) Renal parenchyma with tubular and glomerular necrosis, 
+and fresh interstitial haemorrhage (black arrow: necrotic tubular profile 
+and white arrow: necrotic, blood- filled glomerulus). HES stain, 10× 
+HPF. (D) Ischaemic glomerulus with (pseudo)cellular crescent formation 
+(black arrow), compatible with downstream glomerular injury secondary 
+to vascular occlusion. Periodic acid–Schiff stain, 40× HPF. HES, H&E–
+saffron; HPF, high- power field; TMA, thrombotic microangiopathy.
+4
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+Case report
+Figure 4 Serum creatine levels during hospitalisation and follow- up. Figure annotated using BioRender.com; blue arrows indicate the PEX sessions 
+and black arrows indicate the eculizumab administration. PEX, plasma exchange.
+Figure 5 Proposed diagnostic algorithm for TMA.
+13 33–35
+ Figure created with BioRender.com. AKI, acute kidney injury; CM- HUS, complement- 
+mediated haemolytic uraemic syndrome; MAHA, microangiopathic haemolytic anaemia; PEX, plasma exchange; STEC- HUS, Shiga toxin- producing E. 
+coli- associated HUS; TMA, thrombotic microangiopathy; TTP, thrombotic thrombocytopenic purpura.
+5
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+Case report
+safety considerations, three sessions of PEX with Octaplas were 
+performed  and  one  induction  dose  of  eculizumab  was  given  
+before sampling. Functional complement testing included alter-
+native  pathway  activity  (quantitative  AH50),  which  was  mark-
+edly reduced (6%), while complement factors H, I and B were 
+normal, and antifactor H antibodies were negative.
+OUTCOME AND FOLLOW-UP
+Following  the  complex  medical  management,  the  patient  is  in  
+good  general  condition  with  adequate  urine  output.  Kidney  
+function remains reduced (serum creatine 175 μmol/L), and she 
+will  be  followed  in  the  nephrology  outpatient  clinic  (figure  4). 
+She  continues  maintenance  eculizumab  (1200  mg  intravenous  
+every 2 weeks), for 4- months postinduction. Extended comple-
+ment genetic testing did not identify any pathogenic variants; the 
+results were communicated verbally by the reference laboratory, 
+with  the  formal  written  report  pending  at  the  time  of  submis-
+sion. Based on this information, complement blockade is being 
+continued due to the severity of her disease, with planned reas-
+sessment  for  discontinuation  if  renal  function  stabilises.  Iden-
+tification  of  pathogenic  complement  gene  abnormalities  would  
+favour longer term therapy with close monitoring for relapse.
+6 7
+However, no such variants were identified in this patient.
+DISCUSSION
+Differential diagnosis of TMA
+TMAs encompass several overlapping clinical entities.
+The initial priority in adults presenting with MAHA, throm-
+bocytopenia and AKI is to exclude thrombotic TTP, a condition 
+defined  by  severe  ADAMTS13  deficiency  (<10%).  Clinical  
+scores like PLASMIC can help triage while awaiting the results, 
+but  diagnostic  confirmation  is  laboratory  based.  Our  patient’s  
+PLASMIC  score  was  4/7  (low  pretest  probability  of  TTP),  and  
+ADAMTS13  activity  was  43.5%,  making  TTP  unlikely  and  
+guiding further diagnostic workup.
+8–11
+STEC-  HUS  is  another  important  consideration.  The  patient  
+tested  negative  for  Shiga  toxin  by  PCR.  Thus,  the  absence  of  
+prodromal  enteric  illness  and  negative  microbiological  testing  
+argues against STEC- HUS.
+12
+Ultimately,    the    constellation    of    persistent    haemolysis,    
+schistocytosis,  dialysis-  dependent  AKI  and  kidney  biopsy  find-
+ings  consistent  with  TMA  supported  a  diagnosis  of  CM-  HUS  
+(figure 5). The diagnosis was further strengthened by the exclu-
+sion  of  STEC  by  PCR  and  her  rapid  clinical  improvement  
+after  initiating  eculizumab  therapy.  Her  insignificant  medical  
+history  weakens  the  hypothesis  of  a  pre-  existing  complement  
+defect requiring a ‘second hit’ and supports infection- triggered 
+CM- HUS.
+CM-  HUS  is  a  clinicopathological  diagnosis  of  exclusion  and  
+complement  levels  (C3/C4)  may  be  normal  during  the  disease  
+course.
+6  7
+  Importantly,  normal  complement  levels  (C3/C4)  do  
+not  exclude  CM-  HUS,  as  levels  may  remain  within  reference  
+ranges during the disease course. Notably, haemolysis appeared 
+only after sepsis began improving, suggesting infection- triggered 
+CM- HUS rather than pre- existing disease.
+In   our   patient,   basic   complement   tests   (C3/C4)   and   
+ADAMTS13 activity were obtained immediately before the first 
+PEX session. The extended complement testing was performed 
+8   days after the final PEX session and 4 days after the first dose of 
+eculizumab. The observed reduction in the alternative pathway 
+is  most  consistent  with  treatment  effects  rather  than  intrinsic  
+complement depletion or activation.
+Pathophysiology of CM-HUS: complement dysregulation and 
+infectious triggers
+CM- HUS (historically termed ‘atypical HUS’) arises from dysreg-
+ulated activation of the alternative complement pathway, often 
+in  genetically  predisposed  individuals.  Between  50%  and  70%  
+of patients harbour genetic variants or autoantibodies affecting 
+complement  regulatory  proteins,  such  as  factors  H,  I  and  B  or  
+membrane cofactor protein (CD46).
+13–15
+ However, disease pene-
+trance is incomplete, and clinical manifestation typically requires 
+an external trigger, most commonly infections, pregnancy, auto-
+immune disease or certain medications.
+13–19
+Although rarely reported, C. canimorsus can activate comple-
+ment pathways, particularly in susceptible hosts. Notably, C. cani-
+morsus displays variable serum susceptibility, with many isolates 
+being   complement   sensitive   while   some   capsule-   expressing   
+strains  show  partial  resistance,  which  means  that  complement  
+activity  is  an  important  component  of  host  defence.
+20  21
+  This  
+creates  a  clinical  paradox:  while  complement  activation  clears  
+the  pathogen,  it  may  also  trigger  uncontrolled  endothelial  
+damage and TMA in predisposed individuals.
+This case adds to a small but growing body of literature linking 
+C.  canimorsus  to  complement-  mediated  TMAs.
+22–25
+  A  partic-
+ularly  illustrative  report  by  Bjørkto  et  al
+22
+  described  a  patient  
+with C.  canimorsus-  induced  CM-  HUS  harbouring  a  comple-
+ment  factor  B  variant,  successfully  treated  with  eculizumab.  
+In  contrast  to  the  previously  reported  case,  no  pathogenic  or  
+likely  pathogenic  complement  gene  variants  were  identified  in  
+our patient, supporting infection- triggered CM- HUS without a 
+demonstrable inherited complement predisposition.
+Therapeutic strategy and clinical dilemma
+Management  of  CM-  HUS  in  the  context  of  active  infection  
+presents unique challenges. Eculizumab, a monoclonal antibody 
+targeting  terminal  complement  component  5,  is  the  standard  
+of  care  for  CM-  HUS  and  markedly  improves  haematological  
+and  renal  outcomes,  particularly  when  initiated  early.  Delayed  
+initiation  is  associated  with  incomplete  renal  recovery  and  
+consequently  higher  risk  of  progression  to  end-  stage  kidney  
+disease.
+26–28
+In  contrast,  PEX  is  lifesaving  in  TTP,  but  provides  only  
+temporary benefit in CM- HUS, mainly by removing circulating 
+complement  fragments,  inflammatory  mediators  or  autoanti-
+bodies,  without  correcting  the  underlying  complement  system  
+dysfunction.
+29  30
+  In  our  patient,  diuresis  returned  after  the  
+final  PEX  sessions  but  before  eculizumab,  reflecting  only  tran-
+sient stabilisation. Sustained haematological and renal recovery 
+occurred only after complement blockade.
+A  key  therapeutic  dilemma  is  using  complement  blockade  
+during  active  bacteraemia,  as  terminal  complement  compo-
+nents  are  critical  for  defence  against  encapsulated  bacteria—
+including Neisseria   and   Capnocytophaga—raising   concerns   
+about  eculizumab-  associated  infectious  risks.
+31  32
+  In  this  case,  
+eculizumab  was  initiated  after  blood  cultures  became  negative,  
+minimising this risk of uncontrolled infection. Vaccination, anti-
+microbial  prophylaxis  and  close  monitoring  remain  essential  
+when using complement inhibitors.
+CONCLUSION AND BROADER IMPLICATIONS
+Early recognition of CM- HUS and prompt initiation of comple-
+ment  blockade  are  the  most  important  predictors  of  favour-
+able  outcome.  Our  patient  achieved  haematological  remission  
+and partial renal recovery, consistent with the current evidence 
+6
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+Case report
+showing that renal function and time- to- initiation of eculizumab 
+therapy are the main determinants of prognosis.
+Although C. canimorsus-  associated  CM-  HUS  is  extremely  
+rare,  this  case  highlights  the  importance  of  considering  infec-
+tious  triggers—including  unusual  ones—in  patients  presenting  
+with new- onset TMA. Improved awareness and molecular diag-
+nostics may lead to the identification of more such cases.
+Learning points
+ ►Capnocytophaga canimorsus infection can trigger 
+complement- mediated haemolytic uraemic syndrome (CM- 
+HUS) in immunocompetent adults.
+ ►Thrombotic microangiopathy may be masked during, or 
+emerge late after, apparent sepsis recovery.
+ ►Early initiation of eculizumab therapy improves 
+haematological and renal outcomes in CM- HUS.
+ ►Complement blockade should be initiated after achieving 
+infection control.
+Acknowledgements We express our gratitude for the excellent interdisciplinary 
+collaboration that made the management of this case possible. Special thanks 
+to our colleagues at Sykehuset Østfold Kalnes (the Emergency Department, the 
+Haematology Department, and the Nephrology Department) for their contributions. 
+We also extend our thanks to the Skåne Laboratory (Lund University, Sweden) for 
+performing the complement analyses, and to Dr. Henrik Lied Lilleby (Department 
+of Pathology at Oslo University Hospital (Rikshospitalet)) for the histology 
+interpretations and provision of the biopsy images.
+Contributors TEF was a part of the clinical management, collected the clinical 
+data, performed the literature review and drafted the manuscript. B- U-    DM and SD 
+supervised the clinical management of the patient, contributed to the interpretation 
+of findings and revised the manuscript. All authors approved the final version of the 
+manuscript. Guarantor: SD.
+Funding The authors have not declared a specific grant for this research from any 
+funding agency in the public, commercial or not- for- profit sectors.
+Competing interests None declared.
+Patient consent for publication Consent obtained directly from patient(s).
+Provenance and peer review Not commissioned; externally peer reviewed.
+Open access This is an open access article distributed in accordance with the 
+Creative Commons Attribution Non Commercial (CC BY- NC 4.0) license, which 
+permits others to distribute, remix, adapt, build upon this work non- commercially, 
+and license their derivative works on different terms, provided the original work is 
+properly cited and the use is non- commercial. See: https://creativecommons.org/ 
+licenses/by-nc/4.0/.
+Case reports provide a valuable learning resource for the scientific community and 
+can indicate areas of interest for future research. They should not be used in isolation 
+to guide treatment choices or public health policy.
+ORCID iD
+Tobias Evason Fredriksen https://orcid.org/0009-0009-5501-1368
+REFERENCES
+  1 Lion C, Escande F, Burdin JC. Capnocytophaga canimorsus infections in human: review 
+of the literature and cases report. Eur J Epidemiol 1996;12:521–33. 
+  2 Campagna RA, Kelly EA, Vugia DJ, et al. Clinical and Epidemiologic Review of 
+Capnocytophaga Spp. Infections Identified at a Public Health Reference Laboratory- 
+California,  2005- 2021. Zoonoses Public Health 2025;72:330–6. 
+  3 Beauruelle C, Plouzeau C, Grillon A, et al. Capnocytophaga zoonotic infections: a 
+10- year retrospective study (the French CANCAN study). Eur J Clin Microbiol Infect Dis 
+2022;41:581–8. 
+  4 Chesdachai S, Tai DBG, Yetmar ZA, et al. The Characteristics of Capnocytophaga 
+Infection: 10 Years of Experience. Open Forum Infect Dis 2021;8:ofab175. 
+  5 Bialasiewicz S, Duarte TPS, Nguyen SH, et al. Rapid diagnosis of Capnocytophaga 
+canimorsus septic shock in an immunocompetent individual using real- time Nanopore 
+sequencing: a case report. BMC Infect Dis 2019;19:660. 
+  6 Java A. Atypical hemolytic uremic syndrome: diagnosis, management, and 
+discontinuation of therapy. Hematology Am Soc Hematol Educ Program 
+2024;2024:200–5. 
+  7 Vivarelli M, Barratt J, Beck LH Jr, et al. The role of complement in kidney disease: 
+conclusions from a Kidney Disease: Improving Global Outcomes (KDIGO) 
+Controversies Conference. Kidney Int 2024;106:369–91. 
+  8 Scully M, Rayment R, Clark A, et al. A British Society for Haematology Guideline: 
+Diagnosis and management of thrombotic thrombocytopenic purpura and thrombotic 
+microangiopathies. Br J Haematol 2023;203:546–63. 
+  9 Matsumoto M, Miyakawa Y, Kokame K, et al. Diagnostic and treatment guidelines 
+for thrombotic thrombocytopenic purpura (TTP) in Japan 2023. Int J Hematol 
+2023;118:529–46. 
+ 10 Li A, Khalighi PR, Wu Q, et al. External validation of the PLASMIC score: a clinical 
+prediction tool for thrombotic thrombocytopenic purpura diagnosis and treatment. J 
+Thromb Haemost 2018;16:164–9. 
+ 11 Bendapudi PK, Hurwitz S, Fry A, et al. Derivation and external validation of the 
+PLASMIC score for rapid assessment of adults with thrombotic microangiopathies: a 
+cohort study. Lancet Haematol 2017;4:e157–64. 
+ 12 Liu Y, Thaker H, Wang C, et al. n.d. Diagnosis and Treatment for Shiga Toxin- Producing 
+Escherichia coli Associated Hemolytic Uremic Syndrome. Toxins (Basel)15:10. 
+ 13 George JN, Nester CM. Syndromes of thrombotic microangiopathy. N Engl J Med 
+2014;371:654–66. 
+ 14 Bogdan RG, Anderco P, Ichim C, et al. Atypical Hemolytic Uremic Syndrome: A Review 
+of Complement Dysregulation. Genetic Susceptibility and Multiorgan Involvement J 
+Clin Med 2025;14:2527. 
+ 15 Stea ED, Pugliano M, Gualtierotti R, et al. Multidisciplinary consensus on the 
+diagnosis and management of patients with atypical Hemolytic Uremic Syndrome 
+(complement- mediated TMA): Recommendations from Italian scientific societies, 
+patient associations and regulators. Pharmacol Res 2025;216:107714. 
+ 16 Szilágyi A, Kiss N, Bereczki C, et al. The role of complement in Streptococcus 
+pneumoniae- associated haemolytic uraemic syndrome. Nephrol Dial Transplant 
+2013;28:2237–45. 
+ 17 Avdonin PP, Blinova MS, Generalova GA, et al. The Role of the Complement System 
+in the Pathogenesis of Infectious Forms of Hemolytic Uremic Syndrome. Biomolecules 
+2023;14:39. 
+ 18 Madireddy S, Adams M, Recinos BM. Influenza A H1N1 Triggering Complement- 
+Mediated Hemolytic Uremic Syndrome. J Med Cases 2025;16:254–8. 
+ 19 Fine DM, Fogo AB, Alpers CE. Thrombotic microangiopathy and other glomerular 
+disorders in the HIV- infected patient. Semin Nephrol 2008;28:545–55. 
+ 20 Zangenah S, Bergman P. Rapid killing of Capnocytophaga canimorsus and 
+Capnocytophaga cynodegmi by human whole blood and serum is mediated via the 
+complement system. Springerplus 2015;4:517. 
+ 21 Renzi F, Ittig SJ, Sadovskaya I, et al. Evidence for a LOS and a capsular polysaccharide 
+in Capnocytophaga canimorsus. Sci Rep 2016;6:38914. 
+ 22 Bjørkto MH, Barratt- Due A, Nordøy I, et al. The use of eculizumab in Capnocytophaga 
+canimorsus associated thrombotic microangiopathy: a case report. BMC Infect Dis 
+2021;21:137. 
+ 23 Sokol KA, Veluswamy RR, Zimmerman BS, et al. Atypical hemolytic uremic syndrome 
+associated with Capnocytophaga canimorsus. Am J Hematol 2017;92:322. 
+ 24 Tani N, Nakamura K, Sumida K, et al. An Immunocompetent Case of 
+Capnocytophaga canimorsus Infection Complicated by Secondary Thrombotic 
+Microangiopathy and Disseminated Intravascular Coagulation. Intern Med 
+2019;58:3479–82. 
+ 25 Smeets NJL, Fijnheer R, Sebastian S, et al. Secondary thrombotic microangiopathy 
+with severely reduced ADAMTS13 activity in a patient with Capnocytophaga 
+canimorsus sepsis: a case report . Transfusion 2018;58:2426–9. 
+ 26 Legendre CM, Licht C, Muus P, et al. Terminal complement inhibitor eculizumab in 
+atypical hemolytic- uremic syndrome. N Engl J Med 2013;368:2169–81. 
+ 27 Brocklebank V, Walsh PR, Smith- Jackson K, et al. Atypical hemolytic uremic syndrome 
+in the era of terminal complement inhibition: an observational cohort study. Blood 
+2023;142:1371–86. 
+ 28 Walle JV, Delmas Y, Ardissino G, et al. Improved renal recovery in patients with atypical 
+hemolytic uremic syndrome following rapid initiation of eculizumab treatment. J 
+Nephrol 2017;30:127–34. 
+ 29 Rock GA, Shumak KH, Buskard NA, et al. Comparison of plasma exchange with 
+plasma infusion in the treatment of thrombotic thrombocytopenic purpura. Canadian 
+Apheresis Study Group. N Engl J Med 1991;325:393–7. 
+ 30 Loirat C, Frémeaux- Bacchi V. Atypical hemolytic uremic syndrome. Orphanet J Rare Dis 
+2011;6:60. 
+ 31 Ram S, Lewis LA, Rice PA. Infections of people with complement deficiencies and 
+patients who have undergone splenectomy. Clin Microbiol Rev 2010;23:740–80. 
+ 32 McNamara LA, Topaz N, Wang X, et al. High Risk for Invasive Meningococcal Disease 
+Among Patients Receiving Eculizumab (Soliris) Despite Receipt of Meningococcal 
+Vaccine. MMWR Morb Mortal Wkly Rep 2017;66:734–7. 
+ 33 Noris M, Remuzzi G. Atypical hemolytic- uremic syndrome. N Engl J Med 
+2009;361:1676–87. 
+ 34 Thompson GL, Kavanagh D. Diagnosis and treatment of thrombotic microangiopathy. 
+Int J Lab Hematol 2022;44 Suppl 1:101–13. 
+ 35 Scully M, Cataland SR, Peyvandi F, et al. Caplacizumab Treatment for Acquired 
+Thrombotic Thrombocytopenic Purpura. N Engl J Med 2019;380:335–46. 
+7
+Fredriksen TE, et al. BMJ Case Rep 2026;19:e270618. doi:10.1136/bcr-2025-270618
+Case report
+Copyright 2026 BMJ Publishing Group. All rights reserved. For permission to reuse any of this content visit
+https://www.bmj.com/company/products-services/rights-and-licensing/permissions/
+BMJ Case Report Fellows may re-use this article for personal use and teaching without any further permission.
+Become a Fellow of BMJ Case Reports today and you can:
+ ►Submit as many cases as you like
+ ►Enjoy fast sympathetic peer review and rapid publication of accepted articles
+ ►Access all the published articles
+ ►Re-use any of the published material for personal use and teaching without further permission
+Customer Service
+If you have any further queries about your subscription, please contact our customer services team on +44 (0) 207111 1105 or via email at support@bmj.com.
+Visit casereports.bmj.com for more articles like this and to become a Fellow
