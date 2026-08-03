@@ -10,7 +10,7 @@ const aiRoutes = require('./routes/ai.routes');
 const researchRoutes = require('./routes/research.routes');
 const projectRoutes = require('./routes/project.routes');
 const logsRoutes = require('./routes/logs.routes'); 
-
+const settingsRoutes = require('./routes/settings.routes'); 
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -44,7 +44,7 @@ app.use('/api/research', researchRoutes);
 app.use('/api/library', libraryRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/logs', logsRoutes);
-
+app.use('/api/settings', settingsRoutes);
 
 // --- LANCEMENT DU SERVEUR ---
 app.listen(port, '0.0.0.0', () => {

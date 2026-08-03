@@ -1,6 +1,7 @@
 const ProjectService = require('../services/app_Service/project.service');
 const ProjectModel = require('../Models/project.model');
 const Logger = require('../services/app_Service/logger.service');
+const AiReaderService = require('../services/IA_service/ai-reader.service'); 
 
 class ProjectController {
     static async createProject(req, res) {
@@ -113,6 +114,79 @@ class ProjectController {
             res.status(500).json({ error: "Erreur lors de la récupération des requêtes en attente." });
         }
     };
+
+    static getGraphData = async (req, res) => {
+        try {
+            const projectId = req.params.id;
+            
+            // On récupère les 3 niveaux de données
+            const project = await ProjectModel.getProjectInfo(projectId);
+            const articles = await ProjectModel.getAnalyzedArticles(projectId);
+            const pendingQueries = await ProjectModel.getPendingQueries(projectId);
+
+            res.status(200).json({ 
+                project: project || { core_theme: "Projet" }, 
+                articles: articles || [], 
+                pending: pendingQueries || [] 
+            });
+        } catch (error) {
+            console.error("Erreur Graphe:", error);
+            res.status(500).json({ error: "Erreur lors de la génération du graphe" });
+        }
+    };
+
+
+
+
+
+    // 💬 Le Chatbot RAG (Discuter avec les PDFs)
+    static askChatbot = async (req, res) => {
+        try {
+            const projectId = req.params.id;
+            const userId = req.user?.id || req.userId || 1;
+            const { question } = req.body;
+
+            if (!question) {
+                return res.status(400).json({ error: "La question est requise." });
+            }
+
+            // 1. Récupération des articles du projet depuis la base de données
+            const articles = await ProjectModel.getAnalyzedArticles(projectId);
+
+            if (!articles || articles.length === 0) {
+                return res.status(200).json({ answer: "Je n'ai pas encore d'articles analysés dans ce projet pour vous répondre. Veuillez importer des PDFs." });
+            }
+
+            // 2. Création du "Contexte" (La mémoire de l'IA)
+            let context = "CONTEXTE DES ARTICLES DU PROJET :\n\n";
+            articles.forEach((art) => {
+                context += `--- Article: ${art.title} ---\n`;
+                context += `${art.synthesis || 'Résumé non disponible.'}\n\n`;
+            });
+            
+            // On limite la taille pour ne pas faire exploser la limite de tokens de l'API (environ 80 000 caractères)
+            context = context.substring(0, 80000);
+
+            // 3. Construction des Prompts stricts
+            const systemPrompt = `Tu es un assistant de recherche scientifique expert. Ta mission est de répondre aux questions de l'utilisateur en te basant EXCLUSIVEMENT sur le contexte fourni. 
+RÈGLES ABSOLUES :
+1. Ne cherche pas sur internet, n'invente rien (pas d'hallucination).
+2. Si la réponse n'est pas dans le contexte, dis simplement : "Je ne trouve pas cette information dans les documents du projet."
+3. Cite tes sources en utilisant le titre des articles.
+4. Formate ta réponse proprement en Markdown.`;
+
+            const userPrompt = `${context}\n\nQUESTION DE L'UTILISATEUR : ${question}`;
+
+            // 4. Appel à ton nouveau moteur IA (On utilise le rôle "synthesis" qui est souvent le modèle le plus intelligent)
+            const answer = await AiReaderService.askAI(userId, 'synthesis', userPrompt, systemPrompt);
+
+            res.status(200).json({ answer });
+        } catch (error) {
+            console.error("❌ Erreur Chatbot RAG:", error);
+            res.status(500).json({ error: "Erreur lors de la communication avec l'IA." });
+        }
+    };
+
 }
 
 module.exports = ProjectController;

@@ -1,4 +1,4 @@
-const SettingsModel = require('../models/settings.model');
+const SettingsModel = require('../../Models/settings.model');
 
 class SettingsService {
     

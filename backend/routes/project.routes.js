@@ -12,12 +12,16 @@ router.get('/:id/synthesis', requireAuth, ProjectController.getSynthesis);
 router.post('/:id/charts', requireAuth, ProjectController.addChart);
 router.get('/:id/charts', requireAuth, ProjectController.getCharts);
 
-router.get('/:id/graph', requireAuth, ProjectController.getGraph);
+//router.get('/:id/graph', requireAuth, ProjectController.getGraph);
 router.post('/:id/prune', requireAuth, ProjectController.pruneTopic);
 
 
 router.get('/:id/pending-queries', requireAuth, ProjectController.getPendingQueries);
 
 router.get('/:id', requireAuth, ProjectController.getProjectById);
+
+router.get('/:id/graph', requireAuth, ProjectController.getGraphData);
+
+router.post('/:id/chat', requireAuth, ProjectController.askChatbot);
 
 module.exports = router;

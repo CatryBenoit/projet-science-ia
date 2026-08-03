@@ -22,7 +22,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, 5000));
 const jitter = (base, range) => base + Math.floor(Math.random() * range);
 const ArticleModel = require('../../Models/article.model');
 const ProjectModel = require('../../Models/project.model');
-const SettingsModel = require('../../Models/setting.model');
+const SettingsModel = require('../../Models/settings.model');
 const { articleQueue } = require('../app_Service/queue.service');
 
 
@@ -390,7 +390,7 @@ Format attendu:
 static async launchAutonomousLoop(projectId, currentDepth = 0) {
         const AiReaderService = require('./ai-reader.service');
         const ProjectModel = require('../../Models/project.model');
-        const SettingsModel = require('../../Models/setting.model');
+        const SettingsModel = require('../../Models/settings.model');
         const Logger = require('../app_Service/logger.service');
 
         try {
