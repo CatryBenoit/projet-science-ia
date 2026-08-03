@@ -7,6 +7,7 @@ const pdfParse = require('pdf-parse');
 const Logger = require('./logger.service');
 const AiReaderService = require('../IA_service/ai-reader.service');
 const ArticleModel = require('../../Models/article.model');
+const ProjectModel = require('../../Models/project.model');
 
 // Configuration de la connexion Redis (par défaut sur le port 6379)
 const connection = new Redis({ host: '127.0.0.1', port: 6379, maxRetriesPerRequest: null });
@@ -63,12 +64,33 @@ const worker = new Worker('article-analysis', async (job) => {
     if (!isValidForSave) throw new Error("Aucun contenu exploitable.");
 
     // --- SAUVEGARDE ET INTELLIGENCE ARTIFICIELLE ---
-    if (isValidForSave && textToSave.length > 50) {
+   if (isValidForSave && textToSave.length > 50) {
         await fs.writeFile(filePath, textToSave, 'utf8');
         await ArticleModel.saveArticle({
             id: safeId, title: article.title, published_date: article.published_date,
             oa_url: article.oa_url, local_file_path: filePath, project_id: projectId, type: article.type || 'academic'
         });
+
+        // ==========================================
+        // 🕵️ L'AGENT DÉTECTIVE (CONFLITS D'INTÉRÊTS)
+        // ==========================================
+        try {
+            Logger.log(`  🕵️ [DÉTECTIVE] Recherche de conflits d'intérêts financiers...`);
+            // On envoie le texte final extrait à notre détective
+            const conflictReport = await AiReaderService.detectConflictsOfInterest(textToSave);
+            
+            await ProjectModel.saveConflictOfInterest(safeId, conflictReport);
+            
+            if (conflictReport.hasConflict) {
+                Logger.log(`  🚩 [ALERTE DÉTECTIVE] Conflit détecté (Niveau ${conflictReport.severity})`);
+                Logger.log(`     -> ${conflictReport.details}`);
+            } else {
+                Logger.log(`  ✅ [DÉTECTIVE] Éthique validée, aucun conflit.`);
+            }
+        } catch (err) {
+            Logger.log(`  ❌ [DÉTECTIVE] Erreur : ${err.message}`);
+        }
+        // ==========================================
 
         Logger.log(`  🧠 [IA] Lancement de l'analyse (Texte + Vision)...`);
         const analysis = await AiReaderService.analyzeArticle(filePath);
@@ -76,7 +98,7 @@ const worker = new Worker('article-analysis', async (job) => {
         await ArticleModel.saveAnalysis({
             article_id: safeId, metadata: analysis.meta, notes: analysis.notes, synthesis: analysis.synthesis
         });
-        Logger.log(`  ✅ [IA] Analyse terminée et sauvegardée en BDD.`);
+        Logger.log(`  ✅ [IA] Analyse globale terminée et sauvegardée en BDD.`);
     }
 
 }, { connection, concurrency: 1 });

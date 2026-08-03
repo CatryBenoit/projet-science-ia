@@ -427,7 +427,50 @@ Grille de décision absolue :
             // En cas d'erreur API, on préfère garder l'article pour ne rien rater
             return { decision: "KEEP", score: 5, reasoning: "Bypass suite à une erreur technique." };
         }
-    }     
+    }   
+    
+    static async detectConflictsOfInterest(articleText) {
+        // Pour économiser des tokens et aller plus vite, le détective ne lit que 
+        // les 3000 derniers et 3000 premiers caractères (là où se trouvent les disclaimers)
+        const textToAnalyze = articleText.length > 6000 
+            ? articleText.substring(0, 3000) + "\n\n[...]\n\n" + articleText.substring(articleText.length - 3000)
+            : articleText;
+
+        const prompt = `
+Tu es un agent détective spécialisé dans l'éthique de la recherche scientifique.
+Ta mission est d'analyser ce texte extrait d'un article scientifique et de repérer TOUT conflit d'intérêts potentiel (Conflict of Interest, Competing Interests, Funding, Acknowledgements).
+
+Texte de l'article :
+"""
+${textToAnalyze}
+"""
+
+Instructions strictes :
+1. Cherche qui a financé l'étude.
+2. Cherche si les auteurs déclarent des liens avec des entreprises privées.
+3. Réponds UNIQUEMENT avec un objet JSON valide, sans aucun texte autour.
+
+Format JSON attendu :
+{
+    "hasConflict": true ou false,
+    "severity": "LOW", "MEDIUM" ou "HIGH",
+    "details": "Explication courte en français de qui finance ou du conflit (ex: 'L'auteur principal est consultant pour Pfizer'). Si rien, mets 'Aucun conflit détecté'."
+}
+`;
+
+        try {
+            // Remplace par ta méthode d'appel à ton modèle d'IA (ex: Llama / OpenAI)
+            // On peut même utiliser un petit modèle rapide ici !
+            const response = await this.callAIModel(prompt, { jsonMode: true }); 
+            
+            // Nettoyage de la réponse pour s'assurer d'avoir du JSON pur
+            const cleanJson = response.replace(/```json/g, '').replace(/```/g, '').trim();
+            return JSON.parse(cleanJson);
+        } catch (error) {
+            console.error("🕵️ Erreur de l'Agent Détective :", error.message);
+            return { hasConflict: false, severity: "LOW", details: "Erreur lors de l'analyse éthique." };
+        }
+    }
 }
 
 

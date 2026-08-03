@@ -235,6 +235,22 @@ class ProjectModel {
             );
         });
     }
+    
+    static async saveConflictOfInterest(articleId, conflictData) {
+        return new Promise((resolve, reject) => {
+            // On transforme l'objet JSON (hasConflict, severity, details) en chaîne de texte pour SQLite
+            const conflictString = JSON.stringify(conflictData);
+            
+            db.run(
+                `UPDATE article_analysis SET conflict_of_interest = ? WHERE article_id = ?`,
+                [conflictString, articleId],
+                function (err) {
+                    if (err) reject(err);
+                    else resolve(this.changes);
+                }
+            );
+        });
+    }
 }
 
 module.exports = ProjectModel;

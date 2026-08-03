@@ -81,10 +81,11 @@ db.run(`CREATE TABLE IF NOT EXISTS pending_queries (
 db.run(`CREATE TABLE IF NOT EXISTS article_analysis (
         article_id TEXT PRIMARY KEY,
         metadata TEXT,
-        macro_theme TEXT DEFAULT 'Général', -- 🛑 NOUVEAU : La grande catégorie (ex: Effets secondaires)
-        micro_themes TEXT DEFAULT '[]',     -- 🛑 NOUVEAU : Tableau JSON des sous-thèmes abordés
+        macro_theme TEXT DEFAULT 'Général',
+        micro_themes TEXT DEFAULT '[]',     
         notes TEXT,
         synthesis TEXT,
+        conflict_of_interest TEXT, 
         FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE CASCADE
     )`);
 
