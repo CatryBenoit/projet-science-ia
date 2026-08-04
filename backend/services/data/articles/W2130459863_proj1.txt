@@ -1,0 +1,596 @@
+September • septembre 2005; 7 (5)CJEM • JCMU309
+ABSTRACT
+Objectives:Dog  bites  are  a  common  problem.  The  purpose  of  this  study  was  to  determine  the
+characteristics of dog bites and their emergency department management in a Canadian pediatric
+population, and to provide treatment and prevention recommendations.
+Methods:The charts of all children ≤16 years of age presenting with a dog bite to either of the 2
+tertiary  emergency  departments  in  Edmonton,  Alberta,  between  1998  and  2002  were  retrospec-
+tively reviewed.
+Results:Overall, 287 cases were reviewed; 145 boys (50.5%) and 142 girls (49.5%). The mean age
+was 7.4 years. The patient’s face was the most frequently bitten site (58.5%, n= 168), followed by
+an extremity (35.5%, n= 102). Most bites required sutures (54.5%, n= 155), and 72 (25.1%) were
+classified as severe, based on suture number (>10 sutures, n= 69), associated fractures (n= 4), op-
+erating room repair (n= 21) or fatality (n= 1). The mean age of children with severe bites was sig-
+nificantly lower than children with mild bites (6.3 v. 7.8 yr, p< 0.01). Most patients were treated
+solely in the emergency department (84.7%, n= 243); however 44 (15.3%) were admitted to hos-
+pital  and  required  a  total  of  144  days  of  inpatient  care.  Signs  of  infection  were  described  in  16
+cases (5.6%); of these 8 had received 2 or more prior doses of antibiotics. Public health or police
+notification  was  documented  in  56  cases  (19.5%),  and  safety  or  preventive  discussion  was  docu-
+mented in 3 cases (1.0%).
+Conclusions:Dog bites in Canadian children are common, often serious or even lethal, and not always
+managed  ideally.  Preventive  discussion  and  public  health  contact  is  infrequently  documented  and
+likely  seldom  occurs.  In  addition  to  medical  care,  emergency  department  staff  should  provide  and
+document preventive guidance and ensure involvement of public health or police when indicated.
+RÉSUMÉ
+Objectifs :Les  morsures  de  chien  sont  un  problème  courant.  Cette  étude  visait  à  déterminer  les
+caractéristiques des morsures de chien et leur prise en charge à l’urgence dans une population pé-
+diatrique canadienne, ainsi qu’à recommander des traitements et des mesures de prévention.
+Méthodes :On a étudié rétrospectivement le dossier de tous les enfants de 16 ans ou moins qui se
+sont  présentés  avec  une  morsure  de  chien  à  l’un  ou  l’autre  des  deux  services  d’urgence  de  soins
+tertiaires d’Edmonton (Alberta) entre 1998 et 2002.
+Résultats :On a étudié dans l’ensemble 287 cas : 145 jeunes garçons (50,5 %) et 142 jeunes filles
+(49,5 %).  Les  patients  avaient  en  moyenne  7,4 ans  et  ont  été  mordus  le  plus  souvent  au  visage
+(58,5 %, n= 168), et ensuite à un membre (35,5 %, n= 102). La plupart des morsures ont obligé à
+poser  des  points  de  suture  (54,5 %,  n=  155)  et  72  (25,1 %)  ont  été  classées  comme  sévères  en
+O
+RIGINALRESEARCH
+• RECHERCHE ORIGINALE
+Dog bites in Canadian children: a five-year review
+of severity and emergency department management
+Mia E. Lang,
+MD, PhD;  Terry Klassen,
+MD
+This article has been peer reviewed.
+Can J Emerg Med2005;7(5):309-14
+Received: Jan. 24, 2005; final submission: June 16, 2005; accepted: July 17, 2005
+From the Department of Pediatrics, University of Alberta, Edmonton, Alta.
+Key words:dog bite; wound infection; injury; pediatric; rabies; prevention
+PEDIATRICS
+https://doi.org/10.1017/S1481803500014494 Published online by Cambridge University Press
+Introduction
+Dog bites are common and account for more injury-related
+emergency department (ED) visits than do injuries associ-
+ated with playgrounds, all-terrain vehicles, rollerblading or
+skateboards.
+1
+Many  dog  bites  are  severe  and  some  are
+fatal,
+2,3
+as underscored by the attention of the Canadian me-
+dia on a recent series of serious bites.
+There  are  an  estimated  65  million  pet  dogs  in  the  United
+States, and it is noteworthy that most dog bites are from an
+animal  known  to  the  victim.
+4
+The  incidence, severity  and
+risk factors associated with dog bites have been described in
+a number of US studies,
+1–3,5–7
+however we could identify only
+1 previous study on Canadian children.
+8
+The purpose of our
+study  was  to  determine  the  characteristics  of  dog  bites  and
+their  ED  management  in  a  Canadian  pediatric  population,
+and to provide treatment and prevention recommendations.
+Methods
+The charts of all children ≤16 years of age presenting with
+a  dog  bite  to  either  of  the  2  tertiary  EDs  in  Edmonton,
+Alta. (catchment population approximately 1 000 000) be-
+tween  1998  and  2002  were  retrospectively  reviewed.  Pa-
+tients  were  identified  through  a  computerized  patient  en-
+counter  database, using  the  search  term  “dog  bite.” The
+study  was  approved  by  the  Research  Ethics  Board  of  the
+University of Alberta, Edmonton, Alta.
+Charts  were  reviewed  for  patient, animal  and  bite  char-
+acteristics  and  for  documentation  of  prevention  strategies.
+A  bite  was  classified  as  “provoked” if  the  child  had  been
+playing with, teasing or feeding the dog at the time of the
+injury.  The  severity  was  classified  as  “mild” if  the  patient
+did  not  receive  any  sutures, “moderate” if  1–10  sutures
+were needed, or “severe” if >10 sutures were needed, there
+was  an  associated  fracture, the  wound  was  repaired  under
+procedural sedation or in the operating room, the child was
+admitted  to  hospital, or  the  injuries  were  fatal.  Bites  were
+classified  as  infected  if  there  was  documentation  of  puru-
+lent  discharge  from  the  wound, or  if  2  or  more  of  the  fol-
+lowing  were  documented: erythema, warmth, pain  or
+swelling. Police dog bites were excluded from the analysis.
+Data  are  reported  as  raw  numbers  with  percentages, or
+means ± standard deviation (SD) as appropriate. Between-
+group  comparisons  were  performed  using  a  2-tailed  Stu-
+dent’s ttest, and a pvalue of <0.05 was considered statisti-
+cally  significant.  No  adjustments  were  made  for  multiple
+statistical comparisons.
+Results
+In total, 302 dog bite cases were identified. Of these, 15 that
+involved  police  dogs  were  excluded, resulting  in  a  study
+population  of  287  cases.  The  frequency  of  dog  bites  was
+highest in the month of June (Fig. 1), and the annual number
+of  cases  trended  downward  during  the  5-year  study  period
+(Fig. 2). The median time of day when bites occurred in the
+177 cases with documented time was 1730 hours.
+Patient characteristics
+Table 1 summarizes the patient characteristics, including im-
+munization status and disposition. The mean victim age was
+7.4  ± 4.2  years  (range: 4  mo  to  16.9  yr).  The  mean  age  of
+children  with  severe  bites  was  significantly  lower  than  chil-
+dren  with  mild  bites  (6.3  ± 4.0  yr  v.  7.8  ± 4.5  yr,p<  0.01),
+and  there  was  no  gender  difference  between  these  groups.
+There was no difference in the overall bite frequency or vic-
+tim age between boys and girls (n= 145, age 7.7 ± 4.2 yr v. n
+= 142, age 7.2 ± 4.2 yr, respectively). Four patients had a his-
+tory of prior dog bites. In 2 cases, the victim was bitten on 2
+separate occasions by the same dog. Most cases were treated
+solely  in  the  ED  (84.7%,n=  243);  however  44  patients
+Lang and Klassen
+310CJEM • JCMUSeptember • septembre 2005; 7 (5)
+fonction du nombre de points de suture (>10 points, n= 69), de fractures connexes (n= 4), de ré-
+parations en salle d’opération (n= 21) ou d’issue fatale (n= 1). Les enfants victimes d’une morsure
+grave étaient beaucoup plus jeunes que ceux qui avaient subi une morsure bénigne (6,3 c. 7,8 ans,
+p< 0,01). La plupart des patients ont été traités à l’urgence seulement (84,7 %, n= 243), mais 44
+(15,3 %)  ont  été  hospitalisés  et  ont  nécessité  au  total  144 jours  de  soins  en  service  interne.  On  a
+décrit des signes d’infection dans 16 cas (5,6 %), dont huit avaient reçu auparavant deux doses ou
+plus  d’antibiotiques.  On  a  documenté  un  avis  au  service  de  santé  publique  ou  de  police  dans
+56 cas (19,5 %) et une discussion sur la sécurité ou la prévention dans trois cas (1,0 %).
+Conclusions :Les  morsures  de  chien  chez  les  enfants  canadiens  sont  courantes,  souvent  sérieuses
+ou même mortelles, et ne sont pas toujours prises en charge idéalement. On documente peu sou-
+vent  une  discussion  sur  la  prévention  et  un  contact  avec  les  services  de  santé  publique,  qui  sont
+probablement  rares.  Outre  les  soins  médicaux,  le  personnel  du  service  d’urgence  devrait  donner
+des  conseils  sur  la  prévention,  les  documenter  et  assurer  l’intervention  des  services  de  santé
+publique ou de police, le cas échéant.
+https://doi.org/10.1017/S1481803500014494 Published online by Cambridge University Press
+Dog bites in Canadian children
+(15.3%) were admitted to hospital and required a total of 144
+days  of  inpatient  care.  Public  health  or  police  notification
+was  documented  in  56  cases  (19.5%), and  safety  or  preven-
+tive  discussion  was  documented  in  3  cases  (1.0%).  Routine
+immunizations  were  incomplete  in  30  children  (10.4%);  18
+of  these  received  tetanus  and  diphtheria  immunizations, and
+4  also  received  tetanus  immune  globulin.  Sixty  children
+(20.9%) had no documentation of their immunization status.
+Animal characteristics
+Table 2 summarizes the animal characteristics. In 212 cases
+(73.9%) the dog was known to the child, either as a family
+pet (110 cases, 51.9%), or through a friend or relative (102
+cases, 48.1%).  Documentation  of  the  dogs’ behaviour  was
+infrequent.  In  24  cases  (8.4%), the  bite  was  provoked  (as
+defined by this study). The most common breeds* in the 72
+cases in which the breed was specified were Rottweiler (21
+cases, 28.8%) and German shepherd (11 cases, 15.1%).
+Bite characteristics
+Table 3  summarizes  the  bite  characteristics.  The  face  was
+the  most  frequently  bitten  site  (58.5%,n=  168), followed
+by an extremity (35.5%,n= 102). Most bites required su-
+tures (54.5%,n= 155), and 72 cases (25.1%) were classi-
+fied  as  severe.  Twenty-one  children  (7.3%)  required  oper-
+ating  room  repair  of  their  bites  (14  girls, 7  boys), and
+plastic surgery was the most frequently consulted service.
+There was no difference in the number of severe bites in
+boys (33) and girls (38). Four patients had fractures associ-
+ated with their bites (skull, mandible, arm and hand). In all
+4  cases  the  victim  knew  the  dog, and  in  3  cases  the  breed
+was  specified  (Doberman  pinscher, Rottweiler  and  wolf-
+dog).  There  was  1  fatality: a  2-year-old  boy  bitten  in  the
+neck by a husky known to the victim.
+Rabies prophylaxis was administered to 5 patients (1.7%).
+Three  of  these  had  a  severe  bite  to  the  face, 1  had  a  skull
+fracture, and the other had a severe bite to the neck and sub-
+sequently  died  in  hospital.  In  all  5  cases, the  attacking  dog
+September • septembre 2005; 7 (5)CJEM • JCMU311
+0
+20
+40
+60
+80
+100
+19981999200020012002
+No. of bites
+Fig. 2. Number of dog bites during the 5-year study period.
+0
+10
+20
+30
+40
+50
+60
+Jan
+Feb
+March
+April
+May
+June
+July
+Aug
+Sept
+Oct
+Nov
+Dec
+No. of bites
+Fig. 1. Number of dog bites, per month (1998–2002).
+Table 1. Chart information on the 287 patients whose
+cases were reviewed
+VariableNo. (and %)*
+Gender
+Boys; mean age, yr145 (50.5); 7.7 ± 0.4
+Girls; mean age, yr142 (49.5); 7.2 ± 0.4
+Immunization record
+Complete197 (68.6)
+Incomplete  30 (10.4)
+Not documented  60 (20.9)
+Disposition of patient
+ED care only243 (84.7)
+ED care and admission  44 (15.3)
+    No. of days in hospital
+         114
+         2  7
+         310
+         4  3
+         5  3
+         6  3
+         7  1
+         8  1
+       11  1
+       15  1
+Safety and/or preventive
+discussion documented
+Yes    3 (1.0)
+No284 (99.0
+Public health and/or police
+notification documented
+Yes  56 (19.5)
+No231 (80.5)
+*Unless otherwise specified.
+*Chart information on the type of dog was probably provided by the victim's
+family in most cases; therefore, incorrect identification is possible, especially
+with the less recognizable breeds and with dogs unknown to the victim.
+https://doi.org/10.1017/S1481803500014494 Published online by Cambridge University Press
+was  known  to  the  victim  and  did  not  have  a  history  of  un-
+usual behaviour. The immunization status of the dog was not
+documented in 3 of these cases, complete in 1 case, and in-
+complete  1  case.  Public  health  was  involved  in  all  5  cases,
+and subsequent animal testing found no evidence of rabies.
+Table 4  summarizes  the  signs  of  infection  and  antibiotic
+administration.  Prophylactic  antibiotics  were  prescribed  to
+213  patients  (74.2%), 8  of  whom  still  developed  a  wound
+infection. The most frequently prescribed antibiotic in these
+8  cases  was  amoxicillin  clavulanate  (5  cases).  Signs  of  in-
+fection were documented in 16 cases (5.6%). Of the 16 in-
+fected bites, 9 involved the hand, 6 the face and 1 the arm.
+Three  of  the  16  children  had  puncture  wounds, all  to  the
+hand, and none had received prophylactic antibiotics. In the
+antibiotic group, wound irrigation was documented in only
+1 case. Two children in this group also had their wounds su-
+tured. In 1 case, an 11-year-old girl was bitten in the arm by
+a  husky, needed  more  than  10  sutures, and  was  sent  home
+on oral erythromycin. Two days later she developed celluli-
+tis  and  required  operating  room  débridement.  In  another
+case, a  7-year-old  boy  developed  periorbital  cellulitis  24
+hours after a facial laceration was sutured (>10 sutures) and
+treated  with  amoxicillin  clavulanate.  Among  the  children
+who had not received any antibiotics, 5 patients had not re-
+Lang and Klassen
+312CJEM • JCMUSeptember • septembre 2005; 7 (5)
+Table 2. Chart information on the dogs involved in
+the 287 cases reviewed
+VariableNo. (and %)
+Relationship to victim
+Known212 (73.9)
+Stray / stranger  29 (10.1)
+Not documented  46 (16.0)
+Vaccination record of the dog
+Complete106 (36.9)
+Incomplete 15 (5.2)
+Not documented166 (57.8)
+Behaviour of dog
+Normal  31 (10.8)
+Abnormal12 (4.2)
+Not documented244 (85.0)
+Type of dog*
+Not documented215 (74.9)
+Specified  72 (25.1)
+    Rottweiler  21 (28.8)
+    German shepherd  11 (15.1)
+    Husky  5 (6.8)
+    Pit bull†  4 (5.5)
+    Collie  4 (5.5)
+    Cocker spaniel  3 (4.1)
+    Doberman pinscher  3 (4.1)
+    Bulldog  2 (2.7)
+    Golden retriever  2 (2.7)
+    Sheepdog  2 (2.7)
+    Other‡  15 (20.5)
+*Chart information on the type of dog was probably provided by the
+victim’s family in most cases; therefore, incorrect identification is
+possible, especially with the less recognizable breeds and with dogs
+unknown to the victim
+†See Discussion section for a definition of “pit bulls.”
+‡One case each involving the following breeds: Akita, beagle, basset
+hound, chow chow, dachshund, doxine, Great Dane, Labrador retriever,
+malamute, poodle, sheltie, springer spaniel, Saint Bernard, terrier and
+wolf-dog.
+Table 3. Bite characteristics as recorded
+in the charts of the 287 cases reviewed
+VariableNo. (and %)
+Location of bite
+Face168 (58.5)
+Extremity102 (35.5)
+Head  4 (1.4)
+Buttock  4 (1.4)
+Chest  2 (0.7)
+Neck  2 (0.7)
+Scrotum  1 (0.3)
+Severity of wound
+Mild132 (46.0)
+Moderate  83 (28.9)
+Severe  72 (25.1)
+    >10 sutures  69 (95.8)
+    Fracture  4 (5.6)
+    OR repair  21 (29.2)
+    Fatality  1 (1.4)
+Sutures required
+No132 (46.0)
+Yes155 (54.0)
+    No. of sutures
+        1–5  55 (35.5)
+        6–10  31 (20.0)
+        >10  69 (44.5)
+Consultation required
+No199 (69.3)
+Yes  88 (30.7)
+    Plastic surgery  67 (76.1)
+    Ophthalmology  14 (15.9)
+    Infectious diseases  13 (14.8)
+    Orthopedics  3 (3.4)
+    Urology  1 (1.1)
+    Neurosurgery  1 (1.1)
+OR = operating room.
+https://doi.org/10.1017/S1481803500014494 Published online by Cambridge University Press
+Dog bites in Canadian children
+ceived any prior treatment and 3 others had no documenta-
+tion  of  prior  treatment, but  were  not  on  any  medications.
+Three  of  these  children  had  puncture  wounds  to  the  hand
+and  developed  cellulitis  within  24  hours  of  the  bite.  One
+wound  was  swabbed  and  cultured  Pasteurella  multocida,
+Staphlococcus aureusand Streptococcus viridans.
+Discussion
+Pets can have a positive influence on a child’s development
+and self-esteem. Given the huge number of dogs in
+Canada, it is important for families and health care
+providers to be aware of the frequency and potential conse-
+quences  of  dog  bites  to  children.  We  identified  287  dog
+bites to children over a 5-year period at 2 tertiary hospitals,
+a  figure  that  undoubtedly  significantly  underestimates  the
+overall  incidence  of  dog  bites  in  the  study  region.  In  a
+1996 study of 16 Canadian hospitals (10 pediatric hospitals
+and 6 general hospitals), 1063 dog bites were identified in
+people ≤19  years  old.  Of  these, 81%  occurred  in  children
+14  years  old  or  younger, with  a  peak  age  range  of  5  to  9
+years.  Our  finding  of  a  mean  victim  age  of  7.4  years  is  in
+keeping  with  this  report.  However, in  contrast  to  other
+studies reporting boys are more likely than girls to suffer a
+dog bite,
+2,7–9
+we found no gender difference.
+Previous  studies  have  reported  younger  children  are  at
+greater  risk  for  severe  bites,
+2,3,7
+a  finding  confirmed  in  our
+study. When young children interact with dogs their behav-
+iour can be unintentionally provocative.
+7
+Although 1 study
+suggested that most bites are unprovoked,
+4
+young children
+should be supervised when interacting with dogs.
+The only fatality in our study population was a 2-year-old
+boy  who  was  attacked  by  a  husky, known  to  the  victim,
+while  on  a  snowmobile  with  his  parent.  Between  1991  and
+1994, an  average  of  1  Canadian  per  year  died  from  dog
+bites. The hospitalization rate was 2.3 per 100 000, and chil-
+dren <10 years old were 4 times more likely to be hospital-
+ized.
+8
+Between  1989  and  1994  in  the  United  States  there
+were 109 fatalities from dog attacks, predominately from pit
+bulls, Rottweilers  and  German  shepherds;  half  of  these  oc-
+curred in children <10 years of age.
+3
+In the only other Canadian study, the peak time and sea-
+son of dog bites were 4 pm to 8 pm and June through Au-
+gust, respectively.
+8
+This  temporal  distribution  is  similar  to
+US  studies
+7,10
+and  consistent  with  our  findings.  We  found
+that  June  was  the  peak  month  for  dog  bites  and  1730  was
+the  median  time  for  a  bite  to  occur.  The  summer  season
+and after school hours, are likely periods when children are
+more frequently outside and without parental supervision.
+Stricter  laws  for  “restricted  dogs” (e.g., pit  bull  terriers
+and  pit  bulls
+†
+)  and  “vicious  dogs” (any  dog  that  has  at-
+tacked  or  chased  humans  or  animals  without  provocation)
+came into effect in the study region in 2001 (www.edmon-
+ton.ca/bylaws/C13145.do). These may have been factors in
+the  downward  trend  of  annual  bite  rates  during  the  study
+period. There was scant documentation about the attacking
+dogs’ containment;  however  other  studies  have  reported
+that  even  with  the  use  of  leashes, chains  and  fences, chil-
+dren  are  still  subjected  to  dog  bites.
+4,5
+The  ability  of  leash
+laws  to  minimize  bites  is  further  questionable  given  that
+many bites occur in the home.
+4
+As reported in other studies,
+2,7
+most victims in our study
+were bitten by a known dog. This may be because pets of
+family  and  friends  are  more  trusted, associated  with  more
+exposure  time, or  associated  with  less  supervision.
+7
+We
+found  that  Rottweilers, and  German  shepherds  were  the
+breeds  most  likely  to  bite, consistent  with  previous  re-
+search  that  reports  that  the  majority  of  dog  bites  are  from
+German shepherds, pit bulls, Rottweilers, Dobermans, ter-
+riers, huskies  and  chow  chows.
+4–6
+Under  Edmonton’s  by-
+laws, ownership  of  a  Rottweiler, German  shepherd, or  pit
+bull  requires  registration  under  a  special  increased  fee  li-
+cence.  Through  registration, information  can  be  shared
+with  the  owner  regarding  dangerous  dogs  and  safety  pre-
+cautions. We were unable to capture data on animal gender
+or  neutering.  This  information  is  important, as  male  and
+non-neutered  dogs  are  known  to  be  at  increased  risk  for
+biting.
+5
+These factors should be considered by families se-
+lecting a pet dog, particularly families with small children.
+Wound  infection  from  a  dog  bite  is  a  potentially  serious
+problem.  We  found  16  of  287  children  (5.6%)  were  docu-
+mented  to  have  signs  of  infection, usually  occurring  ap-
+proximately  24  hours  after  the  incident.  This  infection  rate
+is  likely  an  underestimate  due  to  our  lack  of  data  on  treat-
+September • septembre 2005; 7 (5)CJEM • JCMU313
+Table 4. Signs of infection and antibiotic administration
+recorded in the 287 charts reviewed
+Signs of infection
+present,
+no. of patients
+VariableYesNo
+Total
+(and %)
+Antibiotics
+prescribed
+    Yes8205213 (74.2)
+    No8  66  74 (25.8)
+Totals (and %)16 (5.6)271 (94.4)
+†For a comprehensive discussion of “dangerous dogs” and the definition of
+“pit  bulls”  go  to  www.cbc.ca/consumers/market/files/health/dangerousdogs
+/bylaws.html.
+https://doi.org/10.1017/S1481803500014494 Published online by Cambridge University Press
+ment  provided  at  facilities  outside  the  2  study  hospitals.  A
+meta-analysis of 8 adult and pediatric randomized trials re-
+ported a 16% incidence of infection from dog bites.
+11
+Punc-
+ture wounds, especially to the hand, are at high risk for in-
+fection and should be treated with prophylactic antibiotics,
+12
+although this was not done in 3 of the cases in our study in
+which  the  patient  received  a  puncture  wound  to  the  hand.
+Infection  rates  in  both  antibiotic-treated  and  untreated
+groups in our study may have been affected by inappropri-
+ate  wound  management.  This  is  important  because  initial
+wound  care  involving  irrigation  and  débridement  can  be
+more effective at preventing infection than prophylactic an-
+tibiotics.
+13
+In  a  double-blind  prospective  study, wound  irri-
+gation  and  débridement  were  effective  at  reducing  the  rate
+of  infection  from  dog  bites, and  prophylactic  antibiotics
+(penicillin)  was  only  effective  in  high-risk  wounds  (punc-
+ture  wounds  and  bites  to  the  hand).
+12
+In  another  double-
+blind  randomized  study, wound  infection  rates  were  re-
+duced  if  amoxicillin  clavulanate  was  given  to  patients
+whose  injury  had  occurred  more  than  9  hours  earlier.
+14
+A
+meta-analysis  found  that  14  patients  must  be  treated  with
+antibiotics  to  prevent  1  infection  (i.e., a  number  needed  to
+treat  [NNT]  of  14).
+11
+Bacterial  culture  of  wounds  has  not
+been found to be predictive of later infection.
+12,13
+Conclusions
+Although  our  findings  are  limited  by  a  retrospective  design
+and difficulty differentiating care lapses from a lack of docu-
+mentation, this  study  clearly  indicates  that  dog  bites  in
+Canadian children are common, often serious or even lethal,
+and  not  always  managed  ideally.  Preventive  discussion  and
+public health contact is infrequently documented, and likely
+seldom  occurs.  We  feel  that  to  decrease  the  number  and
+severity of dog bites in children a greater emphasis must be
+placed  on  prevention.  Interested  readers  are  encouraged  to
+refer to other publications that discuss this in further detail.
+3,7
+We  advise  primary  care  physicians  and  ED  staff  to  review
+dog bite risk factors and prevention strategies with families,
+thus achieving both primary and secondary prevention. Fur-
+ther, we  believe  public  health  notification  should  occur  for
+all  dog  bites.  This  would  facilitate  the  development  of  re-
+gional dog bite registries with information on incidence and
+dogs at risk, which in turn could guide policies such as leash
+laws and licensing. Public health is also able to provide fol-
+low-up  on  dog  safety  in  the  home  and  work  with  animal
+control agencies to observe dogs at risk of rabies.
+In  the  ED, all  dog  bites  should  be  properly  cleaned,
+which  includes  high  pressure  irrigation  and, if  indicated,
+débridement. The dog’s vaccination status should be deter-
+mined  and  documented, as  rabies  is  a  rare  but  potential
+complication of dog bites. Tetanus is also a potential com-
+plication, therefore  the  child’s  immunization  status  should
+be  determined  and  documented, and  tetanus  toxoid  ±
+tetanus  immune  globulin  administered  as  indicated.  Rou-
+tine wound culturing is not indicated, and prophylactic an-
+tibiotics should be administered for bites at high risk of in-
+fection, in  particular  puncture  wounds, bites  to  the  hand,
+and in patients who are immunocompromised or asplenic.
+Patients  and  families  should  be  instructed  on  the  signs  of
+infection and advised to return if these occur.
+Future  research  should  be  directed  at  the  impact  of  pre-
+vention  strategies  on  reducing  the  incidence  of  dog  bites,
+and  on  the  role  of  prophylactic  antibiotics  in  preventing
+wound infection.
+References
+1.  Weiss  HB,  Friedman  DI,  Coben  JH.  Incidence  of  dog  bite  in-
+juries treated in emergency departments. JAMA 1988;279:51-3.
+2.  Brogan  TV,  Bratton  SL,  Dowd  MD,  Hegenbarth  MA.  Severe
+dog bites in children. Pediatrics 1995;96:947-50.
+3.  Sacks  JJ,  Lockwood  R,  Hornreich  J,  Sattin  RW.  Fatal  dog  at-
+tacks, 1989–1994. Pediatrics 1996;97(6 pt 1):891-5.
+4.  Avner  JR,  Baker  MD.  Dog  bites  in  urban  children.  Pediatrics
+1991;88:55-7.
+5.  Gershman  KA,  Sacks  JJ,  Wright  JC.  Which  dogs  bite?  A  case-
+control study of risk factors. Pediatrics 1994;93:913-7.
+6.  Gandhi RR, Liebman MA, Stafford BL, Stafford PW. Dog bite
+injuries in children. Am Surg 1999;65:863-4.
+7.  Bernardo LM, Gardner MJ, O’Connor J, Amon N. Dog bites in
+children treated in a pediatric emergency department. J Soc Ped
+Nurs 2000;5:87-95.
+8.  Flores  J.  Brown  J,  Mackenzie  SG,  Maurice  P.  Innovative
+CHIRPP  project  focuses  on  dog  bites.  CHIRPP  News  1997;11.
+Available: www.phac-aspc.gc.ca/publicat/chirpp-schirpt/11jul97
+/iss11d_e.html (accessed 2005 July 21).
+9.  Nonfatal  dog  bit-related  injuries  treated  in  hospital  emergency
+departments – United States, 2001. MMWR Morb Mortal Wkly
+Rep 2003;52:605-10.
+10.  Boenning DA, Fleisher GR, Campos JM. Dog bites in children:
+epidemiology,  microbiology,  and  penicillin  prophylactic  ther-
+apy. Am J Emerg Med 1983;1:17-21.
+11.  Cummings  P.  Antibiotics  to  prevent  infection  in  patients  with
+dog  bite  wounds:  a  meta-analysis  of  randomized  trials.  Ann
+Emerg Med 1994;23:535-40.
+12.  Callaham  M.  Prophylactic  antibiotics  in  common  dog  bite
+wounds: a controlled study. Ann Emerg Med 1980;9:410-4.
+13.  Skurka  J,  Willert  C,  Yogev  R.  Wound  infection  following  dog
+bite despite prophylactic penicillin. Infection 1986;12:48-9.
+14.  Brakenbury PH, Muwanga C. A comparative double blind study
+of amoxicillin/clavulanate vs placebo in the prevention of infec-
+tion after animal bites. Arch Emerg Med 1989;6(4):251-6.
+Lang and Klassen
+314CJEM • JCMUSeptember • septembre 2005; 7 (5)
+Correspondence to:Dr. Mia Lang, Royal Alexandra Hospital, Child Health
+Ambulatory Clinic, Children’s Pavilion, 2nd floor, 10240 Kingsway, Edmon-
+ton AB T5H 3V9; 780 735-4605, fax 780 735-4071, mialang@cha.ab.ca
+Competing interests:None declared.
+https://doi.org/10.1017/S1481803500014494 Published online by Cambridge University Press

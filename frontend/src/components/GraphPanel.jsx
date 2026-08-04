@@ -1,116 +1,192 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import ReactFlow, { Background, Controls, applyNodeChanges, applyEdgeChanges } from 'reactflow';
-import 'reactflow/dist/style.css'; // Le style par défaut indispensable
+import { useState, useEffect } from 'react';
 import api from '../api';
+import { 
+    BarChart, Bar, PieChart, Pie, LineChart, Line, 
+    XAxis, YAxis, CartesianGrid, Tooltip, Legend, 
+    ResponsiveContainer, Cell 
+} from 'recharts';
 
-const GraphPanel = ({ activeProjectId }) => {
-    const [nodes, setNodes] = useState([]);
-    const [edges, setEdges] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+// Couleurs professionnelles pour les graphiques
+const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4'];
 
-    const fetchGraphData = async () => {
-        if (!activeProjectId) return;
-        setIsLoading(true);
+function GraphPanel({ activeProjectId }) {
+    const [charts, setCharts] = useState([]);
+    const [isCreating, setIsCreating] = useState(false);
 
+    // États du constructeur de graphique
+    const [newTitle, setNewTitle] = useState('Mon nouveau graphique');
+    const [newType, setNewType] = useState('bar'); // 'bar', 'pie', 'line'
+    const [newData, setNewData] = useState([
+        { name: 'Donnée A', value: 10 },
+        { name: 'Donnée B', value: 25 },
+        { name: 'Donnée C', value: 15 }
+    ]);
+
+    useEffect(() => {
+        if (activeProjectId) fetchCharts();
+    }, [activeProjectId]);
+
+    const fetchCharts = async () => {
         try {
-            const res = await api.get(`/projects/${activeProjectId}/graph`);
-            const { project, articles, pending } = res.data;
-
-            const newNodes = [];
-            const newEdges = [];
-
-            // 1️⃣ NŒUD CENTRAL (Le thème du projet)
-            newNodes.push({
-                id: 'root',
-                position: { x: 400, y: 50 }, // Tout en haut au centre
-                data: { label: `🧠 Thème : ${project.core_theme || 'Sujet Central'}` },
-                style: { background: '#2563eb', color: 'white', fontWeight: 'bold', borderRadius: '8px', padding: '12px', border: '2px solid #1d4ed8' }
-            });
-
-            // 2️⃣ NŒUDS ARTICLES (Ce qui a déjà été lu)
-            articles.forEach((art, index) => {
-                const artId = `art-${art.id}`;
-                newNodes.push({
-                    id: artId,
-                    position: { x: 50 + (index * 220), y: 200 }, // Espacés horizontalement
-                    data: { label: `📄 ${art.title.substring(0, 35)}...` },
-                    style: { background: '#10b981', color: 'white', borderRadius: '6px', border: 'none', fontSize: '12px', width: 180 }
-                });
-                
-                // Lien vers le centre
-                newEdges.push({ 
-                    id: `e-root-${artId}`, 
-                    source: 'root', 
-                    target: artId, 
-                    animated: true, 
-                    style: { stroke: '#10b981', strokeWidth: 2 } 
-                });
-            });
-
-            // 3️⃣ NŒUDS COPILOTE (Les idées en attente)
-            pending.forEach((query, index) => {
-                const qId = `query-${query.id}`;
-                newNodes.push({
-                    id: qId,
-                    position: { x: 150 + (index * 250), y: 350 }, // Un niveau plus bas
-                    data: { label: `💡 Piste IA: ${query.query}` },
-                    style: { background: '#fef3c7', color: '#b45309', border: '2px dashed #f59e0b', borderRadius: '20px', fontSize: '12px', width: 200 }
-                });
-
-                // Lien pointillé vers le centre
-                newEdges.push({ 
-                    id: `e-root-${qId}`, 
-                    source: 'root', 
-                    target: qId, 
-                    animated: true, 
-                    style: { stroke: '#f59e0b', strokeDasharray: '5,5' } 
-                });
-            });
-
-            setNodes(newNodes);
-            setEdges(newEdges);
-        } catch (error) {
-            console.error("Erreur de chargement du graphe :", error);
-        } finally {
-            setIsLoading(false);
+            const res = await api.get(`/projects/${activeProjectId}/charts`);
+            setCharts(res.data);
+        } catch (err) {
+            console.error("Erreur de récupération des graphiques :", err);
         }
     };
 
-    // Recharger le graphe quand le projet change
-    useEffect(() => {
-        fetchGraphData();
-    }, [activeProjectId]);
+    const handleDataChange = (index, field, val) => {
+        const updated = [...newData];
+        updated[index][field] = field === 'value' ? Number(val) : val;
+        setNewData(updated);
+    };
 
-    // Fonctions obligatoires pour que React Flow permette de déplacer les nœuds à la souris
-    const onNodesChange = useCallback((changes) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
-    const onEdgesChange = useCallback((changes) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
+    const handleAddDataPoint = () => {
+        setNewData([...newData, { name: `Nouvelle donnée ${newData.length + 1}`, value: 0 }]);
+    };
 
-    if (!activeProjectId) return null;
+    const handleRemoveDataPoint = (index) => {
+        setNewData(newData.filter((_, i) => i !== index));
+    };
+
+    const handleSaveChart = async () => {
+        try {
+            await api.post(`/projects/${activeProjectId}/charts`, {
+                title: newTitle,
+                chart_type: newType,
+                chart_data: newData
+            });
+            setIsCreating(false);
+            fetchCharts(); // Rafraîchir la liste
+        } catch (err) {
+            alert("Erreur lors de la sauvegarde du graphique.");
+        }
+    };
+
+    // Fonction pour dessiner le bon graphique selon le type
+    const renderChart = (type, data) => {
+        if (!data || data.length === 0) return <p>Aucune donnée.</p>;
+
+        switch (type) {
+            case 'pie':
+                return (
+                    <ResponsiveContainer width="100%" height={250}>
+                        <PieChart>
+                            <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
+                                {data.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                ))}
+                            </Pie>
+                            <Tooltip />
+                            <Legend />
+                        </PieChart>
+                    </ResponsiveContainer>
+                );
+            case 'line':
+                return (
+                    <ResponsiveContainer width="100%" height={250}>
+                        <LineChart data={data}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+                            <XAxis dataKey="name" stroke="var(--text-muted)" />
+                            <YAxis stroke="var(--text-muted)" />
+                            <Tooltip contentStyle={{ backgroundColor: 'var(--bg-base)', border: 'none', borderRadius: '8px' }}/>
+                            <Legend />
+                            <Line type="monotone" dataKey="value" stroke="var(--primary)" strokeWidth={3} dot={{ r: 6 }} />
+                        </LineChart>
+                    </ResponsiveContainer>
+                );
+            case 'bar':
+            default:
+                return (
+                    <ResponsiveContainer width="100%" height={250}>
+                        <BarChart data={data}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+                            <XAxis dataKey="name" stroke="var(--text-muted)" />
+                            <YAxis stroke="var(--text-muted)" />
+                            <Tooltip contentStyle={{ backgroundColor: 'var(--bg-base)', border: 'none', borderRadius: '8px' }}/>
+                            <Legend />
+                            <Bar dataKey="value" fill="var(--primary)" radius={[4, 4, 0, 0]}>
+                                {data.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                ))}
+                            </Bar>
+                        </BarChart>
+                    </ResponsiveContainer>
+                );
+        }
+    };
 
     return (
-        <div className="panel" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <h3>🕸️ Cartographie de la Recherche</h3>
-                <button className="btn-secondary" onClick={fetchGraphData} disabled={isLoading}>
-                    {isLoading ? '🔄 Scan en cours...' : '🔄 Rafraîchir la carte'}
+        <div className="panel" style={{ minHeight: '400px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h3 style={{ margin: 0 }}>📈 Studio de Graphiques BI</h3>
+                <button onClick={() => setIsCreating(!isCreating)} className={isCreating ? "btn-danger" : "btn-primary"}>
+                    {isCreating ? '✖ Annuler' : '➕ Créer un Graphique'}
                 </button>
             </div>
-            
-            <div style={{ flexGrow: 1, border: '1px solid #e2e8f0', borderRadius: '10px', background: '#f8fafc', overflow: 'hidden' }}>
-                <ReactFlow 
-                    nodes={nodes} 
-                    edges={edges} 
-                    onNodesChange={onNodesChange} 
-                    onEdgesChange={onEdgesChange} 
-                    fitView // Zoom automatique pour tout voir
-                    attributionPosition="bottom-right"
-                >
-                    <Background color="#cbd5e1" gap={16} size={1} />
-                    <Controls />
-                </ReactFlow>
+
+            {/* CONSTRUCTEUR DE GRAPHIQUE */}
+            {isCreating && (
+                <div style={{ backgroundColor: 'var(--bg-hover)', padding: '20px', borderRadius: '8px', marginBottom: '30px', border: '1px solid var(--primary)' }}>
+                    <h4 style={{ marginTop: 0 }}>🛠️ Construire votre graphique</h4>
+                    
+                    <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+                        <div style={{ flexGrow: 1 }}>
+                            <label style={{ fontSize: '0.85rem', fontWeight: 'bold' }}>Titre du graphique</label>
+                            <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} style={{ width: '100%' }} />
+                        </div>
+                        <div>
+                            <label style={{ fontSize: '0.85rem', fontWeight: 'bold' }}>Type de graphique</label>
+                            <select value={newType} onChange={(e) => setNewType(e.target.value)}>
+                                <option value="bar">📊 Diagramme en barres</option>
+                                <option value="pie">🥧 Camembert (Pie)</option>
+                                <option value="line">📈 Courbe d'évolution</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                        {/* Éditeur de données */}
+                        <div>
+                            <label style={{ fontSize: '0.85rem', fontWeight: 'bold' }}>Données</label>
+                            {newData.map((point, idx) => (
+                                <div key={idx} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                                    <input type="text" value={point.name} onChange={(e) => handleDataChange(idx, 'name', e.target.value)} placeholder="Nom (Ex: 2024)" />
+                                    <input type="number" value={point.value} onChange={(e) => handleDataChange(idx, 'value', e.target.value)} placeholder="Valeur" style={{ width: '100px' }} />
+                                    <button onClick={() => handleRemoveDataPoint(idx)} className="btn-danger btn-small" title="Supprimer">🗑️</button>
+                                </div>
+                            ))}
+                            <button onClick={handleAddDataPoint} className="btn-secondary btn-small" style={{ marginTop: '10px' }}>➕ Ajouter une ligne</button>
+                        </div>
+                        
+                        {/* Aperçu en direct */}
+                        <div style={{ backgroundColor: 'var(--bg-base)', padding: '15px', borderRadius: '8px', border: '1px dashed var(--border)' }}>
+                            <h5 style={{ margin: '0 0 15px 0', textAlign: 'center', color: 'var(--text-muted)' }}>👁️ Aperçu en direct</h5>
+                            {renderChart(newType, newData)}
+                        </div>
+                    </div>
+
+                    <div style={{ marginTop: '20px', textAlign: 'right' }}>
+                        <button onClick={handleSaveChart} style={{ backgroundColor: 'var(--success)' }}>💾 Sauvegarder ce graphique</button>
+                    </div>
+                </div>
+            )}
+
+            {/* AFFICHAGE DES GRAPHIQUES SAUVEGARDÉS */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '20px' }}>
+                {charts.length === 0 && !isCreating && (
+                    <p style={{ color: 'var(--text-muted)' }}>Aucun graphique personnalisé pour ce projet. Cliquez sur "Créer un graphique" pour commencer !</p>
+                )}
+                
+                {charts.map(chart => (
+                    <div key={chart.id} style={{ backgroundColor: 'var(--bg-base)', padding: '20px', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                        <h4 style={{ marginTop: 0, textAlign: 'center', color: 'var(--text-main)' }}>{chart.title}</h4>
+                        {renderChart(chart.chart_type, chart.chart_data)}
+                    </div>
+                ))}
             </div>
         </div>
     );
-};
+}
 
 export default GraphPanel;

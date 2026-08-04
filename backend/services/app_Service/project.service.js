@@ -13,7 +13,7 @@ class ProjectService {
         return await ProjectModel.getUserProjects(userId);
     }
 
-    static async generateManualSynthesis(projectId) {
+static async generateManualSynthesis(projectId, guidance = '') {
         const project = await ProjectModel.getProjectInfo(projectId);
         const rows = await ProjectModel.getAnalyzedArticles(projectId);
 
@@ -43,7 +43,13 @@ RÈGLES DE RÉDACTION :
 3. Fais des synthèses croisées entre les articles d'une même catégorie.
 4. Utilise un format professionnel en Markdown.`;
 
-        const prompt = `Voici les analyses des articles classées par catégories thématiques :\n${structuredContext}\nRédige le rapport complet maintenant.`;
+        // Utilisation de "let" au lieu de "const" pour pouvoir modifier le prompt
+        let prompt = `Voici les analyses des articles classées par catégories thématiques :\n${structuredContext}\nRédige le rapport complet maintenant.`;
+
+        // 🎯 INJECTION DU GUIDAGE EN DIRECT
+        if (guidance && guidance.trim() !== '') {
+            prompt += `\n\n🎯 DIRECTIVE SPÉCIFIQUE DU CHERCHEUR :\n"${guidance}"\nTu DOIS scrupuleusement respecter cette consigne lors de ta rédaction.`;
+        }
 
         const report = await AiReaderService.askAI(prompt, systemPrompt);
         await ProjectModel.saveSynthesis(projectId, report);

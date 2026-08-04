@@ -1,0 +1,623 @@
+SMALL ANIMALS
+542	Scientific	Reports		JAVMA,	Vol	232,	No.	4,	February	15,	2008
+D
+og  bites  are  an  important  public  health  problem  in 
+the United States, and the number of bites reported 
+each year appears to be increasing. In 1986, the National 
+Health Interview Survey determined that 585,000 injuries 
+requiring  medical  attention  or  resulting  in  restricted  ac-
+tivity were associated with dog bites; this estimate placed 
+dog  bites  among  the  top  12  causes  of  nonfatal  injury  in 
+the  United  States.
+1 
+Nine  years  later,  the  CDC  estimated 
+that 4.7 million dog bites occurred in the United States, of 
+which approximately 800,000 required medical attention.
+2
+In 2001, an estimated 370,000 persons (130 bites/100,000 
+humans)  sustained  bites  that  were  severe  enough  to  re-
+quire treatment in US emergency departments, with medi-
+cal costs estimated at $102.4 million.
+3,4
+ In that same year, 
+5,892 people were hospitalized because of dog bite inju-
+ries.
+3
+  In  the  United  States,  the  mean  number  of  people 
+who die as a result of dog bite injury each year is 18.
+5
+A  survey  conducted  in  2001  by  the  American  Pet 
+Products  Manufacturers  Association  estimated  that  68 
+million dogs are owned in the Unites States; 40% of house-
+holds  have  at  least  1  dog,  and  37%  of  those  have  more 
+than  1  dog.
+6
+  The  high  number  of  dogs  living  in  homes 
+as  pets  results  in  the  potential  for  large  numbers  of  dog 
+bite–related  injuries.  Factors  that  determine  whether  a 
+dog-human  interaction  will  result  in  a  bite  are  complex 
+and involve characteristics of the dog, the injured person, 
+Canine and human factors related to dog bite injuries
+Carrie M. Shuler, dvm, mph; Emilio E. DeBess, dvm, mpvm; Jodi A. Lapidus, phd; Katrina Hedberg, md, mph
+From the Oregon Public Health Division, 800 NE Oregon St, Portland, 
+OR  97232  (Shuler,  DeBess,  Hedberg);  and  the  Department  of  Public 
+Health and Preventive Medicine, Oregon Health & Science University, 
+Portland, OR 97239 (Lapidus). Dr. Shuler’s present address is Georgia 
+Division of Public Health, 2 Peachtree NW, Atlanta, GA 30303.
+The authors thank Molly Vogt for technical support with GIS applications.
+Address correspondence to Dr. Shuler.
+Objective—To	identify	physical	traits	of	biting	dogs	and	characteristics	of	injured	persons	and	
+dog	owners	associated	with	bite	situations	for	use	in	public	health	prevention	activities.
+Design—Retrospective	cohort	study.
+Study Population—Licensed	dog	and	dog	bite	report	data	from	June	30,	2002,	to	July	1,	
+2003,	that	were	obtained	from	Animal	Control	Services	of	Multnomah	County,	Oregon.
+Procedures—To	determine	the	canine	and	human	factors	associated	with	dog	bite	injuries,	
+the	number	of	bites,	dog	and	injured	person	characteristics,	and	the	overall	canine	popula
+-
+tion	were	evaluated.	Dog	owner	characteristics	at	the	block	group	level	were	defined	by	
+use	of	geographic	information	system	software	through	2000	census	information	based	on	
+place	of	residence.	
+Results—During	the	study	period,	636	dog	bites	were	reported	to	Animal	Control	Services,	
+and	47,526	dogs	were	licensed	in	Multnomah	County.	Risk	factors	associated	with	biting	
+dogs	included	breed	(terrier,	working,	herding,	and	nonsporting	breeds),	being	a	sexually	
+intact	male,	and	purebred	status.	Male	children	aged	5	to	9	years	had	the	highest	rate	of	
+injury	(178	bites/100,000	children).	Biting	dogs	were	more	likely	than	nonbiting	dogs	to	live	
+in	neighborhoods	where	the	residents’	median	incomes	were	less	than	the	county	median	
+income	value	($41,278).	
+Conclusions and Clinical Relevance—Dog	bites	continue	to	be	a	source	of	preventable	inju-
+ry.	Prevention	programs	should	target	owners	of	sexually	intact	male	and	purebred	dogs	and	
+owners	who	live	in	lower	income	neighborhoods.	(
+J Am Vet Med Assoc	2008;232:542–546)
+Abbreviations
+MCAC  Multnomah County Animal Control  
+AKC     American Kennel Club
+the owner, and the dog’s environment. The purpose of the 
+study reported here was to identify physical traits of bit-
+ing  dogs  and  characteristics  of  injured  persons  and  dog 
+owners  associated  with  bite  situations  for  use  in  public 
+health prevention activities. The intent was to identify op-
+portunities for bite prevention through the assessment of 
+factors associated directly and indirectly with biting dogs.
+Materials and Methods
+Study  population  and  data  collection—By  law, 
+dog bite injuries are a reportable condition in Oregon.
+7
+In Multnomah County, Oregon’s most populous county 
+with  677,813  residents,
+8
+  health-care  providers,  veteri-
+narians, animal control personnel, law enforcement of-
+ficials,  and  animal  owners  are  required  to  report  dog 
+bites to MCAC within 1 working day.
+7
+ Presently, infor-
+mation on the physical traits including the AKC breed 
+category, sex and neuter status (ie, neutered or sexually 
+intact male and spayed or sexually intact female), and 
+breed status (ie, mixed, pure, or unknown) is included 
+in  these  records.  Information  regarding  the  bite  situ-
+ation  is  recorded,  including  relationship  between  the 
+dog and the person injured, location at which the bite 
+took place, date and time (ie, season), bite severity, and 
+who reported the bite. The name, address, age, and sex 
+of the injured person and the name and address of the 
+dog owner are also required. Yet the information avail-
+able is highly variable and often subjective, depending 
+Brought to you by provisional account | Unauthenticated | Downloaded 08/03/26 07:44 PM UTC
+SMALL ANIMALS
+JAVMA,	Vol	232,	No.	4,	February	15,	2008	Scientific	Reports	543
+on the animal control officer documenting the informa-
+tion and the nature of the bite situation. 
+We  evaluated  MCAC  reports  of  dog  bites  that  oc-
+curred from June 30, 2002, to July 1, 2003. Dogs licensed 
+in Multnomah County during this same period were used 
+to describe the dog population for the county (denomina-
+tor values) and calculate rates. Biting dogs included in the 
+licensed dog database were included only once in the ca-
+nine cohort. Nonlicensed dogs reported as biting were in-
+cluded with nonbiting licensed dogs in the total counts for 
+the canine cohort. Human population denominator counts 
+used to calculate dog bite rates were based on census data 
+obtained  from  the  US  Census  Bureau  summary  files  and 
+Portland State University Population Center.
+8,9
+Dog owner factors—Specific owner characteristics such 
+as age, sex, or income level were not available from the bite 
+reports  or  the  licensed  dog  data;  therefore,  we  assigned  dog 
+owner factors on the basis of characteristics of the neighbor-
+hood (defined by the census block group) in which the dog 
+lived. Owner information for percentage sex by age, percentage 
+nonwhite race, and percentage without a high school diploma 
+(education level) was collected; median household income as 
+well as the population per square mile (population density) of 
+the block group in which the owner lived was recorded. Cen-
+sus variables were selected to approximate the social and socio-
+economic conditions in which the dog (biting and nonbiting) 
+lived. The dog owners’ addresses were geocoded with Oregon 
+Department of Human Services street data and geographic in-
+formation system software.
+a
+ Initial coding was run with the cri-
+teria for an 80% match on the address and manually confirmed 
+through the Portland Metropolitan Area Thomas Guide.
+10
+Analysis—To  determine  factors  associated  with  bit-
+ing, rates of biting dogs were compared with all dogs in the 
+county canine cohort by breed (sporting dogs as the referent 
+category), sex-neuter status (spayed female as the referent 
+category), and breed status (mixed breed as the referent cat-
+egory). Breed categories were used instead of specific breeds 
+for calculating risk ratios because of the subjective nature 
+of the breed listed on the bite reports and license records. A 
+Pearson χ
+2 
+test was used to assess independence in propor-
+tion of children (< 18 years old) bitten versus adults (≥ 18 
+years old) and proportion of males versus females. Differ-
+ences in rates and proportions were considered significant 
+at a value of P ≤ 0.05 or if 95% confidence intervals did not 
+span 1. Characteristics of the dog bite situations were evalu-
+ated qualitatively by the highest reported proportions. 
+To  evaluate  dog  neighborhood  factors,  multivari-
+ate regression analysis was performed, with biting as the 
+outcome  of  interest  matched  on  the  breed  category  and 
+by controlling for the sex of the dog. Dog neighborhood 
+characteristics were derived from the census block group 
+level; therefore, dogs (either biting or nonbiting) that lived 
+in  the  same  block  group  would  have  identical  informa-
+tion.  To  account  for  this  possible  correlation  effect,  dog 
+neighborhood characteristics were modeled with the use 
+of generalized estimating equations logistic regression.
+11,b
+Because of the significant association between breed cat-
+egory or sex-neuter status and the likelihood to bite iden-
+tified with the cohort analysis and previous studies,
+5,12-19 
+breed category was frequency matched between biting and 
+nonbiting dogs and sex-neuter status was controlled for in 
+the final multivariate regression model.
+The 7 broad AKC breed categories were used to de-
+scribe  all  dogs  in  the  study.  The  number  of  nonbiting 
+dogs randomly selected from each category was dictated 
+by  the  frequency  of  breed  category  distributions  in  the 
+biting dog data set. Thirty nonbiting dogs were selected 
+for each biting dog on the basis of these categories and 
+proportions. The 486 biting dogs with valid census data 
+were  joined  with  the  14,580  breed  category  frequen-
+cy-matched  nonbiting  dogs,  thereby  providing  15,066 
+dogs for the dog neighborhood analysis. The nonbiting 
+dog data set contained only those breed categories rep-
+resented in the biting dog data set and only dogs with a 
+valid geocoded address. 
+Dog  neighborhood  characteristics,  breed  category, 
+and  sex-neuter  status  were  evaluated  individually  for  an 
+association with biting outcome. All variables were placed 
+in  the  multivariate  regression  model.  The  variable  with 
+the highest Wald statistic for type 3 generalized estimat-
+ing equations P value was removed. The final model con-
+tained dog neighborhood factors with values of P ≤ 0.05. 
+Results
+Number of reported dog bites and characteristics of 
+the dog population—During the 1-year study period, 636 
+dog  bites  were  reported  to  MCAC,  and  47,526  licensed 
+dogs  resided  in  Multnomah  County.  Characteristics  of 
+biting dogs were compared with those of all 47,850 dogs 
+identified as residing in Multnomah County (Table 1). Of 
+the 636 biting dogs, 312 (49%) had a license number on 
+file  with  MCAC.  Each  dog’s  breed  category,  sex-neuter 
+status, and purebred status were all associated (P < 0.01) 
+with biting. Terrier, working, herding, and nonsporting 
+breeds  were  more  likely  to  bite  than  sporting  breeds, 
+whereas  hounds,  non-AKC  breeds,  and  toy  dogs  were 
+not significantly associated with biting. Bite reports were 
+highest among sexually intact male dogs (risk ratio, 18.6; 
+95% confidence interval, 13.9 to 24.7) and purebred dogs 
+(risk ratio, 3.8; 95% confidence interval, 2.9 to 5.0).
+Characteristics of the dog bite situations and per-
+sons bitten by dogs—Characteristics of the 636 dog bite 
+situations,  including  the  relationship  between  the  dog 
+and the injured person, location at which the bite took 
+place, the season, severity of the bite, and who reported 
+the bite, were assessed (Table 2). The largest proportion 
+(230/636 persons; 36%) of bite victims did not know the 
+dogs that bit them. Yet among 41 children < 5 years old, 
+19 (46%) were bitten by the family dog. A higher propor-
+tion of bites took place in the dog’s household (223/636 
+persons; 35%) and in the summer months (215/636 per-
+sons; 34%). Half of the injured persons sought medical 
+care;  health-care  providers  reported  43%  (275/636  per-
+sons) of the bite events to MCAC. 
+During the study period, the reported dog bite rate in 
+Multnomah County, Oregon, was 93 bites/100,000 persons 
+(Table 3). There was no significant (P = 0.4) difference in 
+bite rates between males and females. Boys aged 5 to 9 years 
+had the highest rate of dog bite injuries (178 bites/100,000 
+children), which was significantly (P = 0.01) higher than the 
+rate among other male age categories. Girls aged 5 to 9 years 
+also had a high rate of dog bite injuries (125 bites/100,000 
+children), and this rate was not significantly (P = 0.2) differ-
+ent from the rate for boys aged 5 to 9 years. Boys < 18 years 
+Brought to you by provisional account | Unauthenticated | Downloaded 08/03/26 07:44 PM UTC
+SMALL ANIMALS
+544	Scientific	Reports		JAVMA,	Vol	232,	No.	4,	February	15,	2008
+old were more likely (P < 0.01) to be bitten than adult men. 
+Among females, girls < 18 years old were not more likely (P 
+= 0.4) to be bitten than adult women. 
+Characteristics  of  the  dog  owner—Dogs  living  in 
+census block groups that had incomes less than the coun-
+ty median ($41,278) were 1.5 times as likely to be report-
+ed as a biting dog than reported as a nonbiting dog (95% 
+confidence interval, 1.3 to 1.9; P < 0.01) after matching 
+on breed category and controlling for sex. The other dog 
+owner factors examined, including the population density, 
+percentage sex by age, percentage nonwhite race, and per-
+centage without a high school diploma (education level), 
+were not associated (P > 0.05) with a reported biting dog. 
+Discussion
+During  the  period  of  study,  a  dog  bit  93  of  every 
+100,000  Multnomah  County  residents,  as  determined 
+	  	No.	of	dogs	No.	of	reported	Incidence	bite	rate	Risk	ratio	(95%	
+Variable	in	cohort	biting	dogs	(per	1,000	licensed	dogs)	confidence	interval)
+Breed category*
+  Sporting 14,243 90 6.3  Referent
+  Terrier 4,798 114 23.8 3.8 (2.9–5.0)
+  Working 5,448 126 23.1 3.6 (2.8–4.8)
+  Herding 8,890 128 14.4 2.3 (1.7–3.0)
+  Nonsporting 5,262 66 12.5 2.0 (1.5–2.7)
+  Hound 3,881 28 9.8 1.1 (0.8–1.7)
+  Non-AKC 303 2 6.6 1.0 (0.3–4.2)
+  Toy 4,684 16 3.4 0.54 (0.03–0.9)
+  Unknown† 341 66
+Sex
+ Spayed female 21,584 64 3.0  Referent
+   Sexually intact  male 3,157 174 55.1 18.6 (13.9–24.7)
+   Sexually intact female 2,028 63 31.1 10.5 (7.4–14.8)
+   Neutered male 19,991 153 7.7 2.6 (1.9–3.5)
+  Unknown† 1,090 182
+Breed    
+  Mixed  17,326 187 10.8  Referent
+  Purebred 6,189 382 61.7 3.8 (2.9–5.0)
+  Unknown† 24,335 67
+*AKC breed categories. †Status not listed on bite report.
+Table	1—Breed	and	sex	characteristics	of	47,850	dogs,	of	which	636	were	reported	to	have	injured	a	
+person	via	biting	in	Multnomah	County,	Oregon,	from	June	30,	2002,	to	July	1,	2003.
+Characteristic	No.	of	bite	reports	(%)
+Relationship between dog and victim	
+  No relationship 230 (36.2)
+  Family member 126 (19.8)
+  Neighbor 119 (18.7)
+  Unknown 86 (13.5)
+  Friend of the dog’s family 75 (11.8)
+Location of bite attack 
+  Dog’s home or yard 223 (35.1)
+  Neutral* 149 (23.4)
+  Household of dog and victim† 108 (17.0)
+  Household of victim‡ 64 (10.1)
+  Unknown 45 (7.1)
+  Place of employment§ 24 (3.8)
+  Neighbor’s property║	23 (3.6)
+Season 
+  Summer (Jun, Jul, Aug) 215 (33.8)
+  Spring (Mar, Apr, May) 158 (24.8)
+  Fall (Sept, Oct, Nov) 153 (24.1)
+  Winter (Dec, Jan, Feb) 105 (16.5)
+Bite severity 
+  Severe—medical attention sought 321 (50.5)
+  Moderate—no medical attention sought
+    but skin broken  206 (32.4)
+  Unknown 65 (10.2)
+  Mild—skin not broken  36 (5.7)
+Person reporting bite 
+  Healthcare provider 275 (43.2)
+  Victim or guardian 230 (36.2)
+  Other 81 (12.7)
+  Unknown 26 (4.1)
+  Dog owner 24 (3.8)
+*Neither  the  dog  nor  victim’s  environment  (eg,  sidewalk  or 
+park). †Household member bitten within residence of both dog and 
+victim. ‡Victim’s home or yard, not the dog’s environment. §Place of 
+employment such as a veterinary clinic, grooming facility, or MCAC.	
+║Biting dog owned by neighbor; bite situation occurred in the envi-
+ronment of the neighbor’s dog.	
+Table	2—Characteristics	of	636	dog	bite	situations	reported	
+in	Multnomah	County,	Oregon,	from	June	30,	2002,	to	July	1,	
+2003.
+				Incidence
+				bite	rate
+Sex	of		Total	No.	of	(per	100,000
+victim	Age	(y)		population		bite	reports*	persons)
+Male All ages 341,154 263 77
+ 0–4 24,054 21 87
+ 5–9 21,929 39 178
+ 10–17 34,082 34 100
+  18 (adult) 261,089 169 65
+Female All ages 344,799 251 73
+ 0–4 22,952 20 87
+ 5–9 20,845 26 125
+ 10–17 32,335 15 46
+  18 (adult) 268,667 190 71
+*Sex and age of victim were identified in 514 bite reports.
+Table	3—Incidence	rates	by	age	and	sex	of	victim	among	636	
+dog	bite	situations	reported	in	Multnomah	County,	Oregon,	from	
+June	30,	2002,	to	July	1,	2003.
+Brought to you by provisional account | Unauthenticated | Downloaded 08/03/26 07:44 PM UTC
+SMALL ANIMALS
+JAVMA,	Vol	232,	No.	4,	February	15,	2008	Scientific	Reports	545
+from  the  reports  to  MCAC.  Another  study
+20 
+evaluat-
+ing  bites  reported  to  Animal  Control  Services  in  Kansas 
+City, Mo, revealed a similar annual incidence of dog bites 
+(92/100,000  members  of  the  population).  Emergency 
+department  data  indicate  that  the  national  rates  may  be 
+higher, with 130 bite injuries treated in emergency depart-
+ments/100,000 members of the population.
+3
+ This would 
+suggest  that  not  all  emergency  department–treated  bites 
+are reported to animal control services.
+2
+ In a dog bite epi-
+demiologic review
+by Overall and Love,
+13
+ it was estimated 
+that only 17% (253/1,489) of dog bites are reported to any 
+authority.
+2,21
+ The true magnitude of the problem may be 
+difficult to quantify with existing surveillance systems, yet 
+continued research into dog bite situations will provide a 
+valuable foundation for prevention efforts. 
+Similar to findings in previous studies,
+12–19
+ results of 
+the present study indicated that the breed of dog played 
+a role in whether a dog bit a person. Terriers including 
+pit  bull–type  dogs,  working  dogs  such  as  Rottweilers, 
+and herding breeds such as German Shepherd Dogs have 
+been  bred  to  hunt  vermin,  protect  property,  and  work 
+livestock.
+22
+ In situations where they are not controlled, 
+these dogs could revert to instinctual behaviors.
+ 14,15,23–25 
+In  addition,  bites  from  these  breeds  can  result  in  more 
+serious injury because of their size and strength.
+15,22
+Bite  situations  in  Multnomah  County  are  very  similar 
+to those that occur in the rest of the United States; most of 
+the dog bite injuries reported nationally occur in the dog or 
+victim’s  home,  and  the  family  dog  is  listed  as  the  primary 
+source of the bite.
+4,19,26
+ Children are most likely to be injured 
+in  this  manner,  and  bites  occur  most  frequently  when  the 
+child is within the dog’s territory.
+ 18
+ The association between 
+bites and the dog’s home environment could be explained by 
+the need to express protective, possessive, or fear-induced ag-
+gression.
+13-15
+ Children, in particular, may not be able to dis-
+cern between a dog that feels threatened and one that is play-
+ing.
+15
+ Dogs may be particularly protective of toys, food, and 
+their yard.
+27,28 
+Given that 1 of every 5 households in Mult-
+nomah County has a licensed dog (47,526 licensed dogs and 
+272,098 households), there are many opportunities for dogs 
+to bite people.
+8
+ Children are particularly vulnerable because 
+of their small physical size and lack of experience to handle 
+or defend themselves against an aggressive dog.
+16,25,26
+Innate tendencies dictated by breed, sex-neuter status, 
+and size play a role in the potential of a dog to bite, but own-
+ers are ultimately responsible for their dogs’ actions.
+15,29
+ An 
+owner may want a dog with aggressive tendencies for protec-
+tion purposes.
+14,15
+ Pit bull–type dogs, Rottweilers, and Ger-
+man Shepherd Dogs have large physical presences as well as 
+reputations for aggressive behaviors.
+14,27
+ The personality and 
+living environment of the owner may dictate not only the de-
+gree of socialization (and therefore the bite potential of the 
+dog) but also the breed of dog they are likely to acquire.
+29
+The  present  study  was  unique  in  that  it  evaluated 
+the  dog  owner’s  characteristics,  as  described  by  census 
+or  neighborhood  data,  as  factors  in  dog  bite  incidents. 
+Results  of  previous  studies
+12,13,18,24
+  have  indicated  a 
+strong association between both the breed of the dog and 
+sex-neuter status and whether a dog bites. In our study, 
+block group income levels appear to be a possible factor 
+in whether a dog bites, irrespective of the dog’s breed or 
+sex. Dogs living in a lower income neighborhood may not 
+be afforded the necessary training or supervision needed 
+to minimize a high bite-risk situation. In another study
+29 
+examining dog bite injuries in St Louis, Mo, bite injuries 
+occurring  in  low  income  areas  were  attributed  to  large 
+numbers of children playing outdoors, few homes with 
+adequate fencing, poor dog control, and a high propor-
+tion of large-breed dogs owned for protective purposes. 
+Dog  bite  studies,  including  that  of  this  report,  have 
+inherent  limitations.  Besides  the  known  underreporting 
+of  dog  bites,  breed-specific  population  estimates  are  lack-
+ing.
+14,30
+ Dog license data can only provide an estimate of 
+breed-specific  population  denominators.  In  1987,  43,650 
+dogs  were  licensed  in  Multnomah  County,  but  a  county-
+wide  survey  placed  the  true  number  of  owned  dogs  at 
+101,794.
+31
+ Breed assessment is often subjective
+21,29
+; license 
+forms and bite reports rely on owners and injured persons 
+to describe the breed. Bites from large-breed dogs, especial-
+ly  pit  bull–type  dogs,  Rottweilers,  and  German  Shepherd 
+Dogs, are more likely to be reported and result in medical 
+care, which would overrepresent those breeds among biting 
+dogs—in other words, creating reporting bias.
+14-17
+ If own-
+ers of these particular breeds were also less likely to license 
+their dogs, this would further skew the breed-specific bite 
+rates.
+13
+ Analysis of data in the present study was unable to 
+answer the question of whether certain breeds were more 
+likely  to  be  owned  in  lower  income  areas  because  of  the 
+breed category frequency–matched data used.
+The human and veterinary medical communities and 
+animal control agencies need to work together to help foster 
+healthy relationships between people and their pets, espe-
+cially in low income neighborhoods.
+21,26,29
+ Pediatricians in 
+particular can play a vital role in injury-prevention counsel-
+ing for children and parents (in both dog-owning and non–
+dog-owning families) during routine medical visits.
+32
+ Low-
+cost spay and neuter surgeries need to be easily accessible 
+in the community, and education efforts should target dog 
+owners  through  pet  stores,  groomers,  boarding  facilities, 
+and other stakeholders such as postal workers and animal 
+control  agencies.  Animal  control  agencies  should  be  sup-
+ported  to  maximize  regulatory  and  educational  activities.
+Nevertheless, owners are inevitably liable for the actions of 
+their dogs and need to make every effort to minimize their 
+dogs’ bite potential through obedience training; neutering; 
+and supervision, especially around children. 
+a.    ArcView  geographic  information  software,  version  8.3  and  ex-
+tensions,  Environmental  System  Research  Institute,  Redlands, 
+Calif. Available at: www.ersi.com. Accessed Feb 15, 2007. 
+b.    Statistical Analysis Software, version 9.1, SAS Institute, Cary, NC.
+References
+1. Sosin DE, Sacks JJ, Sattin RW. Causes of nonfatal injuries in the 
+United States, 1986. Accid Anal Prev 1992;24:685–687.
+2. Sacks  JJ,  Krewnow  M,  Houston  B.  Dog  bites:  how  big  a  prob-
+lem? Inj Prev 1996;2:52–54.
+3. CDC. Nonfatal dog bite-related injuries treated in hospital emer-
+gency departments—United States, 2001. MMWR Morb Mortal 
+Wkly Rep 2003;52:605–610.
+4. Weiss HB, Friedman DI, Coben JH. Incidence of dog bite inju-
+ries treated in emergency departments. JAMA 1998;279:51–53. 
+5. Sacks  JJ,  Lockwood  R,  Hornreich  J,  et  al.  Fatal  dog  attacks 
+1989–1994. Pediatrics 1996;97:891–895.
+6. American Pet Products Manufacturers Association. National pet 
+owners’  survey 2001–2002.  Available  at:  www.appma.org/pubs_
+survey.asp. Accessed Jul 7, 2005.
+7. Oregon  Revised  Statutes  433.345. Report  of  animal  bites,  rules, 
+handling and disposition of animals. September 2004. Available at: 
+www.leg.state.or.us/ors/433.html. Accessed Jul 7, 2005.
+8. US Census Bureau. Census 2000 basics. Available at: www.cen-
+sus.gov. Accessed Feb 14, 2004.
+9. Portland State Population Center. Oregon annual population re-
+Brought to you by provisional account | Unauthenticated | Downloaded 08/03/26 07:44 PM UTC
+SMALL ANIMALS
+546	Scientific	Reports		JAVMA,	Vol	232,	No.	4,	February	15,	2008
+port. July  2003.  Available  at:  www.upa.pdx.edu/CPRC/publica-
+tions/annualorpopulation.html. Accessed Jul 7, 2005.
+10. Thomas Brothers Maps and Books. The Thomas guide: Portland met-
+ropolitan road and driver’s guide. Irvine, Calif: Rand McNally, 1998.
+11.  Diggle PJ, Lian KL, Zeger SL. Analysis of longitudinal data. Ox-
+ford, England: Clarendon Press, 1999;8.2.3:146–147. 
+12. Gershman  KA,  Sacks  JJ,  Wright  JC.  Which  dogs  bite?  A  case-
+control study of risk factors. Pediatrics 1994;93:913–916.
+13.  Overall KL, Love M. Dog bites to humans—demography, epidemi-
+ology, injury, and risk. J Am Vet Med Assoc 2001;218:1923–1934.
+14. Borchelt PL, Lockwood R, Beck AM, et al. Attacks by packs of dogs in-
+volving predation on human beings. Public Health Rep 1983;98:57–66.
+15. American Veterinary Medical Association Task Force on Canine Ag-
+gression  and  Human-Canine  Interactions.  A  community  approach 
+to dog bite prevention. J Am Vet Med Assoc 2001;218:1732–1749.
+16. Schalamon J, Ainoedhofer H, Singer G, et al. Analysis of dog bites 
+in children who are younger than 17 years. Pediatrics 2006;117: 
+374–379.
+17.  Hanna  TL,  Shelby  LA.  Characteristics  of  the  human  and  pet 
+populations  in  animal  bite  incidents  recorded  at  two  air  force 
+bases. Public Health Rep 1981;96:580–584.
+18.  Wright  JC.  Severe  attacks  by  dogs:  characteristics  of  the  dogs,  the 
+victims, and the attack settings. Public Health Rep 1985;100:55–61.
+19.  Ozanne-Smith  J,  Ashby  K,  Stathakis  VZ.  Dog  bite  and  injury 
+prevention—analysis,  critical  review,  and  research  agenda. Inj 
+Prev 2001;7:321–326.
+20. Hoff GL, Cai J, Dendrick R, et al. Emergency department visits 
+and hospitalizations resulting from dog bites, Kansas City, MO, 
+1998–2002. Mo Med 2005;102:565–568.
+21. Beck  AM,  Jones  B.  Unreported  dog  bites  in  children. Public 
+Health Rep 1985;100:315–321.
+22.  American  Kennel  Club. The  complete  dog  book.  19th  ed.  New 
+York: Macmillan, 1998;14–15. 
+23.  Chu AY, Ripple MG, Allan CH, et al. Fatal dog maulings associ-
+ated with infant swing. J Forensic Sci 2006;51:403–406.
+24. Sacks JJ, Sinclair J, Gilchrist J, et al. Breeds of dog involved in fa-
+tal human attacks in the United States between 1979 and 1998. 
+J Am Vet Med Assoc 2000;217:836–840.
+25. Love  M,  Overall  KL.  How  anticipating  relationships  between 
+dogs and children can help prevent disasters. J Am Vet Med Assoc 
+2001;219:446–453.
+26. Kahn A, Bauche P, Lamoureux J. Child victims of dog bites treat-
+ed in emergency departments: a prospective survey. Eur J Pediatr 
+2003;162:254–258. 
+27. Borshelt P. Classification of animal behavior problems. Vet Clin 
+North Am Small Anim Pract 1982;12:571–585.
+28. Bandow  JH.  Will  breed-specific  legislation  reduce  dog  bites? 
+Can Vet J 1996;37:478–481.
+29. Beck AM, Loring H, Lockwood R. The ecology of dog bite injury 
+in St. Louis, Missouri. Public Health Rep 1975;90:262–267.
+30. Yue-Fang C, McMahon JE, Hennon DL, et al. Dog bite incidence 
+in  the  city  of  Pittsburgh:  a  capture-recapture  approach. Am  J 
+Public Health 1997;87:1703–1705.
+31. Oswald M. Report on the potentially dangerous dog program: 
+Multnomah County, Oregon. Anthrozoös 1986;4:247–254.
+32. Committee  on  Injury  and  Poison  Prevention,  American  Acad-
+emy of Pediatrics. Office-counseling for injury prevention. Pedi-
+atrics 1994;94:566–567.
+Selected abstract for JAVMA readers from the 
+American Journal of Veterinary Research
+Inheritance	of	cataracts	and	primary	lens	luxation	in	Jack	Russell	Terriers
+Anita	M.	Oberbauer	et	al
+Objective—To	characterize	heritability	and	mode	of	inheritance	of	cataracts	and	primary	lens	luxa-
+tion	in	Jack	Russell	Terriers.
+Sample	Population—872	Jack	Russell	Terriers	from	which	buccal	epithelial	cells	were	collected	and	phe
+-
+notypes	for	cataracts	and	lens	luxation	were	determined	and	an	additional	1,898	Jack	Russell	Terriers	without	
+phenotypic	information	used	to	complete	pedigree	relationships	and	that	were	included	in	the	analyses.
+Procedures—Narrow-sense	heritabilities	and	genetic	correlation	for	cataracts	and	lens	luxation	were	
+modeled	by	use	of	threshold	analysis,	whereas	complex	segregation	analysis	was	used	to	characterize	
+mode	of	inheritance.	For	the	analyses,	dogs	<	6	years	old,	unless	confirmed	as	having	cataracts	or	lens	
+luxation,	were	classified	as	an	unknown	phenotype.	The	possible	involvement	of	an	HSF4	mutation	in	
+cataracts	was	determined	by	DNA	sequencing.	
+Results—Cataracts	and	primary	lens	luxation	were	highly	heritable	and	genetically	correlated,	and	
+neither	was	controlled	by	a	single	gene.	Cataracts	were	not	associated	with	an	HSF4	mutation.
+Conclusions	and	Clinical	Relevance—Analysis	of	the	data	indicated	that	concerted	selection	
+against	both	cataracts	and	primary	lens	luxation	when	choosing	breeding	animals	can	be	used	to	
+improve	ocular	health	in	Jack	Russell	Terriers.	(
+Am J Vet Res	2008;69:222–227)
+See the midmonth issues 
+of JAVMA 
+for the expanded  
+table of contents 
+for the AJVR 
+or log on to 
+avmajournals.avma.org 
+for access 
+to all the abstracts.
+February 2008
+Brought to you by provisional account | Unauthenticated | Downloaded 08/03/26 07:44 PM UTC

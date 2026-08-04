@@ -264,7 +264,7 @@ function ResearchPanel({ activeProjectId }) {
                     <label style={{ whiteSpace: 'nowrap' }}>Nombre max :</label>
                     <input 
                         type="number" 
-                        min="10" 
+                        min="1" 
                         max="5000" 
                         value={amount} 
                         onChange={(e) => setAmount(e.target.value)} 

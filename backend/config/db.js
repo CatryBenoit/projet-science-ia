@@ -157,7 +157,15 @@ db.run(`CREATE TABLE IF NOT EXISTS user_settings (
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )`);
 
-
+    db.run(`CREATE TABLE IF NOT EXISTS project_notes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        project_id INTEGER,
+        user_id INTEGER,
+        content TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    )`);
 
 });
 

@@ -1,16 +1,14 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-const db = require('../config/db');
 const { requireAuth, requireAdmin } = require('../middlewares/auth.middleware');
-const adminController = require('../controllers/admin.controller')
+const AdminController = require('../controllers/admin.controller');
 const router = express.Router();
 
+// Toutes ces routes sont protégées par requireAdmin (qui nécessite d'être connecté ET d'être admin)
+router.get('/users', requireAdmin, AdminController.getAllUsers);
+router.post('/users', requireAdmin, AdminController.createUser);
+router.delete('/users/:id', requireAdmin, AdminController.deleteUser);
 
-// route permetant de crée un utilisateur par l'admin 
-router.post('/create-user', requireAuth, requireAdmin,adminController.createUser);
-
-
-// route pour reinisaliser le mot de passe d'un utlisateur 
-router.post("/reset-password", requireAuth, requireAdmin, adminController.resetPassword);
+// Route pour réinitialiser le mot de passe d'un utilisateur
+router.post('/reset-password', requireAdmin, AdminController.resetPassword);
 
 module.exports = router;

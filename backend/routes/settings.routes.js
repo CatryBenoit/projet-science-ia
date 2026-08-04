@@ -15,4 +15,13 @@ router.post('/providers', requireAuth, SettingsController.addProvider);
 router.get('/routing', requireAuth, SettingsController.getRouting);
 router.post('/routing', requireAuth, SettingsController.assignRole);
 
+// Test d'une clé API avant sauvegarde
+router.post('/providers/test', requireAuth, SettingsController.testProvider);
+
+// Mise à jour d'un fournisseur
+router.put('/providers/:id', requireAuth, SettingsController.updateProvider);
+
+// Suppression d'un fournisseur
+router.delete('/providers/:id', requireAuth, SettingsController.deleteProvider);
+
 module.exports = router;

@@ -1,151 +1,105 @@
 import { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 import api from '../api';
 
 function DataVizPanel({ activeProjectId }) {
-    const [chartData, setChartData] = useState([]);
-    const [query, setQuery] = useState('');
+    const [stats, setStats] = useState({ macro: {}, micro: {}, totalArticles: 0 });
     const [isLoading, setIsLoading] = useState(false);
-    const [chartType, setChartType] = useState('bar');
-    
-    // NOUVEAU : Gestion des graphiques sauvegardés
-    const [savedCharts, setSavedCharts] = useState([]);
 
-    // Charger les graphiques sauvegardés quand on change de projet
     useEffect(() => {
-        if (activeProjectId) fetchSavedCharts();
+        if (activeProjectId) fetchStats();
     }, [activeProjectId]);
 
-    const fetchSavedCharts = async () => {
-        try {
-            const res = await api.get(`/projects/${activeProjectId}/charts`);
-            setSavedCharts(res.data);
-        } catch (err) {
-            console.error("Erreur chargement graphiques", err);
-        }
-    };
-
-    const generateChart = async (e) => {
-        e.preventDefault();
-        if (!query.trim() || !activeProjectId) return;
-
+    const fetchStats = async () => {
         setIsLoading(true);
-        setChartData([]);
-
         try {
-            const res = await api.post(`/ai/projects/${activeProjectId}/dataviz`, { prompt: query });
-            if (Array.isArray(res.data) && res.data.length > 0) {
-                setChartData(res.data);
-            } else {
-                alert("L'IA n'a pas trouvé de données suffisantes pour ce graphique.");
-            }
+            const res = await api.get(`/projects/${activeProjectId}/stats`);
+            setStats(res.data);
         } catch (err) {
-            alert(err.response?.data?.error || "Erreur de génération.");
+            console.error("Erreur de récupération des stats :", err);
         } finally {
             setIsLoading(false);
         }
     };
 
-    // NOUVEAU : Fonction de sauvegarde
-    const saveCurrentChart = async () => {
-        try {
-            await api.post(`/projects/${activeProjectId}/charts`, {
-                title: query, // On utilise le prompt comme titre
-                chart_type: chartType,
-                chart_data: chartData
-            });
-            alert("✅ Graphique sauvegardé pour vos rapports !");
-            fetchSavedCharts(); // On rafraîchit la liste
-        } catch (err) {
-            alert("❌ Erreur lors de la sauvegarde.");
-        }
-    };
+    // Calculer le maximum pour les barres de progression
+    const maxMacro = Math.max(...Object.values(stats.macro), 1);
+    const maxMicro = Math.max(...Object.values(stats.micro), 1);
 
-    // Permet de re-visionner un graphique sauvegardé
-    const loadSavedChart = (chart) => {
-        setChartData(chart.chart_data);
-        setChartType(chart.chart_type);
-        setQuery(chart.title);
-    };
+    if (isLoading) {
+        return <div className="panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Chargement des données analytiques...</div>;
+    }
+
+    if (stats.totalArticles === 0) {
+        return (
+            <div className="panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--text-muted)' }}>
+                Aucune donnée à analyser. Veuillez importer et analyser des articles dans l'Espace de Travail.
+            </div>
+        );
+    }
 
     return (
-        <div className="card" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <h3 style={{ margin: 0, color: 'var(--primary)' }}>📊 Dataviz & Graphiques IA</h3>
+        <div className="panel" style={{ height: '100%', overflowY: 'auto' }}>
+            <h3 style={{ marginTop: 0, marginBottom: '20px' }}>📊 Analyse des données IA ({stats.totalArticles} documents)</h3>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 
-                {chartData.length > 0 && (
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                        <select 
-                            value={chartType} 
-                            onChange={(e) => setChartType(e.target.value)}
-                            style={{ margin: 0, padding: '5px 10px', height: '100%' }}
-                        >
-                            <option value="bar">Histogramme</option>
-                            <option value="line">Courbe</option>
-                        </select>
-                        <button className="btn-small" style={{ backgroundColor: 'var(--success)' }} onClick={saveCurrentChart}>
-                            💾 Mémoriser
-                        </button>
+                {/* GRAPHIQUE DES MACRO-THÈMES (Barres horizontales) */}
+                <div style={{ backgroundColor: 'var(--bg-base)', padding: '20px', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                    <h4 style={{ marginTop: 0, color: 'var(--primary)' }}>Domaines de recherche (Macro-thèmes)</h4>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        {Object.entries(stats.macro).map(([theme, count]) => (
+                            <div key={theme}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
+                                    <span style={{ fontWeight: 'bold' }}>{theme}</span>
+                                    <span style={{ color: 'var(--text-muted)' }}>{count} doc(s)</span>
+                                </div>
+                                <div style={{ width: '100%', height: '8px', backgroundColor: 'var(--bg-hover)', borderRadius: '4px', overflow: 'hidden' }}>
+                                    <div style={{ 
+                                        height: '100%', 
+                                        width: `${(count / maxMacro) * 100}%`, 
+                                        backgroundColor: 'var(--primary)',
+                                        borderRadius: '4px',
+                                        transition: 'width 0.5s ease-in-out'
+                                    }}></div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                )}
-            </div>
-
-            <form onSubmit={generateChart} style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
-                <input 
-                    type="text" 
-                    value={query} 
-                    onChange={(e) => setQuery(e.target.value)} 
-                    placeholder="Ex: Compare le nombre d'effets secondaires par médicament..." 
-                    style={{ margin: 0, flex: 1 }}
-                    disabled={isLoading}
-                />
-                <button type="submit" disabled={isLoading || !query.trim()}>
-                    {isLoading ? 'Calculs...' : 'Générer'}
-                </button>
-            </form>
-
-            {/* Liste des graphiques déjà sauvegardés */}
-            {savedCharts.length > 0 && (
-                <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '10px', marginBottom: '10px' }}>
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center' }}>Historique :</span>
-                    {savedCharts.map(chart => (
-                        <button key={chart.id} onClick={() => loadSavedChart(chart)} className="btn-secondary btn-small" style={{ whiteSpace: 'nowrap' }}>
-                            📈 {chart.title.substring(0, 20)}...
-                        </button>
-                    ))}
                 </div>
-            )}
 
-            <div style={{ flex: 1, minHeight: 0, backgroundColor: 'var(--bg-base)', borderRadius: '8px', padding: '15px' }}>
-                {isLoading ? (
-                    <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
-                        <p>🤖 L'IA compile les données statistiques...</p>
+                {/* NUAGE DE MOTS-CLÉS (Micro-thèmes) */}
+                <div style={{ backgroundColor: 'var(--bg-base)', padding: '20px', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                    <h4 style={{ marginTop: 0, color: 'var(--accent)' }}>Nuage de mots-clés (Micro-thèmes)</h4>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center', justifyContent: 'center', padding: '10px' }}>
+                        {Object.entries(stats.micro).map(([word, count]) => {
+                            // Calcul de la taille de la police entre 0.8rem et 2rem selon la fréquence
+                            const fontSize = 0.8 + ((count / maxMicro) * 1.2);
+                            // Calcul de l'opacité
+                            const opacity = 0.5 + ((count / maxMicro) * 0.5);
+                            
+                            return (
+                                <span key={word} style={{ 
+                                    fontSize: `${fontSize}rem`, 
+                                    opacity: opacity,
+                                    fontWeight: count === maxMicro ? 'bold' : 'normal',
+                                    color: 'var(--text-main)',
+                                    padding: '4px 8px',
+                                    backgroundColor: 'var(--bg-hover)',
+                                    borderRadius: '8px',
+                                    transition: 'transform 0.2s',
+                                    cursor: 'default'
+                                }}
+                                onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
+                                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                                title={`Apparaît ${count} fois`}
+                                >
+                                    {word}
+                                </span>
+                            );
+                        })}
                     </div>
-                ) : chartData.length > 0 ? (
-                    <ResponsiveContainer width="100%" height="100%">
-                        {chartType === 'bar' ? (
-                            <BarChart data={chartData}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-                                <XAxis dataKey="name" stroke="var(--text-muted)" />
-                                <YAxis stroke="var(--text-muted)" />
-                                <Tooltip contentStyle={{ backgroundColor: 'var(--bg-panel)', borderColor: 'var(--border)', color: 'var(--text-main)' }} />
-                                <Bar dataKey="value" fill="var(--primary)" radius={[4, 4, 0, 0]} />
-                            </BarChart>
-                        ) : (
-                            <LineChart data={chartData}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-                                <XAxis dataKey="name" stroke="var(--text-muted)" />
-                                <YAxis stroke="var(--text-muted)" />
-                                <Tooltip contentStyle={{ backgroundColor: 'var(--bg-panel)', borderColor: 'var(--border)', color: 'var(--text-main)' }} />
-                                <Line type="monotone" dataKey="value" stroke="var(--success)" strokeWidth={3} dot={{ r: 5 }} />
-                            </LineChart>
-                        )}
-                    </ResponsiveContainer>
-                ) : (
-                    <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
-                        <p>Aucun graphique actif.</p>
-                    </div>
-                )}
+                </div>
+
             </div>
         </div>
     );
